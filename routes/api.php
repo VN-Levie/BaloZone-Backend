@@ -13,6 +13,7 @@ use App\Http\Controllers\NewsController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AddressBookController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\SaleCampaignController;
 
 // Public routes
 Route::get('/user', function (Request $request) {
@@ -35,6 +36,7 @@ Route::get('brands-active', [BrandController::class, 'getActiveBrands']);
 // Category routes
 Route::apiResource('categories', CategoryController::class);
 Route::get('categories-with-products', [CategoryController::class, 'getWithProducts']);
+Route::get('categories/slug/{slug}', [CategoryController::class, 'getBySlug']);
 
 // Product routes
 Route::apiResource('products', ProductController::class);
@@ -42,6 +44,8 @@ Route::get('products-featured', [ProductController::class, 'getFeatured']);
 Route::get('products/category/{categorySlug}', [ProductController::class, 'getByCategory']);
 Route::get('products/brand/{brandSlug}', [ProductController::class, 'getByBrand']);
 Route::get('products-search', [ProductController::class, 'search']);
+Route::get('products-on-sale', [ProductController::class, 'getOnSale']);
+Route::get('products/{product}/sale-campaigns', [ProductController::class, 'getSaleCampaigns']);
 
 // Voucher routes
 Route::apiResource('vouchers', VoucherController::class);
@@ -79,3 +83,15 @@ Route::get('news-latest', [NewsController::class, 'getLatest']);
 Route::post('contacts', [ContactController::class, 'store']);
 Route::get('contacts', [ContactController::class, 'index']);
 Route::get('contacts/{contact}', [ContactController::class, 'show']);
+
+// Sale Campaign routes
+Route::apiResource('sale-campaigns', SaleCampaignController::class);
+Route::get('sale-campaigns-active', [SaleCampaignController::class, 'getActive']);
+Route::get('sale-campaigns-featured', [SaleCampaignController::class, 'getFeatured']);
+Route::get('sale-campaigns/{saleCampaign}/products', [SaleCampaignController::class, 'getProducts']);
+
+// Protected Sale Campaign routes (Admin only)
+Route::middleware('auth:api')->group(function () {
+    Route::post('sale-campaigns/{saleCampaign}/products', [SaleCampaignController::class, 'addProducts']);
+    Route::delete('sale-campaigns/{saleCampaign}/products/{product}', [SaleCampaignController::class, 'removeProduct']);
+});

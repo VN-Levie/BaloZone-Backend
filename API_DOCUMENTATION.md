@@ -65,14 +65,16 @@ GET    /api/categories-with-products - Get categories with products
 ### Products
 ```
 GET    /api/products                - List products (search, filter, sort, pagination)
-POST   /api/products                - Create product
-GET    /api/products/{id}           - Get product details
+POST   /api/products                - Create product  
+GET    /api/products/{id}           - Get product details with comments
 PUT    /api/products/{id}           - Update product
 DELETE /api/products/{id}           - Delete product
-GET    /api/products-featured       - Get featured products
-GET    /api/products/category/{slug} - Get products by category
-GET    /api/products/brand/{slug}   - Get products by brand
+GET    /api/products-featured       - Get featured products (8 items)
+GET    /api/products/category/{slug} - Get products by category slug
+GET    /api/products/brand/{slug}   - Get products by brand slug
 GET    /api/products-search         - Search products
+GET    /api/products-on-sale        - Get products currently on sale
+GET    /api/products/{id}/sale-campaigns - Get sale campaigns for product
 ```
 
 ### Orders (Protected)
@@ -152,6 +154,40 @@ GET    /api/contacts/{id}           - Get contact details (admin)
 - image (string, nullable)
 - slug (string, unique, required)
 - color (string, nullable)
+- created_at, updated_at
+```
+
+### Sale Campaigns Table (mới)
+```sql
+- id (primary key)
+- name (string, required) - Tên chiến dịch
+- slug (string, unique, required) - URL-friendly name
+- description (text, nullable) - Mô tả chiến dịch
+- banner_image (string, nullable) - Hình ảnh banner
+- start_date (datetime, required) - Ngày bắt đầu sale
+- end_date (datetime, required) - Ngày kết thúc sale
+- status (enum: draft/active/expired/cancelled, default: draft)
+- is_featured (boolean, default: false) - Chiến dịch nổi bật
+- priority (integer, default: 0) - Độ ưu tiên hiển thị
+- metadata (json, nullable) - Dữ liệu bổ sung
+- created_at, updated_at
+```
+
+### Sale Products Table (mới)
+```sql
+- id (primary key)
+- sale_campaign_id (foreign key to sale_campaigns)
+- product_id (foreign key to products)
+- original_price (decimal, required) - Giá gốc
+- sale_price (decimal, required) - Giá sau khi giảm
+- discount_percentage (decimal) - % giảm giá
+- discount_amount (decimal) - Số tiền giảm
+- discount_type (enum: percentage/fixed_amount)
+- start_date (datetime, nullable) - Override ngày campaign
+- end_date (datetime, nullable) - Override ngày campaign
+- max_quantity (integer, nullable) - Giới hạn số lượng sale
+- sold_quantity (integer, default: 0) - Đã bán
+- is_active (boolean, default: true)
 - created_at, updated_at
 ```
 

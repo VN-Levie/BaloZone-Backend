@@ -31,6 +31,7 @@ class DatabaseSeeder extends Seeder
             // 3. Seeder cho bảng có nhiều foreign key
             OrderSeeder::class,        // phụ thuộc User, AddressBook, PaymentMethod, Voucher, Product
             CommentSeeder::class,      // phụ thuộc User, Product
+            SaleCampaignSeeder::class, // phụ thuộc Product
 
             // 4. Seeder cho các bảng độc lập
             NewsSeeder::class,
@@ -43,6 +44,8 @@ class DatabaseSeeder extends Seeder
         $this->command->info('🏷️ Categories: ' . \App\Models\Category::count());
         $this->command->info('🏢 Brands: ' . \App\Models\Brand::count());
         $this->command->info('🎒 Products: ' . \App\Models\Product::count());
+        $this->command->info('🏷️ Sale Campaigns: ' . \App\Models\SaleCampaign::count());
+        $this->command->info('💰 Sale Products: ' . \App\Models\SaleProduct::count());
         $this->command->info('🛒 Orders: ' . \App\Models\Order::count());
         $this->command->info('💬 Comments: ' . \App\Models\Comment::count());
         $this->command->info('📰 News: ' . \App\Models\News::count());

@@ -139,15 +139,45 @@ class ProductController extends Controller
     /**
      * Get products by category slug
      */
-    public function getByCategory(string $categorySlug): JsonResponse
+    public function getByCategory(string $categorySlug, Request $request): JsonResponse
     {
-        $products = Product::with(['category', 'brand'])
-            ->whereHas('category', function($query) use ($categorySlug) {
-                $query->where('slug', $categorySlug);
+        $query = Product::with(['category', 'brand'])
+            ->whereHas('category', function($categoryQuery) use ($categorySlug) {
+                $categoryQuery->where('slug', $categorySlug);
             })
-            ->where('quantity', '>', 0)
-            ->orderBy('name')
-            ->paginate(12);
+            ->where('quantity', '>', 0);
+
+        // Filter by brand
+        if ($request->has('brand_id')) {
+            $query->where('brand_id', $request->brand_id);
+        }
+
+        // Filter by price range
+        if ($request->has('min_price')) {
+            $query->where('price', '>=', $request->min_price);
+        }
+        if ($request->has('max_price')) {
+            $query->where('price', '<=', $request->max_price);
+        }
+
+        // Filter by color
+        if ($request->has('color')) {
+            $query->where('color', $request->color);
+        }
+
+        // Search by name
+        if ($request->has('search')) {
+            $query->where('name', 'like', '%' . $request->search . '%');
+        }
+
+        // Sort options
+        $sortBy = $request->get('sort_by', 'name');
+        $sortOrder = $request->get('sort_order', 'asc');
+        $query->orderBy($sortBy, $sortOrder);
+
+        // Pagination
+        $perPage = $request->get('per_page', 12);
+        $products = $query->paginate($perPage);
 
         return response()->json($products);
     }
@@ -155,15 +185,45 @@ class ProductController extends Controller
     /**
      * Get products by brand slug
      */
-    public function getByBrand(string $brandSlug): JsonResponse
+    public function getByBrand(string $brandSlug, Request $request): JsonResponse
     {
-        $products = Product::with(['category', 'brand'])
-            ->whereHas('brand', function($query) use ($brandSlug) {
-                $query->where('slug', $brandSlug);
+        $query = Product::with(['category', 'brand'])
+            ->whereHas('brand', function($brandQuery) use ($brandSlug) {
+                $brandQuery->where('slug', $brandSlug);
             })
-            ->where('quantity', '>', 0)
-            ->orderBy('name')
-            ->paginate(12);
+            ->where('quantity', '>', 0);
+
+        // Filter by category
+        if ($request->has('category_id')) {
+            $query->where('category_id', $request->category_id);
+        }
+
+        // Filter by price range
+        if ($request->has('min_price')) {
+            $query->where('price', '>=', $request->min_price);
+        }
+        if ($request->has('max_price')) {
+            $query->where('price', '<=', $request->max_price);
+        }
+
+        // Filter by color
+        if ($request->has('color')) {
+            $query->where('color', $request->color);
+        }
+
+        // Search by name
+        if ($request->has('search')) {
+            $query->where('name', 'like', '%' . $request->search . '%');
+        }
+
+        // Sort options
+        $sortBy = $request->get('sort_by', 'name');
+        $sortOrder = $request->get('sort_order', 'asc');
+        $query->orderBy($sortBy, $sortOrder);
+
+        // Pagination
+        $perPage = $request->get('per_page', 12);
+        $products = $query->paginate($perPage);
 
         return response()->json($products);
     }
@@ -198,5 +258,118 @@ class ProductController extends Controller
             ->paginate(12);
 
         return response()->json($products);
+    }
+
+    /**
+     * Get products currently on sale
+     */
+    public function getOnSale(Request $request): JsonResponse
+    {
+        $query = Product::with(['category', 'brand', 'currentSale.saleCampaign'])
+            ->whereHas('currentSale');
+
+        // Filter by category
+        if ($request->has('category_id')) {
+            $query->where('category_id', $request->category_id);
+        }
+
+        // Filter by brand
+        if ($request->has('brand_id')) {
+            $query->where('brand_id', $request->brand_id);
+        }
+
+        // Filter by minimum discount percentage
+        if ($request->has('min_discount')) {
+            $query->whereHas('currentSale', function($q) use ($request) {
+                $q->where('discount_percentage', '>=', $request->min_discount);
+            });
+        }
+
+        // Filter by maximum discount percentage
+        if ($request->has('max_discount')) {
+            $query->whereHas('currentSale', function($q) use ($request) {
+                $q->where('discount_percentage', '<=', $request->max_discount);
+            });
+        }
+
+        // Filter by price range (sale price)
+        if ($request->has('min_price')) {
+            $query->whereHas('currentSale', function($q) use ($request) {
+                $q->where('sale_price', '>=', $request->min_price);
+            });
+        }
+        if ($request->has('max_price')) {
+            $query->whereHas('currentSale', function($q) use ($request) {
+                $q->where('sale_price', '<=', $request->max_price);
+            });
+        }
+
+        // Search by name
+        if ($request->has('search')) {
+            $searchQuery = $request->search;
+            $query->where(function($q) use ($searchQuery) {
+                $q->where('name', 'like', '%' . $searchQuery . '%')
+                  ->orWhere('description', 'like', '%' . $searchQuery . '%');
+            });
+        }
+
+        // Sort options
+        $sortBy = $request->get('sort_by', 'name');
+        $sortOrder = $request->get('sort_order', 'asc');
+
+        if ($sortBy === 'discount') {
+            // Sort by discount percentage
+            $query->join('sale_products', function($join) {
+                $join->on('products.id', '=', 'sale_products.product_id')
+                     ->where('sale_products.is_active', true);
+            })
+            ->join('sale_campaigns', function($join) {
+                $join->on('sale_products.sale_campaign_id', '=', 'sale_campaigns.id')
+                     ->where('sale_campaigns.status', 'active')
+                     ->where('sale_campaigns.start_date', '<=', now())
+                     ->where('sale_campaigns.end_date', '>=', now());
+            })
+            ->orderBy('sale_products.discount_percentage', $sortOrder)
+            ->select('products.*');
+        } elseif ($sortBy === 'sale_price') {
+            // Sort by sale price
+            $query->join('sale_products', function($join) {
+                $join->on('products.id', '=', 'sale_products.product_id')
+                     ->where('sale_products.is_active', true);
+            })
+            ->join('sale_campaigns', function($join) {
+                $join->on('sale_products.sale_campaign_id', '=', 'sale_campaigns.id')
+                     ->where('sale_campaigns.status', 'active')
+                     ->where('sale_campaigns.start_date', '<=', now())
+                     ->where('sale_campaigns.end_date', '>=', now());
+            })
+            ->orderBy('sale_products.sale_price', $sortOrder)
+            ->select('products.*');
+        } else {
+            // Default sorting
+            $query->orderBy($sortBy, $sortOrder);
+        }
+
+        $perPage = $request->get('per_page', 12);
+        $products = $query->paginate($perPage);
+
+        return response()->json($products);
+    }
+
+    /**
+     * Get sale campaigns for specific product
+     */
+    public function getSaleCampaigns(Product $product): JsonResponse
+    {
+        $campaigns = $product->saleCampaigns()
+            ->with(['saleProducts' => function($query) use ($product) {
+                $query->where('product_id', $product->id);
+            }])
+            ->orderBy('priority', 'desc')
+            ->get();
+
+        return response()->json([
+            'data' => $campaigns
+        ]);
     }
 }

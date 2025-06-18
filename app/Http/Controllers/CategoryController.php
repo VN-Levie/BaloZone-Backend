@@ -49,10 +49,8 @@ class CategoryController extends Controller
      */
     public function show(Category $category): JsonResponse
     {
-        // Load products với phân trang
-        $category->load(['products' => function($query) {
-            $query->with('brand')->orderBy('name')->paginate(12);
-        }]);
+        // Load products count only for basic info
+        $category->loadCount('products');
 
         return response()->json([
             'data' => $category
@@ -107,6 +105,33 @@ class CategoryController extends Controller
 
         return response()->json([
             'data' => $categories
+        ]);
+    }
+
+    /**
+     * Get category by slug with products
+     */
+    public function getBySlug(string $slug, Request $request): JsonResponse
+    {
+        $category = Category::where('slug', $slug)->first();
+
+        if (!$category) {
+            return response()->json([
+                'message' => 'Category not found'
+            ], 404);
+        }
+
+        // Get products with pagination
+        $perPage = $request->get('per_page', 12);
+        $products = $category->products()
+            ->with('brand')
+            ->where('quantity', '>', 0)
+            ->orderBy('name')
+            ->paginate($perPage);
+
+        return response()->json([
+            'category' => $category,
+            'products' => $products
         ]);
     }
 }

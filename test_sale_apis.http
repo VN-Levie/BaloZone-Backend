@@ -1,0 +1,203 @@
+### Test Sale Campaign APIs
+### BaloZone Backend - Sale System Testing
+
+@baseUrl = http://localhost:8000/api
+@token = eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAiLCJpYXQiOjE3MzQ2NTQ0ODQsIm5iZiI6MTczNDY1NDQ4NCwiZXhwIjoxNzM0NjU4MDg0LCJzdWIiOiIxIiwianRpIjoiOWdLbXFRSGh6RUlNeGY3RCJ9.example_token
+
+##################################################
+# SALE CAMPAIGN APIs
+##################################################
+
+### 1. Get All Sale Campaigns
+GET {{baseUrl}}/sale-campaigns
+Content-Type: application/json
+
+### 2. Get Active Sale Campaigns
+GET {{baseUrl}}/sale-campaigns-active
+Content-Type: application/json
+
+### 3. Get Featured Sale Campaigns
+GET {{baseUrl}}/sale-campaigns-featured
+Content-Type: application/json
+
+### 4. Get Sale Campaign by ID
+GET {{baseUrl}}/sale-campaigns/1
+Content-Type: application/json
+
+### 5. Get Products in Sale Campaign
+GET {{baseUrl}}/sale-campaigns/1/products
+Content-Type: application/json
+
+### 6. Get Products in Sale Campaign with Filters
+GET {{baseUrl}}/sale-campaigns/1/products?category_id=1&sort_by=discount&per_page=5
+Content-Type: application/json
+
+### 7. Search Products in Sale Campaign
+GET {{baseUrl}}/sale-campaigns/1/products?search=balo&per_page=10
+Content-Type: application/json
+
+##################################################
+# PRODUCT SALE APIs
+##################################################
+
+### 8. Get Products Currently On Sale
+GET {{baseUrl}}/products-on-sale
+Content-Type: application/json
+
+### 9. Get Products On Sale with Filters
+GET {{baseUrl}}/products-on-sale?category_id=1&min_discount=30&sort_by=discount
+Content-Type: application/json
+
+### 10. Get Sale Campaigns for Specific Product
+GET {{baseUrl}}/products/1/sale-campaigns
+Content-Type: application/json
+
+##################################################
+# ADMIN SALE CAMPAIGN MANAGEMENT (Require Auth)
+##################################################
+
+### 11. Create New Sale Campaign
+POST {{baseUrl}}/sale-campaigns
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "Test Sale Campaign",
+    "slug": "test-sale-campaign",
+    "description": "This is a test sale campaign for API testing",
+    "banner_image": "campaigns/test-campaign.jpg",
+    "start_date": "2025-06-20T00:00:00Z",
+    "end_date": "2025-06-27T23:59:59Z",
+    "status": "active",
+    "is_featured": true,
+    "priority": 85,
+    "metadata": {
+        "color": "#ff0000",
+        "tags": ["test", "api", "campaign"],
+        "description_short": "Test sale 50%"
+    }
+}
+
+### 12. Update Sale Campaign
+PUT {{baseUrl}}/sale-campaigns/1
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "Updated Black Friday 2025",
+    "description": "Updated description for Black Friday campaign",
+    "priority": 99,
+    "metadata": {
+        "color": "#000000",
+        "tags": ["black-friday", "mega-sale", "limited-time", "updated"],
+        "description_short": "Giảm giá lên đến 75%"
+    }
+}
+
+### 13. Add Products to Sale Campaign
+POST {{baseUrl}}/sale-campaigns/1/products
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "products": [
+        {
+            "product_id": 10,
+            "sale_price": 150000,
+            "discount_type": "percentage",
+            "max_quantity": 20
+        },
+        {
+            "product_id": 11,
+            "sale_price": 200000,
+            "discount_type": "percentage",
+            "max_quantity": 15
+        }
+    ]
+}
+
+### 14. Remove Product from Sale Campaign
+DELETE {{baseUrl}}/sale-campaigns/1/products/10
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+### 15. Delete Sale Campaign
+DELETE {{baseUrl}}/sale-campaigns/5
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+##################################################
+# SEARCH & FILTER COMBINATIONS
+##################################################
+
+### 16. Get Active Featured Sale Campaigns
+GET {{baseUrl}}/sale-campaigns?status=active&featured=1&sort_by=priority&sort_order=desc
+Content-Type: application/json
+
+### 17. Search Sale Campaigns by Name
+GET {{baseUrl}}/sale-campaigns?search=black&per_page=5
+Content-Type: application/json
+
+### 18. Get Products On Sale by Brand
+GET {{baseUrl}}/products-on-sale?brand_id=1&sort_by=discount&sort_order=desc
+Content-Type: application/json
+
+### 19. Get Products On Sale with Price Filter
+GET {{baseUrl}}/products-on-sale?min_discount=40&max_discount=70
+Content-Type: application/json
+
+### 20. Combined Product Search with Sale Filter
+GET {{baseUrl}}/products?search=balo&category_id=1&sort_by=price&sort_order=asc
+Content-Type: application/json
+
+##################################################
+# ERROR HANDLING TESTS
+##################################################
+
+### 21. Try to Get Non-existent Sale Campaign
+GET {{baseUrl}}/sale-campaigns/999
+Content-Type: application/json
+
+### 22. Try to Create Sale Campaign with Invalid Data
+POST {{baseUrl}}/sale-campaigns
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "name": "",
+    "slug": "invalid",
+    "start_date": "2025-06-20",
+    "end_date": "2025-06-19",
+    "status": "invalid_status"
+}
+
+### 23. Try to Add Non-existent Product to Campaign
+POST {{baseUrl}}/sale-campaigns/1/products
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+    "products": [
+        {
+            "product_id": 9999,
+            "sale_price": 100000,
+            "discount_type": "percentage"
+        }
+    ]
+}
+
+##################################################
+# PERFORMANCE & PAGINATION TESTS
+##################################################
+
+### 24. Test Pagination on Sale Campaigns
+GET {{baseUrl}}/sale-campaigns?page=1&per_page=2
+Content-Type: application/json
+
+### 25. Test Pagination on Products in Campaign
+GET {{baseUrl}}/sale-campaigns/1/products?page=1&per_page=3
+Content-Type: application/json
+
+### 26. Test Large Per Page Limit
+GET {{baseUrl}}/products-on-sale?per_page=50
+Content-Type: application/json
