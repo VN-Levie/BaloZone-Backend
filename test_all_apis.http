@@ -1,0 +1,115 @@
+### Test BaloZone Backend APIs
+### Base URL: http://localhost:8000/api
+
+### 1. Test Brands API
+GET http://localhost:8000/api/brands
+Accept: application/json
+
+###
+GET http://localhost:8000/api/brands?search=Nike
+Accept: application/json
+
+###
+GET http://localhost:8000/api/brands-active
+Accept: application/json
+
+### 2. Test Categories API
+GET http://localhost:8000/api/categories
+Accept: application/json
+
+###
+GET http://localhost:8000/api/categories-with-products
+Accept: application/json
+
+### 3. Test Products API
+GET http://localhost:8000/api/products
+Accept: application/json
+
+###
+GET http://localhost:8000/api/products?search=balo
+Accept: application/json
+
+###
+GET http://localhost:8000/api/products-featured
+Accept: application/json
+
+###
+GET http://localhost:8000/api/products-search?q=Nike
+Accept: application/json
+
+### 4. Test News API
+GET http://localhost:8000/api/news
+Accept: application/json
+
+###
+GET http://localhost:8000/api/news-latest
+Accept: application/json
+
+### 5. Test Vouchers API
+GET http://localhost:8000/api/vouchers-active
+Accept: application/json
+
+###
+POST http://localhost:8000/api/vouchers/validate
+Content-Type: application/json
+
+{
+    "code": "WELCOME10"
+}
+
+### 6. Test Comments API
+GET http://localhost:8000/api/comments
+Accept: application/json
+
+### 7. Test Contacts API
+POST http://localhost:8000/api/contacts
+Content-Type: application/json
+
+{
+    "name": "Test User",
+    "email": "test@example.com",
+    "phone": "0123456789",
+    "subject": "Test Subject",
+    "message": "This is a test message"
+}
+
+### 8. Test Auth - Register
+POST http://localhost:8000/api/auth/register
+Content-Type: application/json
+
+{
+    "name": "Test User API",
+    "email": "testapi@example.com",
+    "password": "password123",
+    "password_confirmation": "password123",
+    "phone": "0987654321"
+}
+
+### 9. Test Auth - Login
+POST http://localhost:8000/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "admin@balozone.com",
+    "password": "admin123"
+}
+
+### 10. Test Auth - Me (Need token from login)
+GET http://localhost:8000/api/auth/me
+Accept: application/json
+Authorization: Bearer YOUR_TOKEN_HERE
+
+### 11. Test Protected Routes - Profile (Need token)
+GET http://localhost:8000/api/profile
+Accept: application/json
+Authorization: Bearer YOUR_TOKEN_HERE
+
+### 12. Test Protected Routes - User Orders (Need token)
+GET http://localhost:8000/api/orders
+Accept: application/json
+Authorization: Bearer YOUR_TOKEN_HERE
+
+### 13. Test Protected Routes - Address Books (Need token)
+GET http://localhost:8000/api/address-books
+Accept: application/json
+Authorization: Bearer YOUR_TOKEN_HERE

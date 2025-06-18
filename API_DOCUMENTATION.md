@@ -120,6 +120,8 @@ GET    /api/contacts                - List contacts (admin)
 GET    /api/contacts/{id}           - Get contact details (admin)
 ```
 
+**Note:** Contact creation requires `fullname` field, not `name`.
+
 ### Query Parameters cho Brands
 - `search`: Tìm kiếm theo tên brand
 - `status`: Lọc theo trạng thái (active/inactive)

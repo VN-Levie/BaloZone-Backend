@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Tymon\JWTAuth\Facades\JWTAuth;
+use Tymon\JWTAuth\Exceptions\JWTException;
 
 class AuthController extends Controller
 {
@@ -87,7 +88,8 @@ class AuthController extends Controller
             'status' => 'active',
         ]);
 
-        $token = auth('api')->login($user);
+        // Generate token for the newly created user
+        $token = JWTAuth::fromUser($user);
 
         return response()->json([
             'success' => true,
@@ -106,6 +108,7 @@ class AuthController extends Controller
      */
     public function me(): JsonResponse
     {
+        /** @var User|null $user */
         $user = auth('api')->user();
         $user->load(['addressBooks', 'orders.orderDetails.product']);
 
@@ -130,10 +133,22 @@ class AuthController extends Controller
 
     /**
      * Refresh a token.
+     *
+     * @return JsonResponse
      */
     public function refresh(): JsonResponse
     {
-        return $this->respondWithToken(auth('api')->refresh());
+        try {
+            // Using auth('api')->refresh() method from JWT Guard
+            $newToken = auth('api')->refresh();
+            return $this->respondWithToken($newToken);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Token không thể refresh',
+                'error' => $e->getMessage()
+            ], 401);
+        }
     }
 
     /**
@@ -141,8 +156,14 @@ class AuthController extends Controller
      */
     protected function respondWithToken(string $token): JsonResponse
     {
+        /** @var User|null $user */
         $user = auth('api')->user();
-
+        if (!$user) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Unauthorized'
+            ], 401);
+        }
         return response()->json([
             'success' => true,
             'message' => 'Đăng nhập thành công',
