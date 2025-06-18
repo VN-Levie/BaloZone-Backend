@@ -1,0 +1,94 @@
+### BaloZone Backend API Testing
+### Base URL: http://127.0.0.1:8000/api
+
+### 1. Test Authentication - Register
+POST http://127.0.0.1:8000/api/auth/register
+Content-Type: application/json
+
+{
+    "name": "Test User",
+    "email": "test@example.com",
+    "password": "password123",
+    "password_confirmation": "password123",
+    "phone": "0987654321"
+}
+
+### 2. Test Authentication - Login
+POST http://127.0.0.1:8000/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "test@example.com",
+    "password": "password123"
+}
+
+### 3. Test Get Current User (requires JWT token)
+GET http://127.0.0.1:8000/api/auth/me
+Authorization: Bearer YOUR_JWT_TOKEN_HERE
+
+### 4. Test Brands - Get All
+GET http://127.0.0.1:8000/api/brands
+
+### 5. Test Brands - Get Active
+GET http://127.0.0.1:8000/api/brands-active
+
+### 6. Test Categories - Get All
+GET http://127.0.0.1:8000/api/categories
+
+### 7. Test Categories with Products
+GET http://127.0.0.1:8000/api/categories-with-products
+
+### 8. Test Products - Get All
+GET http://127.0.0.1:8000/api/products
+
+### 9. Test Products - Get Featured
+GET http://127.0.0.1:8000/api/products-featured
+
+### 10. Test Products - Search
+GET http://127.0.0.1:8000/api/products-search?q=balo
+
+### 11. Test Products by Category
+GET http://127.0.0.1:8000/api/products/category/balo-hoc-sinh
+
+### 12. Test Products by Brand
+GET http://127.0.0.1:8000/api/products/brand/nike
+
+### 13. Test Vouchers - Get Active
+GET http://127.0.0.1:8000/api/vouchers-active
+
+### 14. Test Voucher Validation
+POST http://127.0.0.1:8000/api/vouchers/validate
+Content-Type: application/json
+
+{
+    "code": "WELCOME10"
+}
+
+### 15. Test Comments by Product
+GET http://127.0.0.1:8000/api/comments/product/1
+
+### 16. Test News - Get All
+GET http://127.0.0.1:8000/api/news
+
+### 17. Test News - Get Latest
+GET http://127.0.0.1:8000/api/news-latest
+
+### 18. Test Contact - Create
+POST http://127.0.0.1:8000/api/contacts
+Content-Type: application/json
+
+{
+    "name": "Test Contact",
+    "email": "contact@test.com",
+    "phone": "0123456789",
+    "subject": "Test Subject",
+    "message": "This is a test message"
+}
+
+### 19. Test Protected Route - Orders (requires JWT token)
+GET http://127.0.0.1:8000/api/orders
+Authorization: Bearer YOUR_JWT_TOKEN_HERE
+
+### 20. Test Protected Route - Profile (requires JWT token)
+GET http://127.0.0.1:8000/api/profile
+Authorization: Bearer YOUR_JWT_TOKEN_HERE
