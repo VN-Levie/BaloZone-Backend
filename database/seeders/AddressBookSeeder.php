@@ -23,24 +23,44 @@ class AddressBookSeeder extends Seeder
 
         $addresses = [
             [
-                'postal_code' => '700000',
-                'address' => '123 Đường Nguyễn Huệ, Phường Bến Nghé, Quận 1, TP.HCM',
+                'name' => 'Nguyễn Văn An',
+                'phone' => '0901234567',
+                'address' => '123 Đường Nguyễn Huệ',
+                'province' => 'TP. Hồ Chí Minh',
+                'district' => 'Quận 1',
+                'ward' => 'Phường Bến Nghé',
             ],
             [
-                'postal_code' => '100000',
-                'address' => '456 Phố Hoàn Kiếm, Phường Hoàn Kiếm, Quận Hoàn Kiếm, Hà Nội',
+                'name' => 'Trần Thị Bình',
+                'phone' => '0912345678',
+                'address' => '456 Phố Hoàn Kiếm',
+                'province' => 'Hà Nội',
+                'district' => 'Quận Hoàn Kiếm',
+                'ward' => 'Phường Hoàn Kiếm',
             ],
             [
-                'postal_code' => '550000',
-                'address' => '789 Đường Lê Lợi, Phường Thuận Phước, Quận Hải Châu, Đà Nẵng',
+                'name' => 'Lê Văn Cường',
+                'phone' => '0923456789',
+                'address' => '789 Đường Lê Lợi',
+                'province' => 'Đà Nẵng',
+                'district' => 'Quận Hải Châu',
+                'ward' => 'Phường Thuận Phước',
             ],
             [
-                'postal_code' => '700000',
-                'address' => '321 Đường Võ Văn Kiệt, Phường 1, Quận 5, TP.HCM',
+                'name' => 'Phạm Thị Dung',
+                'phone' => '0934567890',
+                'address' => '321 Đường Võ Văn Kiệt',
+                'province' => 'TP. Hồ Chí Minh',
+                'district' => 'Quận 5',
+                'ward' => 'Phường 1',
             ],
             [
-                'postal_code' => '100000',
-                'address' => '654 Phố Tràng Tiền, Phường Tràng Tiền, Quận Hoàn Kiếm, Hà Nội',
+                'name' => 'Hoàng Văn Em',
+                'phone' => '0945678901',
+                'address' => '654 Phố Tràng Tiền',
+                'province' => 'Hà Nội',
+                'district' => 'Quận Hoàn Kiếm',
+                'ward' => 'Phường Tràng Tiền',
             ],
         ];
 
@@ -53,8 +73,13 @@ class AddressBookSeeder extends Seeder
 
                 AddressBook::create([
                     'user_id' => $user->id,
-                    'postal_code' => $addressData['postal_code'],
+                    'name' => $addressData['name'],
+                    'phone' => $addressData['phone'],
                     'address' => $addressData['address'] . ' - ' . fake()->buildingNumber(),
+                    'province' => $addressData['province'],
+                    'district' => $addressData['district'],
+                    'ward' => $addressData['ward'],
+                    'is_default' => $i === 0, // Địa chỉ đầu tiên sẽ là mặc định
                 ]);
             }
         }

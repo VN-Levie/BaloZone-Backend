@@ -20,10 +20,12 @@ class AddressBookRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'postal_code' => 'required|string|max:10|regex:/^[0-9]{5,10}$/',
+            'name' => 'required|string|max:100|min:2',
+            'phone' => 'required|string|max:10|min:10|regex:/^[0-9+\-\s()]+$/',
             'address' => 'required|string|max:500|min:10',
-            'receiver_name' => 'nullable|string|max:100',
-            'receiver_phone' => 'nullable|string|max:15|regex:/^[0-9+\-\s()]+$/',
+            'province' => 'required|string|max:100',
+            'district' => 'required|string|max:100',
+            'ward' => 'required|string|max:100',
             'is_default' => 'sometimes|boolean',
         ];
     }
@@ -34,14 +36,22 @@ class AddressBookRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'postal_code.required' => 'Mã bưu điện không được để trống',
-            'postal_code.regex' => 'Mã bưu điện phải là số từ 5-10 ký tự',
+            'name.required' => 'Họ và tên không được để trống',
+            'name.min' => 'Họ và tên phải có ít nhất 2 ký tự',
+            'name.max' => 'Họ và tên không được vượt quá 100 ký tự',
+            'phone.required' => 'Số điện thoại không được để trống',
+            'phone.regex' => 'Số điện thoại không đúng định dạng',
+            'phone.max' => 'Số điện thoại không được vượt quá 10 ký tự',
+            'phone.min' => 'Số điện thoại phải có ít nhất 10 ký tự',
             'address.required' => 'Địa chỉ không được để trống',
             'address.min' => 'Địa chỉ phải có ít nhất 10 ký tự',
             'address.max' => 'Địa chỉ không được vượt quá 500 ký tự',
-            'receiver_name.max' => 'Tên người nhận không được vượt quá 100 ký tự',
-            'receiver_phone.regex' => 'Số điện thoại người nhận không đúng định dạng',
-            'receiver_phone.max' => 'Số điện thoại không được vượt quá 15 ký tự',
+            'province.required' => 'Tỉnh/Thành phố không được để trống',
+            'province.max' => 'Tỉnh/Thành phố không được vượt quá 100 ký tự',
+            'district.required' => 'Quận/Huyện không được để trống',
+            'district.max' => 'Quận/Huyện không được vượt quá 100 ký tự',
+            'ward.required' => 'Phường/Xã không được để trống',
+            'ward.max' => 'Phường/Xã không được vượt quá 100 ký tự',
             'is_default.boolean' => 'Trường mặc định phải là true hoặc false',
         ];
     }
@@ -52,10 +62,12 @@ class AddressBookRequest extends FormRequest
     public function attributes(): array
     {
         return [
-            'postal_code' => 'mã bưu điện',
+            'name' => 'họ và tên',
+            'phone' => 'số điện thoại',
             'address' => 'địa chỉ',
-            'receiver_name' => 'tên người nhận',
-            'receiver_phone' => 'số điện thoại người nhận',
+            'province' => 'tỉnh/thành phố',
+            'district' => 'quận/huyện',
+            'ward' => 'phường/xã',
             'is_default' => 'địa chỉ mặc định',
         ];
     }

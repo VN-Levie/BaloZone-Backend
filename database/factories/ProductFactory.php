@@ -42,7 +42,7 @@ class ProductFactory extends Factory
             'description' => fake()->paragraph(4),
             'price' => fake()->numberBetween(150000, 2000000),
             'quantity' => fake()->numberBetween(0, 100),
-            'image' => fake()->imageUrl(400, 400, 'fashion'),
+            'image' => 'https://placehold.co/600x400?text=products/' . str($name)->slug() . '.jpg',
             'slug' => str($name)->slug() . '-' . fake()->unique()->numberBetween(1000, 9999),
             'color' => fake()->randomElement($colors),
         ];

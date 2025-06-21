@@ -102,7 +102,7 @@ class ProductSeeder extends Seeder
                             'description' => $productData['description'],
                             'price' => $productData['price'],
                             'quantity' => $productData['quantity'],
-                            'image' => 'products/' . str($productData['name'])->slug() . '.jpg',
+                            'image' => 'https://placehold.co/600x400?text=products/' . str($productData['name'])->slug() . '.jpg',
                             'slug' => str($productData['name'])->slug(),
                             'color' => $productData['color'],
                         ]);
@@ -112,7 +112,7 @@ class ProductSeeder extends Seeder
         }
 
         // Tạo thêm các sản phẩm random
-        Product::factory(50)->create();
+        Product::factory(200)->create();
 
         $this->command->info('Đã tạo ' . Product::count() . ' sản phẩm thành công!');
     }

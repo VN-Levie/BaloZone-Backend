@@ -59,10 +59,12 @@ class AddressBookController extends Controller
 
             $addressBook = AddressBook::create([
                 'user_id' => $user->id,
-                'postal_code' => $request->postal_code,
+                'name' => $request->name,
+                'phone' => $request->phone,
                 'address' => $request->address,
-                'receiver_name' => $request->receiver_name,
-                'receiver_phone' => $request->receiver_phone,
+                'province' => $request->province,
+                'district' => $request->district,
+                'ward' => $request->ward,
                 'is_default' => $request->is_default ?? false,
             ]);
 
@@ -127,10 +129,12 @@ class AddressBookController extends Controller
             }
 
             $addressBook->update([
-                'postal_code' => $request->postal_code,
+                'name' => $request->name,
+                'phone' => $request->phone,
                 'address' => $request->address,
-                'receiver_name' => $request->receiver_name,
-                'receiver_phone' => $request->receiver_phone,
+                'province' => $request->province,
+                'district' => $request->district,
+                'ward' => $request->ward,
                 'is_default' => $request->is_default ?? $addressBook->is_default,
             ]);
 

@@ -113,3 +113,45 @@ Authorization: Bearer YOUR_TOKEN_HERE
 GET http://localhost:8000/api/address-books
 Accept: application/json
 Authorization: Bearer YOUR_TOKEN_HERE
+
+###
+POST http://localhost:8000/api/address-books
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer YOUR_TOKEN_HERE
+
+{
+  "name": "Nguyễn Văn Test",
+  "phone": "0901234567",
+  "address": "123 Đường Test",
+  "province": "TP. Hồ Chí Minh",
+  "district": "Quận 1",
+  "ward": "Phường Bến Nghé",
+  "is_default": true
+}
+
+###
+PUT http://localhost:8000/api/address-books/1
+Accept: application/json
+Content-Type: application/json
+Authorization: Bearer YOUR_TOKEN_HERE
+
+{
+  "name": "Nguyễn Văn Updated",
+  "phone": "0901234568",
+  "address": "456 Đường Updated",
+  "province": "Hà Nội",
+  "district": "Quận Hoàn Kiếm",
+  "ward": "Phường Hoàn Kiếm",
+  "is_default": false
+}
+
+###
+GET http://localhost:8000/api/address-books/1
+Accept: application/json
+Authorization: Bearer YOUR_TOKEN_HERE
+
+###
+DELETE http://localhost:8000/api/address-books/1
+Accept: application/json
+Authorization: Bearer YOUR_TOKEN_HERE

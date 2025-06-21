@@ -157,6 +157,20 @@ GET    /api/contacts/{id}           - Get contact details (admin)
 - created_at, updated_at
 ```
 
+### Address Books Table
+```sql
+- id (primary key)
+- user_id (foreign key to users)
+- name (string, required) - Họ và tên người nhận
+- phone (string, required) - Số điện thoại người nhận
+- address (text, required) - Địa chỉ chi tiết
+- province (string, required) - Tỉnh/Thành phố
+- district (string, required) - Quận/Huyện
+- ward (string, required) - Phường/Xã
+- is_default (boolean, default: false) - Địa chỉ mặc định
+- created_at, updated_at
+```
+
 ### Sale Campaigns Table (mới)
 ```sql
 - id (primary key)
@@ -191,7 +205,74 @@ GET    /api/contacts/{id}           - Get contact details (admin)
 - created_at, updated_at
 ```
 
-## 👤 Test Accounts
+## � API Examples
+
+### Address Books API
+
+#### Create Address Book
+**POST** `/api/address-books`
+
+**Request Body:**
+```json
+{
+  "name": "Nguyễn Văn An",
+  "phone": "0901234567",
+  "address": "123 Đường Nguyễn Huệ",
+  "province": "TP. Hồ Chí Minh",
+  "district": "Quận 1",
+  "ward": "Phường Bến Nghé",
+  "is_default": true
+}
+```
+
+**Response:**
+```json
+{
+  "success": true,
+  "message": "Địa chỉ đã được tạo thành công",
+  "data": {
+    "id": 1,
+    "user_id": 1,
+    "name": "Nguyễn Văn An",
+    "phone": "0901234567",
+    "address": "123 Đường Nguyễn Huệ",
+    "province": "TP. Hồ Chí Minh",
+    "district": "Quận 1",
+    "ward": "Phường Bến Nghé",
+    "is_default": true,
+    "created_at": "2025-06-19T13:20:00.000000Z",
+    "updated_at": "2025-06-19T13:20:00.000000Z"
+  }
+}
+```
+
+#### Get User Address Books
+**GET** `/api/address-books`
+
+**Response:**
+```json
+{
+  "success": true,
+  "data": [
+    {
+      "id": 1,
+      "user_id": 1,
+      "name": "Nguyễn Văn An",
+      "phone": "0901234567",
+      "address": "123 Đường Nguyễn Huệ",
+      "province": "TP. Hồ Chí Minh",
+      "district": "Quận 1",
+      "ward": "Phường Bến Nghé",
+      "is_default": true,
+      "created_at": "2025-06-19T13:20:00.000000Z",
+      "updated_at": "2025-06-19T13:20:00.000000Z"
+    }
+  ],
+  "total": 1
+}
+```
+
+## �👤 Test Accounts
 
 ### Admin Account
 - **Email**: admin@balozone.com

@@ -26,7 +26,7 @@
             </style>
 
     <script>
-        var tryItOutBaseUrl = "http://localhost";
+        var tryItOutBaseUrl = "http://localhost:8000";
         var useCsrf = Boolean();
         var csrfUrl = "/sanctum/csrf-cookie";
     </script>
@@ -316,7 +316,7 @@
     <div class="content">
         <h1 id="introduction">Introduction</h1>
 <aside>
-    <strong>Base URL</strong>: <code>http://localhost</code>
+    <strong>Base URL</strong>: <code>http://localhost:8000</code>
 </aside>
 <pre><code>This documentation aims to provide all the information you need to work with our API.
 
@@ -343,14 +343,14 @@ You can switch the language used with the tabs at the top right (or from the nav
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/user" \
+    --get "http://localhost:8000/api/user" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/user"
+    "http://localhost:8000/api/user"
 );
 
 const headers = {
@@ -467,7 +467,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/auth/login" \
+    "http://localhost:8000/api/auth/login" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -479,7 +479,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/auth/login"
+    "http://localhost:8000/api/auth/login"
 );
 
 const headers = {
@@ -609,7 +609,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/auth/register" \
+    "http://localhost:8000/api/auth/register" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -623,7 +623,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/auth/register"
+    "http://localhost:8000/api/auth/register"
 );
 
 const headers = {
@@ -777,14 +777,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/auth/logout" \
+    "http://localhost:8000/api/auth/logout" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/auth/logout"
+    "http://localhost:8000/api/auth/logout"
 );
 
 const headers = {
@@ -885,14 +885,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/auth/refresh" \
+    "http://localhost:8000/api/auth/refresh" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/auth/refresh"
+    "http://localhost:8000/api/auth/refresh"
 );
 
 const headers = {
@@ -993,14 +993,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/auth/me" \
+    --get "http://localhost:8000/api/auth/me" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/auth/me"
+    "http://localhost:8000/api/auth/me"
 );
 
 const headers = {
@@ -1117,14 +1117,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/brands" \
+    --get "http://localhost:8000/api/brands" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/brands"
+    "http://localhost:8000/api/brands"
 );
 
 const headers = {
@@ -1160,156 +1160,156 @@ access-control-allow-origin: *
             &quot;name&quot;: &quot;Adidas&quot;,
             &quot;description&quot;: &quot;Adidas l&agrave; thương hiệu thể thao nổi tiếng với thiết kế năng động v&agrave; chất lượng vượt trội.&quot;,
             &quot;slug&quot;: &quot;adidas&quot;,
-            &quot;logo&quot;: &quot;brands/adidas-logo.png&quot;,
+            &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/adidas-logo.png&quot;,
             &quot;status&quot;: &quot;active&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 11,
+            &quot;name&quot;: &quot;Collins, Ward and Marvin&quot;,
+            &quot;description&quot;: &quot;Placeat ut eligendi similique. Placeat blanditiis qui id magni. Et doloremque deleniti doloremque nobis.&quot;,
+            &quot;slug&quot;: &quot;collins-ward-and-marvin&quot;,
+            &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00eecc?text=business+odit&quot;,
+            &quot;status&quot;: &quot;active&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 12,
+            &quot;name&quot;: &quot;Friesen-Gorczany&quot;,
+            &quot;description&quot;: &quot;Illum non at commodi ipsa deleniti quo. Amet officia in voluptas qui laboriosam magnam odit. Voluptates quibusdam et enim ducimus maxime omnis. Ut eveniet quo explicabo id dolores est rerum.&quot;,
+            &quot;slug&quot;: &quot;friesen-gorczany&quot;,
+            &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00cc44?text=business+recusandae&quot;,
+            &quot;status&quot;: &quot;active&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 15,
+            &quot;name&quot;: &quot;Gerlach, Littel and Kiehn&quot;,
+            &quot;description&quot;: &quot;Consequatur error et illo est dicta sed iste. Iste ea totam perferendis nulla consequatur. Dolore occaecati quas nemo sequi non dolorem. Nobis error deserunt veritatis veniam inventore rerum maiores.&quot;,
+            &quot;slug&quot;: &quot;gerlach-littel-and-kiehn&quot;,
+            &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/004400?text=business+deleniti&quot;,
+            &quot;status&quot;: &quot;inactive&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 9,
+            &quot;name&quot;: &quot;Gleichner-Langosh&quot;,
+            &quot;description&quot;: &quot;Omnis consequatur aut explicabo laudantium vero omnis unde. Tempora ad qui ut cupiditate nam.&quot;,
+            &quot;slug&quot;: &quot;gleichner-langosh&quot;,
+            &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00aa44?text=business+et&quot;,
+            &quot;status&quot;: &quot;inactive&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 8,
+            &quot;name&quot;: &quot;Harvey-Rohan&quot;,
+            &quot;description&quot;: &quot;Amet dolores provident velit et aut voluptatem. Doloribus omnis maxime quod aperiam nesciunt aut eos. Ea praesentium id et. Tempora cum molestiae ex voluptates ullam maxime est temporibus.&quot;,
+            &quot;slug&quot;: &quot;harvey-rohan&quot;,
+            &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00ff44?text=business+molestiae&quot;,
+            &quot;status&quot;: &quot;active&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
         },
         {
             &quot;id&quot;: 16,
-            &quot;name&quot;: &quot;Bahringer PLC&quot;,
-            &quot;description&quot;: &quot;A eius iusto sunt quibusdam. Commodi qui repudiandae quaerat facere veniam. Commodi culpa molestiae vitae.&quot;,
-            &quot;slug&quot;: &quot;bahringer-plc&quot;,
-            &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00cc00?text=business+et&quot;,
-            &quot;status&quot;: &quot;active&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-        },
-        {
-            &quot;id&quot;: 10,
-            &quot;name&quot;: &quot;Bechtelar Ltd&quot;,
-            &quot;description&quot;: &quot;Aut repudiandae dignissimos ut omnis. Sunt sint repellendus neque corporis eum velit ipsa.&quot;,
-            &quot;slug&quot;: &quot;bechtelar-ltd&quot;,
-            &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/009977?text=business+labore&quot;,
+            &quot;name&quot;: &quot;Heathcote-DuBuque&quot;,
+            &quot;description&quot;: &quot;Dolor occaecati ullam quidem quas. Qui nesciunt reiciendis temporibus iure ad. Temporibus et qui quo eligendi repellendus veritatis incidunt quae. Perspiciatis maxime ipsum non.&quot;,
+            &quot;slug&quot;: &quot;heathcote-dubuque&quot;,
+            &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00bbee?text=business+perspiciatis&quot;,
             &quot;status&quot;: &quot;inactive&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-        },
-        {
-            &quot;id&quot;: 7,
-            &quot;name&quot;: &quot;D&#039;Amore Ltd&quot;,
-            &quot;description&quot;: &quot;Ab fugiat facere nihil et. Ipsam ex distinctio quasi consequuntur quia. Et aliquam eligendi cumque cum quas sequi minima.&quot;,
-            &quot;slug&quot;: &quot;damore-ltd&quot;,
-            &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00aa33?text=business+porro&quot;,
-            &quot;status&quot;: &quot;inactive&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-        },
-        {
-            &quot;id&quot;: 14,
-            &quot;name&quot;: &quot;Davis-Klein&quot;,
-            &quot;description&quot;: &quot;Ipsum aspernatur consequatur velit rerum. Sunt debitis explicabo consequatur laboriosam. Et consequatur eius tempore occaecati corporis sint.&quot;,
-            &quot;slug&quot;: &quot;davis-klein&quot;,
-            &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00aa99?text=business+sunt&quot;,
-            &quot;status&quot;: &quot;active&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-        },
-        {
-            &quot;id&quot;: 13,
-            &quot;name&quot;: &quot;Douglas, Cummings and Senger&quot;,
-            &quot;description&quot;: &quot;Doloremque consequatur nisi recusandae. Deserunt corrupti dolores harum eaque. Impedit eveniet in quia porro quos inventore. Expedita tempore amet natus velit unde labore aut.&quot;,
-            &quot;slug&quot;: &quot;douglas-cummings-and-senger&quot;,
-            &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/001122?text=business+voluptatem&quot;,
-            &quot;status&quot;: &quot;inactive&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
         },
         {
             &quot;id&quot;: 6,
             &quot;name&quot;: &quot;Herschel&quot;,
             &quot;description&quot;: &quot;Herschel Supply Co. nổi tiếng với thiết kế vintage v&agrave; hiện đại, ph&ugrave; hợp cho mọi lứa tuổi.&quot;,
             &quot;slug&quot;: &quot;herschel&quot;,
-            &quot;logo&quot;: &quot;brands/herschel-logo.png&quot;,
+            &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/herschel-logo.png&quot;,
             &quot;status&quot;: &quot;active&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 13,
+            &quot;name&quot;: &quot;Hintz-Pfannerstill&quot;,
+            &quot;description&quot;: &quot;Voluptatum a delectus voluptatem inventore qui eveniet. In sapiente quo nemo incidunt enim. Maiores et sit id ipsum reprehenderit modi iusto. Et fugiat excepturi tenetur molestiae et similique et beatae.&quot;,
+            &quot;slug&quot;: &quot;hintz-pfannerstill&quot;,
+            &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00ff22?text=business+sit&quot;,
+            &quot;status&quot;: &quot;active&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
         },
         {
             &quot;id&quot;: 4,
             &quot;name&quot;: &quot;JanSport&quot;,
             &quot;description&quot;: &quot;JanSport chuy&ecirc;n sản xuất balo học sinh v&agrave; du lịch với thiết kế trẻ trung, năng động.&quot;,
             &quot;slug&quot;: &quot;jansport&quot;,
-            &quot;logo&quot;: &quot;brands/jansport-logo.png&quot;,
+            &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/jansport-logo.png&quot;,
             &quot;status&quot;: &quot;active&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
         },
         {
-            &quot;id&quot;: 15,
-            &quot;name&quot;: &quot;Kuvalis, Waters and Bogan&quot;,
-            &quot;description&quot;: &quot;Optio odit est qui laborum est earum iure accusantium. Fugit consequatur eius labore. Quasi quis laudantium sit optio deserunt cupiditate. Repellendus occaecati blanditiis et officiis doloribus quisquam et.&quot;,
-            &quot;slug&quot;: &quot;kuvalis-waters-and-bogan&quot;,
-            &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/005500?text=business+sed&quot;,
-            &quot;status&quot;: &quot;inactive&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-        },
-        {
-            &quot;id&quot;: 11,
-            &quot;name&quot;: &quot;Lockman, Mueller and Hickle&quot;,
-            &quot;description&quot;: &quot;Quia omnis sed sunt amet labore nostrum recusandae. Totam odio eveniet quibusdam. Quaerat adipisci rerum quis repudiandae et dolores.&quot;,
-            &quot;slug&quot;: &quot;lockman-mueller-and-hickle&quot;,
-            &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/0077ee?text=business+reprehenderit&quot;,
+            &quot;id&quot;: 10,
+            &quot;name&quot;: &quot;Murray PLC&quot;,
+            &quot;description&quot;: &quot;Est rerum rerum numquam quam vel facere molestias sint. Ad dolor facilis nemo iusto et magnam laborum et.&quot;,
+            &quot;slug&quot;: &quot;murray-plc&quot;,
+            &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00ffdd?text=business+deleniti&quot;,
             &quot;status&quot;: &quot;active&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
         },
         {
             &quot;id&quot;: 1,
             &quot;name&quot;: &quot;Nike&quot;,
             &quot;description&quot;: &quot;Nike l&agrave; thương hiệu thể thao h&agrave;ng đầu thế giới, nổi tiếng với c&aacute;c sản phẩm balo v&agrave; t&uacute;i thể thao chất lượng cao.&quot;,
             &quot;slug&quot;: &quot;nike&quot;,
-            &quot;logo&quot;: &quot;brands/nike-logo.png&quot;,
+            &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/nike-logo.png&quot;,
             &quot;status&quot;: &quot;active&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-        },
-        {
-            &quot;id&quot;: 8,
-            &quot;name&quot;: &quot;Roob, Stehr and Considine&quot;,
-            &quot;description&quot;: &quot;Deserunt sunt neque aut explicabo quis atque ex iure. Eligendi ducimus cum atque. Aspernatur reiciendis neque esse necessitatibus.&quot;,
-            &quot;slug&quot;: &quot;roob-stehr-and-considine&quot;,
-            &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/0088ee?text=business+autem&quot;,
-            &quot;status&quot;: &quot;active&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
         },
         {
             &quot;id&quot;: 3,
             &quot;name&quot;: &quot;Samsonite&quot;,
             &quot;description&quot;: &quot;Samsonite l&agrave; thương hiệu h&agrave;ng đầu thế giới về h&agrave;nh l&yacute; v&agrave; balo du lịch cao cấp.&quot;,
             &quot;slug&quot;: &quot;samsonite&quot;,
-            &quot;logo&quot;: &quot;brands/samsonite-logo.png&quot;,
+            &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/samsonite-logo.png&quot;,
             &quot;status&quot;: &quot;active&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
         },
         {
-            &quot;id&quot;: 9,
-            &quot;name&quot;: &quot;Schmidt Ltd&quot;,
-            &quot;description&quot;: &quot;Labore corrupti molestiae occaecati voluptatem atque numquam ipsam ipsum. Suscipit sint ullam et ut magnam et. Ipsam enim sunt odio minima voluptatem.&quot;,
-            &quot;slug&quot;: &quot;schmidt-ltd&quot;,
-            &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/0055ee?text=business+tempora&quot;,
+            &quot;id&quot;: 7,
+            &quot;name&quot;: &quot;Stiedemann and Sons&quot;,
+            &quot;description&quot;: &quot;Velit enim et tempore. Nostrum itaque praesentium nisi voluptatum iure sint voluptas est. Et esse architecto id amet amet.&quot;,
+            &quot;slug&quot;: &quot;stiedemann-and-sons&quot;,
+            &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/005566?text=business+eum&quot;,
             &quot;status&quot;: &quot;inactive&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
         },
         {
-            &quot;id&quot;: 12,
-            &quot;name&quot;: &quot;Schuppe-Collins&quot;,
-            &quot;description&quot;: &quot;Porro mollitia quasi totam quia tempore laboriosam. Molestiae voluptatem repudiandae accusamus qui quia rerum hic. Totam ea adipisci beatae dolores neque incidunt error. Eos sequi perspiciatis rerum exercitationem officiis.&quot;,
-            &quot;slug&quot;: &quot;schuppe-collins&quot;,
-            &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/0033aa?text=business+minus&quot;,
+            &quot;id&quot;: 5,
+            &quot;name&quot;: &quot;The North Face&quot;,
+            &quot;description&quot;: &quot;The North Face l&agrave; thương hiệu outdoor nổi tiếng với c&aacute;c sản phẩm balo trekking v&agrave; leo n&uacute;i.&quot;,
+            &quot;slug&quot;: &quot;the-north-face&quot;,
+            &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/tnf-logo.png&quot;,
             &quot;status&quot;: &quot;active&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
         }
     ],
-    &quot;first_page_url&quot;: &quot;http://localhost/api/brands?page=1&quot;,
+    &quot;first_page_url&quot;: &quot;http://localhost:8000/api/brands?page=1&quot;,
     &quot;from&quot;: 1,
     &quot;last_page&quot;: 2,
-    &quot;last_page_url&quot;: &quot;http://localhost/api/brands?page=2&quot;,
+    &quot;last_page_url&quot;: &quot;http://localhost:8000/api/brands?page=2&quot;,
     &quot;links&quot;: [
         {
             &quot;url&quot;: null,
@@ -1317,23 +1317,23 @@ access-control-allow-origin: *
             &quot;active&quot;: false
         },
         {
-            &quot;url&quot;: &quot;http://localhost/api/brands?page=1&quot;,
+            &quot;url&quot;: &quot;http://localhost:8000/api/brands?page=1&quot;,
             &quot;label&quot;: &quot;1&quot;,
             &quot;active&quot;: true
         },
         {
-            &quot;url&quot;: &quot;http://localhost/api/brands?page=2&quot;,
+            &quot;url&quot;: &quot;http://localhost:8000/api/brands?page=2&quot;,
             &quot;label&quot;: &quot;2&quot;,
             &quot;active&quot;: false
         },
         {
-            &quot;url&quot;: &quot;http://localhost/api/brands?page=2&quot;,
+            &quot;url&quot;: &quot;http://localhost:8000/api/brands?page=2&quot;,
             &quot;label&quot;: &quot;Next &amp;raquo;&quot;,
             &quot;active&quot;: false
         }
     ],
-    &quot;next_page_url&quot;: &quot;http://localhost/api/brands?page=2&quot;,
-    &quot;path&quot;: &quot;http://localhost/api/brands&quot;,
+    &quot;next_page_url&quot;: &quot;http://localhost:8000/api/brands?page=2&quot;,
+    &quot;path&quot;: &quot;http://localhost:8000/api/brands&quot;,
     &quot;per_page&quot;: 15,
     &quot;prev_page_url&quot;: null,
     &quot;to&quot;: 15,
@@ -1425,7 +1425,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/brands" \
+    "http://localhost:8000/api/brands" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -1440,7 +1440,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/brands"
+    "http://localhost:8000/api/brands"
 );
 
 const headers = {
@@ -1608,14 +1608,14 @@ Must be one of:
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/brands/1" \
+    --get "http://localhost:8000/api/brands/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/brands/1"
+    "http://localhost:8000/api/brands/1"
 );
 
 const headers = {
@@ -1649,10 +1649,10 @@ access-control-allow-origin: *
         &quot;name&quot;: &quot;Nike&quot;,
         &quot;description&quot;: &quot;Nike l&agrave; thương hiệu thể thao h&agrave;ng đầu thế giới, nổi tiếng với c&aacute;c sản phẩm balo v&agrave; t&uacute;i thể thao chất lượng cao.&quot;,
         &quot;slug&quot;: &quot;nike&quot;,
-        &quot;logo&quot;: &quot;brands/nike-logo.png&quot;,
+        &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/nike-logo.png&quot;,
         &quot;status&quot;: &quot;active&quot;,
-        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
         &quot;products&quot;: [
             {
                 &quot;id&quot;: 2,
@@ -1662,95 +1662,53 @@ access-control-allow-origin: *
                 &quot;description&quot;: &quot;Balo thể thao năng động với logo Nike nổi bật. Thiết kế hiện đại, ph&ugrave; hợp cho học sinh cấp 3.&quot;,
                 &quot;price&quot;: &quot;1200000.00&quot;,
                 &quot;quantity&quot;: 30,
-                &quot;image&quot;: &quot;products/balo-nike-heritage-20.jpg&quot;,
+                &quot;image&quot;: &quot;https://placehold.co/600x400?text=products/balo-nike-heritage-20.jpg&quot;,
                 &quot;slug&quot;: &quot;balo-nike-heritage-20&quot;,
                 &quot;color&quot;: &quot;Xanh Navy&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;
             },
             {
-                &quot;id&quot;: 9,
-                &quot;category_id&quot;: 5,
+                &quot;id&quot;: 14,
+                &quot;category_id&quot;: 2,
                 &quot;brand_id&quot;: 1,
-                &quot;name&quot;: &quot;Balo Gaming RGB rerum&quot;,
-                &quot;description&quot;: &quot;Facilis dolor commodi dolores itaque consequuntur modi. Laborum reiciendis est libero facere sint neque. Est eius sed autem quod est in eum. Aut et temporibus velit hic error officiis explicabo.&quot;,
-                &quot;price&quot;: &quot;1608008.00&quot;,
-                &quot;quantity&quot;: 18,
-                &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/001144?text=fashion+sed&quot;,
-                &quot;slug&quot;: &quot;balo-gaming-rgb-rerum-5919&quot;,
-                &quot;color&quot;: &quot;Xanh&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;
+                &quot;name&quot;: &quot;Balo Du Lịch Samsonite rerum&quot;,
+                &quot;description&quot;: &quot;Unde qui unde deserunt non nostrum quia. Maxime rerum numquam repellat dolor doloremque odio et. Aliquid est qui sint aperiam. Aliquid aut perspiciatis non earum iste in asperiores sit. Sit quasi laboriosam ipsa excepturi sit nemo at.&quot;,
+                &quot;price&quot;: &quot;206616.00&quot;,
+                &quot;quantity&quot;: 53,
+                &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/001177?text=fashion+voluptate&quot;,
+                &quot;slug&quot;: &quot;balo-du-lich-samsonite-rerum-5582&quot;,
+                &quot;color&quot;: &quot;Đỏ&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;
             },
             {
-                &quot;id&quot;: 18,
+                &quot;id&quot;: 21,
                 &quot;category_id&quot;: 6,
                 &quot;brand_id&quot;: 1,
-                &quot;name&quot;: &quot;Balo Mini Cute fuga&quot;,
-                &quot;description&quot;: &quot;Voluptatum delectus enim voluptates laboriosam. Explicabo sed qui ut similique. Illum voluptatem placeat nam mollitia nam sapiente. Optio aut iste nemo porro quisquam consequuntur nihil. Nihil modi sint ea similique suscipit.&quot;,
-                &quot;price&quot;: &quot;1888311.00&quot;,
-                &quot;quantity&quot;: 64,
-                &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0022dd?text=fashion+eaque&quot;,
-                &quot;slug&quot;: &quot;balo-mini-cute-fuga-9512&quot;,
-                &quot;color&quot;: &quot;Đen&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;
-            },
-            {
-                &quot;id&quot;: 19,
-                &quot;category_id&quot;: 4,
-                &quot;brand_id&quot;: 1,
-                &quot;name&quot;: &quot;T&uacute;i Adidas Classic at&quot;,
-                &quot;description&quot;: &quot;Ducimus explicabo veniam aliquid modi autem. Illo culpa incidunt velit ut itaque ut temporibus. Velit et aut dignissimos non voluptatem quis cumque vel. Accusantium ipsum ducimus enim quo facilis. Corrupti sunt qui eos aliquam eius ab. Exercitationem illo rerum rerum tenetur odio.&quot;,
-                &quot;price&quot;: &quot;203465.00&quot;,
-                &quot;quantity&quot;: 88,
-                &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/007755?text=fashion+sint&quot;,
-                &quot;slug&quot;: &quot;tui-adidas-classic-at-1661&quot;,
-                &quot;color&quot;: &quot;X&aacute;m&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;
-            },
-            {
-                &quot;id&quot;: 29,
-                &quot;category_id&quot;: 1,
-                &quot;brand_id&quot;: 1,
-                &quot;name&quot;: &quot;Balo Gaming RGB tempore&quot;,
-                &quot;description&quot;: &quot;Vel at et aliquid iure. Consectetur maxime accusantium debitis nostrum veritatis. Autem praesentium voluptatem repellendus unde sit doloribus excepturi. Velit quia dicta beatae et non sint delectus molestiae.&quot;,
-                &quot;price&quot;: &quot;1863570.00&quot;,
-                &quot;quantity&quot;: 91,
-                &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/006622?text=fashion+vel&quot;,
-                &quot;slug&quot;: &quot;balo-gaming-rgb-tempore-1817&quot;,
-                &quot;color&quot;: &quot;Đỏ&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;
-            },
-            {
-                &quot;id&quot;: 40,
-                &quot;category_id&quot;: 3,
-                &quot;brand_id&quot;: 1,
-                &quot;name&quot;: &quot;Balo Leo N&uacute;i The North Face quaerat&quot;,
-                &quot;description&quot;: &quot;Quis praesentium est ad quis. Voluptas itaque ducimus sint nihil in. Similique sint velit reprehenderit delectus ipsum odit est ullam. Dolores nihil doloribus et sit aliquam repudiandae quis tenetur.&quot;,
-                &quot;price&quot;: &quot;995359.00&quot;,
-                &quot;quantity&quot;: 92,
-                &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00aa33?text=fashion+aut&quot;,
-                &quot;slug&quot;: &quot;balo-leo-nui-the-north-face-quaerat-3731&quot;,
+                &quot;name&quot;: &quot;T&uacute;i X&aacute;ch Nữ Thời Trang dolor&quot;,
+                &quot;description&quot;: &quot;Veniam officiis molestiae consequatur laborum et facere. Molestiae eius dolor ratione repudiandae id laudantium ut. At non est at non. Labore id eligendi eaque ut at fugit aspernatur. Blanditiis voluptas dicta repudiandae aliquid.&quot;,
+                &quot;price&quot;: &quot;799891.00&quot;,
+                &quot;quantity&quot;: 99,
+                &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00ffcc?text=fashion+eos&quot;,
+                &quot;slug&quot;: &quot;tui-xach-nu-thoi-trang-dolor-9925&quot;,
                 &quot;color&quot;: &quot;V&agrave;ng&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;
             },
             {
-                &quot;id&quot;: 51,
-                &quot;category_id&quot;: 5,
+                &quot;id&quot;: 36,
+                &quot;category_id&quot;: 6,
                 &quot;brand_id&quot;: 1,
-                &quot;name&quot;: &quot;Balo Học Sinh JanSport vero&quot;,
-                &quot;description&quot;: &quot;Commodi omnis aliquam distinctio aut. Provident maxime facilis dolor. Sit consequatur accusamus aut rem autem. Qui omnis aspernatur dolor sint aut. Sit officiis nesciunt velit impedit quis. Voluptas aut et aut facere sint ea quibusdam.&quot;,
-                &quot;price&quot;: &quot;999804.00&quot;,
-                &quot;quantity&quot;: 42,
-                &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/008855?text=fashion+animi&quot;,
-                &quot;slug&quot;: &quot;balo-hoc-sinh-jansport-vero-2020&quot;,
-                &quot;color&quot;: &quot;Hồng&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;
+                &quot;name&quot;: &quot;Balo Leo N&uacute;i The North Face repudiandae&quot;,
+                &quot;description&quot;: &quot;Qui omnis quia id quia dolorem quas atque. Cumque quasi optio voluptas sint recusandae deserunt aliquam. Repellat omnis autem fugiat dolor culpa. Porro et optio est consequatur laborum iure aliquam. Rerum temporibus et laboriosam ut.&quot;,
+                &quot;price&quot;: &quot;1019744.00&quot;,
+                &quot;quantity&quot;: 92,
+                &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0088ee?text=fashion+blanditiis&quot;,
+                &quot;slug&quot;: &quot;balo-leo-nui-the-north-face-repudiandae-2597&quot;,
+                &quot;color&quot;: &quot;T&iacute;m&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;
             }
         ]
     }
@@ -1853,7 +1811,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost/api/brands/1" \
+    "http://localhost:8000/api/brands/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -1868,7 +1826,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/brands/1"
+    "http://localhost:8000/api/brands/1"
 );
 
 const headers = {
@@ -2052,14 +2010,14 @@ Must be one of:
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/brands/1" \
+    "http://localhost:8000/api/brands/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/brands/1"
+    "http://localhost:8000/api/brands/1"
 );
 
 const headers = {
@@ -2172,14 +2130,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/brands-active" \
+    --get "http://localhost:8000/api/brands-active" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/brands-active"
+    "http://localhost:8000/api/brands-active"
 );
 
 const headers = {
@@ -2215,14 +2173,19 @@ access-control-allow-origin: *
             &quot;slug&quot;: &quot;adidas&quot;
         },
         {
-            &quot;id&quot;: 16,
-            &quot;name&quot;: &quot;Bahringer PLC&quot;,
-            &quot;slug&quot;: &quot;bahringer-plc&quot;
+            &quot;id&quot;: 11,
+            &quot;name&quot;: &quot;Collins, Ward and Marvin&quot;,
+            &quot;slug&quot;: &quot;collins-ward-and-marvin&quot;
         },
         {
-            &quot;id&quot;: 14,
-            &quot;name&quot;: &quot;Davis-Klein&quot;,
-            &quot;slug&quot;: &quot;davis-klein&quot;
+            &quot;id&quot;: 12,
+            &quot;name&quot;: &quot;Friesen-Gorczany&quot;,
+            &quot;slug&quot;: &quot;friesen-gorczany&quot;
+        },
+        {
+            &quot;id&quot;: 8,
+            &quot;name&quot;: &quot;Harvey-Rohan&quot;,
+            &quot;slug&quot;: &quot;harvey-rohan&quot;
         },
         {
             &quot;id&quot;: 6,
@@ -2230,14 +2193,19 @@ access-control-allow-origin: *
             &quot;slug&quot;: &quot;herschel&quot;
         },
         {
+            &quot;id&quot;: 13,
+            &quot;name&quot;: &quot;Hintz-Pfannerstill&quot;,
+            &quot;slug&quot;: &quot;hintz-pfannerstill&quot;
+        },
+        {
             &quot;id&quot;: 4,
             &quot;name&quot;: &quot;JanSport&quot;,
             &quot;slug&quot;: &quot;jansport&quot;
         },
         {
-            &quot;id&quot;: 11,
-            &quot;name&quot;: &quot;Lockman, Mueller and Hickle&quot;,
-            &quot;slug&quot;: &quot;lockman-mueller-and-hickle&quot;
+            &quot;id&quot;: 10,
+            &quot;name&quot;: &quot;Murray PLC&quot;,
+            &quot;slug&quot;: &quot;murray-plc&quot;
         },
         {
             &quot;id&quot;: 1,
@@ -2245,24 +2213,19 @@ access-control-allow-origin: *
             &quot;slug&quot;: &quot;nike&quot;
         },
         {
-            &quot;id&quot;: 8,
-            &quot;name&quot;: &quot;Roob, Stehr and Considine&quot;,
-            &quot;slug&quot;: &quot;roob-stehr-and-considine&quot;
-        },
-        {
             &quot;id&quot;: 3,
             &quot;name&quot;: &quot;Samsonite&quot;,
             &quot;slug&quot;: &quot;samsonite&quot;
         },
         {
-            &quot;id&quot;: 12,
-            &quot;name&quot;: &quot;Schuppe-Collins&quot;,
-            &quot;slug&quot;: &quot;schuppe-collins&quot;
-        },
-        {
             &quot;id&quot;: 5,
             &quot;name&quot;: &quot;The North Face&quot;,
             &quot;slug&quot;: &quot;the-north-face&quot;
+        },
+        {
+            &quot;id&quot;: 14,
+            &quot;name&quot;: &quot;Zboncak, Jones and Romaguera&quot;,
+            &quot;slug&quot;: &quot;zboncak-jones-and-romaguera&quot;
         }
     ]
 }</code>
@@ -2352,14 +2315,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/categories" \
+    --get "http://localhost:8000/api/categories" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/categories"
+    "http://localhost:8000/api/categories"
 );
 
 const headers = {
@@ -2395,30 +2358,30 @@ access-control-allow-origin: *
             &quot;name&quot;: &quot;Balo Du Lịch&quot;,
             &quot;description&quot;: &quot;Balo d&agrave;nh cho c&aacute;c chuyến du lịch, trekking với dung t&iacute;ch lớn v&agrave; nhiều ngăn tiện &iacute;ch&quot;,
             &quot;slug&quot;: &quot;balo-du-lich&quot;,
-            &quot;image&quot;: &quot;categories/balo-du-lich.jpg&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;products_count&quot;: 14
+            &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/balo-du-lich.jpg&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;products_count&quot;: 9
         },
         {
             &quot;id&quot;: 1,
             &quot;name&quot;: &quot;Balo Học Sinh&quot;,
             &quot;description&quot;: &quot;C&aacute;c loại balo d&agrave;nh cho học sinh, sinh vi&ecirc;n với thiết kế trẻ trung v&agrave; tiện dụng&quot;,
             &quot;slug&quot;: &quot;balo-hoc-sinh&quot;,
-            &quot;image&quot;: &quot;categories/balo-hoc-sinh.jpg&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;products_count&quot;: 10
+            &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/balo-hoc-sinh.jpg&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;products_count&quot;: 13
         },
         {
             &quot;id&quot;: 3,
             &quot;name&quot;: &quot;Balo Laptop&quot;,
             &quot;description&quot;: &quot;Balo chuy&ecirc;n dụng để đựng laptop v&agrave; c&aacute;c thiết bị c&ocirc;ng nghệ với lớp đệm bảo vệ&quot;,
             &quot;slug&quot;: &quot;balo-laptop&quot;,
-            &quot;image&quot;: &quot;categories/balo-laptop.jpg&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;products_count&quot;: 16
+            &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/balo-laptop.jpg&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;products_count&quot;: 6
         },
         {
             &quot;id&quot;: 6,
@@ -2426,35 +2389,35 @@ access-control-allow-origin: *
             &quot;description&quot;: &quot;Balo nhỏ gọn d&agrave;nh cho việc đi chơi, dạo phố&quot;,
             &quot;slug&quot;: &quot;balo-mini&quot;,
             &quot;image&quot;: &quot;categories/balo-mini.jpg&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;products_count&quot;: 5
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;products_count&quot;: 15
         },
         {
             &quot;id&quot;: 4,
             &quot;name&quot;: &quot;Balo Thể Thao&quot;,
             &quot;description&quot;: &quot;Balo d&agrave;nh cho c&aacute;c hoạt động thể thao, gym với thiết kế năng động&quot;,
             &quot;slug&quot;: &quot;balo-the-thao&quot;,
-            &quot;image&quot;: &quot;categories/balo-the-thao.jpg&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;products_count&quot;: 4
+            &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/balo-the-thao.jpg&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;products_count&quot;: 2
         },
         {
             &quot;id&quot;: 5,
             &quot;name&quot;: &quot;T&uacute;i X&aacute;ch&quot;,
             &quot;description&quot;: &quot;C&aacute;c loại t&uacute;i x&aacute;ch thời trang cho nam v&agrave; nữ&quot;,
             &quot;slug&quot;: &quot;tui-xach&quot;,
-            &quot;image&quot;: &quot;categories/tui-xach.jpg&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;products_count&quot;: 6
+            &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/tui-xach.jpg&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;products_count&quot;: 10
         }
     ],
-    &quot;first_page_url&quot;: &quot;http://localhost/api/categories?page=1&quot;,
+    &quot;first_page_url&quot;: &quot;http://localhost:8000/api/categories?page=1&quot;,
     &quot;from&quot;: 1,
     &quot;last_page&quot;: 1,
-    &quot;last_page_url&quot;: &quot;http://localhost/api/categories?page=1&quot;,
+    &quot;last_page_url&quot;: &quot;http://localhost:8000/api/categories?page=1&quot;,
     &quot;links&quot;: [
         {
             &quot;url&quot;: null,
@@ -2462,7 +2425,7 @@ access-control-allow-origin: *
             &quot;active&quot;: false
         },
         {
-            &quot;url&quot;: &quot;http://localhost/api/categories?page=1&quot;,
+            &quot;url&quot;: &quot;http://localhost:8000/api/categories?page=1&quot;,
             &quot;label&quot;: &quot;1&quot;,
             &quot;active&quot;: true
         },
@@ -2473,7 +2436,7 @@ access-control-allow-origin: *
         }
     ],
     &quot;next_page_url&quot;: null,
-    &quot;path&quot;: &quot;http://localhost/api/categories&quot;,
+    &quot;path&quot;: &quot;http://localhost:8000/api/categories&quot;,
     &quot;per_page&quot;: 15,
     &quot;prev_page_url&quot;: null,
     &quot;to&quot;: 6,
@@ -2565,7 +2528,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/categories" \
+    "http://localhost:8000/api/categories" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -2579,7 +2542,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/categories"
+    "http://localhost:8000/api/categories"
 );
 
 const headers = {
@@ -2733,14 +2696,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/categories/1" \
+    --get "http://localhost:8000/api/categories/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/categories/1"
+    "http://localhost:8000/api/categories/1"
 );
 
 const headers = {
@@ -2774,10 +2737,10 @@ access-control-allow-origin: *
         &quot;name&quot;: &quot;Balo Học Sinh&quot;,
         &quot;description&quot;: &quot;C&aacute;c loại balo d&agrave;nh cho học sinh, sinh vi&ecirc;n với thiết kế trẻ trung v&agrave; tiện dụng&quot;,
         &quot;slug&quot;: &quot;balo-hoc-sinh&quot;,
-        &quot;image&quot;: &quot;categories/balo-hoc-sinh.jpg&quot;,
-        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-        &quot;products_count&quot;: 10
+        &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/balo-hoc-sinh.jpg&quot;,
+        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+        &quot;products_count&quot;: 13
     }
 }</code>
  </pre>
@@ -2878,7 +2841,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost/api/categories/1" \
+    "http://localhost:8000/api/categories/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -2892,7 +2855,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/categories/1"
+    "http://localhost:8000/api/categories/1"
 );
 
 const headers = {
@@ -3062,14 +3025,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/categories/1" \
+    "http://localhost:8000/api/categories/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/categories/1"
+    "http://localhost:8000/api/categories/1"
 );
 
 const headers = {
@@ -3182,14 +3145,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/categories-with-products" \
+    --get "http://localhost:8000/api/categories-with-products" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/categories-with-products"
+    "http://localhost:8000/api/categories-with-products"
 );
 
 const headers = {
@@ -3224,200 +3187,200 @@ access-control-allow-origin: *
             &quot;name&quot;: &quot;Balo Du Lịch&quot;,
             &quot;description&quot;: &quot;Balo d&agrave;nh cho c&aacute;c chuyến du lịch, trekking với dung t&iacute;ch lớn v&agrave; nhiều ngăn tiện &iacute;ch&quot;,
             &quot;slug&quot;: &quot;balo-du-lich&quot;,
-            &quot;image&quot;: &quot;categories/balo-du-lich.jpg&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
+            &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/balo-du-lich.jpg&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
             &quot;products&quot;: [
                 {
-                    &quot;id&quot;: 42,
+                    &quot;id&quot;: 3,
                     &quot;category_id&quot;: 2,
-                    &quot;brand_id&quot;: 4,
-                    &quot;name&quot;: &quot;T&uacute;i Laptop Herschel nihil&quot;,
-                    &quot;description&quot;: &quot;Sed velit odit tempore unde. Explicabo pariatur ratione neque sed nihil a eius. Sed perspiciatis autem officiis qui. Quia quam sed sint tempora quis aperiam accusantium. Non ut debitis cum pariatur.&quot;,
-                    &quot;price&quot;: &quot;993902.00&quot;,
-                    &quot;quantity&quot;: 54,
-                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/009944?text=fashion+impedit&quot;,
-                    &quot;slug&quot;: &quot;tui-laptop-herschel-nihil-7427&quot;,
-                    &quot;color&quot;: &quot;Cam&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
+                    &quot;brand_id&quot;: 5,
+                    &quot;name&quot;: &quot;Balo The North Face Borealis 28L&quot;,
+                    &quot;description&quot;: &quot;Balo trekking chuy&ecirc;n nghiệp với nhiều ngăn tiện &iacute;ch, d&acirc;y đeo thoải m&aacute;i. L&yacute; tưởng cho c&aacute;c chuyến du lịch ngắn ng&agrave;y.&quot;,
+                    &quot;price&quot;: &quot;2500000.00&quot;,
+                    &quot;quantity&quot;: 25,
+                    &quot;image&quot;: &quot;https://placehold.co/600x400?text=products/balo-the-north-face-borealis-28l.jpg&quot;,
+                    &quot;slug&quot;: &quot;balo-the-north-face-borealis-28l&quot;,
+                    &quot;color&quot;: &quot;X&aacute;m&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
                     &quot;brand&quot;: {
-                        &quot;id&quot;: 4,
-                        &quot;name&quot;: &quot;JanSport&quot;,
-                        &quot;description&quot;: &quot;JanSport chuy&ecirc;n sản xuất balo học sinh v&agrave; du lịch với thiết kế trẻ trung, năng động.&quot;,
-                        &quot;slug&quot;: &quot;jansport&quot;,
-                        &quot;logo&quot;: &quot;brands/jansport-logo.png&quot;,
+                        &quot;id&quot;: 5,
+                        &quot;name&quot;: &quot;The North Face&quot;,
+                        &quot;description&quot;: &quot;The North Face l&agrave; thương hiệu outdoor nổi tiếng với c&aacute;c sản phẩm balo trekking v&agrave; leo n&uacute;i.&quot;,
+                        &quot;slug&quot;: &quot;the-north-face&quot;,
+                        &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/tnf-logo.png&quot;,
                         &quot;status&quot;: &quot;active&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                     }
                 },
                 {
-                    &quot;id&quot;: 47,
-                    &quot;category_id&quot;: 2,
-                    &quot;brand_id&quot;: 8,
-                    &quot;name&quot;: &quot;Balo Leo N&uacute;i The North Face aspernatur&quot;,
-                    &quot;description&quot;: &quot;Esse similique et quia nostrum totam. Pariatur voluptatem unde facere aut unde fugiat rem. Mollitia dolorum amet veritatis molestiae id quae. Tempore ut nihil quod libero praesentium at.&quot;,
-                    &quot;price&quot;: &quot;1394690.00&quot;,
-                    &quot;quantity&quot;: 66,
-                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00ffbb?text=fashion+earum&quot;,
-                    &quot;slug&quot;: &quot;balo-leo-nui-the-north-face-aspernatur-8589&quot;,
-                    &quot;color&quot;: &quot;N&acirc;u&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;brand&quot;: {
-                        &quot;id&quot;: 8,
-                        &quot;name&quot;: &quot;Roob, Stehr and Considine&quot;,
-                        &quot;description&quot;: &quot;Deserunt sunt neque aut explicabo quis atque ex iure. Eligendi ducimus cum atque. Aspernatur reiciendis neque esse necessitatibus.&quot;,
-                        &quot;slug&quot;: &quot;roob-stehr-and-considine&quot;,
-                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/0088ee?text=business+autem&quot;,
-                        &quot;status&quot;: &quot;active&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                    }
-                },
-                {
-                    &quot;id&quot;: 26,
-                    &quot;category_id&quot;: 2,
-                    &quot;brand_id&quot;: 13,
-                    &quot;name&quot;: &quot;T&uacute;i Adidas Classic accusantium&quot;,
-                    &quot;description&quot;: &quot;Ducimus rerum consequatur numquam rerum ut aut et. Quis id atque excepturi et fugit quod. Ullam quae consequatur est adipisci autem qui non. Asperiores vel nemo sunt tenetur aut. Non veritatis placeat molestias dignissimos omnis vel sit nulla. Culpa ipsum quos voluptatibus error enim animi.&quot;,
-                    &quot;price&quot;: &quot;1825668.00&quot;,
-                    &quot;quantity&quot;: 66,
-                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/005522?text=fashion+sint&quot;,
-                    &quot;slug&quot;: &quot;tui-adidas-classic-accusantium-3695&quot;,
-                    &quot;color&quot;: &quot;Đen&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;brand&quot;: {
-                        &quot;id&quot;: 13,
-                        &quot;name&quot;: &quot;Douglas, Cummings and Senger&quot;,
-                        &quot;description&quot;: &quot;Doloremque consequatur nisi recusandae. Deserunt corrupti dolores harum eaque. Impedit eveniet in quia porro quos inventore. Expedita tempore amet natus velit unde labore aut.&quot;,
-                        &quot;slug&quot;: &quot;douglas-cummings-and-senger&quot;,
-                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/001122?text=business+voluptatem&quot;,
-                        &quot;status&quot;: &quot;inactive&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                    }
-                },
-                {
-                    &quot;id&quot;: 53,
+                    &quot;id&quot;: 4,
                     &quot;category_id&quot;: 2,
                     &quot;brand_id&quot;: 3,
-                    &quot;name&quot;: &quot;Balo Nike Sportswear modi&quot;,
-                    &quot;description&quot;: &quot;Repellendus possimus in vel doloribus. Vitae accusamus sint minima libero laborum alias libero. Dignissimos omnis sit aliquam sit. Ipsam corrupti quasi vel est alias nisi omnis.&quot;,
-                    &quot;price&quot;: &quot;1356418.00&quot;,
-                    &quot;quantity&quot;: 81,
-                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/003388?text=fashion+ducimus&quot;,
-                    &quot;slug&quot;: &quot;balo-nike-sportswear-modi-9947&quot;,
-                    &quot;color&quot;: &quot;Xanh&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
+                    &quot;name&quot;: &quot;Balo Samsonite Guardit 2.0&quot;,
+                    &quot;description&quot;: &quot;Balo du lịch cao cấp với ngăn laptop 15.6\&quot;, chống thấm nước. Thiết kế sang trọng, ph&ugrave; hợp cho c&ocirc;ng t&aacute;c.&quot;,
+                    &quot;price&quot;: &quot;3200000.00&quot;,
+                    &quot;quantity&quot;: 20,
+                    &quot;image&quot;: &quot;https://placehold.co/600x400?text=products/balo-samsonite-guardit-20.jpg&quot;,
+                    &quot;slug&quot;: &quot;balo-samsonite-guardit-20&quot;,
+                    &quot;color&quot;: &quot;Đen&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
                     &quot;brand&quot;: {
                         &quot;id&quot;: 3,
                         &quot;name&quot;: &quot;Samsonite&quot;,
                         &quot;description&quot;: &quot;Samsonite l&agrave; thương hiệu h&agrave;ng đầu thế giới về h&agrave;nh l&yacute; v&agrave; balo du lịch cao cấp.&quot;,
                         &quot;slug&quot;: &quot;samsonite&quot;,
-                        &quot;logo&quot;: &quot;brands/samsonite-logo.png&quot;,
+                        &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/samsonite-logo.png&quot;,
                         &quot;status&quot;: &quot;active&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                     }
                 },
                 {
-                    &quot;id&quot;: 55,
-                    &quot;category_id&quot;: 2,
-                    &quot;brand_id&quot;: 16,
-                    &quot;name&quot;: &quot;Balo Leo N&uacute;i The North Face quibusdam&quot;,
-                    &quot;description&quot;: &quot;Voluptas cumque a nisi fugiat praesentium. Quis qui beatae harum rerum dolorum cupiditate in. Nisi beatae et consectetur repellat molestias nesciunt rerum quis. Consequatur qui sed aut molestiae.&quot;,
-                    &quot;price&quot;: &quot;1385735.00&quot;,
-                    &quot;quantity&quot;: 69,
-                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/002288?text=fashion+ad&quot;,
-                    &quot;slug&quot;: &quot;balo-leo-nui-the-north-face-quibusdam-3106&quot;,
-                    &quot;color&quot;: &quot;T&iacute;m&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;brand&quot;: {
-                        &quot;id&quot;: 16,
-                        &quot;name&quot;: &quot;Bahringer PLC&quot;,
-                        &quot;description&quot;: &quot;A eius iusto sunt quibusdam. Commodi qui repudiandae quaerat facere veniam. Commodi culpa molestiae vitae.&quot;,
-                        &quot;slug&quot;: &quot;bahringer-plc&quot;,
-                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00cc00?text=business+et&quot;,
-                        &quot;status&quot;: &quot;active&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                    }
-                },
-                {
-                    &quot;id&quot;: 38,
+                    &quot;id&quot;: 33,
                     &quot;category_id&quot;: 2,
                     &quot;brand_id&quot;: 3,
-                    &quot;name&quot;: &quot;Balo Nike Sportswear fugit&quot;,
-                    &quot;description&quot;: &quot;Sunt tenetur voluptatem eaque sunt et iste odio. Consequatur et nihil alias eveniet. Excepturi nostrum autem culpa dolorem.&quot;,
-                    &quot;price&quot;: &quot;669646.00&quot;,
+                    &quot;name&quot;: &quot;Balo Thể Thao Nike Air sint&quot;,
+                    &quot;description&quot;: &quot;Aut modi quod eos sequi voluptas. Adipisci nihil cumque repudiandae ut enim laboriosam. Nemo sit sed dignissimos.&quot;,
+                    &quot;price&quot;: &quot;317215.00&quot;,
                     &quot;quantity&quot;: 3,
-                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/008866?text=fashion+tempore&quot;,
-                    &quot;slug&quot;: &quot;balo-nike-sportswear-fugit-6267&quot;,
-                    &quot;color&quot;: &quot;Đen&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
+                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00cc88?text=fashion+eligendi&quot;,
+                    &quot;slug&quot;: &quot;balo-the-thao-nike-air-sint-5789&quot;,
+                    &quot;color&quot;: &quot;V&agrave;ng&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
                     &quot;brand&quot;: {
                         &quot;id&quot;: 3,
                         &quot;name&quot;: &quot;Samsonite&quot;,
                         &quot;description&quot;: &quot;Samsonite l&agrave; thương hiệu h&agrave;ng đầu thế giới về h&agrave;nh l&yacute; v&agrave; balo du lịch cao cấp.&quot;,
                         &quot;slug&quot;: &quot;samsonite&quot;,
-                        &quot;logo&quot;: &quot;brands/samsonite-logo.png&quot;,
+                        &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/samsonite-logo.png&quot;,
                         &quot;status&quot;: &quot;active&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                     }
                 },
                 {
-                    &quot;id&quot;: 31,
+                    &quot;id&quot;: 9,
+                    &quot;category_id&quot;: 2,
+                    &quot;brand_id&quot;: 7,
+                    &quot;name&quot;: &quot;Balo Học Sinh JanSport fugiat&quot;,
+                    &quot;description&quot;: &quot;Quo aut veniam iusto molestiae. Aut dolor ipsa delectus unde voluptatibus. Libero officia magnam id eveniet. Est rerum dolores magnam reiciendis quos voluptatibus. Eum soluta facilis aut ratione tempore.&quot;,
+                    &quot;price&quot;: &quot;1547100.00&quot;,
+                    &quot;quantity&quot;: 38,
+                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/006699?text=fashion+repellendus&quot;,
+                    &quot;slug&quot;: &quot;balo-hoc-sinh-jansport-fugiat-9624&quot;,
+                    &quot;color&quot;: &quot;Đỏ&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;brand&quot;: {
+                        &quot;id&quot;: 7,
+                        &quot;name&quot;: &quot;Stiedemann and Sons&quot;,
+                        &quot;description&quot;: &quot;Velit enim et tempore. Nostrum itaque praesentium nisi voluptatum iure sint voluptas est. Et esse architecto id amet amet.&quot;,
+                        &quot;slug&quot;: &quot;stiedemann-and-sons&quot;,
+                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/005566?text=business+eum&quot;,
+                        &quot;status&quot;: &quot;inactive&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+                    }
+                },
+                {
+                    &quot;id&quot;: 27,
                     &quot;category_id&quot;: 2,
                     &quot;brand_id&quot;: 15,
-                    &quot;name&quot;: &quot;Balo Nike Sportswear nostrum&quot;,
-                    &quot;description&quot;: &quot;Quia sit eum voluptatem earum. Dolorum cum sequi deleniti qui corporis voluptatum. Cumque libero animi aut dolore facere quas nihil. At ab consequatur dolorem enim sunt in dolores eveniet. Dolor enim quos culpa reprehenderit. Iure aliquam placeat est.&quot;,
-                    &quot;price&quot;: &quot;1552442.00&quot;,
-                    &quot;quantity&quot;: 22,
-                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0022dd?text=fashion+perferendis&quot;,
-                    &quot;slug&quot;: &quot;balo-nike-sportswear-nostrum-3521&quot;,
+                    &quot;name&quot;: &quot;T&uacute;i X&aacute;ch Nữ Thời Trang quo&quot;,
+                    &quot;description&quot;: &quot;Et voluptatibus dicta corporis sunt. Rem quia perspiciatis dicta optio et. Minus et esse voluptas modi totam reprehenderit eius. Sed magnam repellat est quia velit aut. Ipsam quasi sed et error earum amet voluptate.&quot;,
+                    &quot;price&quot;: &quot;635754.00&quot;,
+                    &quot;quantity&quot;: 72,
+                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0011aa?text=fashion+ratione&quot;,
+                    &quot;slug&quot;: &quot;tui-xach-nu-thoi-trang-quo-4956&quot;,
                     &quot;color&quot;: &quot;N&acirc;u&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
                     &quot;brand&quot;: {
                         &quot;id&quot;: 15,
-                        &quot;name&quot;: &quot;Kuvalis, Waters and Bogan&quot;,
-                        &quot;description&quot;: &quot;Optio odit est qui laborum est earum iure accusantium. Fugit consequatur eius labore. Quasi quis laudantium sit optio deserunt cupiditate. Repellendus occaecati blanditiis et officiis doloribus quisquam et.&quot;,
-                        &quot;slug&quot;: &quot;kuvalis-waters-and-bogan&quot;,
-                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/005500?text=business+sed&quot;,
+                        &quot;name&quot;: &quot;Gerlach, Littel and Kiehn&quot;,
+                        &quot;description&quot;: &quot;Consequatur error et illo est dicta sed iste. Iste ea totam perferendis nulla consequatur. Dolore occaecati quas nemo sequi non dolorem. Nobis error deserunt veritatis veniam inventore rerum maiores.&quot;,
+                        &quot;slug&quot;: &quot;gerlach-littel-and-kiehn&quot;,
+                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/004400?text=business+deleniti&quot;,
                         &quot;status&quot;: &quot;inactive&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                     }
                 },
                 {
-                    &quot;id&quot;: 17,
+                    &quot;id&quot;: 52,
                     &quot;category_id&quot;: 2,
-                    &quot;brand_id&quot;: 6,
-                    &quot;name&quot;: &quot;Balo Du Lịch Samsonite reprehenderit&quot;,
-                    &quot;description&quot;: &quot;Quisquam voluptatibus corrupti quis perspiciatis autem. Occaecati et expedita facilis doloremque sed sapiente autem. Eligendi nesciunt eos amet autem perspiciatis deleniti illum. Rerum atque eligendi non et odio nihil. Animi et cum id et.&quot;,
-                    &quot;price&quot;: &quot;1230124.00&quot;,
-                    &quot;quantity&quot;: 24,
-                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00ff99?text=fashion+laborum&quot;,
-                    &quot;slug&quot;: &quot;balo-du-lich-samsonite-reprehenderit-8804&quot;,
-                    &quot;color&quot;: &quot;Đỏ&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
+                    &quot;brand_id&quot;: 7,
+                    &quot;name&quot;: &quot;Balo Thể Thao Nike Air illo&quot;,
+                    &quot;description&quot;: &quot;Sunt velit culpa explicabo et quisquam et asperiores dolor. Consectetur debitis ipsam a dolor ipsa est. Voluptatibus minima iste sed exercitationem consequatur. Dolorem sapiente accusamus aspernatur ullam. Accusantium praesentium totam sed enim minus possimus qui.&quot;,
+                    &quot;price&quot;: &quot;436341.00&quot;,
+                    &quot;quantity&quot;: 80,
+                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00cc66?text=fashion+vitae&quot;,
+                    &quot;slug&quot;: &quot;balo-the-thao-nike-air-illo-6767&quot;,
+                    &quot;color&quot;: &quot;Hồng&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
                     &quot;brand&quot;: {
-                        &quot;id&quot;: 6,
-                        &quot;name&quot;: &quot;Herschel&quot;,
-                        &quot;description&quot;: &quot;Herschel Supply Co. nổi tiếng với thiết kế vintage v&agrave; hiện đại, ph&ugrave; hợp cho mọi lứa tuổi.&quot;,
-                        &quot;slug&quot;: &quot;herschel&quot;,
-                        &quot;logo&quot;: &quot;brands/herschel-logo.png&quot;,
+                        &quot;id&quot;: 7,
+                        &quot;name&quot;: &quot;Stiedemann and Sons&quot;,
+                        &quot;description&quot;: &quot;Velit enim et tempore. Nostrum itaque praesentium nisi voluptatum iure sint voluptas est. Et esse architecto id amet amet.&quot;,
+                        &quot;slug&quot;: &quot;stiedemann-and-sons&quot;,
+                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/005566?text=business+eum&quot;,
+                        &quot;status&quot;: &quot;inactive&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+                    }
+                },
+                {
+                    &quot;id&quot;: 12,
+                    &quot;category_id&quot;: 2,
+                    &quot;brand_id&quot;: 12,
+                    &quot;name&quot;: &quot;Balo Gaming RGB consectetur&quot;,
+                    &quot;description&quot;: &quot;Nisi aut ad dolores dolores qui ut quasi. Veniam velit repellendus animi et ipsa quo. Quia voluptatem velit est optio sit natus hic quibusdam.&quot;,
+                    &quot;price&quot;: &quot;1432445.00&quot;,
+                    &quot;quantity&quot;: 41,
+                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0055dd?text=fashion+omnis&quot;,
+                    &quot;slug&quot;: &quot;balo-gaming-rgb-consectetur-9591&quot;,
+                    &quot;color&quot;: &quot;N&acirc;u&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;brand&quot;: {
+                        &quot;id&quot;: 12,
+                        &quot;name&quot;: &quot;Friesen-Gorczany&quot;,
+                        &quot;description&quot;: &quot;Illum non at commodi ipsa deleniti quo. Amet officia in voluptas qui laboriosam magnam odit. Voluptates quibusdam et enim ducimus maxime omnis. Ut eveniet quo explicabo id dolores est rerum.&quot;,
+                        &quot;slug&quot;: &quot;friesen-gorczany&quot;,
+                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00cc44?text=business+recusandae&quot;,
                         &quot;status&quot;: &quot;active&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+                    }
+                },
+                {
+                    &quot;id&quot;: 14,
+                    &quot;category_id&quot;: 2,
+                    &quot;brand_id&quot;: 1,
+                    &quot;name&quot;: &quot;Balo Du Lịch Samsonite rerum&quot;,
+                    &quot;description&quot;: &quot;Unde qui unde deserunt non nostrum quia. Maxime rerum numquam repellat dolor doloremque odio et. Aliquid est qui sint aperiam. Aliquid aut perspiciatis non earum iste in asperiores sit. Sit quasi laboriosam ipsa excepturi sit nemo at.&quot;,
+                    &quot;price&quot;: &quot;206616.00&quot;,
+                    &quot;quantity&quot;: 53,
+                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/001177?text=fashion+voluptate&quot;,
+                    &quot;slug&quot;: &quot;balo-du-lich-samsonite-rerum-5582&quot;,
+                    &quot;color&quot;: &quot;Đỏ&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;brand&quot;: {
+                        &quot;id&quot;: 1,
+                        &quot;name&quot;: &quot;Nike&quot;,
+                        &quot;description&quot;: &quot;Nike l&agrave; thương hiệu thể thao h&agrave;ng đầu thế giới, nổi tiếng với c&aacute;c sản phẩm balo v&agrave; t&uacute;i thể thao chất lượng cao.&quot;,
+                        &quot;slug&quot;: &quot;nike&quot;,
+                        &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/nike-logo.png&quot;,
+                        &quot;status&quot;: &quot;active&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                     }
                 }
             ]
@@ -3427,130 +3390,10 @@ access-control-allow-origin: *
             &quot;name&quot;: &quot;Balo Học Sinh&quot;,
             &quot;description&quot;: &quot;C&aacute;c loại balo d&agrave;nh cho học sinh, sinh vi&ecirc;n với thiết kế trẻ trung v&agrave; tiện dụng&quot;,
             &quot;slug&quot;: &quot;balo-hoc-sinh&quot;,
-            &quot;image&quot;: &quot;categories/balo-hoc-sinh.jpg&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
+            &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/balo-hoc-sinh.jpg&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
             &quot;products&quot;: [
-                {
-                    &quot;id&quot;: 33,
-                    &quot;category_id&quot;: 1,
-                    &quot;brand_id&quot;: 7,
-                    &quot;name&quot;: &quot;Balo Học Sinh JanSport aliquam&quot;,
-                    &quot;description&quot;: &quot;Eos repudiandae amet natus eius fuga molestiae. Perferendis vel vel officiis aliquam cupiditate et consequatur. Et voluptate quidem iste voluptates tenetur. Provident magni dicta alias voluptate enim sequi cumque. Laboriosam accusamus magnam mollitia quam corporis. Est est soluta sint laboriosam officia.&quot;,
-                    &quot;price&quot;: &quot;1939330.00&quot;,
-                    &quot;quantity&quot;: 45,
-                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/007711?text=fashion+illum&quot;,
-                    &quot;slug&quot;: &quot;balo-hoc-sinh-jansport-aliquam-7541&quot;,
-                    &quot;color&quot;: &quot;Đen&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;brand&quot;: {
-                        &quot;id&quot;: 7,
-                        &quot;name&quot;: &quot;D&#039;Amore Ltd&quot;,
-                        &quot;description&quot;: &quot;Ab fugiat facere nihil et. Ipsam ex distinctio quasi consequuntur quia. Et aliquam eligendi cumque cum quas sequi minima.&quot;,
-                        &quot;slug&quot;: &quot;damore-ltd&quot;,
-                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00aa33?text=business+porro&quot;,
-                        &quot;status&quot;: &quot;inactive&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                    }
-                },
-                {
-                    &quot;id&quot;: 32,
-                    &quot;category_id&quot;: 1,
-                    &quot;brand_id&quot;: 7,
-                    &quot;name&quot;: &quot;Balo Leo N&uacute;i The North Face omnis&quot;,
-                    &quot;description&quot;: &quot;Voluptatem labore temporibus libero harum sapiente voluptatum. Quis tenetur et voluptatem fugit deleniti aliquam commodi. Consequatur iste quam quae praesentium quia.&quot;,
-                    &quot;price&quot;: &quot;1811742.00&quot;,
-                    &quot;quantity&quot;: 99,
-                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/002244?text=fashion+pariatur&quot;,
-                    &quot;slug&quot;: &quot;balo-leo-nui-the-north-face-omnis-5127&quot;,
-                    &quot;color&quot;: &quot;Hồng&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;brand&quot;: {
-                        &quot;id&quot;: 7,
-                        &quot;name&quot;: &quot;D&#039;Amore Ltd&quot;,
-                        &quot;description&quot;: &quot;Ab fugiat facere nihil et. Ipsam ex distinctio quasi consequuntur quia. Et aliquam eligendi cumque cum quas sequi minima.&quot;,
-                        &quot;slug&quot;: &quot;damore-ltd&quot;,
-                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00aa33?text=business+porro&quot;,
-                        &quot;status&quot;: &quot;inactive&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                    }
-                },
-                {
-                    &quot;id&quot;: 34,
-                    &quot;category_id&quot;: 1,
-                    &quot;brand_id&quot;: 9,
-                    &quot;name&quot;: &quot;T&uacute;i Adidas Classic sunt&quot;,
-                    &quot;description&quot;: &quot;Ut non expedita quam ab. Possimus non quia quia non repudiandae. Nemo est incidunt numquam quidem illum. Ut ab animi illo omnis fuga.&quot;,
-                    &quot;price&quot;: &quot;785711.00&quot;,
-                    &quot;quantity&quot;: 80,
-                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00aaaa?text=fashion+et&quot;,
-                    &quot;slug&quot;: &quot;tui-adidas-classic-sunt-6359&quot;,
-                    &quot;color&quot;: &quot;X&aacute;m&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;brand&quot;: {
-                        &quot;id&quot;: 9,
-                        &quot;name&quot;: &quot;Schmidt Ltd&quot;,
-                        &quot;description&quot;: &quot;Labore corrupti molestiae occaecati voluptatem atque numquam ipsam ipsum. Suscipit sint ullam et ut magnam et. Ipsam enim sunt odio minima voluptatem.&quot;,
-                        &quot;slug&quot;: &quot;schmidt-ltd&quot;,
-                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/0055ee?text=business+tempora&quot;,
-                        &quot;status&quot;: &quot;inactive&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                    }
-                },
-                {
-                    &quot;id&quot;: 29,
-                    &quot;category_id&quot;: 1,
-                    &quot;brand_id&quot;: 1,
-                    &quot;name&quot;: &quot;Balo Gaming RGB tempore&quot;,
-                    &quot;description&quot;: &quot;Vel at et aliquid iure. Consectetur maxime accusantium debitis nostrum veritatis. Autem praesentium voluptatem repellendus unde sit doloribus excepturi. Velit quia dicta beatae et non sint delectus molestiae.&quot;,
-                    &quot;price&quot;: &quot;1863570.00&quot;,
-                    &quot;quantity&quot;: 91,
-                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/006622?text=fashion+vel&quot;,
-                    &quot;slug&quot;: &quot;balo-gaming-rgb-tempore-1817&quot;,
-                    &quot;color&quot;: &quot;Đỏ&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;brand&quot;: {
-                        &quot;id&quot;: 1,
-                        &quot;name&quot;: &quot;Nike&quot;,
-                        &quot;description&quot;: &quot;Nike l&agrave; thương hiệu thể thao h&agrave;ng đầu thế giới, nổi tiếng với c&aacute;c sản phẩm balo v&agrave; t&uacute;i thể thao chất lượng cao.&quot;,
-                        &quot;slug&quot;: &quot;nike&quot;,
-                        &quot;logo&quot;: &quot;brands/nike-logo.png&quot;,
-                        &quot;status&quot;: &quot;active&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                    }
-                },
-                {
-                    &quot;id&quot;: 50,
-                    &quot;category_id&quot;: 1,
-                    &quot;brand_id&quot;: 16,
-                    &quot;name&quot;: &quot;Balo Học Sinh JanSport provident&quot;,
-                    &quot;description&quot;: &quot;Dolorem magnam natus explicabo enim rerum ducimus officia. Ab tempora et dolor officia. Et incidunt voluptatem officia dignissimos. Aperiam consequatur ex non recusandae reprehenderit quasi. Officiis ab est commodi.&quot;,
-                    &quot;price&quot;: &quot;1195721.00&quot;,
-                    &quot;quantity&quot;: 59,
-                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/001177?text=fashion+eius&quot;,
-                    &quot;slug&quot;: &quot;balo-hoc-sinh-jansport-provident-8218&quot;,
-                    &quot;color&quot;: &quot;Cam&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;brand&quot;: {
-                        &quot;id&quot;: 16,
-                        &quot;name&quot;: &quot;Bahringer PLC&quot;,
-                        &quot;description&quot;: &quot;A eius iusto sunt quibusdam. Commodi qui repudiandae quaerat facere veniam. Commodi culpa molestiae vitae.&quot;,
-                        &quot;slug&quot;: &quot;bahringer-plc&quot;,
-                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00cc00?text=business+et&quot;,
-                        &quot;status&quot;: &quot;active&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                    }
-                },
                 {
                     &quot;id&quot;: 1,
                     &quot;category_id&quot;: 1,
@@ -3559,20 +3402,20 @@ access-control-allow-origin: *
                     &quot;description&quot;: &quot;Balo học sinh kinh điển với thiết kế đơn giản, chất liệu bền bỉ. Dung t&iacute;ch 25L ph&ugrave; hợp cho việc đi học h&agrave;ng ng&agrave;y.&quot;,
                     &quot;price&quot;: &quot;899000.00&quot;,
                     &quot;quantity&quot;: 50,
-                    &quot;image&quot;: &quot;products/balo-jansport-superbreak-classic.jpg&quot;,
+                    &quot;image&quot;: &quot;https://placehold.co/600x400?text=products/balo-jansport-superbreak-classic.jpg&quot;,
                     &quot;slug&quot;: &quot;balo-jansport-superbreak-classic&quot;,
                     &quot;color&quot;: &quot;Đen&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
                     &quot;brand&quot;: {
                         &quot;id&quot;: 4,
                         &quot;name&quot;: &quot;JanSport&quot;,
                         &quot;description&quot;: &quot;JanSport chuy&ecirc;n sản xuất balo học sinh v&agrave; du lịch với thiết kế trẻ trung, năng động.&quot;,
                         &quot;slug&quot;: &quot;jansport&quot;,
-                        &quot;logo&quot;: &quot;brands/jansport-logo.png&quot;,
+                        &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/jansport-logo.png&quot;,
                         &quot;status&quot;: &quot;active&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                     }
                 },
                 {
@@ -3583,44 +3426,164 @@ access-control-allow-origin: *
                     &quot;description&quot;: &quot;Balo thể thao năng động với logo Nike nổi bật. Thiết kế hiện đại, ph&ugrave; hợp cho học sinh cấp 3.&quot;,
                     &quot;price&quot;: &quot;1200000.00&quot;,
                     &quot;quantity&quot;: 30,
-                    &quot;image&quot;: &quot;products/balo-nike-heritage-20.jpg&quot;,
+                    &quot;image&quot;: &quot;https://placehold.co/600x400?text=products/balo-nike-heritage-20.jpg&quot;,
                     &quot;slug&quot;: &quot;balo-nike-heritage-20&quot;,
                     &quot;color&quot;: &quot;Xanh Navy&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
                     &quot;brand&quot;: {
                         &quot;id&quot;: 1,
                         &quot;name&quot;: &quot;Nike&quot;,
                         &quot;description&quot;: &quot;Nike l&agrave; thương hiệu thể thao h&agrave;ng đầu thế giới, nổi tiếng với c&aacute;c sản phẩm balo v&agrave; t&uacute;i thể thao chất lượng cao.&quot;,
                         &quot;slug&quot;: &quot;nike&quot;,
-                        &quot;logo&quot;: &quot;brands/nike-logo.png&quot;,
+                        &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/nike-logo.png&quot;,
                         &quot;status&quot;: &quot;active&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                     }
                 },
                 {
-                    &quot;id&quot;: 13,
+                    &quot;id&quot;: 6,
+                    &quot;category_id&quot;: 1,
+                    &quot;brand_id&quot;: 13,
+                    &quot;name&quot;: &quot;T&uacute;i X&aacute;ch Nữ Thời Trang molestiae&quot;,
+                    &quot;description&quot;: &quot;Recusandae aut molestias non numquam at. Nisi perspiciatis maxime et magni. Porro ea et molestias ut accusamus qui. Fugit corrupti sunt distinctio recusandae iusto.&quot;,
+                    &quot;price&quot;: &quot;209529.00&quot;,
+                    &quot;quantity&quot;: 20,
+                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/008822?text=fashion+labore&quot;,
+                    &quot;slug&quot;: &quot;tui-xach-nu-thoi-trang-molestiae-2608&quot;,
+                    &quot;color&quot;: &quot;X&aacute;m&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;brand&quot;: {
+                        &quot;id&quot;: 13,
+                        &quot;name&quot;: &quot;Hintz-Pfannerstill&quot;,
+                        &quot;description&quot;: &quot;Voluptatum a delectus voluptatem inventore qui eveniet. In sapiente quo nemo incidunt enim. Maiores et sit id ipsum reprehenderit modi iusto. Et fugiat excepturi tenetur molestiae et similique et beatae.&quot;,
+                        &quot;slug&quot;: &quot;hintz-pfannerstill&quot;,
+                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00ff22?text=business+sit&quot;,
+                        &quot;status&quot;: &quot;active&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+                    }
+                },
+                {
+                    &quot;id&quot;: 28,
+                    &quot;category_id&quot;: 1,
+                    &quot;brand_id&quot;: 16,
+                    &quot;name&quot;: &quot;Balo Gaming RGB ullam&quot;,
+                    &quot;description&quot;: &quot;Dolorum at id maiores voluptas. Est quia reprehenderit officiis perspiciatis libero explicabo. Neque earum enim dignissimos exercitationem in reiciendis sit. Earum laborum in reiciendis quis. Eos est asperiores aut modi ullam deserunt sed qui. Et repellendus ea sit aut eos quam.&quot;,
+                    &quot;price&quot;: &quot;211861.00&quot;,
+                    &quot;quantity&quot;: 98,
+                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/006644?text=fashion+perspiciatis&quot;,
+                    &quot;slug&quot;: &quot;balo-gaming-rgb-ullam-4343&quot;,
+                    &quot;color&quot;: &quot;Xanh&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;brand&quot;: {
+                        &quot;id&quot;: 16,
+                        &quot;name&quot;: &quot;Heathcote-DuBuque&quot;,
+                        &quot;description&quot;: &quot;Dolor occaecati ullam quidem quas. Qui nesciunt reiciendis temporibus iure ad. Temporibus et qui quo eligendi repellendus veritatis incidunt quae. Perspiciatis maxime ipsum non.&quot;,
+                        &quot;slug&quot;: &quot;heathcote-dubuque&quot;,
+                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00bbee?text=business+perspiciatis&quot;,
+                        &quot;status&quot;: &quot;inactive&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+                    }
+                },
+                {
+                    &quot;id&quot;: 32,
+                    &quot;category_id&quot;: 1,
+                    &quot;brand_id&quot;: 13,
+                    &quot;name&quot;: &quot;T&uacute;i Adidas Classic non&quot;,
+                    &quot;description&quot;: &quot;Rerum molestias in et deserunt incidunt nostrum odit. Sequi sed ut id maxime. Quo quidem explicabo esse suscipit ut sequi. Ut aut eos ut sit impedit.&quot;,
+                    &quot;price&quot;: &quot;1957294.00&quot;,
+                    &quot;quantity&quot;: 56,
+                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/005544?text=fashion+voluptatem&quot;,
+                    &quot;slug&quot;: &quot;tui-adidas-classic-non-9530&quot;,
+                    &quot;color&quot;: &quot;V&agrave;ng&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;brand&quot;: {
+                        &quot;id&quot;: 13,
+                        &quot;name&quot;: &quot;Hintz-Pfannerstill&quot;,
+                        &quot;description&quot;: &quot;Voluptatum a delectus voluptatem inventore qui eveniet. In sapiente quo nemo incidunt enim. Maiores et sit id ipsum reprehenderit modi iusto. Et fugiat excepturi tenetur molestiae et similique et beatae.&quot;,
+                        &quot;slug&quot;: &quot;hintz-pfannerstill&quot;,
+                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00ff22?text=business+sit&quot;,
+                        &quot;status&quot;: &quot;active&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+                    }
+                },
+                {
+                    &quot;id&quot;: 45,
+                    &quot;category_id&quot;: 1,
+                    &quot;brand_id&quot;: 6,
+                    &quot;name&quot;: &quot;Balo Du Lịch Samsonite et&quot;,
+                    &quot;description&quot;: &quot;Mollitia nesciunt modi nihil. Nemo voluptate voluptatem aspernatur. Dolore rerum dolorum dolore consectetur totam culpa placeat reiciendis. Delectus voluptas odit aut inventore repellat incidunt. Nostrum et dolore eligendi est tempore in.&quot;,
+                    &quot;price&quot;: &quot;761445.00&quot;,
+                    &quot;quantity&quot;: 56,
+                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/007755?text=fashion+nostrum&quot;,
+                    &quot;slug&quot;: &quot;balo-du-lich-samsonite-et-4230&quot;,
+                    &quot;color&quot;: &quot;N&acirc;u&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;brand&quot;: {
+                        &quot;id&quot;: 6,
+                        &quot;name&quot;: &quot;Herschel&quot;,
+                        &quot;description&quot;: &quot;Herschel Supply Co. nổi tiếng với thiết kế vintage v&agrave; hiện đại, ph&ugrave; hợp cho mọi lứa tuổi.&quot;,
+                        &quot;slug&quot;: &quot;herschel&quot;,
+                        &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/herschel-logo.png&quot;,
+                        &quot;status&quot;: &quot;active&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+                    }
+                },
+                {
+                    &quot;id&quot;: 16,
                     &quot;category_id&quot;: 1,
                     &quot;brand_id&quot;: 3,
-                    &quot;name&quot;: &quot;Balo Nike Sportswear ut&quot;,
-                    &quot;description&quot;: &quot;Impedit ut totam consequatur dolorem voluptatem ipsam. Qui deleniti pariatur a accusantium ea dolor ut. Eos sed delectus laudantium recusandae incidunt beatae omnis.&quot;,
-                    &quot;price&quot;: &quot;1328286.00&quot;,
-                    &quot;quantity&quot;: 25,
-                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0077aa?text=fashion+quia&quot;,
-                    &quot;slug&quot;: &quot;balo-nike-sportswear-ut-6782&quot;,
-                    &quot;color&quot;: &quot;Đen&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
+                    &quot;name&quot;: &quot;T&uacute;i Laptop Herschel porro&quot;,
+                    &quot;description&quot;: &quot;Quis maiores at voluptatem hic. Eum nam quas iusto quos voluptatem eum. Pariatur omnis facere nihil et distinctio asperiores aspernatur. Ea ut dolore ipsam nihil eos voluptas. Veritatis rerum dolor occaecati sunt debitis corrupti quibusdam. Cum voluptatem harum autem.&quot;,
+                    &quot;price&quot;: &quot;1937921.00&quot;,
+                    &quot;quantity&quot;: 43,
+                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00ff66?text=fashion+et&quot;,
+                    &quot;slug&quot;: &quot;tui-laptop-herschel-porro-9666&quot;,
+                    &quot;color&quot;: &quot;Xanh&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
                     &quot;brand&quot;: {
                         &quot;id&quot;: 3,
                         &quot;name&quot;: &quot;Samsonite&quot;,
                         &quot;description&quot;: &quot;Samsonite l&agrave; thương hiệu h&agrave;ng đầu thế giới về h&agrave;nh l&yacute; v&agrave; balo du lịch cao cấp.&quot;,
                         &quot;slug&quot;: &quot;samsonite&quot;,
-                        &quot;logo&quot;: &quot;brands/samsonite-logo.png&quot;,
+                        &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/samsonite-logo.png&quot;,
                         &quot;status&quot;: &quot;active&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+                    }
+                },
+                {
+                    &quot;id&quot;: 17,
+                    &quot;category_id&quot;: 1,
+                    &quot;brand_id&quot;: 11,
+                    &quot;name&quot;: &quot;Balo Học Sinh JanSport aut&quot;,
+                    &quot;description&quot;: &quot;Earum voluptatem delectus quia quia est vel. Commodi ea natus corporis. Nihil assumenda aperiam aliquam facere ducimus blanditiis nobis qui. Aspernatur recusandae porro harum in omnis adipisci. Et nesciunt nemo saepe vel odio in ut. Incidunt doloribus accusamus voluptatem porro molestiae a aliquam.&quot;,
+                    &quot;price&quot;: &quot;245375.00&quot;,
+                    &quot;quantity&quot;: 28,
+                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/001177?text=fashion+cum&quot;,
+                    &quot;slug&quot;: &quot;balo-hoc-sinh-jansport-aut-9610&quot;,
+                    &quot;color&quot;: &quot;N&acirc;u&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;brand&quot;: {
+                        &quot;id&quot;: 11,
+                        &quot;name&quot;: &quot;Collins, Ward and Marvin&quot;,
+                        &quot;description&quot;: &quot;Placeat ut eligendi similique. Placeat blanditiis qui id magni. Et doloremque deleniti doloremque nobis.&quot;,
+                        &quot;slug&quot;: &quot;collins-ward-and-marvin&quot;,
+                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00eecc?text=business+odit&quot;,
+                        &quot;status&quot;: &quot;active&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                     }
                 }
             ]
@@ -3630,200 +3593,152 @@ access-control-allow-origin: *
             &quot;name&quot;: &quot;Balo Laptop&quot;,
             &quot;description&quot;: &quot;Balo chuy&ecirc;n dụng để đựng laptop v&agrave; c&aacute;c thiết bị c&ocirc;ng nghệ với lớp đệm bảo vệ&quot;,
             &quot;slug&quot;: &quot;balo-laptop&quot;,
-            &quot;image&quot;: &quot;categories/balo-laptop.jpg&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
+            &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/balo-laptop.jpg&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
             &quot;products&quot;: [
                 {
-                    &quot;id&quot;: 27,
+                    &quot;id&quot;: 5,
                     &quot;category_id&quot;: 3,
-                    &quot;brand_id&quot;: 10,
-                    &quot;name&quot;: &quot;Balo Học Sinh JanSport natus&quot;,
-                    &quot;description&quot;: &quot;Modi facilis omnis nam sapiente rerum. Et nesciunt rerum vero veniam corrupti sunt aut. Necessitatibus eum eos iste tempore odit dolor. Temporibus rerum at temporibus consequatur aut minima error. Sed doloribus vitae laudantium sunt. Incidunt odit ut qui voluptatem porro.&quot;,
-                    &quot;price&quot;: &quot;1296300.00&quot;,
-                    &quot;quantity&quot;: 47,
-                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0055ee?text=fashion+pariatur&quot;,
-                    &quot;slug&quot;: &quot;balo-hoc-sinh-jansport-natus-4146&quot;,
-                    &quot;color&quot;: &quot;Đỏ&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
+                    &quot;brand_id&quot;: 6,
+                    &quot;name&quot;: &quot;Balo Laptop Herschel Pop Quiz&quot;,
+                    &quot;description&quot;: &quot;Balo laptop thời trang với thiết kế vintage. Ngăn laptop 15\&quot; được đệm bảo vệ tối ưu.&quot;,
+                    &quot;price&quot;: &quot;1800000.00&quot;,
+                    &quot;quantity&quot;: 35,
+                    &quot;image&quot;: &quot;https://placehold.co/600x400?text=products/balo-laptop-herschel-pop-quiz.jpg&quot;,
+                    &quot;slug&quot;: &quot;balo-laptop-herschel-pop-quiz&quot;,
+                    &quot;color&quot;: &quot;N&acirc;u&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
                     &quot;brand&quot;: {
-                        &quot;id&quot;: 10,
-                        &quot;name&quot;: &quot;Bechtelar Ltd&quot;,
-                        &quot;description&quot;: &quot;Aut repudiandae dignissimos ut omnis. Sunt sint repellendus neque corporis eum velit ipsa.&quot;,
-                        &quot;slug&quot;: &quot;bechtelar-ltd&quot;,
-                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/009977?text=business+labore&quot;,
+                        &quot;id&quot;: 6,
+                        &quot;name&quot;: &quot;Herschel&quot;,
+                        &quot;description&quot;: &quot;Herschel Supply Co. nổi tiếng với thiết kế vintage v&agrave; hiện đại, ph&ugrave; hợp cho mọi lứa tuổi.&quot;,
+                        &quot;slug&quot;: &quot;herschel&quot;,
+                        &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/herschel-logo.png&quot;,
+                        &quot;status&quot;: &quot;active&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+                    }
+                },
+                {
+                    &quot;id&quot;: 37,
+                    &quot;category_id&quot;: 3,
+                    &quot;brand_id&quot;: 5,
+                    &quot;name&quot;: &quot;T&uacute;i Adidas Classic mollitia&quot;,
+                    &quot;description&quot;: &quot;Dolorem odit iste provident commodi tenetur expedita. Tempora tempora totam et voluptatem aperiam. Est consequatur maiores rem iste velit. Non ea non reprehenderit et.&quot;,
+                    &quot;price&quot;: &quot;1247961.00&quot;,
+                    &quot;quantity&quot;: 17,
+                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/003344?text=fashion+sit&quot;,
+                    &quot;slug&quot;: &quot;tui-adidas-classic-mollitia-3174&quot;,
+                    &quot;color&quot;: &quot;N&acirc;u&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;brand&quot;: {
+                        &quot;id&quot;: 5,
+                        &quot;name&quot;: &quot;The North Face&quot;,
+                        &quot;description&quot;: &quot;The North Face l&agrave; thương hiệu outdoor nổi tiếng với c&aacute;c sản phẩm balo trekking v&agrave; leo n&uacute;i.&quot;,
+                        &quot;slug&quot;: &quot;the-north-face&quot;,
+                        &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/tnf-logo.png&quot;,
+                        &quot;status&quot;: &quot;active&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+                    }
+                },
+                {
+                    &quot;id&quot;: 46,
+                    &quot;category_id&quot;: 3,
+                    &quot;brand_id&quot;: 15,
+                    &quot;name&quot;: &quot;Balo Mini Cute ullam&quot;,
+                    &quot;description&quot;: &quot;Porro dolores distinctio porro. Iusto sint maxime autem est harum assumenda quia. Distinctio necessitatibus aut pariatur quo. Facilis molestias corrupti eum beatae animi.&quot;,
+                    &quot;price&quot;: &quot;1512581.00&quot;,
+                    &quot;quantity&quot;: 63,
+                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/005566?text=fashion+molestiae&quot;,
+                    &quot;slug&quot;: &quot;balo-mini-cute-ullam-8412&quot;,
+                    &quot;color&quot;: &quot;X&aacute;m&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;brand&quot;: {
+                        &quot;id&quot;: 15,
+                        &quot;name&quot;: &quot;Gerlach, Littel and Kiehn&quot;,
+                        &quot;description&quot;: &quot;Consequatur error et illo est dicta sed iste. Iste ea totam perferendis nulla consequatur. Dolore occaecati quas nemo sequi non dolorem. Nobis error deserunt veritatis veniam inventore rerum maiores.&quot;,
+                        &quot;slug&quot;: &quot;gerlach-littel-and-kiehn&quot;,
+                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/004400?text=business+deleniti&quot;,
                         &quot;status&quot;: &quot;inactive&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                     }
                 },
                 {
-                    &quot;id&quot;: 40,
+                    &quot;id&quot;: 25,
                     &quot;category_id&quot;: 3,
-                    &quot;brand_id&quot;: 1,
-                    &quot;name&quot;: &quot;Balo Leo N&uacute;i The North Face quaerat&quot;,
-                    &quot;description&quot;: &quot;Quis praesentium est ad quis. Voluptas itaque ducimus sint nihil in. Similique sint velit reprehenderit delectus ipsum odit est ullam. Dolores nihil doloribus et sit aliquam repudiandae quis tenetur.&quot;,
-                    &quot;price&quot;: &quot;995359.00&quot;,
-                    &quot;quantity&quot;: 92,
-                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00aa33?text=fashion+aut&quot;,
-                    &quot;slug&quot;: &quot;balo-leo-nui-the-north-face-quaerat-3731&quot;,
-                    &quot;color&quot;: &quot;V&agrave;ng&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
+                    &quot;brand_id&quot;: 15,
+                    &quot;name&quot;: &quot;Balo Leo N&uacute;i The North Face cumque&quot;,
+                    &quot;description&quot;: &quot;Velit quaerat et consequatur consequatur consequatur doloremque saepe qui. Odio ut eum omnis dolorem. Earum aliquam nemo rerum qui laborum.&quot;,
+                    &quot;price&quot;: &quot;380490.00&quot;,
+                    &quot;quantity&quot;: 48,
+                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0066cc?text=fashion+ut&quot;,
+                    &quot;slug&quot;: &quot;balo-leo-nui-the-north-face-cumque-4589&quot;,
+                    &quot;color&quot;: &quot;Đỏ&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
                     &quot;brand&quot;: {
-                        &quot;id&quot;: 1,
-                        &quot;name&quot;: &quot;Nike&quot;,
-                        &quot;description&quot;: &quot;Nike l&agrave; thương hiệu thể thao h&agrave;ng đầu thế giới, nổi tiếng với c&aacute;c sản phẩm balo v&agrave; t&uacute;i thể thao chất lượng cao.&quot;,
-                        &quot;slug&quot;: &quot;nike&quot;,
-                        &quot;logo&quot;: &quot;brands/nike-logo.png&quot;,
-                        &quot;status&quot;: &quot;active&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                        &quot;id&quot;: 15,
+                        &quot;name&quot;: &quot;Gerlach, Littel and Kiehn&quot;,
+                        &quot;description&quot;: &quot;Consequatur error et illo est dicta sed iste. Iste ea totam perferendis nulla consequatur. Dolore occaecati quas nemo sequi non dolorem. Nobis error deserunt veritatis veniam inventore rerum maiores.&quot;,
+                        &quot;slug&quot;: &quot;gerlach-littel-and-kiehn&quot;,
+                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/004400?text=business+deleniti&quot;,
+                        &quot;status&quot;: &quot;inactive&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                     }
                 },
                 {
-                    &quot;id&quot;: 41,
+                    &quot;id&quot;: 26,
                     &quot;category_id&quot;: 3,
-                    &quot;brand_id&quot;: 4,
-                    &quot;name&quot;: &quot;Balo Thể Thao Nike Air et&quot;,
-                    &quot;description&quot;: &quot;Eos expedita voluptatibus est asperiores veritatis. Quas illum fuga sunt non officiis. Qui cum corporis soluta harum. Fugit et aut fugiat repellat. In maiores et natus voluptatem in architecto qui.&quot;,
-                    &quot;price&quot;: &quot;1447336.00&quot;,
-                    &quot;quantity&quot;: 81,
-                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0077cc?text=fashion+magnam&quot;,
-                    &quot;slug&quot;: &quot;balo-the-thao-nike-air-et-1858&quot;,
-                    &quot;color&quot;: &quot;Cam&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
+                    &quot;brand_id&quot;: 2,
+                    &quot;name&quot;: &quot;T&uacute;i Adidas Classic fugit&quot;,
+                    &quot;description&quot;: &quot;Voluptas rerum qui magnam iusto molestias quaerat aut error. Dolorum incidunt et aut tempora voluptatum et. Ut veniam laboriosam sequi. Ipsa et est debitis saepe et doloremque. Quod ut perferendis ullam quae incidunt nihil. Vero fugiat omnis pariatur praesentium eos.&quot;,
+                    &quot;price&quot;: &quot;1989553.00&quot;,
+                    &quot;quantity&quot;: 63,
+                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/005577?text=fashion+omnis&quot;,
+                    &quot;slug&quot;: &quot;tui-adidas-classic-fugit-6218&quot;,
+                    &quot;color&quot;: &quot;Đỏ&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
                     &quot;brand&quot;: {
-                        &quot;id&quot;: 4,
-                        &quot;name&quot;: &quot;JanSport&quot;,
-                        &quot;description&quot;: &quot;JanSport chuy&ecirc;n sản xuất balo học sinh v&agrave; du lịch với thiết kế trẻ trung, năng động.&quot;,
-                        &quot;slug&quot;: &quot;jansport&quot;,
-                        &quot;logo&quot;: &quot;brands/jansport-logo.png&quot;,
+                        &quot;id&quot;: 2,
+                        &quot;name&quot;: &quot;Adidas&quot;,
+                        &quot;description&quot;: &quot;Adidas l&agrave; thương hiệu thể thao nổi tiếng với thiết kế năng động v&agrave; chất lượng vượt trội.&quot;,
+                        &quot;slug&quot;: &quot;adidas&quot;,
+                        &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/adidas-logo.png&quot;,
                         &quot;status&quot;: &quot;active&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                     }
                 },
                 {
-                    &quot;id&quot;: 36,
+                    &quot;id&quot;: 55,
                     &quot;category_id&quot;: 3,
                     &quot;brand_id&quot;: 11,
-                    &quot;name&quot;: &quot;Balo Thể Thao Nike Air pariatur&quot;,
-                    &quot;description&quot;: &quot;Rerum rem labore error voluptatem rem velit delectus. Molestiae placeat distinctio qui in delectus quia laborum sint. Neque alias accusamus inventore nulla et.&quot;,
-                    &quot;price&quot;: &quot;1595016.00&quot;,
-                    &quot;quantity&quot;: 50,
-                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/009955?text=fashion+doloribus&quot;,
-                    &quot;slug&quot;: &quot;balo-the-thao-nike-air-pariatur-7164&quot;,
-                    &quot;color&quot;: &quot;N&acirc;u&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
+                    &quot;name&quot;: &quot;Balo Nike Sportswear labore&quot;,
+                    &quot;description&quot;: &quot;At doloribus qui consequatur sequi quo vero. Dignissimos velit nemo id. Optio nobis est porro id. Dolorem accusantium deleniti error.&quot;,
+                    &quot;price&quot;: &quot;660848.00&quot;,
+                    &quot;quantity&quot;: 48,
+                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00ff55?text=fashion+id&quot;,
+                    &quot;slug&quot;: &quot;balo-nike-sportswear-labore-7181&quot;,
+                    &quot;color&quot;: &quot;Xanh&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
                     &quot;brand&quot;: {
                         &quot;id&quot;: 11,
-                        &quot;name&quot;: &quot;Lockman, Mueller and Hickle&quot;,
-                        &quot;description&quot;: &quot;Quia omnis sed sunt amet labore nostrum recusandae. Totam odio eveniet quibusdam. Quaerat adipisci rerum quis repudiandae et dolores.&quot;,
-                        &quot;slug&quot;: &quot;lockman-mueller-and-hickle&quot;,
-                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/0077ee?text=business+reprehenderit&quot;,
+                        &quot;name&quot;: &quot;Collins, Ward and Marvin&quot;,
+                        &quot;description&quot;: &quot;Placeat ut eligendi similique. Placeat blanditiis qui id magni. Et doloremque deleniti doloremque nobis.&quot;,
+                        &quot;slug&quot;: &quot;collins-ward-and-marvin&quot;,
+                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00eecc?text=business+odit&quot;,
                         &quot;status&quot;: &quot;active&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                    }
-                },
-                {
-                    &quot;id&quot;: 43,
-                    &quot;category_id&quot;: 3,
-                    &quot;brand_id&quot;: 14,
-                    &quot;name&quot;: &quot;Balo Leo N&uacute;i The North Face sit&quot;,
-                    &quot;description&quot;: &quot;Error ducimus porro omnis nulla debitis repudiandae. Et sit maxime nihil provident fuga natus ullam. Qui in vero provident.&quot;,
-                    &quot;price&quot;: &quot;581461.00&quot;,
-                    &quot;quantity&quot;: 61,
-                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/003377?text=fashion+eum&quot;,
-                    &quot;slug&quot;: &quot;balo-leo-nui-the-north-face-sit-5148&quot;,
-                    &quot;color&quot;: &quot;Trắng&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;brand&quot;: {
-                        &quot;id&quot;: 14,
-                        &quot;name&quot;: &quot;Davis-Klein&quot;,
-                        &quot;description&quot;: &quot;Ipsum aspernatur consequatur velit rerum. Sunt debitis explicabo consequatur laboriosam. Et consequatur eius tempore occaecati corporis sint.&quot;,
-                        &quot;slug&quot;: &quot;davis-klein&quot;,
-                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00aa99?text=business+sunt&quot;,
-                        &quot;status&quot;: &quot;active&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                    }
-                },
-                {
-                    &quot;id&quot;: 44,
-                    &quot;category_id&quot;: 3,
-                    &quot;brand_id&quot;: 4,
-                    &quot;name&quot;: &quot;T&uacute;i X&aacute;ch Nữ Thời Trang voluptatibus&quot;,
-                    &quot;description&quot;: &quot;Laudantium illo voluptatem excepturi doloribus voluptates. Dolor qui ut laborum sit corporis eius. Dolore facilis necessitatibus vero sint rerum cum. Corrupti eius assumenda magni quia corrupti deserunt quia laudantium.&quot;,
-                    &quot;price&quot;: &quot;1387882.00&quot;,
-                    &quot;quantity&quot;: 35,
-                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/001188?text=fashion+quisquam&quot;,
-                    &quot;slug&quot;: &quot;tui-xach-nu-thoi-trang-voluptatibus-1040&quot;,
-                    &quot;color&quot;: &quot;Trắng&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;brand&quot;: {
-                        &quot;id&quot;: 4,
-                        &quot;name&quot;: &quot;JanSport&quot;,
-                        &quot;description&quot;: &quot;JanSport chuy&ecirc;n sản xuất balo học sinh v&agrave; du lịch với thiết kế trẻ trung, năng động.&quot;,
-                        &quot;slug&quot;: &quot;jansport&quot;,
-                        &quot;logo&quot;: &quot;brands/jansport-logo.png&quot;,
-                        &quot;status&quot;: &quot;active&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                    }
-                },
-                {
-                    &quot;id&quot;: 24,
-                    &quot;category_id&quot;: 3,
-                    &quot;brand_id&quot;: 9,
-                    &quot;name&quot;: &quot;Balo Học Sinh JanSport unde&quot;,
-                    &quot;description&quot;: &quot;Sint et aliquam quo. Autem voluptatum id cupiditate esse aspernatur doloribus. Ab quia temporibus minus earum autem earum.&quot;,
-                    &quot;price&quot;: &quot;1187859.00&quot;,
-                    &quot;quantity&quot;: 67,
-                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0022cc?text=fashion+dolore&quot;,
-                    &quot;slug&quot;: &quot;balo-hoc-sinh-jansport-unde-1457&quot;,
-                    &quot;color&quot;: &quot;T&iacute;m&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;brand&quot;: {
-                        &quot;id&quot;: 9,
-                        &quot;name&quot;: &quot;Schmidt Ltd&quot;,
-                        &quot;description&quot;: &quot;Labore corrupti molestiae occaecati voluptatem atque numquam ipsam ipsum. Suscipit sint ullam et ut magnam et. Ipsam enim sunt odio minima voluptatem.&quot;,
-                        &quot;slug&quot;: &quot;schmidt-ltd&quot;,
-                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/0055ee?text=business+tempora&quot;,
-                        &quot;status&quot;: &quot;inactive&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                    }
-                },
-                {
-                    &quot;id&quot;: 48,
-                    &quot;category_id&quot;: 3,
-                    &quot;brand_id&quot;: 16,
-                    &quot;name&quot;: &quot;Balo Du Lịch Samsonite repellendus&quot;,
-                    &quot;description&quot;: &quot;Facere voluptas magnam possimus nam. Sunt error ab voluptatibus nihil quibusdam non totam. Et labore id nam.&quot;,
-                    &quot;price&quot;: &quot;1433491.00&quot;,
-                    &quot;quantity&quot;: 56,
-                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/008866?text=fashion+quo&quot;,
-                    &quot;slug&quot;: &quot;balo-du-lich-samsonite-repellendus-7651&quot;,
-                    &quot;color&quot;: &quot;X&aacute;m&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;brand&quot;: {
-                        &quot;id&quot;: 16,
-                        &quot;name&quot;: &quot;Bahringer PLC&quot;,
-                        &quot;description&quot;: &quot;A eius iusto sunt quibusdam. Commodi qui repudiandae quaerat facere veniam. Commodi culpa molestiae vitae.&quot;,
-                        &quot;slug&quot;: &quot;bahringer-plc&quot;,
-                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00cc00?text=business+et&quot;,
-                        &quot;status&quot;: &quot;active&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                     }
                 }
             ]
@@ -3834,127 +3749,199 @@ access-control-allow-origin: *
             &quot;description&quot;: &quot;Balo nhỏ gọn d&agrave;nh cho việc đi chơi, dạo phố&quot;,
             &quot;slug&quot;: &quot;balo-mini&quot;,
             &quot;image&quot;: &quot;categories/balo-mini.jpg&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
             &quot;products&quot;: [
                 {
-                    &quot;id&quot;: 25,
+                    &quot;id&quot;: 31,
                     &quot;category_id&quot;: 6,
-                    &quot;brand_id&quot;: 3,
-                    &quot;name&quot;: &quot;Balo Mini Cute earum&quot;,
-                    &quot;description&quot;: &quot;Voluptatum inventore eum quod explicabo. Quisquam rerum hic dolore vel qui non aspernatur. Sunt sed veniam est nihil tenetur quia. Eius consequatur qui ut cumque.&quot;,
-                    &quot;price&quot;: &quot;1649955.00&quot;,
-                    &quot;quantity&quot;: 73,
-                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0011cc?text=fashion+similique&quot;,
-                    &quot;slug&quot;: &quot;balo-mini-cute-earum-8617&quot;,
+                    &quot;brand_id&quot;: 16,
+                    &quot;name&quot;: &quot;T&uacute;i X&aacute;ch Nữ Thời Trang eaque&quot;,
+                    &quot;description&quot;: &quot;Debitis qui alias et reprehenderit. Debitis ipsa laborum vel ullam voluptatem. Est earum sed assumenda eligendi natus. Animi qui harum dolores quos. Perferendis sunt omnis deserunt optio voluptatem ut.&quot;,
+                    &quot;price&quot;: &quot;1247479.00&quot;,
+                    &quot;quantity&quot;: 67,
+                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/005511?text=fashion+nesciunt&quot;,
+                    &quot;slug&quot;: &quot;tui-xach-nu-thoi-trang-eaque-3692&quot;,
                     &quot;color&quot;: &quot;Cam&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
                     &quot;brand&quot;: {
-                        &quot;id&quot;: 3,
-                        &quot;name&quot;: &quot;Samsonite&quot;,
-                        &quot;description&quot;: &quot;Samsonite l&agrave; thương hiệu h&agrave;ng đầu thế giới về h&agrave;nh l&yacute; v&agrave; balo du lịch cao cấp.&quot;,
-                        &quot;slug&quot;: &quot;samsonite&quot;,
-                        &quot;logo&quot;: &quot;brands/samsonite-logo.png&quot;,
-                        &quot;status&quot;: &quot;active&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                        &quot;id&quot;: 16,
+                        &quot;name&quot;: &quot;Heathcote-DuBuque&quot;,
+                        &quot;description&quot;: &quot;Dolor occaecati ullam quidem quas. Qui nesciunt reiciendis temporibus iure ad. Temporibus et qui quo eligendi repellendus veritatis incidunt quae. Perspiciatis maxime ipsum non.&quot;,
+                        &quot;slug&quot;: &quot;heathcote-dubuque&quot;,
+                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00bbee?text=business+perspiciatis&quot;,
+                        &quot;status&quot;: &quot;inactive&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                     }
                 },
                 {
-                    &quot;id&quot;: 18,
+                    &quot;id&quot;: 24,
+                    &quot;category_id&quot;: 6,
+                    &quot;brand_id&quot;: 13,
+                    &quot;name&quot;: &quot;T&uacute;i Laptop Herschel maxime&quot;,
+                    &quot;description&quot;: &quot;Libero dolorum in voluptas iusto. Minima cupiditate ullam non neque. Ex commodi dolorem suscipit. Illum iusto consequatur quis. Modi vel hic a rerum fugiat vel.&quot;,
+                    &quot;price&quot;: &quot;1661992.00&quot;,
+                    &quot;quantity&quot;: 74,
+                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0077bb?text=fashion+earum&quot;,
+                    &quot;slug&quot;: &quot;tui-laptop-herschel-maxime-1341&quot;,
+                    &quot;color&quot;: &quot;Xanh&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;brand&quot;: {
+                        &quot;id&quot;: 13,
+                        &quot;name&quot;: &quot;Hintz-Pfannerstill&quot;,
+                        &quot;description&quot;: &quot;Voluptatum a delectus voluptatem inventore qui eveniet. In sapiente quo nemo incidunt enim. Maiores et sit id ipsum reprehenderit modi iusto. Et fugiat excepturi tenetur molestiae et similique et beatae.&quot;,
+                        &quot;slug&quot;: &quot;hintz-pfannerstill&quot;,
+                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00ff22?text=business+sit&quot;,
+                        &quot;status&quot;: &quot;active&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+                    }
+                },
+                {
+                    &quot;id&quot;: 21,
                     &quot;category_id&quot;: 6,
                     &quot;brand_id&quot;: 1,
-                    &quot;name&quot;: &quot;Balo Mini Cute fuga&quot;,
-                    &quot;description&quot;: &quot;Voluptatum delectus enim voluptates laboriosam. Explicabo sed qui ut similique. Illum voluptatem placeat nam mollitia nam sapiente. Optio aut iste nemo porro quisquam consequuntur nihil. Nihil modi sint ea similique suscipit.&quot;,
-                    &quot;price&quot;: &quot;1888311.00&quot;,
-                    &quot;quantity&quot;: 64,
-                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0022dd?text=fashion+eaque&quot;,
-                    &quot;slug&quot;: &quot;balo-mini-cute-fuga-9512&quot;,
-                    &quot;color&quot;: &quot;Đen&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
+                    &quot;name&quot;: &quot;T&uacute;i X&aacute;ch Nữ Thời Trang dolor&quot;,
+                    &quot;description&quot;: &quot;Veniam officiis molestiae consequatur laborum et facere. Molestiae eius dolor ratione repudiandae id laudantium ut. At non est at non. Labore id eligendi eaque ut at fugit aspernatur. Blanditiis voluptas dicta repudiandae aliquid.&quot;,
+                    &quot;price&quot;: &quot;799891.00&quot;,
+                    &quot;quantity&quot;: 99,
+                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00ffcc?text=fashion+eos&quot;,
+                    &quot;slug&quot;: &quot;tui-xach-nu-thoi-trang-dolor-9925&quot;,
+                    &quot;color&quot;: &quot;V&agrave;ng&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
                     &quot;brand&quot;: {
                         &quot;id&quot;: 1,
                         &quot;name&quot;: &quot;Nike&quot;,
                         &quot;description&quot;: &quot;Nike l&agrave; thương hiệu thể thao h&agrave;ng đầu thế giới, nổi tiếng với c&aacute;c sản phẩm balo v&agrave; t&uacute;i thể thao chất lượng cao.&quot;,
                         &quot;slug&quot;: &quot;nike&quot;,
-                        &quot;logo&quot;: &quot;brands/nike-logo.png&quot;,
+                        &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/nike-logo.png&quot;,
                         &quot;status&quot;: &quot;active&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                     }
                 },
                 {
-                    &quot;id&quot;: 37,
+                    &quot;id&quot;: 35,
                     &quot;category_id&quot;: 6,
-                    &quot;brand_id&quot;: 8,
-                    &quot;name&quot;: &quot;Balo Thể Thao Nike Air excepturi&quot;,
-                    &quot;description&quot;: &quot;Odit ea consequatur repellendus quos neque. Nisi inventore sed dignissimos et voluptas. Voluptatibus deserunt autem quo aut. Non rerum occaecati libero ratione. Minus molestiae quod occaecati sapiente id.&quot;,
-                    &quot;price&quot;: &quot;1776705.00&quot;,
-                    &quot;quantity&quot;: 9,
-                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00cc99?text=fashion+autem&quot;,
-                    &quot;slug&quot;: &quot;balo-the-thao-nike-air-excepturi-9172&quot;,
-                    &quot;color&quot;: &quot;Cam&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
+                    &quot;brand_id&quot;: 5,
+                    &quot;name&quot;: &quot;Balo Mini Cute at&quot;,
+                    &quot;description&quot;: &quot;Magni sapiente ut rerum non. Eligendi dicta aut at nihil. Iusto maiores suscipit vel repellendus et. Illo quia id et eaque explicabo asperiores ullam. Nobis iure cupiditate consequuntur expedita architecto. Quae veniam est expedita architecto architecto enim ad.&quot;,
+                    &quot;price&quot;: &quot;788329.00&quot;,
+                    &quot;quantity&quot;: 82,
+                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0022ee?text=fashion+atque&quot;,
+                    &quot;slug&quot;: &quot;balo-mini-cute-at-5099&quot;,
+                    &quot;color&quot;: &quot;X&aacute;m&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
                     &quot;brand&quot;: {
-                        &quot;id&quot;: 8,
-                        &quot;name&quot;: &quot;Roob, Stehr and Considine&quot;,
-                        &quot;description&quot;: &quot;Deserunt sunt neque aut explicabo quis atque ex iure. Eligendi ducimus cum atque. Aspernatur reiciendis neque esse necessitatibus.&quot;,
-                        &quot;slug&quot;: &quot;roob-stehr-and-considine&quot;,
-                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/0088ee?text=business+autem&quot;,
+                        &quot;id&quot;: 5,
+                        &quot;name&quot;: &quot;The North Face&quot;,
+                        &quot;description&quot;: &quot;The North Face l&agrave; thương hiệu outdoor nổi tiếng với c&aacute;c sản phẩm balo trekking v&agrave; leo n&uacute;i.&quot;,
+                        &quot;slug&quot;: &quot;the-north-face&quot;,
+                        &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/tnf-logo.png&quot;,
                         &quot;status&quot;: &quot;active&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                     }
                 },
                 {
-                    &quot;id&quot;: 16,
+                    &quot;id&quot;: 36,
                     &quot;category_id&quot;: 6,
-                    &quot;brand_id&quot;: 9,
-                    &quot;name&quot;: &quot;Balo Thể Thao Nike Air quibusdam&quot;,
-                    &quot;description&quot;: &quot;Quis sed quas voluptatum repudiandae sint. Omnis voluptas ut voluptate. Illum assumenda quo dolores alias dolore itaque.&quot;,
-                    &quot;price&quot;: &quot;1070223.00&quot;,
-                    &quot;quantity&quot;: 68,
-                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00ff55?text=fashion+impedit&quot;,
-                    &quot;slug&quot;: &quot;balo-the-thao-nike-air-quibusdam-9544&quot;,
+                    &quot;brand_id&quot;: 1,
+                    &quot;name&quot;: &quot;Balo Leo N&uacute;i The North Face repudiandae&quot;,
+                    &quot;description&quot;: &quot;Qui omnis quia id quia dolorem quas atque. Cumque quasi optio voluptas sint recusandae deserunt aliquam. Repellat omnis autem fugiat dolor culpa. Porro et optio est consequatur laborum iure aliquam. Rerum temporibus et laboriosam ut.&quot;,
+                    &quot;price&quot;: &quot;1019744.00&quot;,
+                    &quot;quantity&quot;: 92,
+                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0088ee?text=fashion+blanditiis&quot;,
+                    &quot;slug&quot;: &quot;balo-leo-nui-the-north-face-repudiandae-2597&quot;,
+                    &quot;color&quot;: &quot;T&iacute;m&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;brand&quot;: {
+                        &quot;id&quot;: 1,
+                        &quot;name&quot;: &quot;Nike&quot;,
+                        &quot;description&quot;: &quot;Nike l&agrave; thương hiệu thể thao h&agrave;ng đầu thế giới, nổi tiếng với c&aacute;c sản phẩm balo v&agrave; t&uacute;i thể thao chất lượng cao.&quot;,
+                        &quot;slug&quot;: &quot;nike&quot;,
+                        &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/nike-logo.png&quot;,
+                        &quot;status&quot;: &quot;active&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+                    }
+                },
+                {
+                    &quot;id&quot;: 41,
+                    &quot;category_id&quot;: 6,
+                    &quot;brand_id&quot;: 6,
+                    &quot;name&quot;: &quot;Balo Mini Cute eveniet&quot;,
+                    &quot;description&quot;: &quot;Qui culpa et rerum illum aut. Quaerat suscipit quibusdam sapiente veritatis veritatis unde et. Laborum voluptates quo assumenda consequatur rerum. Sit error dolores tempora ullam distinctio. Amet temporibus rerum corrupti autem et.&quot;,
+                    &quot;price&quot;: &quot;478770.00&quot;,
+                    &quot;quantity&quot;: 97,
+                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0022aa?text=fashion+nihil&quot;,
+                    &quot;slug&quot;: &quot;balo-mini-cute-eveniet-9060&quot;,
+                    &quot;color&quot;: &quot;X&aacute;m&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;brand&quot;: {
+                        &quot;id&quot;: 6,
+                        &quot;name&quot;: &quot;Herschel&quot;,
+                        &quot;description&quot;: &quot;Herschel Supply Co. nổi tiếng với thiết kế vintage v&agrave; hiện đại, ph&ugrave; hợp cho mọi lứa tuổi.&quot;,
+                        &quot;slug&quot;: &quot;herschel&quot;,
+                        &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/herschel-logo.png&quot;,
+                        &quot;status&quot;: &quot;active&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+                    }
+                },
+                {
+                    &quot;id&quot;: 18,
+                    &quot;category_id&quot;: 6,
+                    &quot;brand_id&quot;: 11,
+                    &quot;name&quot;: &quot;T&uacute;i Laptop Herschel est&quot;,
+                    &quot;description&quot;: &quot;Corporis enim est omnis tenetur impedit nesciunt omnis. Asperiores nulla aliquam est deserunt. Ipsam sit id commodi quia doloribus non nostrum. Debitis dolorem saepe impedit in qui ea numquam. Ex voluptatibus sit voluptate dolores rerum nam ut hic. Ab et laboriosam explicabo tenetur quas omnis quasi.&quot;,
+                    &quot;price&quot;: &quot;1999554.00&quot;,
+                    &quot;quantity&quot;: 74,
+                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00ee11?text=fashion+perferendis&quot;,
+                    &quot;slug&quot;: &quot;tui-laptop-herschel-est-9818&quot;,
+                    &quot;color&quot;: &quot;X&aacute;m&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;brand&quot;: {
+                        &quot;id&quot;: 11,
+                        &quot;name&quot;: &quot;Collins, Ward and Marvin&quot;,
+                        &quot;description&quot;: &quot;Placeat ut eligendi similique. Placeat blanditiis qui id magni. Et doloremque deleniti doloremque nobis.&quot;,
+                        &quot;slug&quot;: &quot;collins-ward-and-marvin&quot;,
+                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00eecc?text=business+odit&quot;,
+                        &quot;status&quot;: &quot;active&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+                    }
+                },
+                {
+                    &quot;id&quot;: 43,
+                    &quot;category_id&quot;: 6,
+                    &quot;brand_id&quot;: 15,
+                    &quot;name&quot;: &quot;Balo Mini Cute nam&quot;,
+                    &quot;description&quot;: &quot;Corrupti ut excepturi fugiat ipsa amet quam pariatur. Doloribus consectetur eius nihil animi perspiciatis sed quis. Consequuntur ut eligendi accusamus. Provident error qui voluptatibus blanditiis ipsa quaerat. Perferendis qui dolor ullam velit cupiditate quo.&quot;,
+                    &quot;price&quot;: &quot;520718.00&quot;,
+                    &quot;quantity&quot;: 15,
+                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00cc33?text=fashion+sequi&quot;,
+                    &quot;slug&quot;: &quot;balo-mini-cute-nam-5293&quot;,
                     &quot;color&quot;: &quot;Đỏ&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
                     &quot;brand&quot;: {
-                        &quot;id&quot;: 9,
-                        &quot;name&quot;: &quot;Schmidt Ltd&quot;,
-                        &quot;description&quot;: &quot;Labore corrupti molestiae occaecati voluptatem atque numquam ipsam ipsum. Suscipit sint ullam et ut magnam et. Ipsam enim sunt odio minima voluptatem.&quot;,
-                        &quot;slug&quot;: &quot;schmidt-ltd&quot;,
-                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/0055ee?text=business+tempora&quot;,
+                        &quot;id&quot;: 15,
+                        &quot;name&quot;: &quot;Gerlach, Littel and Kiehn&quot;,
+                        &quot;description&quot;: &quot;Consequatur error et illo est dicta sed iste. Iste ea totam perferendis nulla consequatur. Dolore occaecati quas nemo sequi non dolorem. Nobis error deserunt veritatis veniam inventore rerum maiores.&quot;,
+                        &quot;slug&quot;: &quot;gerlach-littel-and-kiehn&quot;,
+                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/004400?text=business+deleniti&quot;,
                         &quot;status&quot;: &quot;inactive&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                    }
-                },
-                {
-                    &quot;id&quot;: 11,
-                    &quot;category_id&quot;: 6,
-                    &quot;brand_id&quot;: 10,
-                    &quot;name&quot;: &quot;Balo Thể Thao Nike Air et&quot;,
-                    &quot;description&quot;: &quot;Qui ea enim earum. Deserunt commodi aliquid repellat perspiciatis sit quaerat sunt. Assumenda sit excepturi consectetur aut iure. Repellat aut velit est pariatur dolor facere sapiente. Perspiciatis animi doloribus ducimus a optio qui quisquam.&quot;,
-                    &quot;price&quot;: &quot;1992332.00&quot;,
-                    &quot;quantity&quot;: 72,
-                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00cc77?text=fashion+quae&quot;,
-                    &quot;slug&quot;: &quot;balo-the-thao-nike-air-et-2618&quot;,
-                    &quot;color&quot;: &quot;V&agrave;ng&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                    &quot;brand&quot;: {
-                        &quot;id&quot;: 10,
-                        &quot;name&quot;: &quot;Bechtelar Ltd&quot;,
-                        &quot;description&quot;: &quot;Aut repudiandae dignissimos ut omnis. Sunt sint repellendus neque corporis eum velit ipsa.&quot;,
-                        &quot;slug&quot;: &quot;bechtelar-ltd&quot;,
-                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/009977?text=business+labore&quot;,
-                        &quot;status&quot;: &quot;inactive&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                     }
                 }
             ]
@@ -3964,104 +3951,32 @@ access-control-allow-origin: *
             &quot;name&quot;: &quot;Balo Thể Thao&quot;,
             &quot;description&quot;: &quot;Balo d&agrave;nh cho c&aacute;c hoạt động thể thao, gym với thiết kế năng động&quot;,
             &quot;slug&quot;: &quot;balo-the-thao&quot;,
-            &quot;image&quot;: &quot;categories/balo-the-thao.jpg&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
+            &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/balo-the-thao.jpg&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
             &quot;products&quot;: [
-                {
-                    &quot;id&quot;: 28,
-                    &quot;category_id&quot;: 4,
-                    &quot;brand_id&quot;: 4,
-                    &quot;name&quot;: &quot;Balo Thể Thao Nike Air dolorum&quot;,
-                    &quot;description&quot;: &quot;Dolorum aliquid sunt possimus est at molestiae. Quibusdam quis minima facere omnis consequatur nulla enim quo. Atque deleniti error quae velit perspiciatis. Possimus porro in assumenda sit. Architecto labore veniam doloremque quae quis dolore dolor.&quot;,
-                    &quot;price&quot;: &quot;1957567.00&quot;,
-                    &quot;quantity&quot;: 7,
-                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/009911?text=fashion+sapiente&quot;,
-                    &quot;slug&quot;: &quot;balo-the-thao-nike-air-dolorum-7321&quot;,
-                    &quot;color&quot;: &quot;Đen&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;brand&quot;: {
-                        &quot;id&quot;: 4,
-                        &quot;name&quot;: &quot;JanSport&quot;,
-                        &quot;description&quot;: &quot;JanSport chuy&ecirc;n sản xuất balo học sinh v&agrave; du lịch với thiết kế trẻ trung, năng động.&quot;,
-                        &quot;slug&quot;: &quot;jansport&quot;,
-                        &quot;logo&quot;: &quot;brands/jansport-logo.png&quot;,
-                        &quot;status&quot;: &quot;active&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                    }
-                },
-                {
-                    &quot;id&quot;: 19,
-                    &quot;category_id&quot;: 4,
-                    &quot;brand_id&quot;: 1,
-                    &quot;name&quot;: &quot;T&uacute;i Adidas Classic at&quot;,
-                    &quot;description&quot;: &quot;Ducimus explicabo veniam aliquid modi autem. Illo culpa incidunt velit ut itaque ut temporibus. Velit et aut dignissimos non voluptatem quis cumque vel. Accusantium ipsum ducimus enim quo facilis. Corrupti sunt qui eos aliquam eius ab. Exercitationem illo rerum rerum tenetur odio.&quot;,
-                    &quot;price&quot;: &quot;203465.00&quot;,
-                    &quot;quantity&quot;: 88,
-                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/007755?text=fashion+sint&quot;,
-                    &quot;slug&quot;: &quot;tui-adidas-classic-at-1661&quot;,
-                    &quot;color&quot;: &quot;X&aacute;m&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;brand&quot;: {
-                        &quot;id&quot;: 1,
-                        &quot;name&quot;: &quot;Nike&quot;,
-                        &quot;description&quot;: &quot;Nike l&agrave; thương hiệu thể thao h&agrave;ng đầu thế giới, nổi tiếng với c&aacute;c sản phẩm balo v&agrave; t&uacute;i thể thao chất lượng cao.&quot;,
-                        &quot;slug&quot;: &quot;nike&quot;,
-                        &quot;logo&quot;: &quot;brands/nike-logo.png&quot;,
-                        &quot;status&quot;: &quot;active&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                    }
-                },
                 {
                     &quot;id&quot;: 23,
                     &quot;category_id&quot;: 4,
-                    &quot;brand_id&quot;: 14,
-                    &quot;name&quot;: &quot;Balo Học Sinh JanSport autem&quot;,
-                    &quot;description&quot;: &quot;Ipsum et ex officia quam. Distinctio neque qui harum at velit beatae sint. Est ab corporis odio exercitationem. Autem dolore incidunt a quia est.&quot;,
-                    &quot;price&quot;: &quot;306351.00&quot;,
-                    &quot;quantity&quot;: 21,
-                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00ee33?text=fashion+et&quot;,
-                    &quot;slug&quot;: &quot;balo-hoc-sinh-jansport-autem-1527&quot;,
-                    &quot;color&quot;: &quot;Cam&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
+                    &quot;brand_id&quot;: 16,
+                    &quot;name&quot;: &quot;T&uacute;i Adidas Classic non&quot;,
+                    &quot;description&quot;: &quot;Voluptatem maxime est nam temporibus incidunt beatae cupiditate asperiores. Sint laboriosam eius cumque cupiditate sapiente omnis ut. Dolorum porro odio facere. Excepturi illum sint ut tempora dolores quia. Et necessitatibus ipsum illum in et sit.&quot;,
+                    &quot;price&quot;: &quot;1332751.00&quot;,
+                    &quot;quantity&quot;: 8,
+                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00ffff?text=fashion+doloribus&quot;,
+                    &quot;slug&quot;: &quot;tui-adidas-classic-non-3698&quot;,
+                    &quot;color&quot;: &quot;Đỏ&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
                     &quot;brand&quot;: {
-                        &quot;id&quot;: 14,
-                        &quot;name&quot;: &quot;Davis-Klein&quot;,
-                        &quot;description&quot;: &quot;Ipsum aspernatur consequatur velit rerum. Sunt debitis explicabo consequatur laboriosam. Et consequatur eius tempore occaecati corporis sint.&quot;,
-                        &quot;slug&quot;: &quot;davis-klein&quot;,
-                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00aa99?text=business+sunt&quot;,
-                        &quot;status&quot;: &quot;active&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                    }
-                },
-                {
-                    &quot;id&quot;: 52,
-                    &quot;category_id&quot;: 4,
-                    &quot;brand_id&quot;: 7,
-                    &quot;name&quot;: &quot;Balo Leo N&uacute;i The North Face ex&quot;,
-                    &quot;description&quot;: &quot;Qui occaecati voluptatem nam excepturi temporibus. Accusantium minus recusandae et vero sed ipsam accusantium. At nemo consequuntur minus ab. Dolor nobis qui et sapiente repellat ut praesentium. Dolorum quam eligendi et eaque id accusantium.&quot;,
-                    &quot;price&quot;: &quot;1051773.00&quot;,
-                    &quot;quantity&quot;: 100,
-                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00ee99?text=fashion+repellendus&quot;,
-                    &quot;slug&quot;: &quot;balo-leo-nui-the-north-face-ex-6692&quot;,
-                    &quot;color&quot;: &quot;Cam&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;brand&quot;: {
-                        &quot;id&quot;: 7,
-                        &quot;name&quot;: &quot;D&#039;Amore Ltd&quot;,
-                        &quot;description&quot;: &quot;Ab fugiat facere nihil et. Ipsam ex distinctio quasi consequuntur quia. Et aliquam eligendi cumque cum quas sequi minima.&quot;,
-                        &quot;slug&quot;: &quot;damore-ltd&quot;,
-                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00aa33?text=business+porro&quot;,
+                        &quot;id&quot;: 16,
+                        &quot;name&quot;: &quot;Heathcote-DuBuque&quot;,
+                        &quot;description&quot;: &quot;Dolor occaecati ullam quidem quas. Qui nesciunt reiciendis temporibus iure ad. Temporibus et qui quo eligendi repellendus veritatis incidunt quae. Perspiciatis maxime ipsum non.&quot;,
+                        &quot;slug&quot;: &quot;heathcote-dubuque&quot;,
+                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00bbee?text=business+perspiciatis&quot;,
                         &quot;status&quot;: &quot;inactive&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                     }
                 }
             ]
@@ -4071,128 +3986,200 @@ access-control-allow-origin: *
             &quot;name&quot;: &quot;T&uacute;i X&aacute;ch&quot;,
             &quot;description&quot;: &quot;C&aacute;c loại t&uacute;i x&aacute;ch thời trang cho nam v&agrave; nữ&quot;,
             &quot;slug&quot;: &quot;tui-xach&quot;,
-            &quot;image&quot;: &quot;categories/tui-xach.jpg&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
+            &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/tui-xach.jpg&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
             &quot;products&quot;: [
                 {
-                    &quot;id&quot;: 46,
+                    &quot;id&quot;: 8,
                     &quot;category_id&quot;: 5,
-                    &quot;brand_id&quot;: 10,
-                    &quot;name&quot;: &quot;Balo Thể Thao Nike Air cumque&quot;,
-                    &quot;description&quot;: &quot;Debitis ipsam ex aperiam et quisquam quis voluptatum. Accusantium ipsa dolorem cupiditate quas. Earum sed numquam odit. Laudantium rerum explicabo accusantium ea. Quidem error consequatur sed in sint iure. Dolor itaque alias repudiandae in.&quot;,
-                    &quot;price&quot;: &quot;1988821.00&quot;,
-                    &quot;quantity&quot;: 79,
-                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00ff88?text=fashion+earum&quot;,
-                    &quot;slug&quot;: &quot;balo-the-thao-nike-air-cumque-1025&quot;,
-                    &quot;color&quot;: &quot;Trắng&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;brand&quot;: {
-                        &quot;id&quot;: 10,
-                        &quot;name&quot;: &quot;Bechtelar Ltd&quot;,
-                        &quot;description&quot;: &quot;Aut repudiandae dignissimos ut omnis. Sunt sint repellendus neque corporis eum velit ipsa.&quot;,
-                        &quot;slug&quot;: &quot;bechtelar-ltd&quot;,
-                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/009977?text=business+labore&quot;,
-                        &quot;status&quot;: &quot;inactive&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                    }
-                },
-                {
-                    &quot;id&quot;: 35,
-                    &quot;category_id&quot;: 5,
-                    &quot;brand_id&quot;: 4,
-                    &quot;name&quot;: &quot;Balo Leo N&uacute;i The North Face et&quot;,
-                    &quot;description&quot;: &quot;Saepe sed dolorem at. Architecto quia animi numquam similique ut cum quis. Voluptas deserunt illum amet aut saepe consequuntur quasi. Qui fuga harum exercitationem accusantium et earum doloremque.&quot;,
-                    &quot;price&quot;: &quot;1330552.00&quot;,
-                    &quot;quantity&quot;: 8,
-                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/007744?text=fashion+ab&quot;,
-                    &quot;slug&quot;: &quot;balo-leo-nui-the-north-face-et-2389&quot;,
-                    &quot;color&quot;: &quot;N&acirc;u&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;brand&quot;: {
-                        &quot;id&quot;: 4,
-                        &quot;name&quot;: &quot;JanSport&quot;,
-                        &quot;description&quot;: &quot;JanSport chuy&ecirc;n sản xuất balo học sinh v&agrave; du lịch với thiết kế trẻ trung, năng động.&quot;,
-                        &quot;slug&quot;: &quot;jansport&quot;,
-                        &quot;logo&quot;: &quot;brands/jansport-logo.png&quot;,
-                        &quot;status&quot;: &quot;active&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                    }
-                },
-                {
-                    &quot;id&quot;: 51,
-                    &quot;category_id&quot;: 5,
-                    &quot;brand_id&quot;: 1,
-                    &quot;name&quot;: &quot;Balo Học Sinh JanSport vero&quot;,
-                    &quot;description&quot;: &quot;Commodi omnis aliquam distinctio aut. Provident maxime facilis dolor. Sit consequatur accusamus aut rem autem. Qui omnis aspernatur dolor sint aut. Sit officiis nesciunt velit impedit quis. Voluptas aut et aut facere sint ea quibusdam.&quot;,
-                    &quot;price&quot;: &quot;999804.00&quot;,
-                    &quot;quantity&quot;: 42,
-                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/008855?text=fashion+animi&quot;,
-                    &quot;slug&quot;: &quot;balo-hoc-sinh-jansport-vero-2020&quot;,
-                    &quot;color&quot;: &quot;Hồng&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;brand&quot;: {
-                        &quot;id&quot;: 1,
-                        &quot;name&quot;: &quot;Nike&quot;,
-                        &quot;description&quot;: &quot;Nike l&agrave; thương hiệu thể thao h&agrave;ng đầu thế giới, nổi tiếng với c&aacute;c sản phẩm balo v&agrave; t&uacute;i thể thao chất lượng cao.&quot;,
-                        &quot;slug&quot;: &quot;nike&quot;,
-                        &quot;logo&quot;: &quot;brands/nike-logo.png&quot;,
-                        &quot;status&quot;: &quot;active&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                    }
-                },
-                {
-                    &quot;id&quot;: 30,
-                    &quot;category_id&quot;: 5,
-                    &quot;brand_id&quot;: 15,
-                    &quot;name&quot;: &quot;Balo Gaming RGB sunt&quot;,
-                    &quot;description&quot;: &quot;Quisquam in quibusdam totam. Ipsum quibusdam quo consectetur architecto perferendis. Omnis magni cumque ea laudantium et. Sint ut dolores quibusdam dicta cumque tempora. Vel sunt voluptatibus laborum asperiores ut omnis. Qui perspiciatis quos quaerat occaecati consequuntur rerum et.&quot;,
-                    &quot;price&quot;: &quot;1916643.00&quot;,
-                    &quot;quantity&quot;: 17,
-                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00aaaa?text=fashion+nihil&quot;,
-                    &quot;slug&quot;: &quot;balo-gaming-rgb-sunt-6874&quot;,
+                    &quot;brand_id&quot;: 16,
+                    &quot;name&quot;: &quot;Balo Leo N&uacute;i The North Face reprehenderit&quot;,
+                    &quot;description&quot;: &quot;Quae quia totam aut laudantium. Dolor illum praesentium illum aperiam est in. Error dolor provident ea. Ut accusamus et consequatur ut consectetur.&quot;,
+                    &quot;price&quot;: &quot;1549132.00&quot;,
+                    &quot;quantity&quot;: 33,
+                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0088bb?text=fashion+architecto&quot;,
+                    &quot;slug&quot;: &quot;balo-leo-nui-the-north-face-reprehenderit-9748&quot;,
                     &quot;color&quot;: &quot;Đen&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
                     &quot;brand&quot;: {
-                        &quot;id&quot;: 15,
-                        &quot;name&quot;: &quot;Kuvalis, Waters and Bogan&quot;,
-                        &quot;description&quot;: &quot;Optio odit est qui laborum est earum iure accusantium. Fugit consequatur eius labore. Quasi quis laudantium sit optio deserunt cupiditate. Repellendus occaecati blanditiis et officiis doloribus quisquam et.&quot;,
-                        &quot;slug&quot;: &quot;kuvalis-waters-and-bogan&quot;,
-                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/005500?text=business+sed&quot;,
+                        &quot;id&quot;: 16,
+                        &quot;name&quot;: &quot;Heathcote-DuBuque&quot;,
+                        &quot;description&quot;: &quot;Dolor occaecati ullam quidem quas. Qui nesciunt reiciendis temporibus iure ad. Temporibus et qui quo eligendi repellendus veritatis incidunt quae. Perspiciatis maxime ipsum non.&quot;,
+                        &quot;slug&quot;: &quot;heathcote-dubuque&quot;,
+                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00bbee?text=business+perspiciatis&quot;,
                         &quot;status&quot;: &quot;inactive&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                     }
                 },
                 {
-                    &quot;id&quot;: 9,
+                    &quot;id&quot;: 10,
                     &quot;category_id&quot;: 5,
-                    &quot;brand_id&quot;: 1,
-                    &quot;name&quot;: &quot;Balo Gaming RGB rerum&quot;,
-                    &quot;description&quot;: &quot;Facilis dolor commodi dolores itaque consequuntur modi. Laborum reiciendis est libero facere sint neque. Est eius sed autem quod est in eum. Aut et temporibus velit hic error officiis explicabo.&quot;,
-                    &quot;price&quot;: &quot;1608008.00&quot;,
-                    &quot;quantity&quot;: 18,
-                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/001144?text=fashion+sed&quot;,
-                    &quot;slug&quot;: &quot;balo-gaming-rgb-rerum-5919&quot;,
-                    &quot;color&quot;: &quot;Xanh&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
+                    &quot;brand_id&quot;: 2,
+                    &quot;name&quot;: &quot;Balo Du Lịch Samsonite et&quot;,
+                    &quot;description&quot;: &quot;Dicta ut incidunt voluptas animi perspiciatis aut. Qui reprehenderit laborum provident consequatur. Totam veniam excepturi reiciendis aut.&quot;,
+                    &quot;price&quot;: &quot;856922.00&quot;,
+                    &quot;quantity&quot;: 80,
+                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/001155?text=fashion+incidunt&quot;,
+                    &quot;slug&quot;: &quot;balo-du-lich-samsonite-et-7894&quot;,
+                    &quot;color&quot;: &quot;Đen&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
                     &quot;brand&quot;: {
-                        &quot;id&quot;: 1,
-                        &quot;name&quot;: &quot;Nike&quot;,
-                        &quot;description&quot;: &quot;Nike l&agrave; thương hiệu thể thao h&agrave;ng đầu thế giới, nổi tiếng với c&aacute;c sản phẩm balo v&agrave; t&uacute;i thể thao chất lượng cao.&quot;,
-                        &quot;slug&quot;: &quot;nike&quot;,
-                        &quot;logo&quot;: &quot;brands/nike-logo.png&quot;,
+                        &quot;id&quot;: 2,
+                        &quot;name&quot;: &quot;Adidas&quot;,
+                        &quot;description&quot;: &quot;Adidas l&agrave; thương hiệu thể thao nổi tiếng với thiết kế năng động v&agrave; chất lượng vượt trội.&quot;,
+                        &quot;slug&quot;: &quot;adidas&quot;,
+                        &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/adidas-logo.png&quot;,
                         &quot;status&quot;: &quot;active&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+                    }
+                },
+                {
+                    &quot;id&quot;: 29,
+                    &quot;category_id&quot;: 5,
+                    &quot;brand_id&quot;: 12,
+                    &quot;name&quot;: &quot;Balo Mini Cute et&quot;,
+                    &quot;description&quot;: &quot;Distinctio quia consequatur vitae natus commodi. Aut assumenda dignissimos et. Eveniet ab impedit qui minus natus. Perferendis voluptatem laudantium dolore eius hic voluptas.&quot;,
+                    &quot;price&quot;: &quot;507102.00&quot;,
+                    &quot;quantity&quot;: 83,
+                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00ff66?text=fashion+enim&quot;,
+                    &quot;slug&quot;: &quot;balo-mini-cute-et-1621&quot;,
+                    &quot;color&quot;: &quot;N&acirc;u&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;brand&quot;: {
+                        &quot;id&quot;: 12,
+                        &quot;name&quot;: &quot;Friesen-Gorczany&quot;,
+                        &quot;description&quot;: &quot;Illum non at commodi ipsa deleniti quo. Amet officia in voluptas qui laboriosam magnam odit. Voluptates quibusdam et enim ducimus maxime omnis. Ut eveniet quo explicabo id dolores est rerum.&quot;,
+                        &quot;slug&quot;: &quot;friesen-gorczany&quot;,
+                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00cc44?text=business+recusandae&quot;,
+                        &quot;status&quot;: &quot;active&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+                    }
+                },
+                {
+                    &quot;id&quot;: 38,
+                    &quot;category_id&quot;: 5,
+                    &quot;brand_id&quot;: 8,
+                    &quot;name&quot;: &quot;Balo Nike Sportswear ab&quot;,
+                    &quot;description&quot;: &quot;Consequatur tenetur esse magni. Atque vero aut laborum reprehenderit debitis quaerat. Dolor placeat occaecati ipsa et quidem.&quot;,
+                    &quot;price&quot;: &quot;856536.00&quot;,
+                    &quot;quantity&quot;: 89,
+                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00ff66?text=fashion+aspernatur&quot;,
+                    &quot;slug&quot;: &quot;balo-nike-sportswear-ab-4749&quot;,
+                    &quot;color&quot;: &quot;N&acirc;u&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;brand&quot;: {
+                        &quot;id&quot;: 8,
+                        &quot;name&quot;: &quot;Harvey-Rohan&quot;,
+                        &quot;description&quot;: &quot;Amet dolores provident velit et aut voluptatem. Doloribus omnis maxime quod aperiam nesciunt aut eos. Ea praesentium id et. Tempora cum molestiae ex voluptates ullam maxime est temporibus.&quot;,
+                        &quot;slug&quot;: &quot;harvey-rohan&quot;,
+                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00ff44?text=business+molestiae&quot;,
+                        &quot;status&quot;: &quot;active&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+                    }
+                },
+                {
+                    &quot;id&quot;: 39,
+                    &quot;category_id&quot;: 5,
+                    &quot;brand_id&quot;: 9,
+                    &quot;name&quot;: &quot;Balo Gaming RGB similique&quot;,
+                    &quot;description&quot;: &quot;Earum adipisci autem facilis consequatur non dignissimos ipsa qui. Architecto officia vitae nam quos recusandae deleniti quis. Quo deserunt ut in et animi voluptatum perspiciatis. Incidunt voluptas soluta earum excepturi distinctio ullam ea.&quot;,
+                    &quot;price&quot;: &quot;525487.00&quot;,
+                    &quot;quantity&quot;: 44,
+                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0066aa?text=fashion+porro&quot;,
+                    &quot;slug&quot;: &quot;balo-gaming-rgb-similique-9743&quot;,
+                    &quot;color&quot;: &quot;T&iacute;m&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;brand&quot;: {
+                        &quot;id&quot;: 9,
+                        &quot;name&quot;: &quot;Gleichner-Langosh&quot;,
+                        &quot;description&quot;: &quot;Omnis consequatur aut explicabo laudantium vero omnis unde. Tempora ad qui ut cupiditate nam.&quot;,
+                        &quot;slug&quot;: &quot;gleichner-langosh&quot;,
+                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00aa44?text=business+et&quot;,
+                        &quot;status&quot;: &quot;inactive&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+                    }
+                },
+                {
+                    &quot;id&quot;: 40,
+                    &quot;category_id&quot;: 5,
+                    &quot;brand_id&quot;: 16,
+                    &quot;name&quot;: &quot;Balo Nike Sportswear placeat&quot;,
+                    &quot;description&quot;: &quot;Non ad aspernatur qui veniam sapiente. Repellendus et excepturi soluta enim fugiat omnis deserunt. Nobis dolores culpa corporis libero dolorum quod voluptate. Nisi distinctio debitis ullam voluptatem. Ullam vero illum pariatur non at libero.&quot;,
+                    &quot;price&quot;: &quot;1185053.00&quot;,
+                    &quot;quantity&quot;: 43,
+                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/003388?text=fashion+consequuntur&quot;,
+                    &quot;slug&quot;: &quot;balo-nike-sportswear-placeat-5780&quot;,
+                    &quot;color&quot;: &quot;Trắng&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;brand&quot;: {
+                        &quot;id&quot;: 16,
+                        &quot;name&quot;: &quot;Heathcote-DuBuque&quot;,
+                        &quot;description&quot;: &quot;Dolor occaecati ullam quidem quas. Qui nesciunt reiciendis temporibus iure ad. Temporibus et qui quo eligendi repellendus veritatis incidunt quae. Perspiciatis maxime ipsum non.&quot;,
+                        &quot;slug&quot;: &quot;heathcote-dubuque&quot;,
+                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00bbee?text=business+perspiciatis&quot;,
+                        &quot;status&quot;: &quot;inactive&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+                    }
+                },
+                {
+                    &quot;id&quot;: 15,
+                    &quot;category_id&quot;: 5,
+                    &quot;brand_id&quot;: 14,
+                    &quot;name&quot;: &quot;Balo Du Lịch Samsonite eius&quot;,
+                    &quot;description&quot;: &quot;Eos consequuntur deserunt delectus vel mollitia. Dolore earum facere voluptatum libero delectus magni sed. Facilis aut aut illum velit. Sed sit animi animi excepturi autem voluptatem nisi sint.&quot;,
+                    &quot;price&quot;: &quot;1976534.00&quot;,
+                    &quot;quantity&quot;: 81,
+                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00cc99?text=fashion+enim&quot;,
+                    &quot;slug&quot;: &quot;balo-du-lich-samsonite-eius-1519&quot;,
+                    &quot;color&quot;: &quot;Xanh&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;brand&quot;: {
+                        &quot;id&quot;: 14,
+                        &quot;name&quot;: &quot;Zboncak, Jones and Romaguera&quot;,
+                        &quot;description&quot;: &quot;Quas non ab culpa ea quia iusto ad. Est aperiam nulla voluptate neque aut magnam. Velit natus non nam ut non. Architecto sint neque cumque aut delectus quaerat.&quot;,
+                        &quot;slug&quot;: &quot;zboncak-jones-and-romaguera&quot;,
+                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00aa77?text=business+rerum&quot;,
+                        &quot;status&quot;: &quot;active&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+                    }
+                },
+                {
+                    &quot;id&quot;: 47,
+                    &quot;category_id&quot;: 5,
+                    &quot;brand_id&quot;: 7,
+                    &quot;name&quot;: &quot;Balo Gaming RGB amet&quot;,
+                    &quot;description&quot;: &quot;Est aspernatur repudiandae veritatis perspiciatis eum id. Perspiciatis eius mollitia vitae quaerat fuga. Vero atque qui laborum tempore sed quaerat.&quot;,
+                    &quot;price&quot;: &quot;1505180.00&quot;,
+                    &quot;quantity&quot;: 80,
+                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00dd00?text=fashion+ducimus&quot;,
+                    &quot;slug&quot;: &quot;balo-gaming-rgb-amet-6016&quot;,
+                    &quot;color&quot;: &quot;Đen&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;brand&quot;: {
+                        &quot;id&quot;: 7,
+                        &quot;name&quot;: &quot;Stiedemann and Sons&quot;,
+                        &quot;description&quot;: &quot;Velit enim et tempore. Nostrum itaque praesentium nisi voluptatum iure sint voluptas est. Et esse architecto id amet amet.&quot;,
+                        &quot;slug&quot;: &quot;stiedemann-and-sons&quot;,
+                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/005566?text=business+eum&quot;,
+                        &quot;status&quot;: &quot;inactive&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                     }
                 }
             ]
@@ -4285,14 +4272,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/categories/slug/consequatur" \
+    --get "http://localhost:8000/api/categories/slug/consequatur" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/categories/slug/consequatur"
+    "http://localhost:8000/api/categories/slug/consequatur"
 );
 
 const headers = {
@@ -4421,14 +4408,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/products" \
+    --get "http://localhost:8000/api/products" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/products"
+    "http://localhost:8000/api/products"
 );
 
 const headers = {
@@ -4460,406 +4447,406 @@ access-control-allow-origin: *
     &quot;current_page&quot;: 1,
     &quot;data&quot;: [
         {
-            &quot;id&quot;: 40,
-            &quot;category_id&quot;: 3,
-            &quot;brand_id&quot;: 1,
-            &quot;name&quot;: &quot;Balo Leo N&uacute;i The North Face quaerat&quot;,
-            &quot;description&quot;: &quot;Quis praesentium est ad quis. Voluptas itaque ducimus sint nihil in. Similique sint velit reprehenderit delectus ipsum odit est ullam. Dolores nihil doloribus et sit aliquam repudiandae quis tenetur.&quot;,
-            &quot;price&quot;: &quot;995359.00&quot;,
-            &quot;quantity&quot;: 92,
-            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00aa33?text=fashion+aut&quot;,
-            &quot;slug&quot;: &quot;balo-leo-nui-the-north-face-quaerat-3731&quot;,
-            &quot;color&quot;: &quot;V&agrave;ng&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-            &quot;category&quot;: {
-                &quot;id&quot;: 3,
-                &quot;name&quot;: &quot;Balo Laptop&quot;,
-                &quot;description&quot;: &quot;Balo chuy&ecirc;n dụng để đựng laptop v&agrave; c&aacute;c thiết bị c&ocirc;ng nghệ với lớp đệm bảo vệ&quot;,
-                &quot;slug&quot;: &quot;balo-laptop&quot;,
-                &quot;image&quot;: &quot;categories/balo-laptop.jpg&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            },
-            &quot;brand&quot;: {
-                &quot;id&quot;: 1,
-                &quot;name&quot;: &quot;Nike&quot;,
-                &quot;description&quot;: &quot;Nike l&agrave; thương hiệu thể thao h&agrave;ng đầu thế giới, nổi tiếng với c&aacute;c sản phẩm balo v&agrave; t&uacute;i thể thao chất lượng cao.&quot;,
-                &quot;slug&quot;: &quot;nike&quot;,
-                &quot;logo&quot;: &quot;brands/nike-logo.png&quot;,
-                &quot;status&quot;: &quot;active&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 41,
-            &quot;category_id&quot;: 3,
-            &quot;brand_id&quot;: 4,
-            &quot;name&quot;: &quot;Balo Thể Thao Nike Air et&quot;,
-            &quot;description&quot;: &quot;Eos expedita voluptatibus est asperiores veritatis. Quas illum fuga sunt non officiis. Qui cum corporis soluta harum. Fugit et aut fugiat repellat. In maiores et natus voluptatem in architecto qui.&quot;,
-            &quot;price&quot;: &quot;1447336.00&quot;,
-            &quot;quantity&quot;: 81,
-            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0077cc?text=fashion+magnam&quot;,
-            &quot;slug&quot;: &quot;balo-the-thao-nike-air-et-1858&quot;,
-            &quot;color&quot;: &quot;Cam&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-            &quot;category&quot;: {
-                &quot;id&quot;: 3,
-                &quot;name&quot;: &quot;Balo Laptop&quot;,
-                &quot;description&quot;: &quot;Balo chuy&ecirc;n dụng để đựng laptop v&agrave; c&aacute;c thiết bị c&ocirc;ng nghệ với lớp đệm bảo vệ&quot;,
-                &quot;slug&quot;: &quot;balo-laptop&quot;,
-                &quot;image&quot;: &quot;categories/balo-laptop.jpg&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            },
-            &quot;brand&quot;: {
-                &quot;id&quot;: 4,
-                &quot;name&quot;: &quot;JanSport&quot;,
-                &quot;description&quot;: &quot;JanSport chuy&ecirc;n sản xuất balo học sinh v&agrave; du lịch với thiết kế trẻ trung, năng động.&quot;,
-                &quot;slug&quot;: &quot;jansport&quot;,
-                &quot;logo&quot;: &quot;brands/jansport-logo.png&quot;,
-                &quot;status&quot;: &quot;active&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 42,
-            &quot;category_id&quot;: 2,
-            &quot;brand_id&quot;: 4,
-            &quot;name&quot;: &quot;T&uacute;i Laptop Herschel nihil&quot;,
-            &quot;description&quot;: &quot;Sed velit odit tempore unde. Explicabo pariatur ratione neque sed nihil a eius. Sed perspiciatis autem officiis qui. Quia quam sed sint tempora quis aperiam accusantium. Non ut debitis cum pariatur.&quot;,
-            &quot;price&quot;: &quot;993902.00&quot;,
-            &quot;quantity&quot;: 54,
-            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/009944?text=fashion+impedit&quot;,
-            &quot;slug&quot;: &quot;tui-laptop-herschel-nihil-7427&quot;,
-            &quot;color&quot;: &quot;Cam&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-            &quot;category&quot;: {
-                &quot;id&quot;: 2,
-                &quot;name&quot;: &quot;Balo Du Lịch&quot;,
-                &quot;description&quot;: &quot;Balo d&agrave;nh cho c&aacute;c chuyến du lịch, trekking với dung t&iacute;ch lớn v&agrave; nhiều ngăn tiện &iacute;ch&quot;,
-                &quot;slug&quot;: &quot;balo-du-lich&quot;,
-                &quot;image&quot;: &quot;categories/balo-du-lich.jpg&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            },
-            &quot;brand&quot;: {
-                &quot;id&quot;: 4,
-                &quot;name&quot;: &quot;JanSport&quot;,
-                &quot;description&quot;: &quot;JanSport chuy&ecirc;n sản xuất balo học sinh v&agrave; du lịch với thiết kế trẻ trung, năng động.&quot;,
-                &quot;slug&quot;: &quot;jansport&quot;,
-                &quot;logo&quot;: &quot;brands/jansport-logo.png&quot;,
-                &quot;status&quot;: &quot;active&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 43,
-            &quot;category_id&quot;: 3,
-            &quot;brand_id&quot;: 14,
-            &quot;name&quot;: &quot;Balo Leo N&uacute;i The North Face sit&quot;,
-            &quot;description&quot;: &quot;Error ducimus porro omnis nulla debitis repudiandae. Et sit maxime nihil provident fuga natus ullam. Qui in vero provident.&quot;,
-            &quot;price&quot;: &quot;581461.00&quot;,
-            &quot;quantity&quot;: 61,
-            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/003377?text=fashion+eum&quot;,
-            &quot;slug&quot;: &quot;balo-leo-nui-the-north-face-sit-5148&quot;,
-            &quot;color&quot;: &quot;Trắng&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-            &quot;category&quot;: {
-                &quot;id&quot;: 3,
-                &quot;name&quot;: &quot;Balo Laptop&quot;,
-                &quot;description&quot;: &quot;Balo chuy&ecirc;n dụng để đựng laptop v&agrave; c&aacute;c thiết bị c&ocirc;ng nghệ với lớp đệm bảo vệ&quot;,
-                &quot;slug&quot;: &quot;balo-laptop&quot;,
-                &quot;image&quot;: &quot;categories/balo-laptop.jpg&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            },
-            &quot;brand&quot;: {
-                &quot;id&quot;: 14,
-                &quot;name&quot;: &quot;Davis-Klein&quot;,
-                &quot;description&quot;: &quot;Ipsum aspernatur consequatur velit rerum. Sunt debitis explicabo consequatur laboriosam. Et consequatur eius tempore occaecati corporis sint.&quot;,
-                &quot;slug&quot;: &quot;davis-klein&quot;,
-                &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00aa99?text=business+sunt&quot;,
-                &quot;status&quot;: &quot;active&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 44,
-            &quot;category_id&quot;: 3,
-            &quot;brand_id&quot;: 4,
-            &quot;name&quot;: &quot;T&uacute;i X&aacute;ch Nữ Thời Trang voluptatibus&quot;,
-            &quot;description&quot;: &quot;Laudantium illo voluptatem excepturi doloribus voluptates. Dolor qui ut laborum sit corporis eius. Dolore facilis necessitatibus vero sint rerum cum. Corrupti eius assumenda magni quia corrupti deserunt quia laudantium.&quot;,
-            &quot;price&quot;: &quot;1387882.00&quot;,
-            &quot;quantity&quot;: 35,
-            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/001188?text=fashion+quisquam&quot;,
-            &quot;slug&quot;: &quot;tui-xach-nu-thoi-trang-voluptatibus-1040&quot;,
-            &quot;color&quot;: &quot;Trắng&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-            &quot;category&quot;: {
-                &quot;id&quot;: 3,
-                &quot;name&quot;: &quot;Balo Laptop&quot;,
-                &quot;description&quot;: &quot;Balo chuy&ecirc;n dụng để đựng laptop v&agrave; c&aacute;c thiết bị c&ocirc;ng nghệ với lớp đệm bảo vệ&quot;,
-                &quot;slug&quot;: &quot;balo-laptop&quot;,
-                &quot;image&quot;: &quot;categories/balo-laptop.jpg&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            },
-            &quot;brand&quot;: {
-                &quot;id&quot;: 4,
-                &quot;name&quot;: &quot;JanSport&quot;,
-                &quot;description&quot;: &quot;JanSport chuy&ecirc;n sản xuất balo học sinh v&agrave; du lịch với thiết kế trẻ trung, năng động.&quot;,
-                &quot;slug&quot;: &quot;jansport&quot;,
-                &quot;logo&quot;: &quot;brands/jansport-logo.png&quot;,
-                &quot;status&quot;: &quot;active&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 45,
-            &quot;category_id&quot;: 5,
-            &quot;brand_id&quot;: 16,
-            &quot;name&quot;: &quot;T&uacute;i X&aacute;ch Nữ Thời Trang laudantium&quot;,
-            &quot;description&quot;: &quot;Cupiditate totam eaque et. Quo ipsum eaque cumque enim alias. Praesentium commodi itaque itaque quod tempore minus dolor. Et exercitationem commodi velit fuga eum sunt. Et dolorem quidem perferendis provident.&quot;,
-            &quot;price&quot;: &quot;154837.00&quot;,
-            &quot;quantity&quot;: 0,
-            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00ee00?text=fashion+unde&quot;,
-            &quot;slug&quot;: &quot;tui-xach-nu-thoi-trang-laudantium-3744&quot;,
-            &quot;color&quot;: &quot;N&acirc;u&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-            &quot;category&quot;: {
-                &quot;id&quot;: 5,
-                &quot;name&quot;: &quot;T&uacute;i X&aacute;ch&quot;,
-                &quot;description&quot;: &quot;C&aacute;c loại t&uacute;i x&aacute;ch thời trang cho nam v&agrave; nữ&quot;,
-                &quot;slug&quot;: &quot;tui-xach&quot;,
-                &quot;image&quot;: &quot;categories/tui-xach.jpg&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            },
-            &quot;brand&quot;: {
-                &quot;id&quot;: 16,
-                &quot;name&quot;: &quot;Bahringer PLC&quot;,
-                &quot;description&quot;: &quot;A eius iusto sunt quibusdam. Commodi qui repudiandae quaerat facere veniam. Commodi culpa molestiae vitae.&quot;,
-                &quot;slug&quot;: &quot;bahringer-plc&quot;,
-                &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00cc00?text=business+et&quot;,
-                &quot;status&quot;: &quot;active&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 28,
-            &quot;category_id&quot;: 4,
-            &quot;brand_id&quot;: 4,
-            &quot;name&quot;: &quot;Balo Thể Thao Nike Air dolorum&quot;,
-            &quot;description&quot;: &quot;Dolorum aliquid sunt possimus est at molestiae. Quibusdam quis minima facere omnis consequatur nulla enim quo. Atque deleniti error quae velit perspiciatis. Possimus porro in assumenda sit. Architecto labore veniam doloremque quae quis dolore dolor.&quot;,
-            &quot;price&quot;: &quot;1957567.00&quot;,
-            &quot;quantity&quot;: 7,
-            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/009911?text=fashion+sapiente&quot;,
-            &quot;slug&quot;: &quot;balo-the-thao-nike-air-dolorum-7321&quot;,
-            &quot;color&quot;: &quot;Đen&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-            &quot;category&quot;: {
-                &quot;id&quot;: 4,
-                &quot;name&quot;: &quot;Balo Thể Thao&quot;,
-                &quot;description&quot;: &quot;Balo d&agrave;nh cho c&aacute;c hoạt động thể thao, gym với thiết kế năng động&quot;,
-                &quot;slug&quot;: &quot;balo-the-thao&quot;,
-                &quot;image&quot;: &quot;categories/balo-the-thao.jpg&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            },
-            &quot;brand&quot;: {
-                &quot;id&quot;: 4,
-                &quot;name&quot;: &quot;JanSport&quot;,
-                &quot;description&quot;: &quot;JanSport chuy&ecirc;n sản xuất balo học sinh v&agrave; du lịch với thiết kế trẻ trung, năng động.&quot;,
-                &quot;slug&quot;: &quot;jansport&quot;,
-                &quot;logo&quot;: &quot;brands/jansport-logo.png&quot;,
-                &quot;status&quot;: &quot;active&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 46,
-            &quot;category_id&quot;: 5,
-            &quot;brand_id&quot;: 10,
-            &quot;name&quot;: &quot;Balo Thể Thao Nike Air cumque&quot;,
-            &quot;description&quot;: &quot;Debitis ipsam ex aperiam et quisquam quis voluptatum. Accusantium ipsa dolorem cupiditate quas. Earum sed numquam odit. Laudantium rerum explicabo accusantium ea. Quidem error consequatur sed in sint iure. Dolor itaque alias repudiandae in.&quot;,
-            &quot;price&quot;: &quot;1988821.00&quot;,
-            &quot;quantity&quot;: 79,
-            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00ff88?text=fashion+earum&quot;,
-            &quot;slug&quot;: &quot;balo-the-thao-nike-air-cumque-1025&quot;,
-            &quot;color&quot;: &quot;Trắng&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-            &quot;category&quot;: {
-                &quot;id&quot;: 5,
-                &quot;name&quot;: &quot;T&uacute;i X&aacute;ch&quot;,
-                &quot;description&quot;: &quot;C&aacute;c loại t&uacute;i x&aacute;ch thời trang cho nam v&agrave; nữ&quot;,
-                &quot;slug&quot;: &quot;tui-xach&quot;,
-                &quot;image&quot;: &quot;categories/tui-xach.jpg&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            },
-            &quot;brand&quot;: {
-                &quot;id&quot;: 10,
-                &quot;name&quot;: &quot;Bechtelar Ltd&quot;,
-                &quot;description&quot;: &quot;Aut repudiandae dignissimos ut omnis. Sunt sint repellendus neque corporis eum velit ipsa.&quot;,
-                &quot;slug&quot;: &quot;bechtelar-ltd&quot;,
-                &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/009977?text=business+labore&quot;,
-                &quot;status&quot;: &quot;inactive&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 47,
-            &quot;category_id&quot;: 2,
-            &quot;brand_id&quot;: 8,
-            &quot;name&quot;: &quot;Balo Leo N&uacute;i The North Face aspernatur&quot;,
-            &quot;description&quot;: &quot;Esse similique et quia nostrum totam. Pariatur voluptatem unde facere aut unde fugiat rem. Mollitia dolorum amet veritatis molestiae id quae. Tempore ut nihil quod libero praesentium at.&quot;,
-            &quot;price&quot;: &quot;1394690.00&quot;,
-            &quot;quantity&quot;: 66,
-            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00ffbb?text=fashion+earum&quot;,
-            &quot;slug&quot;: &quot;balo-leo-nui-the-north-face-aspernatur-8589&quot;,
-            &quot;color&quot;: &quot;N&acirc;u&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-            &quot;category&quot;: {
-                &quot;id&quot;: 2,
-                &quot;name&quot;: &quot;Balo Du Lịch&quot;,
-                &quot;description&quot;: &quot;Balo d&agrave;nh cho c&aacute;c chuyến du lịch, trekking với dung t&iacute;ch lớn v&agrave; nhiều ngăn tiện &iacute;ch&quot;,
-                &quot;slug&quot;: &quot;balo-du-lich&quot;,
-                &quot;image&quot;: &quot;categories/balo-du-lich.jpg&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            },
-            &quot;brand&quot;: {
-                &quot;id&quot;: 8,
-                &quot;name&quot;: &quot;Roob, Stehr and Considine&quot;,
-                &quot;description&quot;: &quot;Deserunt sunt neque aut explicabo quis atque ex iure. Eligendi ducimus cum atque. Aspernatur reiciendis neque esse necessitatibus.&quot;,
-                &quot;slug&quot;: &quot;roob-stehr-and-considine&quot;,
-                &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/0088ee?text=business+autem&quot;,
-                &quot;status&quot;: &quot;active&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 48,
-            &quot;category_id&quot;: 3,
-            &quot;brand_id&quot;: 16,
-            &quot;name&quot;: &quot;Balo Du Lịch Samsonite repellendus&quot;,
-            &quot;description&quot;: &quot;Facere voluptas magnam possimus nam. Sunt error ab voluptatibus nihil quibusdam non totam. Et labore id nam.&quot;,
-            &quot;price&quot;: &quot;1433491.00&quot;,
-            &quot;quantity&quot;: 56,
-            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/008866?text=fashion+quo&quot;,
-            &quot;slug&quot;: &quot;balo-du-lich-samsonite-repellendus-7651&quot;,
-            &quot;color&quot;: &quot;X&aacute;m&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-            &quot;category&quot;: {
-                &quot;id&quot;: 3,
-                &quot;name&quot;: &quot;Balo Laptop&quot;,
-                &quot;description&quot;: &quot;Balo chuy&ecirc;n dụng để đựng laptop v&agrave; c&aacute;c thiết bị c&ocirc;ng nghệ với lớp đệm bảo vệ&quot;,
-                &quot;slug&quot;: &quot;balo-laptop&quot;,
-                &quot;image&quot;: &quot;categories/balo-laptop.jpg&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            },
-            &quot;brand&quot;: {
-                &quot;id&quot;: 16,
-                &quot;name&quot;: &quot;Bahringer PLC&quot;,
-                &quot;description&quot;: &quot;A eius iusto sunt quibusdam. Commodi qui repudiandae quaerat facere veniam. Commodi culpa molestiae vitae.&quot;,
-                &quot;slug&quot;: &quot;bahringer-plc&quot;,
-                &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00cc00?text=business+et&quot;,
-                &quot;status&quot;: &quot;active&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 50,
+            &quot;id&quot;: 1,
             &quot;category_id&quot;: 1,
-            &quot;brand_id&quot;: 16,
-            &quot;name&quot;: &quot;Balo Học Sinh JanSport provident&quot;,
-            &quot;description&quot;: &quot;Dolorem magnam natus explicabo enim rerum ducimus officia. Ab tempora et dolor officia. Et incidunt voluptatem officia dignissimos. Aperiam consequatur ex non recusandae reprehenderit quasi. Officiis ab est commodi.&quot;,
-            &quot;price&quot;: &quot;1195721.00&quot;,
-            &quot;quantity&quot;: 59,
-            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/001177?text=fashion+eius&quot;,
-            &quot;slug&quot;: &quot;balo-hoc-sinh-jansport-provident-8218&quot;,
-            &quot;color&quot;: &quot;Cam&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
+            &quot;brand_id&quot;: 4,
+            &quot;name&quot;: &quot;Balo JanSport SuperBreak Classic&quot;,
+            &quot;description&quot;: &quot;Balo học sinh kinh điển với thiết kế đơn giản, chất liệu bền bỉ. Dung t&iacute;ch 25L ph&ugrave; hợp cho việc đi học h&agrave;ng ng&agrave;y.&quot;,
+            &quot;price&quot;: &quot;899000.00&quot;,
+            &quot;quantity&quot;: 50,
+            &quot;image&quot;: &quot;https://placehold.co/600x400?text=products/balo-jansport-superbreak-classic.jpg&quot;,
+            &quot;slug&quot;: &quot;balo-jansport-superbreak-classic&quot;,
+            &quot;color&quot;: &quot;Đen&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
             &quot;category&quot;: {
                 &quot;id&quot;: 1,
                 &quot;name&quot;: &quot;Balo Học Sinh&quot;,
                 &quot;description&quot;: &quot;C&aacute;c loại balo d&agrave;nh cho học sinh, sinh vi&ecirc;n với thiết kế trẻ trung v&agrave; tiện dụng&quot;,
                 &quot;slug&quot;: &quot;balo-hoc-sinh&quot;,
-                &quot;image&quot;: &quot;categories/balo-hoc-sinh.jpg&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/balo-hoc-sinh.jpg&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
             },
             &quot;brand&quot;: {
-                &quot;id&quot;: 16,
-                &quot;name&quot;: &quot;Bahringer PLC&quot;,
-                &quot;description&quot;: &quot;A eius iusto sunt quibusdam. Commodi qui repudiandae quaerat facere veniam. Commodi culpa molestiae vitae.&quot;,
-                &quot;slug&quot;: &quot;bahringer-plc&quot;,
-                &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00cc00?text=business+et&quot;,
+                &quot;id&quot;: 4,
+                &quot;name&quot;: &quot;JanSport&quot;,
+                &quot;description&quot;: &quot;JanSport chuy&ecirc;n sản xuất balo học sinh v&agrave; du lịch với thiết kế trẻ trung, năng động.&quot;,
+                &quot;slug&quot;: &quot;jansport&quot;,
+                &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/jansport-logo.png&quot;,
                 &quot;status&quot;: &quot;active&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
             }
         },
         {
-            &quot;id&quot;: 51,
-            &quot;category_id&quot;: 5,
+            &quot;id&quot;: 2,
+            &quot;category_id&quot;: 1,
             &quot;brand_id&quot;: 1,
-            &quot;name&quot;: &quot;Balo Học Sinh JanSport vero&quot;,
-            &quot;description&quot;: &quot;Commodi omnis aliquam distinctio aut. Provident maxime facilis dolor. Sit consequatur accusamus aut rem autem. Qui omnis aspernatur dolor sint aut. Sit officiis nesciunt velit impedit quis. Voluptas aut et aut facere sint ea quibusdam.&quot;,
-            &quot;price&quot;: &quot;999804.00&quot;,
-            &quot;quantity&quot;: 42,
-            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/008855?text=fashion+animi&quot;,
-            &quot;slug&quot;: &quot;balo-hoc-sinh-jansport-vero-2020&quot;,
-            &quot;color&quot;: &quot;Hồng&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
+            &quot;name&quot;: &quot;Balo Nike Heritage 2.0&quot;,
+            &quot;description&quot;: &quot;Balo thể thao năng động với logo Nike nổi bật. Thiết kế hiện đại, ph&ugrave; hợp cho học sinh cấp 3.&quot;,
+            &quot;price&quot;: &quot;1200000.00&quot;,
+            &quot;quantity&quot;: 30,
+            &quot;image&quot;: &quot;https://placehold.co/600x400?text=products/balo-nike-heritage-20.jpg&quot;,
+            &quot;slug&quot;: &quot;balo-nike-heritage-20&quot;,
+            &quot;color&quot;: &quot;Xanh Navy&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
             &quot;category&quot;: {
-                &quot;id&quot;: 5,
-                &quot;name&quot;: &quot;T&uacute;i X&aacute;ch&quot;,
-                &quot;description&quot;: &quot;C&aacute;c loại t&uacute;i x&aacute;ch thời trang cho nam v&agrave; nữ&quot;,
-                &quot;slug&quot;: &quot;tui-xach&quot;,
-                &quot;image&quot;: &quot;categories/tui-xach.jpg&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;Balo Học Sinh&quot;,
+                &quot;description&quot;: &quot;C&aacute;c loại balo d&agrave;nh cho học sinh, sinh vi&ecirc;n với thiết kế trẻ trung v&agrave; tiện dụng&quot;,
+                &quot;slug&quot;: &quot;balo-hoc-sinh&quot;,
+                &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/balo-hoc-sinh.jpg&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
             },
             &quot;brand&quot;: {
                 &quot;id&quot;: 1,
                 &quot;name&quot;: &quot;Nike&quot;,
                 &quot;description&quot;: &quot;Nike l&agrave; thương hiệu thể thao h&agrave;ng đầu thế giới, nổi tiếng với c&aacute;c sản phẩm balo v&agrave; t&uacute;i thể thao chất lượng cao.&quot;,
                 &quot;slug&quot;: &quot;nike&quot;,
-                &quot;logo&quot;: &quot;brands/nike-logo.png&quot;,
+                &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/nike-logo.png&quot;,
                 &quot;status&quot;: &quot;active&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 3,
+            &quot;category_id&quot;: 2,
+            &quot;brand_id&quot;: 5,
+            &quot;name&quot;: &quot;Balo The North Face Borealis 28L&quot;,
+            &quot;description&quot;: &quot;Balo trekking chuy&ecirc;n nghiệp với nhiều ngăn tiện &iacute;ch, d&acirc;y đeo thoải m&aacute;i. L&yacute; tưởng cho c&aacute;c chuyến du lịch ngắn ng&agrave;y.&quot;,
+            &quot;price&quot;: &quot;2500000.00&quot;,
+            &quot;quantity&quot;: 25,
+            &quot;image&quot;: &quot;https://placehold.co/600x400?text=products/balo-the-north-face-borealis-28l.jpg&quot;,
+            &quot;slug&quot;: &quot;balo-the-north-face-borealis-28l&quot;,
+            &quot;color&quot;: &quot;X&aacute;m&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;category&quot;: {
+                &quot;id&quot;: 2,
+                &quot;name&quot;: &quot;Balo Du Lịch&quot;,
+                &quot;description&quot;: &quot;Balo d&agrave;nh cho c&aacute;c chuyến du lịch, trekking với dung t&iacute;ch lớn v&agrave; nhiều ngăn tiện &iacute;ch&quot;,
+                &quot;slug&quot;: &quot;balo-du-lich&quot;,
+                &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/balo-du-lich.jpg&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+            },
+            &quot;brand&quot;: {
+                &quot;id&quot;: 5,
+                &quot;name&quot;: &quot;The North Face&quot;,
+                &quot;description&quot;: &quot;The North Face l&agrave; thương hiệu outdoor nổi tiếng với c&aacute;c sản phẩm balo trekking v&agrave; leo n&uacute;i.&quot;,
+                &quot;slug&quot;: &quot;the-north-face&quot;,
+                &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/tnf-logo.png&quot;,
+                &quot;status&quot;: &quot;active&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 4,
+            &quot;category_id&quot;: 2,
+            &quot;brand_id&quot;: 3,
+            &quot;name&quot;: &quot;Balo Samsonite Guardit 2.0&quot;,
+            &quot;description&quot;: &quot;Balo du lịch cao cấp với ngăn laptop 15.6\&quot;, chống thấm nước. Thiết kế sang trọng, ph&ugrave; hợp cho c&ocirc;ng t&aacute;c.&quot;,
+            &quot;price&quot;: &quot;3200000.00&quot;,
+            &quot;quantity&quot;: 20,
+            &quot;image&quot;: &quot;https://placehold.co/600x400?text=products/balo-samsonite-guardit-20.jpg&quot;,
+            &quot;slug&quot;: &quot;balo-samsonite-guardit-20&quot;,
+            &quot;color&quot;: &quot;Đen&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;category&quot;: {
+                &quot;id&quot;: 2,
+                &quot;name&quot;: &quot;Balo Du Lịch&quot;,
+                &quot;description&quot;: &quot;Balo d&agrave;nh cho c&aacute;c chuyến du lịch, trekking với dung t&iacute;ch lớn v&agrave; nhiều ngăn tiện &iacute;ch&quot;,
+                &quot;slug&quot;: &quot;balo-du-lich&quot;,
+                &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/balo-du-lich.jpg&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+            },
+            &quot;brand&quot;: {
+                &quot;id&quot;: 3,
+                &quot;name&quot;: &quot;Samsonite&quot;,
+                &quot;description&quot;: &quot;Samsonite l&agrave; thương hiệu h&agrave;ng đầu thế giới về h&agrave;nh l&yacute; v&agrave; balo du lịch cao cấp.&quot;,
+                &quot;slug&quot;: &quot;samsonite&quot;,
+                &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/samsonite-logo.png&quot;,
+                &quot;status&quot;: &quot;active&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 5,
+            &quot;category_id&quot;: 3,
+            &quot;brand_id&quot;: 6,
+            &quot;name&quot;: &quot;Balo Laptop Herschel Pop Quiz&quot;,
+            &quot;description&quot;: &quot;Balo laptop thời trang với thiết kế vintage. Ngăn laptop 15\&quot; được đệm bảo vệ tối ưu.&quot;,
+            &quot;price&quot;: &quot;1800000.00&quot;,
+            &quot;quantity&quot;: 35,
+            &quot;image&quot;: &quot;https://placehold.co/600x400?text=products/balo-laptop-herschel-pop-quiz.jpg&quot;,
+            &quot;slug&quot;: &quot;balo-laptop-herschel-pop-quiz&quot;,
+            &quot;color&quot;: &quot;N&acirc;u&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;category&quot;: {
+                &quot;id&quot;: 3,
+                &quot;name&quot;: &quot;Balo Laptop&quot;,
+                &quot;description&quot;: &quot;Balo chuy&ecirc;n dụng để đựng laptop v&agrave; c&aacute;c thiết bị c&ocirc;ng nghệ với lớp đệm bảo vệ&quot;,
+                &quot;slug&quot;: &quot;balo-laptop&quot;,
+                &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/balo-laptop.jpg&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+            },
+            &quot;brand&quot;: {
+                &quot;id&quot;: 6,
+                &quot;name&quot;: &quot;Herschel&quot;,
+                &quot;description&quot;: &quot;Herschel Supply Co. nổi tiếng với thiết kế vintage v&agrave; hiện đại, ph&ugrave; hợp cho mọi lứa tuổi.&quot;,
+                &quot;slug&quot;: &quot;herschel&quot;,
+                &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/herschel-logo.png&quot;,
+                &quot;status&quot;: &quot;active&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 6,
+            &quot;category_id&quot;: 1,
+            &quot;brand_id&quot;: 13,
+            &quot;name&quot;: &quot;T&uacute;i X&aacute;ch Nữ Thời Trang molestiae&quot;,
+            &quot;description&quot;: &quot;Recusandae aut molestias non numquam at. Nisi perspiciatis maxime et magni. Porro ea et molestias ut accusamus qui. Fugit corrupti sunt distinctio recusandae iusto.&quot;,
+            &quot;price&quot;: &quot;209529.00&quot;,
+            &quot;quantity&quot;: 20,
+            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/008822?text=fashion+labore&quot;,
+            &quot;slug&quot;: &quot;tui-xach-nu-thoi-trang-molestiae-2608&quot;,
+            &quot;color&quot;: &quot;X&aacute;m&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;category&quot;: {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;Balo Học Sinh&quot;,
+                &quot;description&quot;: &quot;C&aacute;c loại balo d&agrave;nh cho học sinh, sinh vi&ecirc;n với thiết kế trẻ trung v&agrave; tiện dụng&quot;,
+                &quot;slug&quot;: &quot;balo-hoc-sinh&quot;,
+                &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/balo-hoc-sinh.jpg&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+            },
+            &quot;brand&quot;: {
+                &quot;id&quot;: 13,
+                &quot;name&quot;: &quot;Hintz-Pfannerstill&quot;,
+                &quot;description&quot;: &quot;Voluptatum a delectus voluptatem inventore qui eveniet. In sapiente quo nemo incidunt enim. Maiores et sit id ipsum reprehenderit modi iusto. Et fugiat excepturi tenetur molestiae et similique et beatae.&quot;,
+                &quot;slug&quot;: &quot;hintz-pfannerstill&quot;,
+                &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00ff22?text=business+sit&quot;,
+                &quot;status&quot;: &quot;active&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 7,
+            &quot;category_id&quot;: 5,
+            &quot;brand_id&quot;: 12,
+            &quot;name&quot;: &quot;Balo Leo N&uacute;i The North Face eveniet&quot;,
+            &quot;description&quot;: &quot;Saepe maiores est minima deserunt. Rerum quasi tempora corrupti dolore laboriosam delectus. Labore iste hic laboriosam neque dolorum perspiciatis. Tenetur voluptas facilis est pariatur.&quot;,
+            &quot;price&quot;: &quot;530095.00&quot;,
+            &quot;quantity&quot;: 85,
+            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0099bb?text=fashion+iure&quot;,
+            &quot;slug&quot;: &quot;balo-leo-nui-the-north-face-eveniet-5382&quot;,
+            &quot;color&quot;: &quot;Xanh&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;category&quot;: {
+                &quot;id&quot;: 5,
+                &quot;name&quot;: &quot;T&uacute;i X&aacute;ch&quot;,
+                &quot;description&quot;: &quot;C&aacute;c loại t&uacute;i x&aacute;ch thời trang cho nam v&agrave; nữ&quot;,
+                &quot;slug&quot;: &quot;tui-xach&quot;,
+                &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/tui-xach.jpg&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+            },
+            &quot;brand&quot;: {
+                &quot;id&quot;: 12,
+                &quot;name&quot;: &quot;Friesen-Gorczany&quot;,
+                &quot;description&quot;: &quot;Illum non at commodi ipsa deleniti quo. Amet officia in voluptas qui laboriosam magnam odit. Voluptates quibusdam et enim ducimus maxime omnis. Ut eveniet quo explicabo id dolores est rerum.&quot;,
+                &quot;slug&quot;: &quot;friesen-gorczany&quot;,
+                &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00cc44?text=business+recusandae&quot;,
+                &quot;status&quot;: &quot;active&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 8,
+            &quot;category_id&quot;: 5,
+            &quot;brand_id&quot;: 16,
+            &quot;name&quot;: &quot;Balo Leo N&uacute;i The North Face reprehenderit&quot;,
+            &quot;description&quot;: &quot;Quae quia totam aut laudantium. Dolor illum praesentium illum aperiam est in. Error dolor provident ea. Ut accusamus et consequatur ut consectetur.&quot;,
+            &quot;price&quot;: &quot;1549132.00&quot;,
+            &quot;quantity&quot;: 33,
+            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0088bb?text=fashion+architecto&quot;,
+            &quot;slug&quot;: &quot;balo-leo-nui-the-north-face-reprehenderit-9748&quot;,
+            &quot;color&quot;: &quot;Đen&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;category&quot;: {
+                &quot;id&quot;: 5,
+                &quot;name&quot;: &quot;T&uacute;i X&aacute;ch&quot;,
+                &quot;description&quot;: &quot;C&aacute;c loại t&uacute;i x&aacute;ch thời trang cho nam v&agrave; nữ&quot;,
+                &quot;slug&quot;: &quot;tui-xach&quot;,
+                &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/tui-xach.jpg&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+            },
+            &quot;brand&quot;: {
+                &quot;id&quot;: 16,
+                &quot;name&quot;: &quot;Heathcote-DuBuque&quot;,
+                &quot;description&quot;: &quot;Dolor occaecati ullam quidem quas. Qui nesciunt reiciendis temporibus iure ad. Temporibus et qui quo eligendi repellendus veritatis incidunt quae. Perspiciatis maxime ipsum non.&quot;,
+                &quot;slug&quot;: &quot;heathcote-dubuque&quot;,
+                &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00bbee?text=business+perspiciatis&quot;,
+                &quot;status&quot;: &quot;inactive&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 9,
+            &quot;category_id&quot;: 2,
+            &quot;brand_id&quot;: 7,
+            &quot;name&quot;: &quot;Balo Học Sinh JanSport fugiat&quot;,
+            &quot;description&quot;: &quot;Quo aut veniam iusto molestiae. Aut dolor ipsa delectus unde voluptatibus. Libero officia magnam id eveniet. Est rerum dolores magnam reiciendis quos voluptatibus. Eum soluta facilis aut ratione tempore.&quot;,
+            &quot;price&quot;: &quot;1547100.00&quot;,
+            &quot;quantity&quot;: 38,
+            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/006699?text=fashion+repellendus&quot;,
+            &quot;slug&quot;: &quot;balo-hoc-sinh-jansport-fugiat-9624&quot;,
+            &quot;color&quot;: &quot;Đỏ&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;category&quot;: {
+                &quot;id&quot;: 2,
+                &quot;name&quot;: &quot;Balo Du Lịch&quot;,
+                &quot;description&quot;: &quot;Balo d&agrave;nh cho c&aacute;c chuyến du lịch, trekking với dung t&iacute;ch lớn v&agrave; nhiều ngăn tiện &iacute;ch&quot;,
+                &quot;slug&quot;: &quot;balo-du-lich&quot;,
+                &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/balo-du-lich.jpg&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+            },
+            &quot;brand&quot;: {
+                &quot;id&quot;: 7,
+                &quot;name&quot;: &quot;Stiedemann and Sons&quot;,
+                &quot;description&quot;: &quot;Velit enim et tempore. Nostrum itaque praesentium nisi voluptatum iure sint voluptas est. Et esse architecto id amet amet.&quot;,
+                &quot;slug&quot;: &quot;stiedemann-and-sons&quot;,
+                &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/005566?text=business+eum&quot;,
+                &quot;status&quot;: &quot;inactive&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 10,
+            &quot;category_id&quot;: 5,
+            &quot;brand_id&quot;: 2,
+            &quot;name&quot;: &quot;Balo Du Lịch Samsonite et&quot;,
+            &quot;description&quot;: &quot;Dicta ut incidunt voluptas animi perspiciatis aut. Qui reprehenderit laborum provident consequatur. Totam veniam excepturi reiciendis aut.&quot;,
+            &quot;price&quot;: &quot;856922.00&quot;,
+            &quot;quantity&quot;: 80,
+            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/001155?text=fashion+incidunt&quot;,
+            &quot;slug&quot;: &quot;balo-du-lich-samsonite-et-7894&quot;,
+            &quot;color&quot;: &quot;Đen&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;category&quot;: {
+                &quot;id&quot;: 5,
+                &quot;name&quot;: &quot;T&uacute;i X&aacute;ch&quot;,
+                &quot;description&quot;: &quot;C&aacute;c loại t&uacute;i x&aacute;ch thời trang cho nam v&agrave; nữ&quot;,
+                &quot;slug&quot;: &quot;tui-xach&quot;,
+                &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/tui-xach.jpg&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+            },
+            &quot;brand&quot;: {
+                &quot;id&quot;: 2,
+                &quot;name&quot;: &quot;Adidas&quot;,
+                &quot;description&quot;: &quot;Adidas l&agrave; thương hiệu thể thao nổi tiếng với thiết kế năng động v&agrave; chất lượng vượt trội.&quot;,
+                &quot;slug&quot;: &quot;adidas&quot;,
+                &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/adidas-logo.png&quot;,
+                &quot;status&quot;: &quot;active&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 11,
+            &quot;category_id&quot;: 6,
+            &quot;brand_id&quot;: 10,
+            &quot;name&quot;: &quot;Balo Học Sinh JanSport aperiam&quot;,
+            &quot;description&quot;: &quot;Similique unde beatae labore accusantium. Molestiae vel impedit ex consequatur voluptas similique. Voluptate fugit necessitatibus et hic illum reprehenderit at. Quia placeat numquam ullam magni aut aut. Quas rerum dolore non quidem.&quot;,
+            &quot;price&quot;: &quot;1883168.00&quot;,
+            &quot;quantity&quot;: 72,
+            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0000bb?text=fashion+commodi&quot;,
+            &quot;slug&quot;: &quot;balo-hoc-sinh-jansport-aperiam-6930&quot;,
+            &quot;color&quot;: &quot;Xanh&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;category&quot;: {
+                &quot;id&quot;: 6,
+                &quot;name&quot;: &quot;Balo Mini&quot;,
+                &quot;description&quot;: &quot;Balo nhỏ gọn d&agrave;nh cho việc đi chơi, dạo phố&quot;,
+                &quot;slug&quot;: &quot;balo-mini&quot;,
+                &quot;image&quot;: &quot;categories/balo-mini.jpg&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+            },
+            &quot;brand&quot;: {
+                &quot;id&quot;: 10,
+                &quot;name&quot;: &quot;Murray PLC&quot;,
+                &quot;description&quot;: &quot;Est rerum rerum numquam quam vel facere molestias sint. Ad dolor facilis nemo iusto et magnam laborum et.&quot;,
+                &quot;slug&quot;: &quot;murray-plc&quot;,
+                &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00ffdd?text=business+deleniti&quot;,
+                &quot;status&quot;: &quot;active&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 12,
+            &quot;category_id&quot;: 2,
+            &quot;brand_id&quot;: 12,
+            &quot;name&quot;: &quot;Balo Gaming RGB consectetur&quot;,
+            &quot;description&quot;: &quot;Nisi aut ad dolores dolores qui ut quasi. Veniam velit repellendus animi et ipsa quo. Quia voluptatem velit est optio sit natus hic quibusdam.&quot;,
+            &quot;price&quot;: &quot;1432445.00&quot;,
+            &quot;quantity&quot;: 41,
+            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0055dd?text=fashion+omnis&quot;,
+            &quot;slug&quot;: &quot;balo-gaming-rgb-consectetur-9591&quot;,
+            &quot;color&quot;: &quot;N&acirc;u&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;category&quot;: {
+                &quot;id&quot;: 2,
+                &quot;name&quot;: &quot;Balo Du Lịch&quot;,
+                &quot;description&quot;: &quot;Balo d&agrave;nh cho c&aacute;c chuyến du lịch, trekking với dung t&iacute;ch lớn v&agrave; nhiều ngăn tiện &iacute;ch&quot;,
+                &quot;slug&quot;: &quot;balo-du-lich&quot;,
+                &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/balo-du-lich.jpg&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+            },
+            &quot;brand&quot;: {
+                &quot;id&quot;: 12,
+                &quot;name&quot;: &quot;Friesen-Gorczany&quot;,
+                &quot;description&quot;: &quot;Illum non at commodi ipsa deleniti quo. Amet officia in voluptas qui laboriosam magnam odit. Voluptates quibusdam et enim ducimus maxime omnis. Ut eveniet quo explicabo id dolores est rerum.&quot;,
+                &quot;slug&quot;: &quot;friesen-gorczany&quot;,
+                &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00cc44?text=business+recusandae&quot;,
+                &quot;status&quot;: &quot;active&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
             }
         }
     ],
-    &quot;first_page_url&quot;: &quot;http://localhost/api/products?page=1&quot;,
+    &quot;first_page_url&quot;: &quot;http://localhost:8000/api/products?page=1&quot;,
     &quot;from&quot;: 1,
     &quot;last_page&quot;: 5,
-    &quot;last_page_url&quot;: &quot;http://localhost/api/products?page=5&quot;,
+    &quot;last_page_url&quot;: &quot;http://localhost:8000/api/products?page=5&quot;,
     &quot;links&quot;: [
         {
             &quot;url&quot;: null,
@@ -4867,38 +4854,38 @@ access-control-allow-origin: *
             &quot;active&quot;: false
         },
         {
-            &quot;url&quot;: &quot;http://localhost/api/products?page=1&quot;,
+            &quot;url&quot;: &quot;http://localhost:8000/api/products?page=1&quot;,
             &quot;label&quot;: &quot;1&quot;,
             &quot;active&quot;: true
         },
         {
-            &quot;url&quot;: &quot;http://localhost/api/products?page=2&quot;,
+            &quot;url&quot;: &quot;http://localhost:8000/api/products?page=2&quot;,
             &quot;label&quot;: &quot;2&quot;,
             &quot;active&quot;: false
         },
         {
-            &quot;url&quot;: &quot;http://localhost/api/products?page=3&quot;,
+            &quot;url&quot;: &quot;http://localhost:8000/api/products?page=3&quot;,
             &quot;label&quot;: &quot;3&quot;,
             &quot;active&quot;: false
         },
         {
-            &quot;url&quot;: &quot;http://localhost/api/products?page=4&quot;,
+            &quot;url&quot;: &quot;http://localhost:8000/api/products?page=4&quot;,
             &quot;label&quot;: &quot;4&quot;,
             &quot;active&quot;: false
         },
         {
-            &quot;url&quot;: &quot;http://localhost/api/products?page=5&quot;,
+            &quot;url&quot;: &quot;http://localhost:8000/api/products?page=5&quot;,
             &quot;label&quot;: &quot;5&quot;,
             &quot;active&quot;: false
         },
         {
-            &quot;url&quot;: &quot;http://localhost/api/products?page=2&quot;,
+            &quot;url&quot;: &quot;http://localhost:8000/api/products?page=2&quot;,
             &quot;label&quot;: &quot;Next &amp;raquo;&quot;,
             &quot;active&quot;: false
         }
     ],
-    &quot;next_page_url&quot;: &quot;http://localhost/api/products?page=2&quot;,
-    &quot;path&quot;: &quot;http://localhost/api/products&quot;,
+    &quot;next_page_url&quot;: &quot;http://localhost:8000/api/products?page=2&quot;,
+    &quot;path&quot;: &quot;http://localhost:8000/api/products&quot;,
     &quot;per_page&quot;: 12,
     &quot;prev_page_url&quot;: null,
     &quot;to&quot;: 12,
@@ -4990,7 +4977,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/products" \
+    "http://localhost:8000/api/products" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -5008,7 +4995,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/products"
+    "http://localhost:8000/api/products"
 );
 
 const headers = {
@@ -5221,14 +5208,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/products/1" \
+    --get "http://localhost:8000/api/products/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/products/1"
+    "http://localhost:8000/api/products/1"
 );
 
 const headers = {
@@ -5265,83 +5252,65 @@ access-control-allow-origin: *
         &quot;description&quot;: &quot;Balo học sinh kinh điển với thiết kế đơn giản, chất liệu bền bỉ. Dung t&iacute;ch 25L ph&ugrave; hợp cho việc đi học h&agrave;ng ng&agrave;y.&quot;,
         &quot;price&quot;: &quot;899000.00&quot;,
         &quot;quantity&quot;: 50,
-        &quot;image&quot;: &quot;products/balo-jansport-superbreak-classic.jpg&quot;,
+        &quot;image&quot;: &quot;https://placehold.co/600x400?text=products/balo-jansport-superbreak-classic.jpg&quot;,
         &quot;slug&quot;: &quot;balo-jansport-superbreak-classic&quot;,
         &quot;color&quot;: &quot;Đen&quot;,
-        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
         &quot;category&quot;: {
             &quot;id&quot;: 1,
             &quot;name&quot;: &quot;Balo Học Sinh&quot;,
             &quot;description&quot;: &quot;C&aacute;c loại balo d&agrave;nh cho học sinh, sinh vi&ecirc;n với thiết kế trẻ trung v&agrave; tiện dụng&quot;,
             &quot;slug&quot;: &quot;balo-hoc-sinh&quot;,
-            &quot;image&quot;: &quot;categories/balo-hoc-sinh.jpg&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+            &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/balo-hoc-sinh.jpg&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
         },
         &quot;brand&quot;: {
             &quot;id&quot;: 4,
             &quot;name&quot;: &quot;JanSport&quot;,
             &quot;description&quot;: &quot;JanSport chuy&ecirc;n sản xuất balo học sinh v&agrave; du lịch với thiết kế trẻ trung, năng động.&quot;,
             &quot;slug&quot;: &quot;jansport&quot;,
-            &quot;logo&quot;: &quot;brands/jansport-logo.png&quot;,
+            &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/jansport-logo.png&quot;,
             &quot;status&quot;: &quot;active&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
         },
         &quot;comments&quot;: [
             {
-                &quot;id&quot;: 21,
+                &quot;id&quot;: 3,
                 &quot;product_id&quot;: 1,
-                &quot;user_id&quot;: 13,
-                &quot;comment&quot;: &quot;Sản phẩm rất chất lượng, giao h&agrave;ng nhanh!&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
+                &quot;user_id&quot;: 21,
+                &quot;comment&quot;: &quot;Gi&aacute; cả hợp l&yacute;, quality tốt.&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
                 &quot;user&quot;: {
-                    &quot;id&quot;: 13,
-                    &quot;name&quot;: &quot;Jennie D&#039;Amore&quot;,
-                    &quot;email&quot;: &quot;prohaska.althea@example.com&quot;,
-                    &quot;email_verified_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
+                    &quot;id&quot;: 21,
+                    &quot;name&quot;: &quot;Brant Wisozk MD&quot;,
+                    &quot;email&quot;: &quot;umitchell@example.org&quot;,
+                    &quot;email_verified_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
                     &quot;phone&quot;: null,
                     &quot;status&quot;: &quot;active&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;
                 }
             },
             {
-                &quot;id&quot;: 75,
+                &quot;id&quot;: 53,
                 &quot;product_id&quot;: 1,
-                &quot;user_id&quot;: 22,
-                &quot;comment&quot;: &quot;M&igrave;nh rất h&agrave;i l&ograve;ng với sản phẩm n&agrave;y.&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
+                &quot;user_id&quot;: 4,
+                &quot;comment&quot;: &quot;D&acirc;y đeo &ecirc;m, kh&ocirc;ng đau vai.&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
                 &quot;user&quot;: {
-                    &quot;id&quot;: 22,
-                    &quot;name&quot;: &quot;Prof. Mohammad Kohler II&quot;,
-                    &quot;email&quot;: &quot;bernhard.zoie@example.org&quot;,
-                    &quot;email_verified_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                    &quot;phone&quot;: null,
-                    &quot;status&quot;: &quot;active&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;
-                }
-            },
-            {
-                &quot;id&quot;: 99,
-                &quot;product_id&quot;: 1,
-                &quot;user_id&quot;: 1,
-                &quot;comment&quot;: &quot;Shop giao h&agrave;ng nhanh, đ&oacute;ng g&oacute;i cẩn thận.&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-                &quot;user&quot;: {
-                    &quot;id&quot;: 1,
-                    &quot;name&quot;: &quot;Admin BaloZone&quot;,
-                    &quot;email&quot;: &quot;admin@balozone.com&quot;,
+                    &quot;id&quot;: 4,
+                    &quot;name&quot;: &quot;Trần Thị B&igrave;nh&quot;,
+                    &quot;email&quot;: &quot;binh.tran@gmail.com&quot;,
                     &quot;email_verified_at&quot;: null,
-                    &quot;phone&quot;: &quot;0901234567&quot;,
+                    &quot;phone&quot;: &quot;0923456789&quot;,
                     &quot;status&quot;: &quot;active&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:49.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:49.000000Z&quot;
                 }
             }
         ]
@@ -5445,7 +5414,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost/api/products/1" \
+    "http://localhost:8000/api/products/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -5463,7 +5432,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/products/1"
+    "http://localhost:8000/api/products/1"
 );
 
 const headers = {
@@ -5692,14 +5661,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/products/1" \
+    "http://localhost:8000/api/products/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/products/1"
+    "http://localhost:8000/api/products/1"
 );
 
 const headers = {
@@ -5812,14 +5781,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/products-featured" \
+    --get "http://localhost:8000/api/products-featured" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/products-featured"
+    "http://localhost:8000/api/products-featured"
 );
 
 const headers = {
@@ -5850,267 +5819,267 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: [
         {
-            &quot;id&quot;: 41,
-            &quot;category_id&quot;: 3,
-            &quot;brand_id&quot;: 4,
-            &quot;name&quot;: &quot;Balo Thể Thao Nike Air et&quot;,
-            &quot;description&quot;: &quot;Eos expedita voluptatibus est asperiores veritatis. Quas illum fuga sunt non officiis. Qui cum corporis soluta harum. Fugit et aut fugiat repellat. In maiores et natus voluptatem in architecto qui.&quot;,
-            &quot;price&quot;: &quot;1447336.00&quot;,
-            &quot;quantity&quot;: 81,
-            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0077cc?text=fashion+magnam&quot;,
-            &quot;slug&quot;: &quot;balo-the-thao-nike-air-et-1858&quot;,
-            &quot;color&quot;: &quot;Cam&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-            &quot;category&quot;: {
-                &quot;id&quot;: 3,
-                &quot;name&quot;: &quot;Balo Laptop&quot;,
-                &quot;description&quot;: &quot;Balo chuy&ecirc;n dụng để đựng laptop v&agrave; c&aacute;c thiết bị c&ocirc;ng nghệ với lớp đệm bảo vệ&quot;,
-                &quot;slug&quot;: &quot;balo-laptop&quot;,
-                &quot;image&quot;: &quot;categories/balo-laptop.jpg&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            },
-            &quot;brand&quot;: {
-                &quot;id&quot;: 4,
-                &quot;name&quot;: &quot;JanSport&quot;,
-                &quot;description&quot;: &quot;JanSport chuy&ecirc;n sản xuất balo học sinh v&agrave; du lịch với thiết kế trẻ trung, năng động.&quot;,
-                &quot;slug&quot;: &quot;jansport&quot;,
-                &quot;logo&quot;: &quot;brands/jansport-logo.png&quot;,
-                &quot;status&quot;: &quot;active&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 42,
-            &quot;category_id&quot;: 2,
-            &quot;brand_id&quot;: 4,
-            &quot;name&quot;: &quot;T&uacute;i Laptop Herschel nihil&quot;,
-            &quot;description&quot;: &quot;Sed velit odit tempore unde. Explicabo pariatur ratione neque sed nihil a eius. Sed perspiciatis autem officiis qui. Quia quam sed sint tempora quis aperiam accusantium. Non ut debitis cum pariatur.&quot;,
-            &quot;price&quot;: &quot;993902.00&quot;,
-            &quot;quantity&quot;: 54,
-            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/009944?text=fashion+impedit&quot;,
-            &quot;slug&quot;: &quot;tui-laptop-herschel-nihil-7427&quot;,
-            &quot;color&quot;: &quot;Cam&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-            &quot;category&quot;: {
-                &quot;id&quot;: 2,
-                &quot;name&quot;: &quot;Balo Du Lịch&quot;,
-                &quot;description&quot;: &quot;Balo d&agrave;nh cho c&aacute;c chuyến du lịch, trekking với dung t&iacute;ch lớn v&agrave; nhiều ngăn tiện &iacute;ch&quot;,
-                &quot;slug&quot;: &quot;balo-du-lich&quot;,
-                &quot;image&quot;: &quot;categories/balo-du-lich.jpg&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            },
-            &quot;brand&quot;: {
-                &quot;id&quot;: 4,
-                &quot;name&quot;: &quot;JanSport&quot;,
-                &quot;description&quot;: &quot;JanSport chuy&ecirc;n sản xuất balo học sinh v&agrave; du lịch với thiết kế trẻ trung, năng động.&quot;,
-                &quot;slug&quot;: &quot;jansport&quot;,
-                &quot;logo&quot;: &quot;brands/jansport-logo.png&quot;,
-                &quot;status&quot;: &quot;active&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 43,
-            &quot;category_id&quot;: 3,
-            &quot;brand_id&quot;: 14,
-            &quot;name&quot;: &quot;Balo Leo N&uacute;i The North Face sit&quot;,
-            &quot;description&quot;: &quot;Error ducimus porro omnis nulla debitis repudiandae. Et sit maxime nihil provident fuga natus ullam. Qui in vero provident.&quot;,
-            &quot;price&quot;: &quot;581461.00&quot;,
-            &quot;quantity&quot;: 61,
-            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/003377?text=fashion+eum&quot;,
-            &quot;slug&quot;: &quot;balo-leo-nui-the-north-face-sit-5148&quot;,
-            &quot;color&quot;: &quot;Trắng&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-            &quot;category&quot;: {
-                &quot;id&quot;: 3,
-                &quot;name&quot;: &quot;Balo Laptop&quot;,
-                &quot;description&quot;: &quot;Balo chuy&ecirc;n dụng để đựng laptop v&agrave; c&aacute;c thiết bị c&ocirc;ng nghệ với lớp đệm bảo vệ&quot;,
-                &quot;slug&quot;: &quot;balo-laptop&quot;,
-                &quot;image&quot;: &quot;categories/balo-laptop.jpg&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            },
-            &quot;brand&quot;: {
-                &quot;id&quot;: 14,
-                &quot;name&quot;: &quot;Davis-Klein&quot;,
-                &quot;description&quot;: &quot;Ipsum aspernatur consequatur velit rerum. Sunt debitis explicabo consequatur laboriosam. Et consequatur eius tempore occaecati corporis sint.&quot;,
-                &quot;slug&quot;: &quot;davis-klein&quot;,
-                &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00aa99?text=business+sunt&quot;,
-                &quot;status&quot;: &quot;active&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 44,
-            &quot;category_id&quot;: 3,
-            &quot;brand_id&quot;: 4,
-            &quot;name&quot;: &quot;T&uacute;i X&aacute;ch Nữ Thời Trang voluptatibus&quot;,
-            &quot;description&quot;: &quot;Laudantium illo voluptatem excepturi doloribus voluptates. Dolor qui ut laborum sit corporis eius. Dolore facilis necessitatibus vero sint rerum cum. Corrupti eius assumenda magni quia corrupti deserunt quia laudantium.&quot;,
-            &quot;price&quot;: &quot;1387882.00&quot;,
-            &quot;quantity&quot;: 35,
-            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/001188?text=fashion+quisquam&quot;,
-            &quot;slug&quot;: &quot;tui-xach-nu-thoi-trang-voluptatibus-1040&quot;,
-            &quot;color&quot;: &quot;Trắng&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-            &quot;category&quot;: {
-                &quot;id&quot;: 3,
-                &quot;name&quot;: &quot;Balo Laptop&quot;,
-                &quot;description&quot;: &quot;Balo chuy&ecirc;n dụng để đựng laptop v&agrave; c&aacute;c thiết bị c&ocirc;ng nghệ với lớp đệm bảo vệ&quot;,
-                &quot;slug&quot;: &quot;balo-laptop&quot;,
-                &quot;image&quot;: &quot;categories/balo-laptop.jpg&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            },
-            &quot;brand&quot;: {
-                &quot;id&quot;: 4,
-                &quot;name&quot;: &quot;JanSport&quot;,
-                &quot;description&quot;: &quot;JanSport chuy&ecirc;n sản xuất balo học sinh v&agrave; du lịch với thiết kế trẻ trung, năng động.&quot;,
-                &quot;slug&quot;: &quot;jansport&quot;,
-                &quot;logo&quot;: &quot;brands/jansport-logo.png&quot;,
-                &quot;status&quot;: &quot;active&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 46,
-            &quot;category_id&quot;: 5,
-            &quot;brand_id&quot;: 10,
-            &quot;name&quot;: &quot;Balo Thể Thao Nike Air cumque&quot;,
-            &quot;description&quot;: &quot;Debitis ipsam ex aperiam et quisquam quis voluptatum. Accusantium ipsa dolorem cupiditate quas. Earum sed numquam odit. Laudantium rerum explicabo accusantium ea. Quidem error consequatur sed in sint iure. Dolor itaque alias repudiandae in.&quot;,
-            &quot;price&quot;: &quot;1988821.00&quot;,
-            &quot;quantity&quot;: 79,
-            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00ff88?text=fashion+earum&quot;,
-            &quot;slug&quot;: &quot;balo-the-thao-nike-air-cumque-1025&quot;,
-            &quot;color&quot;: &quot;Trắng&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-            &quot;category&quot;: {
-                &quot;id&quot;: 5,
-                &quot;name&quot;: &quot;T&uacute;i X&aacute;ch&quot;,
-                &quot;description&quot;: &quot;C&aacute;c loại t&uacute;i x&aacute;ch thời trang cho nam v&agrave; nữ&quot;,
-                &quot;slug&quot;: &quot;tui-xach&quot;,
-                &quot;image&quot;: &quot;categories/tui-xach.jpg&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            },
-            &quot;brand&quot;: {
-                &quot;id&quot;: 10,
-                &quot;name&quot;: &quot;Bechtelar Ltd&quot;,
-                &quot;description&quot;: &quot;Aut repudiandae dignissimos ut omnis. Sunt sint repellendus neque corporis eum velit ipsa.&quot;,
-                &quot;slug&quot;: &quot;bechtelar-ltd&quot;,
-                &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/009977?text=business+labore&quot;,
-                &quot;status&quot;: &quot;inactive&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 47,
-            &quot;category_id&quot;: 2,
-            &quot;brand_id&quot;: 8,
-            &quot;name&quot;: &quot;Balo Leo N&uacute;i The North Face aspernatur&quot;,
-            &quot;description&quot;: &quot;Esse similique et quia nostrum totam. Pariatur voluptatem unde facere aut unde fugiat rem. Mollitia dolorum amet veritatis molestiae id quae. Tempore ut nihil quod libero praesentium at.&quot;,
-            &quot;price&quot;: &quot;1394690.00&quot;,
-            &quot;quantity&quot;: 66,
-            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00ffbb?text=fashion+earum&quot;,
-            &quot;slug&quot;: &quot;balo-leo-nui-the-north-face-aspernatur-8589&quot;,
-            &quot;color&quot;: &quot;N&acirc;u&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-            &quot;category&quot;: {
-                &quot;id&quot;: 2,
-                &quot;name&quot;: &quot;Balo Du Lịch&quot;,
-                &quot;description&quot;: &quot;Balo d&agrave;nh cho c&aacute;c chuyến du lịch, trekking với dung t&iacute;ch lớn v&agrave; nhiều ngăn tiện &iacute;ch&quot;,
-                &quot;slug&quot;: &quot;balo-du-lich&quot;,
-                &quot;image&quot;: &quot;categories/balo-du-lich.jpg&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            },
-            &quot;brand&quot;: {
-                &quot;id&quot;: 8,
-                &quot;name&quot;: &quot;Roob, Stehr and Considine&quot;,
-                &quot;description&quot;: &quot;Deserunt sunt neque aut explicabo quis atque ex iure. Eligendi ducimus cum atque. Aspernatur reiciendis neque esse necessitatibus.&quot;,
-                &quot;slug&quot;: &quot;roob-stehr-and-considine&quot;,
-                &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/0088ee?text=business+autem&quot;,
-                &quot;status&quot;: &quot;active&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 29,
+            &quot;id&quot;: 1,
             &quot;category_id&quot;: 1,
-            &quot;brand_id&quot;: 1,
-            &quot;name&quot;: &quot;Balo Gaming RGB tempore&quot;,
-            &quot;description&quot;: &quot;Vel at et aliquid iure. Consectetur maxime accusantium debitis nostrum veritatis. Autem praesentium voluptatem repellendus unde sit doloribus excepturi. Velit quia dicta beatae et non sint delectus molestiae.&quot;,
-            &quot;price&quot;: &quot;1863570.00&quot;,
-            &quot;quantity&quot;: 91,
-            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/006622?text=fashion+vel&quot;,
-            &quot;slug&quot;: &quot;balo-gaming-rgb-tempore-1817&quot;,
-            &quot;color&quot;: &quot;Đỏ&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
+            &quot;brand_id&quot;: 4,
+            &quot;name&quot;: &quot;Balo JanSport SuperBreak Classic&quot;,
+            &quot;description&quot;: &quot;Balo học sinh kinh điển với thiết kế đơn giản, chất liệu bền bỉ. Dung t&iacute;ch 25L ph&ugrave; hợp cho việc đi học h&agrave;ng ng&agrave;y.&quot;,
+            &quot;price&quot;: &quot;899000.00&quot;,
+            &quot;quantity&quot;: 50,
+            &quot;image&quot;: &quot;https://placehold.co/600x400?text=products/balo-jansport-superbreak-classic.jpg&quot;,
+            &quot;slug&quot;: &quot;balo-jansport-superbreak-classic&quot;,
+            &quot;color&quot;: &quot;Đen&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
             &quot;category&quot;: {
                 &quot;id&quot;: 1,
                 &quot;name&quot;: &quot;Balo Học Sinh&quot;,
                 &quot;description&quot;: &quot;C&aacute;c loại balo d&agrave;nh cho học sinh, sinh vi&ecirc;n với thiết kế trẻ trung v&agrave; tiện dụng&quot;,
                 &quot;slug&quot;: &quot;balo-hoc-sinh&quot;,
-                &quot;image&quot;: &quot;categories/balo-hoc-sinh.jpg&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/balo-hoc-sinh.jpg&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+            },
+            &quot;brand&quot;: {
+                &quot;id&quot;: 4,
+                &quot;name&quot;: &quot;JanSport&quot;,
+                &quot;description&quot;: &quot;JanSport chuy&ecirc;n sản xuất balo học sinh v&agrave; du lịch với thiết kế trẻ trung, năng động.&quot;,
+                &quot;slug&quot;: &quot;jansport&quot;,
+                &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/jansport-logo.png&quot;,
+                &quot;status&quot;: &quot;active&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 2,
+            &quot;category_id&quot;: 1,
+            &quot;brand_id&quot;: 1,
+            &quot;name&quot;: &quot;Balo Nike Heritage 2.0&quot;,
+            &quot;description&quot;: &quot;Balo thể thao năng động với logo Nike nổi bật. Thiết kế hiện đại, ph&ugrave; hợp cho học sinh cấp 3.&quot;,
+            &quot;price&quot;: &quot;1200000.00&quot;,
+            &quot;quantity&quot;: 30,
+            &quot;image&quot;: &quot;https://placehold.co/600x400?text=products/balo-nike-heritage-20.jpg&quot;,
+            &quot;slug&quot;: &quot;balo-nike-heritage-20&quot;,
+            &quot;color&quot;: &quot;Xanh Navy&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;category&quot;: {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;Balo Học Sinh&quot;,
+                &quot;description&quot;: &quot;C&aacute;c loại balo d&agrave;nh cho học sinh, sinh vi&ecirc;n với thiết kế trẻ trung v&agrave; tiện dụng&quot;,
+                &quot;slug&quot;: &quot;balo-hoc-sinh&quot;,
+                &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/balo-hoc-sinh.jpg&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
             },
             &quot;brand&quot;: {
                 &quot;id&quot;: 1,
                 &quot;name&quot;: &quot;Nike&quot;,
                 &quot;description&quot;: &quot;Nike l&agrave; thương hiệu thể thao h&agrave;ng đầu thế giới, nổi tiếng với c&aacute;c sản phẩm balo v&agrave; t&uacute;i thể thao chất lượng cao.&quot;,
                 &quot;slug&quot;: &quot;nike&quot;,
-                &quot;logo&quot;: &quot;brands/nike-logo.png&quot;,
+                &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/nike-logo.png&quot;,
                 &quot;status&quot;: &quot;active&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
             }
         },
         {
-            &quot;id&quot;: 48,
-            &quot;category_id&quot;: 3,
-            &quot;brand_id&quot;: 16,
-            &quot;name&quot;: &quot;Balo Du Lịch Samsonite repellendus&quot;,
-            &quot;description&quot;: &quot;Facere voluptas magnam possimus nam. Sunt error ab voluptatibus nihil quibusdam non totam. Et labore id nam.&quot;,
-            &quot;price&quot;: &quot;1433491.00&quot;,
-            &quot;quantity&quot;: 56,
-            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/008866?text=fashion+quo&quot;,
-            &quot;slug&quot;: &quot;balo-du-lich-samsonite-repellendus-7651&quot;,
+            &quot;id&quot;: 3,
+            &quot;category_id&quot;: 2,
+            &quot;brand_id&quot;: 5,
+            &quot;name&quot;: &quot;Balo The North Face Borealis 28L&quot;,
+            &quot;description&quot;: &quot;Balo trekking chuy&ecirc;n nghiệp với nhiều ngăn tiện &iacute;ch, d&acirc;y đeo thoải m&aacute;i. L&yacute; tưởng cho c&aacute;c chuyến du lịch ngắn ng&agrave;y.&quot;,
+            &quot;price&quot;: &quot;2500000.00&quot;,
+            &quot;quantity&quot;: 25,
+            &quot;image&quot;: &quot;https://placehold.co/600x400?text=products/balo-the-north-face-borealis-28l.jpg&quot;,
+            &quot;slug&quot;: &quot;balo-the-north-face-borealis-28l&quot;,
             &quot;color&quot;: &quot;X&aacute;m&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;category&quot;: {
+                &quot;id&quot;: 2,
+                &quot;name&quot;: &quot;Balo Du Lịch&quot;,
+                &quot;description&quot;: &quot;Balo d&agrave;nh cho c&aacute;c chuyến du lịch, trekking với dung t&iacute;ch lớn v&agrave; nhiều ngăn tiện &iacute;ch&quot;,
+                &quot;slug&quot;: &quot;balo-du-lich&quot;,
+                &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/balo-du-lich.jpg&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+            },
+            &quot;brand&quot;: {
+                &quot;id&quot;: 5,
+                &quot;name&quot;: &quot;The North Face&quot;,
+                &quot;description&quot;: &quot;The North Face l&agrave; thương hiệu outdoor nổi tiếng với c&aacute;c sản phẩm balo trekking v&agrave; leo n&uacute;i.&quot;,
+                &quot;slug&quot;: &quot;the-north-face&quot;,
+                &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/tnf-logo.png&quot;,
+                &quot;status&quot;: &quot;active&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 4,
+            &quot;category_id&quot;: 2,
+            &quot;brand_id&quot;: 3,
+            &quot;name&quot;: &quot;Balo Samsonite Guardit 2.0&quot;,
+            &quot;description&quot;: &quot;Balo du lịch cao cấp với ngăn laptop 15.6\&quot;, chống thấm nước. Thiết kế sang trọng, ph&ugrave; hợp cho c&ocirc;ng t&aacute;c.&quot;,
+            &quot;price&quot;: &quot;3200000.00&quot;,
+            &quot;quantity&quot;: 20,
+            &quot;image&quot;: &quot;https://placehold.co/600x400?text=products/balo-samsonite-guardit-20.jpg&quot;,
+            &quot;slug&quot;: &quot;balo-samsonite-guardit-20&quot;,
+            &quot;color&quot;: &quot;Đen&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;category&quot;: {
+                &quot;id&quot;: 2,
+                &quot;name&quot;: &quot;Balo Du Lịch&quot;,
+                &quot;description&quot;: &quot;Balo d&agrave;nh cho c&aacute;c chuyến du lịch, trekking với dung t&iacute;ch lớn v&agrave; nhiều ngăn tiện &iacute;ch&quot;,
+                &quot;slug&quot;: &quot;balo-du-lich&quot;,
+                &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/balo-du-lich.jpg&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+            },
+            &quot;brand&quot;: {
+                &quot;id&quot;: 3,
+                &quot;name&quot;: &quot;Samsonite&quot;,
+                &quot;description&quot;: &quot;Samsonite l&agrave; thương hiệu h&agrave;ng đầu thế giới về h&agrave;nh l&yacute; v&agrave; balo du lịch cao cấp.&quot;,
+                &quot;slug&quot;: &quot;samsonite&quot;,
+                &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/samsonite-logo.png&quot;,
+                &quot;status&quot;: &quot;active&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 5,
+            &quot;category_id&quot;: 3,
+            &quot;brand_id&quot;: 6,
+            &quot;name&quot;: &quot;Balo Laptop Herschel Pop Quiz&quot;,
+            &quot;description&quot;: &quot;Balo laptop thời trang với thiết kế vintage. Ngăn laptop 15\&quot; được đệm bảo vệ tối ưu.&quot;,
+            &quot;price&quot;: &quot;1800000.00&quot;,
+            &quot;quantity&quot;: 35,
+            &quot;image&quot;: &quot;https://placehold.co/600x400?text=products/balo-laptop-herschel-pop-quiz.jpg&quot;,
+            &quot;slug&quot;: &quot;balo-laptop-herschel-pop-quiz&quot;,
+            &quot;color&quot;: &quot;N&acirc;u&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
             &quot;category&quot;: {
                 &quot;id&quot;: 3,
                 &quot;name&quot;: &quot;Balo Laptop&quot;,
                 &quot;description&quot;: &quot;Balo chuy&ecirc;n dụng để đựng laptop v&agrave; c&aacute;c thiết bị c&ocirc;ng nghệ với lớp đệm bảo vệ&quot;,
                 &quot;slug&quot;: &quot;balo-laptop&quot;,
-                &quot;image&quot;: &quot;categories/balo-laptop.jpg&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/balo-laptop.jpg&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+            },
+            &quot;brand&quot;: {
+                &quot;id&quot;: 6,
+                &quot;name&quot;: &quot;Herschel&quot;,
+                &quot;description&quot;: &quot;Herschel Supply Co. nổi tiếng với thiết kế vintage v&agrave; hiện đại, ph&ugrave; hợp cho mọi lứa tuổi.&quot;,
+                &quot;slug&quot;: &quot;herschel&quot;,
+                &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/herschel-logo.png&quot;,
+                &quot;status&quot;: &quot;active&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 6,
+            &quot;category_id&quot;: 1,
+            &quot;brand_id&quot;: 13,
+            &quot;name&quot;: &quot;T&uacute;i X&aacute;ch Nữ Thời Trang molestiae&quot;,
+            &quot;description&quot;: &quot;Recusandae aut molestias non numquam at. Nisi perspiciatis maxime et magni. Porro ea et molestias ut accusamus qui. Fugit corrupti sunt distinctio recusandae iusto.&quot;,
+            &quot;price&quot;: &quot;209529.00&quot;,
+            &quot;quantity&quot;: 20,
+            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/008822?text=fashion+labore&quot;,
+            &quot;slug&quot;: &quot;tui-xach-nu-thoi-trang-molestiae-2608&quot;,
+            &quot;color&quot;: &quot;X&aacute;m&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;category&quot;: {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;Balo Học Sinh&quot;,
+                &quot;description&quot;: &quot;C&aacute;c loại balo d&agrave;nh cho học sinh, sinh vi&ecirc;n với thiết kế trẻ trung v&agrave; tiện dụng&quot;,
+                &quot;slug&quot;: &quot;balo-hoc-sinh&quot;,
+                &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/balo-hoc-sinh.jpg&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+            },
+            &quot;brand&quot;: {
+                &quot;id&quot;: 13,
+                &quot;name&quot;: &quot;Hintz-Pfannerstill&quot;,
+                &quot;description&quot;: &quot;Voluptatum a delectus voluptatem inventore qui eveniet. In sapiente quo nemo incidunt enim. Maiores et sit id ipsum reprehenderit modi iusto. Et fugiat excepturi tenetur molestiae et similique et beatae.&quot;,
+                &quot;slug&quot;: &quot;hintz-pfannerstill&quot;,
+                &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00ff22?text=business+sit&quot;,
+                &quot;status&quot;: &quot;active&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 7,
+            &quot;category_id&quot;: 5,
+            &quot;brand_id&quot;: 12,
+            &quot;name&quot;: &quot;Balo Leo N&uacute;i The North Face eveniet&quot;,
+            &quot;description&quot;: &quot;Saepe maiores est minima deserunt. Rerum quasi tempora corrupti dolore laboriosam delectus. Labore iste hic laboriosam neque dolorum perspiciatis. Tenetur voluptas facilis est pariatur.&quot;,
+            &quot;price&quot;: &quot;530095.00&quot;,
+            &quot;quantity&quot;: 85,
+            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0099bb?text=fashion+iure&quot;,
+            &quot;slug&quot;: &quot;balo-leo-nui-the-north-face-eveniet-5382&quot;,
+            &quot;color&quot;: &quot;Xanh&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;category&quot;: {
+                &quot;id&quot;: 5,
+                &quot;name&quot;: &quot;T&uacute;i X&aacute;ch&quot;,
+                &quot;description&quot;: &quot;C&aacute;c loại t&uacute;i x&aacute;ch thời trang cho nam v&agrave; nữ&quot;,
+                &quot;slug&quot;: &quot;tui-xach&quot;,
+                &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/tui-xach.jpg&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+            },
+            &quot;brand&quot;: {
+                &quot;id&quot;: 12,
+                &quot;name&quot;: &quot;Friesen-Gorczany&quot;,
+                &quot;description&quot;: &quot;Illum non at commodi ipsa deleniti quo. Amet officia in voluptas qui laboriosam magnam odit. Voluptates quibusdam et enim ducimus maxime omnis. Ut eveniet quo explicabo id dolores est rerum.&quot;,
+                &quot;slug&quot;: &quot;friesen-gorczany&quot;,
+                &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00cc44?text=business+recusandae&quot;,
+                &quot;status&quot;: &quot;active&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 8,
+            &quot;category_id&quot;: 5,
+            &quot;brand_id&quot;: 16,
+            &quot;name&quot;: &quot;Balo Leo N&uacute;i The North Face reprehenderit&quot;,
+            &quot;description&quot;: &quot;Quae quia totam aut laudantium. Dolor illum praesentium illum aperiam est in. Error dolor provident ea. Ut accusamus et consequatur ut consectetur.&quot;,
+            &quot;price&quot;: &quot;1549132.00&quot;,
+            &quot;quantity&quot;: 33,
+            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0088bb?text=fashion+architecto&quot;,
+            &quot;slug&quot;: &quot;balo-leo-nui-the-north-face-reprehenderit-9748&quot;,
+            &quot;color&quot;: &quot;Đen&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;category&quot;: {
+                &quot;id&quot;: 5,
+                &quot;name&quot;: &quot;T&uacute;i X&aacute;ch&quot;,
+                &quot;description&quot;: &quot;C&aacute;c loại t&uacute;i x&aacute;ch thời trang cho nam v&agrave; nữ&quot;,
+                &quot;slug&quot;: &quot;tui-xach&quot;,
+                &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/tui-xach.jpg&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
             },
             &quot;brand&quot;: {
                 &quot;id&quot;: 16,
-                &quot;name&quot;: &quot;Bahringer PLC&quot;,
-                &quot;description&quot;: &quot;A eius iusto sunt quibusdam. Commodi qui repudiandae quaerat facere veniam. Commodi culpa molestiae vitae.&quot;,
-                &quot;slug&quot;: &quot;bahringer-plc&quot;,
-                &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00cc00?text=business+et&quot;,
-                &quot;status&quot;: &quot;active&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                &quot;name&quot;: &quot;Heathcote-DuBuque&quot;,
+                &quot;description&quot;: &quot;Dolor occaecati ullam quidem quas. Qui nesciunt reiciendis temporibus iure ad. Temporibus et qui quo eligendi repellendus veritatis incidunt quae. Perspiciatis maxime ipsum non.&quot;,
+                &quot;slug&quot;: &quot;heathcote-dubuque&quot;,
+                &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00bbee?text=business+perspiciatis&quot;,
+                &quot;status&quot;: &quot;inactive&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
             }
         }
     ]
@@ -6201,14 +6170,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/products/category/1" \
+    --get "http://localhost:8000/api/products/category/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/products/category/1"
+    "http://localhost:8000/api/products/category/1"
 );
 
 const headers = {
@@ -6239,10 +6208,10 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">{
     &quot;current_page&quot;: 1,
     &quot;data&quot;: [],
-    &quot;first_page_url&quot;: &quot;http://localhost/api/products/category/1?page=1&quot;,
+    &quot;first_page_url&quot;: &quot;http://localhost:8000/api/products/category/1?page=1&quot;,
     &quot;from&quot;: null,
     &quot;last_page&quot;: 1,
-    &quot;last_page_url&quot;: &quot;http://localhost/api/products/category/1?page=1&quot;,
+    &quot;last_page_url&quot;: &quot;http://localhost:8000/api/products/category/1?page=1&quot;,
     &quot;links&quot;: [
         {
             &quot;url&quot;: null,
@@ -6250,7 +6219,7 @@ access-control-allow-origin: *
             &quot;active&quot;: false
         },
         {
-            &quot;url&quot;: &quot;http://localhost/api/products/category/1?page=1&quot;,
+            &quot;url&quot;: &quot;http://localhost:8000/api/products/category/1?page=1&quot;,
             &quot;label&quot;: &quot;1&quot;,
             &quot;active&quot;: true
         },
@@ -6261,7 +6230,7 @@ access-control-allow-origin: *
         }
     ],
     &quot;next_page_url&quot;: null,
-    &quot;path&quot;: &quot;http://localhost/api/products/category/1&quot;,
+    &quot;path&quot;: &quot;http://localhost:8000/api/products/category/1&quot;,
     &quot;per_page&quot;: 12,
     &quot;prev_page_url&quot;: null,
     &quot;to&quot;: null,
@@ -6365,14 +6334,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/products/brand/1" \
+    --get "http://localhost:8000/api/products/brand/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/products/brand/1"
+    "http://localhost:8000/api/products/brand/1"
 );
 
 const headers = {
@@ -6403,10 +6372,10 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">{
     &quot;current_page&quot;: 1,
     &quot;data&quot;: [],
-    &quot;first_page_url&quot;: &quot;http://localhost/api/products/brand/1?page=1&quot;,
+    &quot;first_page_url&quot;: &quot;http://localhost:8000/api/products/brand/1?page=1&quot;,
     &quot;from&quot;: null,
     &quot;last_page&quot;: 1,
-    &quot;last_page_url&quot;: &quot;http://localhost/api/products/brand/1?page=1&quot;,
+    &quot;last_page_url&quot;: &quot;http://localhost:8000/api/products/brand/1?page=1&quot;,
     &quot;links&quot;: [
         {
             &quot;url&quot;: null,
@@ -6414,7 +6383,7 @@ access-control-allow-origin: *
             &quot;active&quot;: false
         },
         {
-            &quot;url&quot;: &quot;http://localhost/api/products/brand/1?page=1&quot;,
+            &quot;url&quot;: &quot;http://localhost:8000/api/products/brand/1?page=1&quot;,
             &quot;label&quot;: &quot;1&quot;,
             &quot;active&quot;: true
         },
@@ -6425,7 +6394,7 @@ access-control-allow-origin: *
         }
     ],
     &quot;next_page_url&quot;: null,
-    &quot;path&quot;: &quot;http://localhost/api/products/brand/1&quot;,
+    &quot;path&quot;: &quot;http://localhost:8000/api/products/brand/1&quot;,
     &quot;per_page&quot;: 12,
     &quot;prev_page_url&quot;: null,
     &quot;to&quot;: null,
@@ -6529,14 +6498,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/products-search" \
+    --get "http://localhost:8000/api/products-search" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/products-search"
+    "http://localhost:8000/api/products-search"
 );
 
 const headers = {
@@ -6654,14 +6623,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/products-on-sale" \
+    --get "http://localhost:8000/api/products-on-sale" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/products-on-sale"
+    "http://localhost:8000/api/products-on-sale"
 );
 
 const headers = {
@@ -6693,134 +6662,61 @@ access-control-allow-origin: *
     &quot;current_page&quot;: 1,
     &quot;data&quot;: [
         {
-            &quot;id&quot;: 6,
-            &quot;category_id&quot;: 3,
-            &quot;brand_id&quot;: 10,
-            &quot;name&quot;: &quot;Balo Gaming RGB aperiam&quot;,
-            &quot;description&quot;: &quot;Debitis natus dolorum et. Optio sed sunt error culpa voluptas. Eos occaecati consectetur ipsum molestiae ut occaecati tempora. Autem quae veniam qui fuga.&quot;,
-            &quot;price&quot;: &quot;1562024.00&quot;,
-            &quot;quantity&quot;: 72,
-            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/007744?text=fashion+rerum&quot;,
-            &quot;slug&quot;: &quot;balo-gaming-rgb-aperiam-7459&quot;,
-            &quot;color&quot;: &quot;Cam&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-            &quot;category&quot;: {
-                &quot;id&quot;: 3,
-                &quot;name&quot;: &quot;Balo Laptop&quot;,
-                &quot;description&quot;: &quot;Balo chuy&ecirc;n dụng để đựng laptop v&agrave; c&aacute;c thiết bị c&ocirc;ng nghệ với lớp đệm bảo vệ&quot;,
-                &quot;slug&quot;: &quot;balo-laptop&quot;,
-                &quot;image&quot;: &quot;categories/balo-laptop.jpg&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            },
-            &quot;brand&quot;: {
-                &quot;id&quot;: 10,
-                &quot;name&quot;: &quot;Bechtelar Ltd&quot;,
-                &quot;description&quot;: &quot;Aut repudiandae dignissimos ut omnis. Sunt sint repellendus neque corporis eum velit ipsa.&quot;,
-                &quot;slug&quot;: &quot;bechtelar-ltd&quot;,
-                &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/009977?text=business+labore&quot;,
-                &quot;status&quot;: &quot;inactive&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            },
-            &quot;current_sale&quot;: {
-                &quot;id&quot;: 20,
-                &quot;sale_campaign_id&quot;: 3,
-                &quot;product_id&quot;: 6,
-                &quot;original_price&quot;: &quot;1562024.00&quot;,
-                &quot;sale_price&quot;: &quot;1062176.32&quot;,
-                &quot;discount_percentage&quot;: &quot;32.00&quot;,
-                &quot;discount_amount&quot;: &quot;499847.68&quot;,
-                &quot;discount_type&quot;: &quot;percentage&quot;,
-                &quot;start_date&quot;: null,
-                &quot;end_date&quot;: null,
-                &quot;max_quantity&quot;: 18,
-                &quot;sold_quantity&quot;: 3,
-                &quot;is_active&quot;: true,
-                &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                &quot;sale_campaign&quot;: {
-                    &quot;id&quot;: 3,
-                    &quot;name&quot;: &quot;Sale Sinh Vi&ecirc;n&quot;,
-                    &quot;slug&quot;: &quot;sale-sinh-vien&quot;,
-                    &quot;description&quot;: &quot;Ưu đ&atilde;i đặc biệt d&agrave;nh cho sinh vi&ecirc;n - Balo học tập gi&aacute; ưu đ&atilde;i&quot;,
-                    &quot;banner_image&quot;: &quot;campaigns/sale-sinh-vien.jpg&quot;,
-                    &quot;start_date&quot;: &quot;2025-06-16T17:17:58.000000Z&quot;,
-                    &quot;end_date&quot;: &quot;2025-07-02T17:17:58.000000Z&quot;,
-                    &quot;status&quot;: &quot;active&quot;,
-                    &quot;is_featured&quot;: false,
-                    &quot;priority&quot;: 70,
-                    &quot;metadata&quot;: {
-                        &quot;tags&quot;: [
-                            &quot;student&quot;,
-                            &quot;education&quot;,
-                            &quot;long-term&quot;
-                        ],
-                        &quot;color&quot;: &quot;#4285f4&quot;,
-                        &quot;description_short&quot;: &quot;Giảm 30% cho sinh vi&ecirc;n&quot;
-                    },
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;
-                }
-            }
-        },
-        {
-            &quot;id&quot;: 9,
+            &quot;id&quot;: 15,
             &quot;category_id&quot;: 5,
-            &quot;brand_id&quot;: 1,
-            &quot;name&quot;: &quot;Balo Gaming RGB rerum&quot;,
-            &quot;description&quot;: &quot;Facilis dolor commodi dolores itaque consequuntur modi. Laborum reiciendis est libero facere sint neque. Est eius sed autem quod est in eum. Aut et temporibus velit hic error officiis explicabo.&quot;,
-            &quot;price&quot;: &quot;1608008.00&quot;,
-            &quot;quantity&quot;: 18,
-            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/001144?text=fashion+sed&quot;,
-            &quot;slug&quot;: &quot;balo-gaming-rgb-rerum-5919&quot;,
+            &quot;brand_id&quot;: 14,
+            &quot;name&quot;: &quot;Balo Du Lịch Samsonite eius&quot;,
+            &quot;description&quot;: &quot;Eos consequuntur deserunt delectus vel mollitia. Dolore earum facere voluptatum libero delectus magni sed. Facilis aut aut illum velit. Sed sit animi animi excepturi autem voluptatem nisi sint.&quot;,
+            &quot;price&quot;: &quot;1976534.00&quot;,
+            &quot;quantity&quot;: 81,
+            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00cc99?text=fashion+enim&quot;,
+            &quot;slug&quot;: &quot;balo-du-lich-samsonite-eius-1519&quot;,
             &quot;color&quot;: &quot;Xanh&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
             &quot;category&quot;: {
                 &quot;id&quot;: 5,
                 &quot;name&quot;: &quot;T&uacute;i X&aacute;ch&quot;,
                 &quot;description&quot;: &quot;C&aacute;c loại t&uacute;i x&aacute;ch thời trang cho nam v&agrave; nữ&quot;,
                 &quot;slug&quot;: &quot;tui-xach&quot;,
-                &quot;image&quot;: &quot;categories/tui-xach.jpg&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/tui-xach.jpg&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
             },
             &quot;brand&quot;: {
-                &quot;id&quot;: 1,
-                &quot;name&quot;: &quot;Nike&quot;,
-                &quot;description&quot;: &quot;Nike l&agrave; thương hiệu thể thao h&agrave;ng đầu thế giới, nổi tiếng với c&aacute;c sản phẩm balo v&agrave; t&uacute;i thể thao chất lượng cao.&quot;,
-                &quot;slug&quot;: &quot;nike&quot;,
-                &quot;logo&quot;: &quot;brands/nike-logo.png&quot;,
+                &quot;id&quot;: 14,
+                &quot;name&quot;: &quot;Zboncak, Jones and Romaguera&quot;,
+                &quot;description&quot;: &quot;Quas non ab culpa ea quia iusto ad. Est aperiam nulla voluptate neque aut magnam. Velit natus non nam ut non. Architecto sint neque cumque aut delectus quaerat.&quot;,
+                &quot;slug&quot;: &quot;zboncak-jones-and-romaguera&quot;,
+                &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00aa77?text=business+rerum&quot;,
                 &quot;status&quot;: &quot;active&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
             },
             &quot;current_sale&quot;: {
-                &quot;id&quot;: 21,
+                &quot;id&quot;: 14,
                 &quot;sale_campaign_id&quot;: 3,
-                &quot;product_id&quot;: 9,
-                &quot;original_price&quot;: &quot;1608008.00&quot;,
-                &quot;sale_price&quot;: &quot;1125605.60&quot;,
-                &quot;discount_percentage&quot;: &quot;30.00&quot;,
-                &quot;discount_amount&quot;: &quot;482402.40&quot;,
+                &quot;product_id&quot;: 15,
+                &quot;original_price&quot;: &quot;1976534.00&quot;,
+                &quot;sale_price&quot;: &quot;1403339.14&quot;,
+                &quot;discount_percentage&quot;: &quot;29.00&quot;,
+                &quot;discount_amount&quot;: &quot;573194.86&quot;,
                 &quot;discount_type&quot;: &quot;percentage&quot;,
                 &quot;start_date&quot;: null,
                 &quot;end_date&quot;: null,
-                &quot;max_quantity&quot;: 48,
-                &quot;sold_quantity&quot;: 4,
+                &quot;max_quantity&quot;: 37,
+                &quot;sold_quantity&quot;: 0,
                 &quot;is_active&quot;: true,
-                &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
                 &quot;sale_campaign&quot;: {
                     &quot;id&quot;: 3,
                     &quot;name&quot;: &quot;Sale Sinh Vi&ecirc;n&quot;,
                     &quot;slug&quot;: &quot;sale-sinh-vien&quot;,
                     &quot;description&quot;: &quot;Ưu đ&atilde;i đặc biệt d&agrave;nh cho sinh vi&ecirc;n - Balo học tập gi&aacute; ưu đ&atilde;i&quot;,
-                    &quot;banner_image&quot;: &quot;campaigns/sale-sinh-vien.jpg&quot;,
-                    &quot;start_date&quot;: &quot;2025-06-16T17:17:58.000000Z&quot;,
-                    &quot;end_date&quot;: &quot;2025-07-02T17:17:58.000000Z&quot;,
+                    &quot;banner_image&quot;: &quot;https://placehold.co/600x400?text=campaigns/sale-sinh-vien.jpg&quot;,
+                    &quot;start_date&quot;: &quot;2025-06-16T22:14:51.000000Z&quot;,
+                    &quot;end_date&quot;: &quot;2025-07-02T22:14:51.000000Z&quot;,
                     &quot;status&quot;: &quot;active&quot;,
                     &quot;is_featured&quot;: false,
                     &quot;priority&quot;: 70,
@@ -6833,81 +6729,154 @@ access-control-allow-origin: *
                         &quot;color&quot;: &quot;#4285f4&quot;,
                         &quot;description_short&quot;: &quot;Giảm 30% cho sinh vi&ecirc;n&quot;
                     },
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
                 }
             }
         },
         {
-            &quot;id&quot;: 1,
-            &quot;category_id&quot;: 1,
-            &quot;brand_id&quot;: 4,
-            &quot;name&quot;: &quot;Balo JanSport SuperBreak Classic&quot;,
-            &quot;description&quot;: &quot;Balo học sinh kinh điển với thiết kế đơn giản, chất liệu bền bỉ. Dung t&iacute;ch 25L ph&ugrave; hợp cho việc đi học h&agrave;ng ng&agrave;y.&quot;,
-            &quot;price&quot;: &quot;899000.00&quot;,
-            &quot;quantity&quot;: 50,
-            &quot;image&quot;: &quot;products/balo-jansport-superbreak-classic.jpg&quot;,
-            &quot;slug&quot;: &quot;balo-jansport-superbreak-classic&quot;,
+            &quot;id&quot;: 10,
+            &quot;category_id&quot;: 5,
+            &quot;brand_id&quot;: 2,
+            &quot;name&quot;: &quot;Balo Du Lịch Samsonite et&quot;,
+            &quot;description&quot;: &quot;Dicta ut incidunt voluptas animi perspiciatis aut. Qui reprehenderit laborum provident consequatur. Totam veniam excepturi reiciendis aut.&quot;,
+            &quot;price&quot;: &quot;856922.00&quot;,
+            &quot;quantity&quot;: 80,
+            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/001155?text=fashion+incidunt&quot;,
+            &quot;slug&quot;: &quot;balo-du-lich-samsonite-et-7894&quot;,
             &quot;color&quot;: &quot;Đen&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
             &quot;category&quot;: {
-                &quot;id&quot;: 1,
-                &quot;name&quot;: &quot;Balo Học Sinh&quot;,
-                &quot;description&quot;: &quot;C&aacute;c loại balo d&agrave;nh cho học sinh, sinh vi&ecirc;n với thiết kế trẻ trung v&agrave; tiện dụng&quot;,
-                &quot;slug&quot;: &quot;balo-hoc-sinh&quot;,
-                &quot;image&quot;: &quot;categories/balo-hoc-sinh.jpg&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                &quot;id&quot;: 5,
+                &quot;name&quot;: &quot;T&uacute;i X&aacute;ch&quot;,
+                &quot;description&quot;: &quot;C&aacute;c loại t&uacute;i x&aacute;ch thời trang cho nam v&agrave; nữ&quot;,
+                &quot;slug&quot;: &quot;tui-xach&quot;,
+                &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/tui-xach.jpg&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
             },
             &quot;brand&quot;: {
-                &quot;id&quot;: 4,
-                &quot;name&quot;: &quot;JanSport&quot;,
-                &quot;description&quot;: &quot;JanSport chuy&ecirc;n sản xuất balo học sinh v&agrave; du lịch với thiết kế trẻ trung, năng động.&quot;,
-                &quot;slug&quot;: &quot;jansport&quot;,
-                &quot;logo&quot;: &quot;brands/jansport-logo.png&quot;,
+                &quot;id&quot;: 2,
+                &quot;name&quot;: &quot;Adidas&quot;,
+                &quot;description&quot;: &quot;Adidas l&agrave; thương hiệu thể thao nổi tiếng với thiết kế năng động v&agrave; chất lượng vượt trội.&quot;,
+                &quot;slug&quot;: &quot;adidas&quot;,
+                &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/adidas-logo.png&quot;,
                 &quot;status&quot;: &quot;active&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
             },
             &quot;current_sale&quot;: {
-                &quot;id&quot;: 17,
-                &quot;sale_campaign_id&quot;: 3,
-                &quot;product_id&quot;: 1,
-                &quot;original_price&quot;: &quot;899000.00&quot;,
-                &quot;sale_price&quot;: &quot;683240.00&quot;,
-                &quot;discount_percentage&quot;: &quot;24.00&quot;,
-                &quot;discount_amount&quot;: &quot;215760.00&quot;,
+                &quot;id&quot;: 8,
+                &quot;sale_campaign_id&quot;: 2,
+                &quot;product_id&quot;: 10,
+                &quot;original_price&quot;: &quot;856922.00&quot;,
+                &quot;sale_price&quot;: &quot;565568.52&quot;,
+                &quot;discount_percentage&quot;: &quot;34.00&quot;,
+                &quot;discount_amount&quot;: &quot;291353.48&quot;,
                 &quot;discount_type&quot;: &quot;percentage&quot;,
                 &quot;start_date&quot;: null,
                 &quot;end_date&quot;: null,
-                &quot;max_quantity&quot;: 31,
-                &quot;sold_quantity&quot;: 0,
+                &quot;max_quantity&quot;: 25,
+                &quot;sold_quantity&quot;: 2,
                 &quot;is_active&quot;: true,
-                &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
                 &quot;sale_campaign&quot;: {
-                    &quot;id&quot;: 3,
-                    &quot;name&quot;: &quot;Sale Sinh Vi&ecirc;n&quot;,
-                    &quot;slug&quot;: &quot;sale-sinh-vien&quot;,
-                    &quot;description&quot;: &quot;Ưu đ&atilde;i đặc biệt d&agrave;nh cho sinh vi&ecirc;n - Balo học tập gi&aacute; ưu đ&atilde;i&quot;,
-                    &quot;banner_image&quot;: &quot;campaigns/sale-sinh-vien.jpg&quot;,
-                    &quot;start_date&quot;: &quot;2025-06-16T17:17:58.000000Z&quot;,
-                    &quot;end_date&quot;: &quot;2025-07-02T17:17:58.000000Z&quot;,
+                    &quot;id&quot;: 2,
+                    &quot;name&quot;: &quot;Flash Sale Cuối Tuần&quot;,
+                    &quot;slug&quot;: &quot;flash-sale-weekend&quot;,
+                    &quot;description&quot;: &quot;Flash sale cuối tuần - Cơ hội v&agrave;ng săn balo gi&aacute; rẻ&quot;,
+                    &quot;banner_image&quot;: &quot;https://placehold.co/600x400?text=campaigns/flash-sale-weekend.jpg&quot;,
+                    &quot;start_date&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;end_date&quot;: &quot;2025-06-21T22:14:51.000000Z&quot;,
                     &quot;status&quot;: &quot;active&quot;,
-                    &quot;is_featured&quot;: false,
-                    &quot;priority&quot;: 70,
+                    &quot;is_featured&quot;: true,
+                    &quot;priority&quot;: 90,
                     &quot;metadata&quot;: {
                         &quot;tags&quot;: [
-                            &quot;student&quot;,
-                            &quot;education&quot;,
-                            &quot;long-term&quot;
+                            &quot;flash-sale&quot;,
+                            &quot;weekend&quot;,
+                            &quot;quick-sale&quot;
                         ],
-                        &quot;color&quot;: &quot;#4285f4&quot;,
-                        &quot;description_short&quot;: &quot;Giảm 30% cho sinh vi&ecirc;n&quot;
+                        &quot;color&quot;: &quot;#ff6b35&quot;,
+                        &quot;description_short&quot;: &quot;Giảm ngay 50%&quot;
                     },
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
+                }
+            }
+        },
+        {
+            &quot;id&quot;: 9,
+            &quot;category_id&quot;: 2,
+            &quot;brand_id&quot;: 7,
+            &quot;name&quot;: &quot;Balo Học Sinh JanSport fugiat&quot;,
+            &quot;description&quot;: &quot;Quo aut veniam iusto molestiae. Aut dolor ipsa delectus unde voluptatibus. Libero officia magnam id eveniet. Est rerum dolores magnam reiciendis quos voluptatibus. Eum soluta facilis aut ratione tempore.&quot;,
+            &quot;price&quot;: &quot;1547100.00&quot;,
+            &quot;quantity&quot;: 38,
+            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/006699?text=fashion+repellendus&quot;,
+            &quot;slug&quot;: &quot;balo-hoc-sinh-jansport-fugiat-9624&quot;,
+            &quot;color&quot;: &quot;Đỏ&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;category&quot;: {
+                &quot;id&quot;: 2,
+                &quot;name&quot;: &quot;Balo Du Lịch&quot;,
+                &quot;description&quot;: &quot;Balo d&agrave;nh cho c&aacute;c chuyến du lịch, trekking với dung t&iacute;ch lớn v&agrave; nhiều ngăn tiện &iacute;ch&quot;,
+                &quot;slug&quot;: &quot;balo-du-lich&quot;,
+                &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/balo-du-lich.jpg&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+            },
+            &quot;brand&quot;: {
+                &quot;id&quot;: 7,
+                &quot;name&quot;: &quot;Stiedemann and Sons&quot;,
+                &quot;description&quot;: &quot;Velit enim et tempore. Nostrum itaque praesentium nisi voluptatum iure sint voluptas est. Et esse architecto id amet amet.&quot;,
+                &quot;slug&quot;: &quot;stiedemann-and-sons&quot;,
+                &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/005566?text=business+eum&quot;,
+                &quot;status&quot;: &quot;inactive&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+            },
+            &quot;current_sale&quot;: {
+                &quot;id&quot;: 7,
+                &quot;sale_campaign_id&quot;: 2,
+                &quot;product_id&quot;: 9,
+                &quot;original_price&quot;: &quot;1547100.00&quot;,
+                &quot;sale_price&quot;: &quot;1005615.00&quot;,
+                &quot;discount_percentage&quot;: &quot;35.00&quot;,
+                &quot;discount_amount&quot;: &quot;541485.00&quot;,
+                &quot;discount_type&quot;: &quot;percentage&quot;,
+                &quot;start_date&quot;: null,
+                &quot;end_date&quot;: null,
+                &quot;max_quantity&quot;: 42,
+                &quot;sold_quantity&quot;: 0,
+                &quot;is_active&quot;: true,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                &quot;sale_campaign&quot;: {
+                    &quot;id&quot;: 2,
+                    &quot;name&quot;: &quot;Flash Sale Cuối Tuần&quot;,
+                    &quot;slug&quot;: &quot;flash-sale-weekend&quot;,
+                    &quot;description&quot;: &quot;Flash sale cuối tuần - Cơ hội v&agrave;ng săn balo gi&aacute; rẻ&quot;,
+                    &quot;banner_image&quot;: &quot;https://placehold.co/600x400?text=campaigns/flash-sale-weekend.jpg&quot;,
+                    &quot;start_date&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;end_date&quot;: &quot;2025-06-21T22:14:51.000000Z&quot;,
+                    &quot;status&quot;: &quot;active&quot;,
+                    &quot;is_featured&quot;: true,
+                    &quot;priority&quot;: 90,
+                    &quot;metadata&quot;: {
+                        &quot;tags&quot;: [
+                            &quot;flash-sale&quot;,
+                            &quot;weekend&quot;,
+                            &quot;quick-sale&quot;
+                        ],
+                        &quot;color&quot;: &quot;#ff6b35&quot;,
+                        &quot;description_short&quot;: &quot;Giảm ngay 50%&quot;
+                    },
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
                 }
             }
         },
@@ -6919,54 +6888,54 @@ access-control-allow-origin: *
             &quot;description&quot;: &quot;Balo laptop thời trang với thiết kế vintage. Ngăn laptop 15\&quot; được đệm bảo vệ tối ưu.&quot;,
             &quot;price&quot;: &quot;1800000.00&quot;,
             &quot;quantity&quot;: 35,
-            &quot;image&quot;: &quot;products/balo-laptop-herschel-pop-quiz.jpg&quot;,
+            &quot;image&quot;: &quot;https://placehold.co/600x400?text=products/balo-laptop-herschel-pop-quiz.jpg&quot;,
             &quot;slug&quot;: &quot;balo-laptop-herschel-pop-quiz&quot;,
             &quot;color&quot;: &quot;N&acirc;u&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
             &quot;category&quot;: {
                 &quot;id&quot;: 3,
                 &quot;name&quot;: &quot;Balo Laptop&quot;,
                 &quot;description&quot;: &quot;Balo chuy&ecirc;n dụng để đựng laptop v&agrave; c&aacute;c thiết bị c&ocirc;ng nghệ với lớp đệm bảo vệ&quot;,
                 &quot;slug&quot;: &quot;balo-laptop&quot;,
-                &quot;image&quot;: &quot;categories/balo-laptop.jpg&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/balo-laptop.jpg&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
             },
             &quot;brand&quot;: {
                 &quot;id&quot;: 6,
                 &quot;name&quot;: &quot;Herschel&quot;,
                 &quot;description&quot;: &quot;Herschel Supply Co. nổi tiếng với thiết kế vintage v&agrave; hiện đại, ph&ugrave; hợp cho mọi lứa tuổi.&quot;,
                 &quot;slug&quot;: &quot;herschel&quot;,
-                &quot;logo&quot;: &quot;brands/herschel-logo.png&quot;,
+                &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/herschel-logo.png&quot;,
                 &quot;status&quot;: &quot;active&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
             },
             &quot;current_sale&quot;: {
-                &quot;id&quot;: 19,
+                &quot;id&quot;: 12,
                 &quot;sale_campaign_id&quot;: 3,
                 &quot;product_id&quot;: 5,
                 &quot;original_price&quot;: &quot;1800000.00&quot;,
-                &quot;sale_price&quot;: &quot;1260000.00&quot;,
-                &quot;discount_percentage&quot;: &quot;30.00&quot;,
-                &quot;discount_amount&quot;: &quot;540000.00&quot;,
+                &quot;sale_price&quot;: &quot;1440000.00&quot;,
+                &quot;discount_percentage&quot;: &quot;20.00&quot;,
+                &quot;discount_amount&quot;: &quot;360000.00&quot;,
                 &quot;discount_type&quot;: &quot;percentage&quot;,
                 &quot;start_date&quot;: null,
                 &quot;end_date&quot;: null,
-                &quot;max_quantity&quot;: 45,
-                &quot;sold_quantity&quot;: 3,
+                &quot;max_quantity&quot;: 17,
+                &quot;sold_quantity&quot;: 4,
                 &quot;is_active&quot;: true,
-                &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
                 &quot;sale_campaign&quot;: {
                     &quot;id&quot;: 3,
                     &quot;name&quot;: &quot;Sale Sinh Vi&ecirc;n&quot;,
                     &quot;slug&quot;: &quot;sale-sinh-vien&quot;,
                     &quot;description&quot;: &quot;Ưu đ&atilde;i đặc biệt d&agrave;nh cho sinh vi&ecirc;n - Balo học tập gi&aacute; ưu đ&atilde;i&quot;,
-                    &quot;banner_image&quot;: &quot;campaigns/sale-sinh-vien.jpg&quot;,
-                    &quot;start_date&quot;: &quot;2025-06-16T17:17:58.000000Z&quot;,
-                    &quot;end_date&quot;: &quot;2025-07-02T17:17:58.000000Z&quot;,
+                    &quot;banner_image&quot;: &quot;https://placehold.co/600x400?text=campaigns/sale-sinh-vien.jpg&quot;,
+                    &quot;start_date&quot;: &quot;2025-06-16T22:14:51.000000Z&quot;,
+                    &quot;end_date&quot;: &quot;2025-07-02T22:14:51.000000Z&quot;,
                     &quot;status&quot;: &quot;active&quot;,
                     &quot;is_featured&quot;: false,
                     &quot;priority&quot;: 70,
@@ -6979,81 +6948,81 @@ access-control-allow-origin: *
                         &quot;color&quot;: &quot;#4285f4&quot;,
                         &quot;description_short&quot;: &quot;Giảm 30% cho sinh vi&ecirc;n&quot;
                     },
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
                 }
             }
         },
         {
-            &quot;id&quot;: 10,
-            &quot;category_id&quot;: 1,
-            &quot;brand_id&quot;: 4,
-            &quot;name&quot;: &quot;Balo Mini Cute ducimus&quot;,
-            &quot;description&quot;: &quot;Quisquam eius consequatur facere deleniti. Voluptatem laboriosam aliquid esse ullam. Sed natus saepe sit modi molestias. Ipsum rem voluptatem incidunt et consequatur.&quot;,
-            &quot;price&quot;: &quot;1683107.00&quot;,
-            &quot;quantity&quot;: 28,
-            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00cc66?text=fashion+odio&quot;,
-            &quot;slug&quot;: &quot;balo-mini-cute-ducimus-4436&quot;,
-            &quot;color&quot;: &quot;Hồng&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
+            &quot;id&quot;: 7,
+            &quot;category_id&quot;: 5,
+            &quot;brand_id&quot;: 12,
+            &quot;name&quot;: &quot;Balo Leo N&uacute;i The North Face eveniet&quot;,
+            &quot;description&quot;: &quot;Saepe maiores est minima deserunt. Rerum quasi tempora corrupti dolore laboriosam delectus. Labore iste hic laboriosam neque dolorum perspiciatis. Tenetur voluptas facilis est pariatur.&quot;,
+            &quot;price&quot;: &quot;530095.00&quot;,
+            &quot;quantity&quot;: 85,
+            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0099bb?text=fashion+iure&quot;,
+            &quot;slug&quot;: &quot;balo-leo-nui-the-north-face-eveniet-5382&quot;,
+            &quot;color&quot;: &quot;Xanh&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
             &quot;category&quot;: {
-                &quot;id&quot;: 1,
-                &quot;name&quot;: &quot;Balo Học Sinh&quot;,
-                &quot;description&quot;: &quot;C&aacute;c loại balo d&agrave;nh cho học sinh, sinh vi&ecirc;n với thiết kế trẻ trung v&agrave; tiện dụng&quot;,
-                &quot;slug&quot;: &quot;balo-hoc-sinh&quot;,
-                &quot;image&quot;: &quot;categories/balo-hoc-sinh.jpg&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                &quot;id&quot;: 5,
+                &quot;name&quot;: &quot;T&uacute;i X&aacute;ch&quot;,
+                &quot;description&quot;: &quot;C&aacute;c loại t&uacute;i x&aacute;ch thời trang cho nam v&agrave; nữ&quot;,
+                &quot;slug&quot;: &quot;tui-xach&quot;,
+                &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/tui-xach.jpg&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
             },
             &quot;brand&quot;: {
-                &quot;id&quot;: 4,
-                &quot;name&quot;: &quot;JanSport&quot;,
-                &quot;description&quot;: &quot;JanSport chuy&ecirc;n sản xuất balo học sinh v&agrave; du lịch với thiết kế trẻ trung, năng động.&quot;,
-                &quot;slug&quot;: &quot;jansport&quot;,
-                &quot;logo&quot;: &quot;brands/jansport-logo.png&quot;,
+                &quot;id&quot;: 12,
+                &quot;name&quot;: &quot;Friesen-Gorczany&quot;,
+                &quot;description&quot;: &quot;Illum non at commodi ipsa deleniti quo. Amet officia in voluptas qui laboriosam magnam odit. Voluptates quibusdam et enim ducimus maxime omnis. Ut eveniet quo explicabo id dolores est rerum.&quot;,
+                &quot;slug&quot;: &quot;friesen-gorczany&quot;,
+                &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00cc44?text=business+recusandae&quot;,
                 &quot;status&quot;: &quot;active&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
             },
             &quot;current_sale&quot;: {
-                &quot;id&quot;: 14,
-                &quot;sale_campaign_id&quot;: 2,
-                &quot;product_id&quot;: 10,
-                &quot;original_price&quot;: &quot;1683107.00&quot;,
-                &quot;sale_price&quot;: &quot;1144512.76&quot;,
-                &quot;discount_percentage&quot;: &quot;32.00&quot;,
-                &quot;discount_amount&quot;: &quot;538594.24&quot;,
+                &quot;id&quot;: 13,
+                &quot;sale_campaign_id&quot;: 3,
+                &quot;product_id&quot;: 7,
+                &quot;original_price&quot;: &quot;530095.00&quot;,
+                &quot;sale_price&quot;: &quot;355163.65&quot;,
+                &quot;discount_percentage&quot;: &quot;33.00&quot;,
+                &quot;discount_amount&quot;: &quot;174931.35&quot;,
                 &quot;discount_type&quot;: &quot;percentage&quot;,
                 &quot;start_date&quot;: null,
                 &quot;end_date&quot;: null,
-                &quot;max_quantity&quot;: 31,
-                &quot;sold_quantity&quot;: 1,
+                &quot;max_quantity&quot;: 34,
+                &quot;sold_quantity&quot;: 4,
                 &quot;is_active&quot;: true,
-                &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
                 &quot;sale_campaign&quot;: {
-                    &quot;id&quot;: 2,
-                    &quot;name&quot;: &quot;Flash Sale Cuối Tuần&quot;,
-                    &quot;slug&quot;: &quot;flash-sale-weekend&quot;,
-                    &quot;description&quot;: &quot;Flash sale cuối tuần - Cơ hội v&agrave;ng săn balo gi&aacute; rẻ&quot;,
-                    &quot;banner_image&quot;: &quot;campaigns/flash-sale-weekend.jpg&quot;,
-                    &quot;start_date&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;end_date&quot;: &quot;2025-06-21T17:17:58.000000Z&quot;,
+                    &quot;id&quot;: 3,
+                    &quot;name&quot;: &quot;Sale Sinh Vi&ecirc;n&quot;,
+                    &quot;slug&quot;: &quot;sale-sinh-vien&quot;,
+                    &quot;description&quot;: &quot;Ưu đ&atilde;i đặc biệt d&agrave;nh cho sinh vi&ecirc;n - Balo học tập gi&aacute; ưu đ&atilde;i&quot;,
+                    &quot;banner_image&quot;: &quot;https://placehold.co/600x400?text=campaigns/sale-sinh-vien.jpg&quot;,
+                    &quot;start_date&quot;: &quot;2025-06-16T22:14:51.000000Z&quot;,
+                    &quot;end_date&quot;: &quot;2025-07-02T22:14:51.000000Z&quot;,
                     &quot;status&quot;: &quot;active&quot;,
-                    &quot;is_featured&quot;: true,
-                    &quot;priority&quot;: 90,
+                    &quot;is_featured&quot;: false,
+                    &quot;priority&quot;: 70,
                     &quot;metadata&quot;: {
                         &quot;tags&quot;: [
-                            &quot;flash-sale&quot;,
-                            &quot;weekend&quot;,
-                            &quot;quick-sale&quot;
+                            &quot;student&quot;,
+                            &quot;education&quot;,
+                            &quot;long-term&quot;
                         ],
-                        &quot;color&quot;: &quot;#ff6b35&quot;,
-                        &quot;description_short&quot;: &quot;Giảm ngay 50%&quot;
+                        &quot;color&quot;: &quot;#4285f4&quot;,
+                        &quot;description_short&quot;: &quot;Giảm 30% cho sinh vi&ecirc;n&quot;
                     },
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
                 }
             }
         },
@@ -7065,127 +7034,54 @@ access-control-allow-origin: *
             &quot;description&quot;: &quot;Balo thể thao năng động với logo Nike nổi bật. Thiết kế hiện đại, ph&ugrave; hợp cho học sinh cấp 3.&quot;,
             &quot;price&quot;: &quot;1200000.00&quot;,
             &quot;quantity&quot;: 30,
-            &quot;image&quot;: &quot;products/balo-nike-heritage-20.jpg&quot;,
+            &quot;image&quot;: &quot;https://placehold.co/600x400?text=products/balo-nike-heritage-20.jpg&quot;,
             &quot;slug&quot;: &quot;balo-nike-heritage-20&quot;,
             &quot;color&quot;: &quot;Xanh Navy&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
             &quot;category&quot;: {
                 &quot;id&quot;: 1,
                 &quot;name&quot;: &quot;Balo Học Sinh&quot;,
                 &quot;description&quot;: &quot;C&aacute;c loại balo d&agrave;nh cho học sinh, sinh vi&ecirc;n với thiết kế trẻ trung v&agrave; tiện dụng&quot;,
                 &quot;slug&quot;: &quot;balo-hoc-sinh&quot;,
-                &quot;image&quot;: &quot;categories/balo-hoc-sinh.jpg&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/balo-hoc-sinh.jpg&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
             },
             &quot;brand&quot;: {
                 &quot;id&quot;: 1,
                 &quot;name&quot;: &quot;Nike&quot;,
                 &quot;description&quot;: &quot;Nike l&agrave; thương hiệu thể thao h&agrave;ng đầu thế giới, nổi tiếng với c&aacute;c sản phẩm balo v&agrave; t&uacute;i thể thao chất lượng cao.&quot;,
                 &quot;slug&quot;: &quot;nike&quot;,
-                &quot;logo&quot;: &quot;brands/nike-logo.png&quot;,
+                &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/nike-logo.png&quot;,
                 &quot;status&quot;: &quot;active&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
             },
             &quot;current_sale&quot;: {
-                &quot;id&quot;: 18,
+                &quot;id&quot;: 10,
                 &quot;sale_campaign_id&quot;: 3,
                 &quot;product_id&quot;: 2,
                 &quot;original_price&quot;: &quot;1200000.00&quot;,
-                &quot;sale_price&quot;: &quot;936000.00&quot;,
-                &quot;discount_percentage&quot;: &quot;22.00&quot;,
-                &quot;discount_amount&quot;: &quot;264000.00&quot;,
+                &quot;sale_price&quot;: &quot;888000.00&quot;,
+                &quot;discount_percentage&quot;: &quot;26.00&quot;,
+                &quot;discount_amount&quot;: &quot;312000.00&quot;,
                 &quot;discount_type&quot;: &quot;percentage&quot;,
                 &quot;start_date&quot;: null,
                 &quot;end_date&quot;: null,
-                &quot;max_quantity&quot;: 32,
-                &quot;sold_quantity&quot;: 1,
-                &quot;is_active&quot;: true,
-                &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                &quot;sale_campaign&quot;: {
-                    &quot;id&quot;: 3,
-                    &quot;name&quot;: &quot;Sale Sinh Vi&ecirc;n&quot;,
-                    &quot;slug&quot;: &quot;sale-sinh-vien&quot;,
-                    &quot;description&quot;: &quot;Ưu đ&atilde;i đặc biệt d&agrave;nh cho sinh vi&ecirc;n - Balo học tập gi&aacute; ưu đ&atilde;i&quot;,
-                    &quot;banner_image&quot;: &quot;campaigns/sale-sinh-vien.jpg&quot;,
-                    &quot;start_date&quot;: &quot;2025-06-16T17:17:58.000000Z&quot;,
-                    &quot;end_date&quot;: &quot;2025-07-02T17:17:58.000000Z&quot;,
-                    &quot;status&quot;: &quot;active&quot;,
-                    &quot;is_featured&quot;: false,
-                    &quot;priority&quot;: 70,
-                    &quot;metadata&quot;: {
-                        &quot;tags&quot;: [
-                            &quot;student&quot;,
-                            &quot;education&quot;,
-                            &quot;long-term&quot;
-                        ],
-                        &quot;color&quot;: &quot;#4285f4&quot;,
-                        &quot;description_short&quot;: &quot;Giảm 30% cho sinh vi&ecirc;n&quot;
-                    },
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;
-                }
-            }
-        },
-        {
-            &quot;id&quot;: 15,
-            &quot;category_id&quot;: 3,
-            &quot;brand_id&quot;: 5,
-            &quot;name&quot;: &quot;Balo Nike Sportswear rerum&quot;,
-            &quot;description&quot;: &quot;Doloremque aut laborum velit est suscipit aut. Magnam possimus fugiat magni saepe eaque ut et. Saepe rem enim totam sed quia omnis ex.&quot;,
-            &quot;price&quot;: &quot;935683.00&quot;,
-            &quot;quantity&quot;: 47,
-            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00aa00?text=fashion+sed&quot;,
-            &quot;slug&quot;: &quot;balo-nike-sportswear-rerum-3524&quot;,
-            &quot;color&quot;: &quot;Hồng&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-            &quot;category&quot;: {
-                &quot;id&quot;: 3,
-                &quot;name&quot;: &quot;Balo Laptop&quot;,
-                &quot;description&quot;: &quot;Balo chuy&ecirc;n dụng để đựng laptop v&agrave; c&aacute;c thiết bị c&ocirc;ng nghệ với lớp đệm bảo vệ&quot;,
-                &quot;slug&quot;: &quot;balo-laptop&quot;,
-                &quot;image&quot;: &quot;categories/balo-laptop.jpg&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            },
-            &quot;brand&quot;: {
-                &quot;id&quot;: 5,
-                &quot;name&quot;: &quot;The North Face&quot;,
-                &quot;description&quot;: &quot;The North Face l&agrave; thương hiệu outdoor nổi tiếng với c&aacute;c sản phẩm balo trekking v&agrave; leo n&uacute;i.&quot;,
-                &quot;slug&quot;: &quot;the-north-face&quot;,
-                &quot;logo&quot;: &quot;brands/tnf-logo.png&quot;,
-                &quot;status&quot;: &quot;active&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            },
-            &quot;current_sale&quot;: {
-                &quot;id&quot;: 23,
-                &quot;sale_campaign_id&quot;: 3,
-                &quot;product_id&quot;: 15,
-                &quot;original_price&quot;: &quot;935683.00&quot;,
-                &quot;sale_price&quot;: &quot;720475.91&quot;,
-                &quot;discount_percentage&quot;: &quot;23.00&quot;,
-                &quot;discount_amount&quot;: &quot;215207.09&quot;,
-                &quot;discount_type&quot;: &quot;percentage&quot;,
-                &quot;start_date&quot;: null,
-                &quot;end_date&quot;: null,
-                &quot;max_quantity&quot;: 48,
+                &quot;max_quantity&quot;: 49,
                 &quot;sold_quantity&quot;: 0,
                 &quot;is_active&quot;: true,
-                &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
                 &quot;sale_campaign&quot;: {
                     &quot;id&quot;: 3,
                     &quot;name&quot;: &quot;Sale Sinh Vi&ecirc;n&quot;,
                     &quot;slug&quot;: &quot;sale-sinh-vien&quot;,
                     &quot;description&quot;: &quot;Ưu đ&atilde;i đặc biệt d&agrave;nh cho sinh vi&ecirc;n - Balo học tập gi&aacute; ưu đ&atilde;i&quot;,
-                    &quot;banner_image&quot;: &quot;campaigns/sale-sinh-vien.jpg&quot;,
-                    &quot;start_date&quot;: &quot;2025-06-16T17:17:58.000000Z&quot;,
-                    &quot;end_date&quot;: &quot;2025-07-02T17:17:58.000000Z&quot;,
+                    &quot;banner_image&quot;: &quot;https://placehold.co/600x400?text=campaigns/sale-sinh-vien.jpg&quot;,
+                    &quot;start_date&quot;: &quot;2025-06-16T22:14:51.000000Z&quot;,
+                    &quot;end_date&quot;: &quot;2025-07-02T22:14:51.000000Z&quot;,
                     &quot;status&quot;: &quot;active&quot;,
                     &quot;is_featured&quot;: false,
                     &quot;priority&quot;: 70,
@@ -7198,81 +7094,8 @@ access-control-allow-origin: *
                         &quot;color&quot;: &quot;#4285f4&quot;,
                         &quot;description_short&quot;: &quot;Giảm 30% cho sinh vi&ecirc;n&quot;
                     },
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;
-                }
-            }
-        },
-        {
-            &quot;id&quot;: 13,
-            &quot;category_id&quot;: 1,
-            &quot;brand_id&quot;: 3,
-            &quot;name&quot;: &quot;Balo Nike Sportswear ut&quot;,
-            &quot;description&quot;: &quot;Impedit ut totam consequatur dolorem voluptatem ipsam. Qui deleniti pariatur a accusantium ea dolor ut. Eos sed delectus laudantium recusandae incidunt beatae omnis.&quot;,
-            &quot;price&quot;: &quot;1328286.00&quot;,
-            &quot;quantity&quot;: 25,
-            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0077aa?text=fashion+quia&quot;,
-            &quot;slug&quot;: &quot;balo-nike-sportswear-ut-6782&quot;,
-            &quot;color&quot;: &quot;Đen&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-            &quot;category&quot;: {
-                &quot;id&quot;: 1,
-                &quot;name&quot;: &quot;Balo Học Sinh&quot;,
-                &quot;description&quot;: &quot;C&aacute;c loại balo d&agrave;nh cho học sinh, sinh vi&ecirc;n với thiết kế trẻ trung v&agrave; tiện dụng&quot;,
-                &quot;slug&quot;: &quot;balo-hoc-sinh&quot;,
-                &quot;image&quot;: &quot;categories/balo-hoc-sinh.jpg&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            },
-            &quot;brand&quot;: {
-                &quot;id&quot;: 3,
-                &quot;name&quot;: &quot;Samsonite&quot;,
-                &quot;description&quot;: &quot;Samsonite l&agrave; thương hiệu h&agrave;ng đầu thế giới về h&agrave;nh l&yacute; v&agrave; balo du lịch cao cấp.&quot;,
-                &quot;slug&quot;: &quot;samsonite&quot;,
-                &quot;logo&quot;: &quot;brands/samsonite-logo.png&quot;,
-                &quot;status&quot;: &quot;active&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            },
-            &quot;current_sale&quot;: {
-                &quot;id&quot;: 22,
-                &quot;sale_campaign_id&quot;: 3,
-                &quot;product_id&quot;: 13,
-                &quot;original_price&quot;: &quot;1328286.00&quot;,
-                &quot;sale_price&quot;: &quot;863385.90&quot;,
-                &quot;discount_percentage&quot;: &quot;35.00&quot;,
-                &quot;discount_amount&quot;: &quot;464900.10&quot;,
-                &quot;discount_type&quot;: &quot;percentage&quot;,
-                &quot;start_date&quot;: null,
-                &quot;end_date&quot;: null,
-                &quot;max_quantity&quot;: 50,
-                &quot;sold_quantity&quot;: 0,
-                &quot;is_active&quot;: true,
-                &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                &quot;sale_campaign&quot;: {
-                    &quot;id&quot;: 3,
-                    &quot;name&quot;: &quot;Sale Sinh Vi&ecirc;n&quot;,
-                    &quot;slug&quot;: &quot;sale-sinh-vien&quot;,
-                    &quot;description&quot;: &quot;Ưu đ&atilde;i đặc biệt d&agrave;nh cho sinh vi&ecirc;n - Balo học tập gi&aacute; ưu đ&atilde;i&quot;,
-                    &quot;banner_image&quot;: &quot;campaigns/sale-sinh-vien.jpg&quot;,
-                    &quot;start_date&quot;: &quot;2025-06-16T17:17:58.000000Z&quot;,
-                    &quot;end_date&quot;: &quot;2025-07-02T17:17:58.000000Z&quot;,
-                    &quot;status&quot;: &quot;active&quot;,
-                    &quot;is_featured&quot;: false,
-                    &quot;priority&quot;: 70,
-                    &quot;metadata&quot;: {
-                        &quot;tags&quot;: [
-                            &quot;student&quot;,
-                            &quot;education&quot;,
-                            &quot;long-term&quot;
-                        ],
-                        &quot;color&quot;: &quot;#4285f4&quot;,
-                        &quot;description_short&quot;: &quot;Giảm 30% cho sinh vi&ecirc;n&quot;
-                    },
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
                 }
             }
         },
@@ -7284,68 +7107,68 @@ access-control-allow-origin: *
             &quot;description&quot;: &quot;Balo du lịch cao cấp với ngăn laptop 15.6\&quot;, chống thấm nước. Thiết kế sang trọng, ph&ugrave; hợp cho c&ocirc;ng t&aacute;c.&quot;,
             &quot;price&quot;: &quot;3200000.00&quot;,
             &quot;quantity&quot;: 20,
-            &quot;image&quot;: &quot;products/balo-samsonite-guardit-20.jpg&quot;,
+            &quot;image&quot;: &quot;https://placehold.co/600x400?text=products/balo-samsonite-guardit-20.jpg&quot;,
             &quot;slug&quot;: &quot;balo-samsonite-guardit-20&quot;,
             &quot;color&quot;: &quot;Đen&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
             &quot;category&quot;: {
                 &quot;id&quot;: 2,
                 &quot;name&quot;: &quot;Balo Du Lịch&quot;,
                 &quot;description&quot;: &quot;Balo d&agrave;nh cho c&aacute;c chuyến du lịch, trekking với dung t&iacute;ch lớn v&agrave; nhiều ngăn tiện &iacute;ch&quot;,
                 &quot;slug&quot;: &quot;balo-du-lich&quot;,
-                &quot;image&quot;: &quot;categories/balo-du-lich.jpg&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/balo-du-lich.jpg&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
             },
             &quot;brand&quot;: {
                 &quot;id&quot;: 3,
                 &quot;name&quot;: &quot;Samsonite&quot;,
                 &quot;description&quot;: &quot;Samsonite l&agrave; thương hiệu h&agrave;ng đầu thế giới về h&agrave;nh l&yacute; v&agrave; balo du lịch cao cấp.&quot;,
                 &quot;slug&quot;: &quot;samsonite&quot;,
-                &quot;logo&quot;: &quot;brands/samsonite-logo.png&quot;,
+                &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/samsonite-logo.png&quot;,
                 &quot;status&quot;: &quot;active&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
             },
             &quot;current_sale&quot;: {
                 &quot;id&quot;: 11,
-                &quot;sale_campaign_id&quot;: 2,
+                &quot;sale_campaign_id&quot;: 3,
                 &quot;product_id&quot;: 4,
                 &quot;original_price&quot;: &quot;3200000.00&quot;,
-                &quot;sale_price&quot;: &quot;2016000.00&quot;,
-                &quot;discount_percentage&quot;: &quot;37.00&quot;,
-                &quot;discount_amount&quot;: &quot;1184000.00&quot;,
+                &quot;sale_price&quot;: &quot;2368000.00&quot;,
+                &quot;discount_percentage&quot;: &quot;26.00&quot;,
+                &quot;discount_amount&quot;: &quot;832000.00&quot;,
                 &quot;discount_type&quot;: &quot;percentage&quot;,
                 &quot;start_date&quot;: null,
                 &quot;end_date&quot;: null,
-                &quot;max_quantity&quot;: 41,
-                &quot;sold_quantity&quot;: 5,
+                &quot;max_quantity&quot;: 33,
+                &quot;sold_quantity&quot;: 0,
                 &quot;is_active&quot;: true,
-                &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
                 &quot;sale_campaign&quot;: {
-                    &quot;id&quot;: 2,
-                    &quot;name&quot;: &quot;Flash Sale Cuối Tuần&quot;,
-                    &quot;slug&quot;: &quot;flash-sale-weekend&quot;,
-                    &quot;description&quot;: &quot;Flash sale cuối tuần - Cơ hội v&agrave;ng săn balo gi&aacute; rẻ&quot;,
-                    &quot;banner_image&quot;: &quot;campaigns/flash-sale-weekend.jpg&quot;,
-                    &quot;start_date&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;end_date&quot;: &quot;2025-06-21T17:17:58.000000Z&quot;,
+                    &quot;id&quot;: 3,
+                    &quot;name&quot;: &quot;Sale Sinh Vi&ecirc;n&quot;,
+                    &quot;slug&quot;: &quot;sale-sinh-vien&quot;,
+                    &quot;description&quot;: &quot;Ưu đ&atilde;i đặc biệt d&agrave;nh cho sinh vi&ecirc;n - Balo học tập gi&aacute; ưu đ&atilde;i&quot;,
+                    &quot;banner_image&quot;: &quot;https://placehold.co/600x400?text=campaigns/sale-sinh-vien.jpg&quot;,
+                    &quot;start_date&quot;: &quot;2025-06-16T22:14:51.000000Z&quot;,
+                    &quot;end_date&quot;: &quot;2025-07-02T22:14:51.000000Z&quot;,
                     &quot;status&quot;: &quot;active&quot;,
-                    &quot;is_featured&quot;: true,
-                    &quot;priority&quot;: 90,
+                    &quot;is_featured&quot;: false,
+                    &quot;priority&quot;: 70,
                     &quot;metadata&quot;: {
                         &quot;tags&quot;: [
-                            &quot;flash-sale&quot;,
-                            &quot;weekend&quot;,
-                            &quot;quick-sale&quot;
+                            &quot;student&quot;,
+                            &quot;education&quot;,
+                            &quot;long-term&quot;
                         ],
-                        &quot;color&quot;: &quot;#ff6b35&quot;,
-                        &quot;description_short&quot;: &quot;Giảm ngay 50%&quot;
+                        &quot;color&quot;: &quot;#4285f4&quot;,
+                        &quot;description_short&quot;: &quot;Giảm 30% cho sinh vi&ecirc;n&quot;
                     },
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
                 }
             }
         },
@@ -7357,54 +7180,54 @@ access-control-allow-origin: *
             &quot;description&quot;: &quot;Balo trekking chuy&ecirc;n nghiệp với nhiều ngăn tiện &iacute;ch, d&acirc;y đeo thoải m&aacute;i. L&yacute; tưởng cho c&aacute;c chuyến du lịch ngắn ng&agrave;y.&quot;,
             &quot;price&quot;: &quot;2500000.00&quot;,
             &quot;quantity&quot;: 25,
-            &quot;image&quot;: &quot;products/balo-the-north-face-borealis-28l.jpg&quot;,
+            &quot;image&quot;: &quot;https://placehold.co/600x400?text=products/balo-the-north-face-borealis-28l.jpg&quot;,
             &quot;slug&quot;: &quot;balo-the-north-face-borealis-28l&quot;,
             &quot;color&quot;: &quot;X&aacute;m&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
             &quot;category&quot;: {
                 &quot;id&quot;: 2,
                 &quot;name&quot;: &quot;Balo Du Lịch&quot;,
                 &quot;description&quot;: &quot;Balo d&agrave;nh cho c&aacute;c chuyến du lịch, trekking với dung t&iacute;ch lớn v&agrave; nhiều ngăn tiện &iacute;ch&quot;,
                 &quot;slug&quot;: &quot;balo-du-lich&quot;,
-                &quot;image&quot;: &quot;categories/balo-du-lich.jpg&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/balo-du-lich.jpg&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
             },
             &quot;brand&quot;: {
                 &quot;id&quot;: 5,
                 &quot;name&quot;: &quot;The North Face&quot;,
                 &quot;description&quot;: &quot;The North Face l&agrave; thương hiệu outdoor nổi tiếng với c&aacute;c sản phẩm balo trekking v&agrave; leo n&uacute;i.&quot;,
                 &quot;slug&quot;: &quot;the-north-face&quot;,
-                &quot;logo&quot;: &quot;brands/tnf-logo.png&quot;,
+                &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/tnf-logo.png&quot;,
                 &quot;status&quot;: &quot;active&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
             },
             &quot;current_sale&quot;: {
-                &quot;id&quot;: 10,
+                &quot;id&quot;: 6,
                 &quot;sale_campaign_id&quot;: 2,
                 &quot;product_id&quot;: 3,
                 &quot;original_price&quot;: &quot;2500000.00&quot;,
-                &quot;sale_price&quot;: &quot;1550000.00&quot;,
-                &quot;discount_percentage&quot;: &quot;38.00&quot;,
-                &quot;discount_amount&quot;: &quot;950000.00&quot;,
+                &quot;sale_price&quot;: &quot;1300000.00&quot;,
+                &quot;discount_percentage&quot;: &quot;48.00&quot;,
+                &quot;discount_amount&quot;: &quot;1200000.00&quot;,
                 &quot;discount_type&quot;: &quot;percentage&quot;,
                 &quot;start_date&quot;: null,
                 &quot;end_date&quot;: null,
-                &quot;max_quantity&quot;: 47,
-                &quot;sold_quantity&quot;: 3,
+                &quot;max_quantity&quot;: 20,
+                &quot;sold_quantity&quot;: 1,
                 &quot;is_active&quot;: true,
-                &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
                 &quot;sale_campaign&quot;: {
                     &quot;id&quot;: 2,
                     &quot;name&quot;: &quot;Flash Sale Cuối Tuần&quot;,
                     &quot;slug&quot;: &quot;flash-sale-weekend&quot;,
                     &quot;description&quot;: &quot;Flash sale cuối tuần - Cơ hội v&agrave;ng săn balo gi&aacute; rẻ&quot;,
-                    &quot;banner_image&quot;: &quot;campaigns/flash-sale-weekend.jpg&quot;,
-                    &quot;start_date&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;end_date&quot;: &quot;2025-06-21T17:17:58.000000Z&quot;,
+                    &quot;banner_image&quot;: &quot;https://placehold.co/600x400?text=campaigns/flash-sale-weekend.jpg&quot;,
+                    &quot;start_date&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;end_date&quot;: &quot;2025-06-21T22:14:51.000000Z&quot;,
                     &quot;status&quot;: &quot;active&quot;,
                     &quot;is_featured&quot;: true,
                     &quot;priority&quot;: 90,
@@ -7417,16 +7240,89 @@ access-control-allow-origin: *
                         &quot;color&quot;: &quot;#ff6b35&quot;,
                         &quot;description_short&quot;: &quot;Giảm ngay 50%&quot;
                     },
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
+                }
+            }
+        },
+        {
+            &quot;id&quot;: 13,
+            &quot;category_id&quot;: 6,
+            &quot;brand_id&quot;: 13,
+            &quot;name&quot;: &quot;Balo Thể Thao Nike Air soluta&quot;,
+            &quot;description&quot;: &quot;Beatae totam voluptas et enim rerum unde. Quos id esse voluptas voluptatum iste veniam veritatis. Non itaque est numquam saepe ratione est aut. Accusamus est tempora eligendi omnis quis facilis consequatur. Explicabo aut quasi dignissimos adipisci rerum eum perspiciatis vel. Officia quia nam nam quae doloribus.&quot;,
+            &quot;price&quot;: &quot;321501.00&quot;,
+            &quot;quantity&quot;: 44,
+            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00bbcc?text=fashion+ratione&quot;,
+            &quot;slug&quot;: &quot;balo-the-thao-nike-air-soluta-1843&quot;,
+            &quot;color&quot;: &quot;Hồng&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;category&quot;: {
+                &quot;id&quot;: 6,
+                &quot;name&quot;: &quot;Balo Mini&quot;,
+                &quot;description&quot;: &quot;Balo nhỏ gọn d&agrave;nh cho việc đi chơi, dạo phố&quot;,
+                &quot;slug&quot;: &quot;balo-mini&quot;,
+                &quot;image&quot;: &quot;categories/balo-mini.jpg&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+            },
+            &quot;brand&quot;: {
+                &quot;id&quot;: 13,
+                &quot;name&quot;: &quot;Hintz-Pfannerstill&quot;,
+                &quot;description&quot;: &quot;Voluptatum a delectus voluptatem inventore qui eveniet. In sapiente quo nemo incidunt enim. Maiores et sit id ipsum reprehenderit modi iusto. Et fugiat excepturi tenetur molestiae et similique et beatae.&quot;,
+                &quot;slug&quot;: &quot;hintz-pfannerstill&quot;,
+                &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00ff22?text=business+sit&quot;,
+                &quot;status&quot;: &quot;active&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+            },
+            &quot;current_sale&quot;: {
+                &quot;id&quot;: 9,
+                &quot;sale_campaign_id&quot;: 2,
+                &quot;product_id&quot;: 13,
+                &quot;original_price&quot;: &quot;321501.00&quot;,
+                &quot;sale_price&quot;: &quot;221835.69&quot;,
+                &quot;discount_percentage&quot;: &quot;31.00&quot;,
+                &quot;discount_amount&quot;: &quot;99665.31&quot;,
+                &quot;discount_type&quot;: &quot;percentage&quot;,
+                &quot;start_date&quot;: null,
+                &quot;end_date&quot;: null,
+                &quot;max_quantity&quot;: 37,
+                &quot;sold_quantity&quot;: 5,
+                &quot;is_active&quot;: true,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                &quot;sale_campaign&quot;: {
+                    &quot;id&quot;: 2,
+                    &quot;name&quot;: &quot;Flash Sale Cuối Tuần&quot;,
+                    &quot;slug&quot;: &quot;flash-sale-weekend&quot;,
+                    &quot;description&quot;: &quot;Flash sale cuối tuần - Cơ hội v&agrave;ng săn balo gi&aacute; rẻ&quot;,
+                    &quot;banner_image&quot;: &quot;https://placehold.co/600x400?text=campaigns/flash-sale-weekend.jpg&quot;,
+                    &quot;start_date&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;end_date&quot;: &quot;2025-06-21T22:14:51.000000Z&quot;,
+                    &quot;status&quot;: &quot;active&quot;,
+                    &quot;is_featured&quot;: true,
+                    &quot;priority&quot;: 90,
+                    &quot;metadata&quot;: {
+                        &quot;tags&quot;: [
+                            &quot;flash-sale&quot;,
+                            &quot;weekend&quot;,
+                            &quot;quick-sale&quot;
+                        ],
+                        &quot;color&quot;: &quot;#ff6b35&quot;,
+                        &quot;description_short&quot;: &quot;Giảm ngay 50%&quot;
+                    },
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
                 }
             }
         }
     ],
-    &quot;first_page_url&quot;: &quot;http://localhost/api/products-on-sale?page=1&quot;,
+    &quot;first_page_url&quot;: &quot;http://localhost:8000/api/products-on-sale?page=1&quot;,
     &quot;from&quot;: 1,
     &quot;last_page&quot;: 1,
-    &quot;last_page_url&quot;: &quot;http://localhost/api/products-on-sale?page=1&quot;,
+    &quot;last_page_url&quot;: &quot;http://localhost:8000/api/products-on-sale?page=1&quot;,
     &quot;links&quot;: [
         {
             &quot;url&quot;: null,
@@ -7434,7 +7330,7 @@ access-control-allow-origin: *
             &quot;active&quot;: false
         },
         {
-            &quot;url&quot;: &quot;http://localhost/api/products-on-sale?page=1&quot;,
+            &quot;url&quot;: &quot;http://localhost:8000/api/products-on-sale?page=1&quot;,
             &quot;label&quot;: &quot;1&quot;,
             &quot;active&quot;: true
         },
@@ -7445,11 +7341,11 @@ access-control-allow-origin: *
         }
     ],
     &quot;next_page_url&quot;: null,
-    &quot;path&quot;: &quot;http://localhost/api/products-on-sale&quot;,
+    &quot;path&quot;: &quot;http://localhost:8000/api/products-on-sale&quot;,
     &quot;per_page&quot;: 12,
     &quot;prev_page_url&quot;: null,
-    &quot;to&quot;: 10,
-    &quot;total&quot;: 10
+    &quot;to&quot;: 9,
+    &quot;total&quot;: 9
 }</code>
  </pre>
     </span>
@@ -7537,14 +7433,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/products/1/sale-campaigns" \
+    --get "http://localhost:8000/api/products/1/sale-campaigns" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/products/1/sale-campaigns"
+    "http://localhost:8000/api/products/1/sale-campaigns"
 );
 
 const headers = {
@@ -7575,60 +7471,60 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: [
         {
-            &quot;id&quot;: 3,
-            &quot;name&quot;: &quot;Sale Sinh Vi&ecirc;n&quot;,
-            &quot;slug&quot;: &quot;sale-sinh-vien&quot;,
-            &quot;description&quot;: &quot;Ưu đ&atilde;i đặc biệt d&agrave;nh cho sinh vi&ecirc;n - Balo học tập gi&aacute; ưu đ&atilde;i&quot;,
-            &quot;banner_image&quot;: &quot;campaigns/sale-sinh-vien.jpg&quot;,
-            &quot;start_date&quot;: &quot;2025-06-16T17:17:58.000000Z&quot;,
-            &quot;end_date&quot;: &quot;2025-07-02T17:17:58.000000Z&quot;,
-            &quot;status&quot;: &quot;active&quot;,
-            &quot;is_featured&quot;: false,
-            &quot;priority&quot;: 70,
+            &quot;id&quot;: 4,
+            &quot;name&quot;: &quot;Mega Sale Khai Trương&quot;,
+            &quot;slug&quot;: &quot;mega-sale-khai-truong&quot;,
+            &quot;description&quot;: &quot;Mega sale khai trương cửa h&agrave;ng mới - Ưu đ&atilde;i cực sốc&quot;,
+            &quot;banner_image&quot;: &quot;https://placehold.co/600x400?text=campaigns/mega-sale-khai-truong.jpg&quot;,
+            &quot;start_date&quot;: &quot;2025-06-28T22:14:51.000000Z&quot;,
+            &quot;end_date&quot;: &quot;2025-07-05T22:14:51.000000Z&quot;,
+            &quot;status&quot;: &quot;draft&quot;,
+            &quot;is_featured&quot;: true,
+            &quot;priority&quot;: 95,
             &quot;metadata&quot;: {
                 &quot;tags&quot;: [
-                    &quot;student&quot;,
-                    &quot;education&quot;,
-                    &quot;long-term&quot;
+                    &quot;grand-opening&quot;,
+                    &quot;mega-sale&quot;,
+                    &quot;new-store&quot;
                 ],
-                &quot;color&quot;: &quot;#4285f4&quot;,
-                &quot;description_short&quot;: &quot;Giảm 30% cho sinh vi&ecirc;n&quot;
+                &quot;color&quot;: &quot;#34a853&quot;,
+                &quot;description_short&quot;: &quot;Khai trương - Giảm 80%&quot;
             },
-            &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
             &quot;pivot&quot;: {
                 &quot;product_id&quot;: 1,
-                &quot;sale_campaign_id&quot;: 3,
+                &quot;sale_campaign_id&quot;: 4,
                 &quot;original_price&quot;: &quot;899000.00&quot;,
-                &quot;sale_price&quot;: &quot;683240.00&quot;,
-                &quot;discount_percentage&quot;: &quot;24.00&quot;,
-                &quot;discount_amount&quot;: &quot;215760.00&quot;,
+                &quot;sale_price&quot;: &quot;350610.00&quot;,
+                &quot;discount_percentage&quot;: &quot;61.00&quot;,
+                &quot;discount_amount&quot;: &quot;548390.00&quot;,
                 &quot;discount_type&quot;: &quot;percentage&quot;,
                 &quot;start_date&quot;: null,
                 &quot;end_date&quot;: null,
-                &quot;max_quantity&quot;: 31,
-                &quot;sold_quantity&quot;: 0,
+                &quot;max_quantity&quot;: 50,
+                &quot;sold_quantity&quot;: 1,
                 &quot;is_active&quot;: 1,
-                &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
             },
             &quot;sale_products&quot;: [
                 {
-                    &quot;id&quot;: 17,
-                    &quot;sale_campaign_id&quot;: 3,
+                    &quot;id&quot;: 15,
+                    &quot;sale_campaign_id&quot;: 4,
                     &quot;product_id&quot;: 1,
                     &quot;original_price&quot;: &quot;899000.00&quot;,
-                    &quot;sale_price&quot;: &quot;683240.00&quot;,
-                    &quot;discount_percentage&quot;: &quot;24.00&quot;,
-                    &quot;discount_amount&quot;: &quot;215760.00&quot;,
+                    &quot;sale_price&quot;: &quot;350610.00&quot;,
+                    &quot;discount_percentage&quot;: &quot;61.00&quot;,
+                    &quot;discount_amount&quot;: &quot;548390.00&quot;,
                     &quot;discount_type&quot;: &quot;percentage&quot;,
                     &quot;start_date&quot;: null,
                     &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 31,
-                    &quot;sold_quantity&quot;: 0,
+                    &quot;max_quantity&quot;: 50,
+                    &quot;sold_quantity&quot;: 1,
                     &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
                 }
             ]
         }
@@ -7732,14 +7628,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/vouchers" \
+    --get "http://localhost:8000/api/vouchers" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/vouchers"
+    "http://localhost:8000/api/vouchers"
 );
 
 const headers = {
@@ -7774,61 +7670,61 @@ access-control-allow-origin: *
             &quot;id&quot;: 1,
             &quot;code&quot;: &quot;WELCOME10&quot;,
             &quot;price&quot;: &quot;50000.00&quot;,
-            &quot;end_at&quot;: &quot;2025-09-18T02:22:19.000000Z&quot;,
+            &quot;end_at&quot;: &quot;2025-09-18T22:14:48.000000Z&quot;,
             &quot;quantity&quot;: 100,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
         },
         {
             &quot;id&quot;: 2,
             &quot;code&quot;: &quot;STUDENT15&quot;,
             &quot;price&quot;: &quot;75000.00&quot;,
-            &quot;end_at&quot;: &quot;2025-12-18T02:22:19.000000Z&quot;,
+            &quot;end_at&quot;: &quot;2025-12-18T22:14:48.000000Z&quot;,
             &quot;quantity&quot;: 200,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
         },
         {
             &quot;id&quot;: 3,
             &quot;code&quot;: &quot;SUMMER20&quot;,
             &quot;price&quot;: &quot;100000.00&quot;,
-            &quot;end_at&quot;: &quot;2025-08-18T02:22:19.000000Z&quot;,
+            &quot;end_at&quot;: &quot;2025-08-18T22:14:48.000000Z&quot;,
             &quot;quantity&quot;: 50,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
         },
         {
             &quot;id&quot;: 4,
             &quot;code&quot;: &quot;NEWUSER&quot;,
             &quot;price&quot;: &quot;30000.00&quot;,
-            &quot;end_at&quot;: &quot;2026-06-18T02:22:19.000000Z&quot;,
+            &quot;end_at&quot;: &quot;2026-06-18T22:14:48.000000Z&quot;,
             &quot;quantity&quot;: 500,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
         },
         {
             &quot;id&quot;: 5,
             &quot;code&quot;: &quot;LOYAL25&quot;,
             &quot;price&quot;: &quot;150000.00&quot;,
-            &quot;end_at&quot;: &quot;2025-10-18T02:22:19.000000Z&quot;,
+            &quot;end_at&quot;: &quot;2025-10-18T22:14:48.000000Z&quot;,
             &quot;quantity&quot;: 30,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
         },
         {
             &quot;id&quot;: 6,
             &quot;code&quot;: &quot;FLASH50&quot;,
             &quot;price&quot;: &quot;200000.00&quot;,
-            &quot;end_at&quot;: &quot;2025-06-25T02:22:19.000000Z&quot;,
+            &quot;end_at&quot;: &quot;2025-06-25T22:14:48.000000Z&quot;,
             &quot;quantity&quot;: 20,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
         }
     ],
-    &quot;first_page_url&quot;: &quot;http://localhost/api/vouchers?page=1&quot;,
+    &quot;first_page_url&quot;: &quot;http://localhost:8000/api/vouchers?page=1&quot;,
     &quot;from&quot;: 1,
     &quot;last_page&quot;: 1,
-    &quot;last_page_url&quot;: &quot;http://localhost/api/vouchers?page=1&quot;,
+    &quot;last_page_url&quot;: &quot;http://localhost:8000/api/vouchers?page=1&quot;,
     &quot;links&quot;: [
         {
             &quot;url&quot;: null,
@@ -7836,7 +7732,7 @@ access-control-allow-origin: *
             &quot;active&quot;: false
         },
         {
-            &quot;url&quot;: &quot;http://localhost/api/vouchers?page=1&quot;,
+            &quot;url&quot;: &quot;http://localhost:8000/api/vouchers?page=1&quot;,
             &quot;label&quot;: &quot;1&quot;,
             &quot;active&quot;: true
         },
@@ -7847,7 +7743,7 @@ access-control-allow-origin: *
         }
     ],
     &quot;next_page_url&quot;: null,
-    &quot;path&quot;: &quot;http://localhost/api/vouchers&quot;,
+    &quot;path&quot;: &quot;http://localhost:8000/api/vouchers&quot;,
     &quot;per_page&quot;: 15,
     &quot;prev_page_url&quot;: null,
     &quot;to&quot;: 6,
@@ -7939,7 +7835,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/vouchers" \
+    "http://localhost:8000/api/vouchers" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -7953,7 +7849,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/vouchers"
+    "http://localhost:8000/api/vouchers"
 );
 
 const headers = {
@@ -8107,14 +8003,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/vouchers/1" \
+    --get "http://localhost:8000/api/vouchers/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/vouchers/1"
+    "http://localhost:8000/api/vouchers/1"
 );
 
 const headers = {
@@ -8147,10 +8043,10 @@ access-control-allow-origin: *
         &quot;id&quot;: 1,
         &quot;code&quot;: &quot;WELCOME10&quot;,
         &quot;price&quot;: &quot;50000.00&quot;,
-        &quot;end_at&quot;: &quot;2025-09-18T02:22:19.000000Z&quot;,
+        &quot;end_at&quot;: &quot;2025-09-18T22:14:48.000000Z&quot;,
         &quot;quantity&quot;: 100,
-        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
     }
 }</code>
  </pre>
@@ -8251,7 +8147,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost/api/vouchers/1" \
+    "http://localhost:8000/api/vouchers/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -8265,7 +8161,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/vouchers/1"
+    "http://localhost:8000/api/vouchers/1"
 );
 
 const headers = {
@@ -8435,14 +8331,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/vouchers/1" \
+    "http://localhost:8000/api/vouchers/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/vouchers/1"
+    "http://localhost:8000/api/vouchers/1"
 );
 
 const headers = {
@@ -8555,7 +8451,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/vouchers/validate" \
+    "http://localhost:8000/api/vouchers/validate" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -8566,7 +8462,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/vouchers/validate"
+    "http://localhost:8000/api/vouchers/validate"
 );
 
 const headers = {
@@ -8684,14 +8580,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/vouchers-active" \
+    --get "http://localhost:8000/api/vouchers-active" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/vouchers-active"
+    "http://localhost:8000/api/vouchers-active"
 );
 
 const headers = {
@@ -8725,55 +8621,55 @@ access-control-allow-origin: *
             &quot;id&quot;: 6,
             &quot;code&quot;: &quot;FLASH50&quot;,
             &quot;price&quot;: &quot;200000.00&quot;,
-            &quot;end_at&quot;: &quot;2025-06-25T02:22:19.000000Z&quot;,
+            &quot;end_at&quot;: &quot;2025-06-25T22:14:48.000000Z&quot;,
             &quot;quantity&quot;: 20,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
         },
         {
             &quot;id&quot;: 5,
             &quot;code&quot;: &quot;LOYAL25&quot;,
             &quot;price&quot;: &quot;150000.00&quot;,
-            &quot;end_at&quot;: &quot;2025-10-18T02:22:19.000000Z&quot;,
+            &quot;end_at&quot;: &quot;2025-10-18T22:14:48.000000Z&quot;,
             &quot;quantity&quot;: 30,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
         },
         {
             &quot;id&quot;: 3,
             &quot;code&quot;: &quot;SUMMER20&quot;,
             &quot;price&quot;: &quot;100000.00&quot;,
-            &quot;end_at&quot;: &quot;2025-08-18T02:22:19.000000Z&quot;,
+            &quot;end_at&quot;: &quot;2025-08-18T22:14:48.000000Z&quot;,
             &quot;quantity&quot;: 50,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
         },
         {
             &quot;id&quot;: 2,
             &quot;code&quot;: &quot;STUDENT15&quot;,
             &quot;price&quot;: &quot;75000.00&quot;,
-            &quot;end_at&quot;: &quot;2025-12-18T02:22:19.000000Z&quot;,
+            &quot;end_at&quot;: &quot;2025-12-18T22:14:48.000000Z&quot;,
             &quot;quantity&quot;: 200,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
         },
         {
             &quot;id&quot;: 1,
             &quot;code&quot;: &quot;WELCOME10&quot;,
             &quot;price&quot;: &quot;50000.00&quot;,
-            &quot;end_at&quot;: &quot;2025-09-18T02:22:19.000000Z&quot;,
+            &quot;end_at&quot;: &quot;2025-09-18T22:14:48.000000Z&quot;,
             &quot;quantity&quot;: 100,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
         },
         {
             &quot;id&quot;: 4,
             &quot;code&quot;: &quot;NEWUSER&quot;,
             &quot;price&quot;: &quot;30000.00&quot;,
-            &quot;end_at&quot;: &quot;2026-06-18T02:22:19.000000Z&quot;,
+            &quot;end_at&quot;: &quot;2026-06-18T22:14:48.000000Z&quot;,
             &quot;quantity&quot;: 500,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
         }
     ]
 }</code>
@@ -8863,14 +8759,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/comments" \
+    --get "http://localhost:8000/api/comments" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/comments"
+    "http://localhost:8000/api/comments"
 );
 
 const headers = {
@@ -8902,63 +8798,127 @@ access-control-allow-origin: *
     &quot;current_page&quot;: 1,
     &quot;data&quot;: [
         {
-            &quot;id&quot;: 25,
-            &quot;product_id&quot;: 47,
-            &quot;user_id&quot;: 4,
-            &quot;comment&quot;: &quot;Balo đẹp, đ&uacute;ng như m&ocirc; tả. Sẽ mua lại!&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
+            &quot;id&quot;: 1,
+            &quot;product_id&quot;: 44,
+            &quot;user_id&quot;: 2,
+            &quot;comment&quot;: &quot;M&igrave;nh rất h&agrave;i l&ograve;ng với sản phẩm n&agrave;y.&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
             &quot;user&quot;: {
-                &quot;id&quot;: 4,
-                &quot;name&quot;: &quot;Trần Thị B&igrave;nh&quot;
+                &quot;id&quot;: 2,
+                &quot;name&quot;: &quot;Test User&quot;
             },
             &quot;product&quot;: {
-                &quot;id&quot;: 47,
-                &quot;name&quot;: &quot;Balo Leo N&uacute;i The North Face aspernatur&quot;
+                &quot;id&quot;: 44,
+                &quot;name&quot;: &quot;Balo Gaming RGB voluptatem&quot;
             }
         },
         {
-            &quot;id&quot;: 81,
-            &quot;product_id&quot;: 19,
-            &quot;user_id&quot;: 16,
-            &quot;comment&quot;: &quot;Chất liệu bền, thiết kế đẹp mắt.&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
+            &quot;id&quot;: 2,
+            &quot;product_id&quot;: 32,
+            &quot;user_id&quot;: 21,
+            &quot;comment&quot;: &quot;Gi&aacute; cả hợp l&yacute;, quality tốt.&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
             &quot;user&quot;: {
-                &quot;id&quot;: 16,
-                &quot;name&quot;: &quot;Rossie Altenwerth&quot;
+                &quot;id&quot;: 21,
+                &quot;name&quot;: &quot;Brant Wisozk MD&quot;
             },
             &quot;product&quot;: {
-                &quot;id&quot;: 19,
-                &quot;name&quot;: &quot;T&uacute;i Adidas Classic at&quot;
+                &quot;id&quot;: 32,
+                &quot;name&quot;: &quot;T&uacute;i Adidas Classic non&quot;
             }
         },
         {
-            &quot;id&quot;: 82,
-            &quot;product_id&quot;: 22,
-            &quot;user_id&quot;: 3,
-            &quot;comment&quot;: &quot;Sản phẩm rất chất lượng, giao h&agrave;ng nhanh!&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
+            &quot;id&quot;: 3,
+            &quot;product_id&quot;: 1,
+            &quot;user_id&quot;: 21,
+            &quot;comment&quot;: &quot;Gi&aacute; cả hợp l&yacute;, quality tốt.&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
             &quot;user&quot;: {
-                &quot;id&quot;: 3,
-                &quot;name&quot;: &quot;Nguyễn Văn An&quot;
+                &quot;id&quot;: 21,
+                &quot;name&quot;: &quot;Brant Wisozk MD&quot;
             },
             &quot;product&quot;: {
-                &quot;id&quot;: 22,
-                &quot;name&quot;: &quot;Balo Leo N&uacute;i The North Face ut&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 83,
-            &quot;product_id&quot;: 4,
-            &quot;user_id&quot;: 1,
-            &quot;comment&quot;: &quot;Balo đẹp, gi&aacute; tốt, recommend!&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;user&quot;: {
                 &quot;id&quot;: 1,
-                &quot;name&quot;: &quot;Admin BaloZone&quot;
+                &quot;name&quot;: &quot;Balo JanSport SuperBreak Classic&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 4,
+            &quot;product_id&quot;: 28,
+            &quot;user_id&quot;: 21,
+            &quot;comment&quot;: &quot;Shop giao h&agrave;ng nhanh, đ&oacute;ng g&oacute;i cẩn thận.&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;user&quot;: {
+                &quot;id&quot;: 21,
+                &quot;name&quot;: &quot;Brant Wisozk MD&quot;
+            },
+            &quot;product&quot;: {
+                &quot;id&quot;: 28,
+                &quot;name&quot;: &quot;Balo Gaming RGB ullam&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 5,
+            &quot;product_id&quot;: 10,
+            &quot;user_id&quot;: 9,
+            &quot;comment&quot;: &quot;M&igrave;nh rất h&agrave;i l&ograve;ng với sản phẩm n&agrave;y.&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;user&quot;: {
+                &quot;id&quot;: 9,
+                &quot;name&quot;: &quot;Tressie Green&quot;
+            },
+            &quot;product&quot;: {
+                &quot;id&quot;: 10,
+                &quot;name&quot;: &quot;Balo Du Lịch Samsonite et&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 6,
+            &quot;product_id&quot;: 39,
+            &quot;user_id&quot;: 12,
+            &quot;comment&quot;: &quot;Thiết kế trẻ trung, phong c&aacute;ch.&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;user&quot;: {
+                &quot;id&quot;: 12,
+                &quot;name&quot;: &quot;Dr. Clement Konopelski I&quot;
+            },
+            &quot;product&quot;: {
+                &quot;id&quot;: 39,
+                &quot;name&quot;: &quot;Balo Gaming RGB similique&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 7,
+            &quot;product_id&quot;: 50,
+            &quot;user_id&quot;: 8,
+            &quot;comment&quot;: &quot;D&acirc;y đeo &ecirc;m, kh&ocirc;ng đau vai.&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;user&quot;: {
+                &quot;id&quot;: 8,
+                &quot;name&quot;: &quot;Hans Von&quot;
+            },
+            &quot;product&quot;: {
+                &quot;id&quot;: 50,
+                &quot;name&quot;: &quot;Balo Mini Cute debitis&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 8,
+            &quot;product_id&quot;: 4,
+            &quot;user_id&quot;: 6,
+            &quot;comment&quot;: &quot;M&igrave;nh rất h&agrave;i l&ograve;ng với sản phẩm n&agrave;y.&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;user&quot;: {
+                &quot;id&quot;: 6,
+                &quot;name&quot;: &quot;Phạm Thị Dung&quot;
             },
             &quot;product&quot;: {
                 &quot;id&quot;: 4,
@@ -8966,106 +8926,42 @@ access-control-allow-origin: *
             }
         },
         {
-            &quot;id&quot;: 84,
-            &quot;product_id&quot;: 30,
+            &quot;id&quot;: 9,
+            &quot;product_id&quot;: 32,
             &quot;user_id&quot;: 7,
-            &quot;comment&quot;: &quot;Balo đẹp, đ&uacute;ng như m&ocirc; tả. Sẽ mua lại!&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
+            &quot;comment&quot;: &quot;Chất liệu bền, thiết kế đẹp mắt.&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
             &quot;user&quot;: {
                 &quot;id&quot;: 7,
                 &quot;name&quot;: &quot;Ho&agrave;ng Văn Em&quot;
             },
             &quot;product&quot;: {
-                &quot;id&quot;: 30,
-                &quot;name&quot;: &quot;Balo Gaming RGB sunt&quot;
+                &quot;id&quot;: 32,
+                &quot;name&quot;: &quot;T&uacute;i Adidas Classic non&quot;
             }
         },
         {
-            &quot;id&quot;: 85,
-            &quot;product_id&quot;: 47,
-            &quot;user_id&quot;: 10,
-            &quot;comment&quot;: &quot;Balo to vừa phải, ph&ugrave; hợp đi học.&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;user&quot;: {
-                &quot;id&quot;: 10,
-                &quot;name&quot;: &quot;Chasity Klein&quot;
-            },
-            &quot;product&quot;: {
-                &quot;id&quot;: 47,
-                &quot;name&quot;: &quot;Balo Leo N&uacute;i The North Face aspernatur&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 86,
-            &quot;product_id&quot;: 28,
+            &quot;id&quot;: 10,
+            &quot;product_id&quot;: 6,
             &quot;user_id&quot;: 15,
-            &quot;comment&quot;: &quot;Gi&aacute; cả hợp l&yacute;, quality tốt.&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
+            &quot;comment&quot;: &quot;Ph&ugrave; hợp cho cả nam v&agrave; nữ.&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
             &quot;user&quot;: {
                 &quot;id&quot;: 15,
-                &quot;name&quot;: &quot;Dr. Nestor Renner&quot;
+                &quot;name&quot;: &quot;Constance Littel&quot;
             },
             &quot;product&quot;: {
-                &quot;id&quot;: 28,
-                &quot;name&quot;: &quot;Balo Thể Thao Nike Air dolorum&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 87,
-            &quot;product_id&quot;: 41,
-            &quot;user_id&quot;: 3,
-            &quot;comment&quot;: &quot;Ngăn laptop được bảo vệ tốt.&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;user&quot;: {
-                &quot;id&quot;: 3,
-                &quot;name&quot;: &quot;Nguyễn Văn An&quot;
-            },
-            &quot;product&quot;: {
-                &quot;id&quot;: 41,
-                &quot;name&quot;: &quot;Balo Thể Thao Nike Air et&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 89,
-            &quot;product_id&quot;: 43,
-            &quot;user_id&quot;: 4,
-            &quot;comment&quot;: &quot;Kh&oacute;a k&eacute;o bền, mở đ&oacute;ng mượt m&agrave;.&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;user&quot;: {
-                &quot;id&quot;: 4,
-                &quot;name&quot;: &quot;Trần Thị B&igrave;nh&quot;
-            },
-            &quot;product&quot;: {
-                &quot;id&quot;: 43,
-                &quot;name&quot;: &quot;Balo Leo N&uacute;i The North Face sit&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 90,
-            &quot;product_id&quot;: 38,
-            &quot;user_id&quot;: 4,
-            &quot;comment&quot;: &quot;Ngăn laptop được bảo vệ tốt.&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;user&quot;: {
-                &quot;id&quot;: 4,
-                &quot;name&quot;: &quot;Trần Thị B&igrave;nh&quot;
-            },
-            &quot;product&quot;: {
-                &quot;id&quot;: 38,
-                &quot;name&quot;: &quot;Balo Nike Sportswear fugit&quot;
+                &quot;id&quot;: 6,
+                &quot;name&quot;: &quot;T&uacute;i X&aacute;ch Nữ Thời Trang molestiae&quot;
             }
         }
     ],
-    &quot;first_page_url&quot;: &quot;http://localhost/api/comments?page=1&quot;,
+    &quot;first_page_url&quot;: &quot;http://localhost:8000/api/comments?page=1&quot;,
     &quot;from&quot;: 1,
     &quot;last_page&quot;: 10,
-    &quot;last_page_url&quot;: &quot;http://localhost/api/comments?page=10&quot;,
+    &quot;last_page_url&quot;: &quot;http://localhost:8000/api/comments?page=10&quot;,
     &quot;links&quot;: [
         {
             &quot;url&quot;: null,
@@ -9073,63 +8969,63 @@ access-control-allow-origin: *
             &quot;active&quot;: false
         },
         {
-            &quot;url&quot;: &quot;http://localhost/api/comments?page=1&quot;,
+            &quot;url&quot;: &quot;http://localhost:8000/api/comments?page=1&quot;,
             &quot;label&quot;: &quot;1&quot;,
             &quot;active&quot;: true
         },
         {
-            &quot;url&quot;: &quot;http://localhost/api/comments?page=2&quot;,
+            &quot;url&quot;: &quot;http://localhost:8000/api/comments?page=2&quot;,
             &quot;label&quot;: &quot;2&quot;,
             &quot;active&quot;: false
         },
         {
-            &quot;url&quot;: &quot;http://localhost/api/comments?page=3&quot;,
+            &quot;url&quot;: &quot;http://localhost:8000/api/comments?page=3&quot;,
             &quot;label&quot;: &quot;3&quot;,
             &quot;active&quot;: false
         },
         {
-            &quot;url&quot;: &quot;http://localhost/api/comments?page=4&quot;,
+            &quot;url&quot;: &quot;http://localhost:8000/api/comments?page=4&quot;,
             &quot;label&quot;: &quot;4&quot;,
             &quot;active&quot;: false
         },
         {
-            &quot;url&quot;: &quot;http://localhost/api/comments?page=5&quot;,
+            &quot;url&quot;: &quot;http://localhost:8000/api/comments?page=5&quot;,
             &quot;label&quot;: &quot;5&quot;,
             &quot;active&quot;: false
         },
         {
-            &quot;url&quot;: &quot;http://localhost/api/comments?page=6&quot;,
+            &quot;url&quot;: &quot;http://localhost:8000/api/comments?page=6&quot;,
             &quot;label&quot;: &quot;6&quot;,
             &quot;active&quot;: false
         },
         {
-            &quot;url&quot;: &quot;http://localhost/api/comments?page=7&quot;,
+            &quot;url&quot;: &quot;http://localhost:8000/api/comments?page=7&quot;,
             &quot;label&quot;: &quot;7&quot;,
             &quot;active&quot;: false
         },
         {
-            &quot;url&quot;: &quot;http://localhost/api/comments?page=8&quot;,
+            &quot;url&quot;: &quot;http://localhost:8000/api/comments?page=8&quot;,
             &quot;label&quot;: &quot;8&quot;,
             &quot;active&quot;: false
         },
         {
-            &quot;url&quot;: &quot;http://localhost/api/comments?page=9&quot;,
+            &quot;url&quot;: &quot;http://localhost:8000/api/comments?page=9&quot;,
             &quot;label&quot;: &quot;9&quot;,
             &quot;active&quot;: false
         },
         {
-            &quot;url&quot;: &quot;http://localhost/api/comments?page=10&quot;,
+            &quot;url&quot;: &quot;http://localhost:8000/api/comments?page=10&quot;,
             &quot;label&quot;: &quot;10&quot;,
             &quot;active&quot;: false
         },
         {
-            &quot;url&quot;: &quot;http://localhost/api/comments?page=2&quot;,
+            &quot;url&quot;: &quot;http://localhost:8000/api/comments?page=2&quot;,
             &quot;label&quot;: &quot;Next &amp;raquo;&quot;,
             &quot;active&quot;: false
         }
     ],
-    &quot;next_page_url&quot;: &quot;http://localhost/api/comments?page=2&quot;,
-    &quot;path&quot;: &quot;http://localhost/api/comments&quot;,
+    &quot;next_page_url&quot;: &quot;http://localhost:8000/api/comments?page=2&quot;,
+    &quot;path&quot;: &quot;http://localhost:8000/api/comments&quot;,
     &quot;per_page&quot;: 10,
     &quot;prev_page_url&quot;: null,
     &quot;to&quot;: 10,
@@ -9221,7 +9117,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/comments" \
+    "http://localhost:8000/api/comments" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -9233,7 +9129,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/comments"
+    "http://localhost:8000/api/comments"
 );
 
 const headers = {
@@ -9363,14 +9259,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/comments/1" \
+    --get "http://localhost:8000/api/comments/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/comments/1"
+    "http://localhost:8000/api/comments/1"
 );
 
 const headers = {
@@ -9401,19 +9297,19 @@ access-control-allow-origin: *
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: {
         &quot;id&quot;: 1,
-        &quot;product_id&quot;: 37,
-        &quot;user_id&quot;: 12,
-        &quot;comment&quot;: &quot;Balo to vừa phải, ph&ugrave; hợp đi học.&quot;,
-        &quot;created_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2025-06-18T02:22:22.000000Z&quot;,
+        &quot;product_id&quot;: 44,
+        &quot;user_id&quot;: 2,
+        &quot;comment&quot;: &quot;M&igrave;nh rất h&agrave;i l&ograve;ng với sản phẩm n&agrave;y.&quot;,
+        &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
         &quot;user&quot;: {
-            &quot;id&quot;: 12,
-            &quot;name&quot;: &quot;Prof. Garland Conn&quot;
+            &quot;id&quot;: 2,
+            &quot;name&quot;: &quot;Test User&quot;
         },
         &quot;product&quot;: {
-            &quot;id&quot;: 37,
-            &quot;name&quot;: &quot;Balo Thể Thao Nike Air excepturi&quot;,
-            &quot;slug&quot;: &quot;balo-the-thao-nike-air-excepturi-9172&quot;
+            &quot;id&quot;: 44,
+            &quot;name&quot;: &quot;Balo Gaming RGB voluptatem&quot;,
+            &quot;slug&quot;: &quot;balo-gaming-rgb-voluptatem-1507&quot;
         }
     }
 }</code>
@@ -9515,7 +9411,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost/api/comments/1" \
+    "http://localhost:8000/api/comments/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -9527,7 +9423,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/comments/1"
+    "http://localhost:8000/api/comments/1"
 );
 
 const headers = {
@@ -9673,14 +9569,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/comments/1" \
+    "http://localhost:8000/api/comments/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/comments/1"
+    "http://localhost:8000/api/comments/1"
 );
 
 const headers = {
@@ -9793,14 +9689,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/comments/product/1" \
+    --get "http://localhost:8000/api/comments/product/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/comments/product/1"
+    "http://localhost:8000/api/comments/product/1"
 );
 
 const headers = {
@@ -9832,46 +9728,34 @@ access-control-allow-origin: *
     &quot;current_page&quot;: 1,
     &quot;data&quot;: [
         {
-            &quot;id&quot;: 21,
+            &quot;id&quot;: 3,
             &quot;product_id&quot;: 1,
-            &quot;user_id&quot;: 13,
-            &quot;comment&quot;: &quot;Sản phẩm rất chất lượng, giao h&agrave;ng nhanh!&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
+            &quot;user_id&quot;: 21,
+            &quot;comment&quot;: &quot;Gi&aacute; cả hợp l&yacute;, quality tốt.&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
             &quot;user&quot;: {
-                &quot;id&quot;: 13,
-                &quot;name&quot;: &quot;Jennie D&#039;Amore&quot;
+                &quot;id&quot;: 21,
+                &quot;name&quot;: &quot;Brant Wisozk MD&quot;
             }
         },
         {
-            &quot;id&quot;: 75,
+            &quot;id&quot;: 53,
             &quot;product_id&quot;: 1,
-            &quot;user_id&quot;: 22,
-            &quot;comment&quot;: &quot;M&igrave;nh rất h&agrave;i l&ograve;ng với sản phẩm n&agrave;y.&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
+            &quot;user_id&quot;: 4,
+            &quot;comment&quot;: &quot;D&acirc;y đeo &ecirc;m, kh&ocirc;ng đau vai.&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
             &quot;user&quot;: {
-                &quot;id&quot;: 22,
-                &quot;name&quot;: &quot;Prof. Mohammad Kohler II&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 99,
-            &quot;product_id&quot;: 1,
-            &quot;user_id&quot;: 1,
-            &quot;comment&quot;: &quot;Shop giao h&agrave;ng nhanh, đ&oacute;ng g&oacute;i cẩn thận.&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;user&quot;: {
-                &quot;id&quot;: 1,
-                &quot;name&quot;: &quot;Admin BaloZone&quot;
+                &quot;id&quot;: 4,
+                &quot;name&quot;: &quot;Trần Thị B&igrave;nh&quot;
             }
         }
     ],
-    &quot;first_page_url&quot;: &quot;http://localhost/api/comments/product/1?page=1&quot;,
+    &quot;first_page_url&quot;: &quot;http://localhost:8000/api/comments/product/1?page=1&quot;,
     &quot;from&quot;: 1,
     &quot;last_page&quot;: 1,
-    &quot;last_page_url&quot;: &quot;http://localhost/api/comments/product/1?page=1&quot;,
+    &quot;last_page_url&quot;: &quot;http://localhost:8000/api/comments/product/1?page=1&quot;,
     &quot;links&quot;: [
         {
             &quot;url&quot;: null,
@@ -9879,7 +9763,7 @@ access-control-allow-origin: *
             &quot;active&quot;: false
         },
         {
-            &quot;url&quot;: &quot;http://localhost/api/comments/product/1?page=1&quot;,
+            &quot;url&quot;: &quot;http://localhost:8000/api/comments/product/1?page=1&quot;,
             &quot;label&quot;: &quot;1&quot;,
             &quot;active&quot;: true
         },
@@ -9890,11 +9774,11 @@ access-control-allow-origin: *
         }
     ],
     &quot;next_page_url&quot;: null,
-    &quot;path&quot;: &quot;http://localhost/api/comments/product/1&quot;,
+    &quot;path&quot;: &quot;http://localhost:8000/api/comments/product/1&quot;,
     &quot;per_page&quot;: 10,
     &quot;prev_page_url&quot;: null,
-    &quot;to&quot;: 3,
-    &quot;total&quot;: 3
+    &quot;to&quot;: 2,
+    &quot;total&quot;: 2
 }</code>
  </pre>
     </span>
@@ -9994,14 +9878,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/my-comments" \
+    --get "http://localhost:8000/api/my-comments" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/my-comments"
+    "http://localhost:8000/api/my-comments"
 );
 
 const headers = {
@@ -10118,14 +10002,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/orders" \
+    --get "http://localhost:8000/api/orders" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/orders"
+    "http://localhost:8000/api/orders"
 );
 
 const headers = {
@@ -10242,7 +10126,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/orders" \
+    "http://localhost:8000/api/orders" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -10261,7 +10145,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/orders"
+    "http://localhost:8000/api/orders"
 );
 
 const headers = {
@@ -10453,14 +10337,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/orders/1" \
+    --get "http://localhost:8000/api/orders/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/orders/1"
+    "http://localhost:8000/api/orders/1"
 );
 
 const headers = {
@@ -10589,14 +10473,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/orders/1/cancel" \
+    "http://localhost:8000/api/orders/1/cancel" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/orders/1/cancel"
+    "http://localhost:8000/api/orders/1/cancel"
 );
 
 const headers = {
@@ -10709,14 +10593,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/orders-stats" \
+    --get "http://localhost:8000/api/orders-stats" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/orders-stats"
+    "http://localhost:8000/api/orders-stats"
 );
 
 const headers = {
@@ -10833,14 +10717,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/profile" \
+    --get "http://localhost:8000/api/profile" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/profile"
+    "http://localhost:8000/api/profile"
 );
 
 const headers = {
@@ -10957,7 +10841,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost/api/profile" \
+    "http://localhost:8000/api/profile" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -10970,7 +10854,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/profile"
+    "http://localhost:8000/api/profile"
 );
 
 const headers = {
@@ -11112,7 +10996,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/change-password" \
+    "http://localhost:8000/api/change-password" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -11124,7 +11008,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/change-password"
+    "http://localhost:8000/api/change-password"
 );
 
 const headers = {
@@ -11254,14 +11138,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/user-stats" \
+    --get "http://localhost:8000/api/user-stats" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/user-stats"
+    "http://localhost:8000/api/user-stats"
 );
 
 const headers = {
@@ -11378,7 +11262,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/delete-account" \
+    "http://localhost:8000/api/delete-account" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -11389,7 +11273,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/delete-account"
+    "http://localhost:8000/api/delete-account"
 );
 
 const headers = {
@@ -11507,14 +11391,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/address-books" \
+    --get "http://localhost:8000/api/address-books" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/address-books"
+    "http://localhost:8000/api/address-books"
 );
 
 const headers = {
@@ -11631,7 +11515,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/address-books" \
+    "http://localhost:8000/api/address-books" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -11646,7 +11530,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/address-books"
+    "http://localhost:8000/api/address-books"
 );
 
 const headers = {
@@ -11822,14 +11706,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/address-books/1" \
+    --get "http://localhost:8000/api/address-books/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/address-books/1"
+    "http://localhost:8000/api/address-books/1"
 );
 
 const headers = {
@@ -11958,7 +11842,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost/api/address-books/1" \
+    "http://localhost:8000/api/address-books/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -11966,14 +11850,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"address\": \"dtdsufvyvddqamniihfqcoynlazghdtqtqxbajwbpilpmufinllwloauydlsmsjuryvojcybzvr\",
     \"receiver_name\": \"byickznkygloigmkwxphl\",
     \"receiver_phone\": \"vazjrcnfbaqyw\",
-    \"is_default\": true
+    \"is_default\": false
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/address-books/1"
+    "http://localhost:8000/api/address-books/1"
 );
 
 const headers = {
@@ -11986,7 +11870,7 @@ let body = {
     "address": "dtdsufvyvddqamniihfqcoynlazghdtqtqxbajwbpilpmufinllwloauydlsmsjuryvojcybzvr",
     "receiver_name": "byickznkygloigmkwxphl",
     "receiver_phone": "vazjrcnfbaqyw",
-    "is_default": true
+    "is_default": false
 };
 
 fetch(url, {
@@ -12148,7 +12032,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
             <code>false</code>
         </label>
     <br>
-<p>Example: <code>true</code></p>
+<p>Example: <code>false</code></p>
         </div>
         </form>
 
@@ -12165,14 +12049,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/address-books/1" \
+    "http://localhost:8000/api/address-books/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/address-books/1"
+    "http://localhost:8000/api/address-books/1"
 );
 
 const headers = {
@@ -12285,14 +12169,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/news" \
+    --get "http://localhost:8000/api/news" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/news"
+    "http://localhost:8000/api/news"
 );
 
 const headers = {
@@ -12327,87 +12211,87 @@ access-control-allow-origin: *
             &quot;id&quot;: 1,
             &quot;title&quot;: &quot;Top 10 Balo Học Sinh Được Y&ecirc;u Th&iacute;ch Nhất 2025&quot;,
             &quot;description&quot;: &quot;Kh&aacute;m ph&aacute; những mẫu balo học sinh hot nhất năm 2025 với thiết kế trẻ trung, chất lượng cao v&agrave; gi&aacute; cả phải chăng. Từ c&aacute;c thương hiệu nổi tiếng như Nike, Adidas đến JanSport.&quot;,
-            &quot;thumbnail&quot;: &quot;news/top-10-balo-hoc-sinh-2025.jpg&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;
+            &quot;thumbnail&quot;: &quot;https://placehold.co/600x400?text=news/top-10-balo-hoc-sinh-2025.jpg&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
         },
         {
             &quot;id&quot;: 2,
             &quot;title&quot;: &quot;Hướng Dẫn Chọn Balo Du Lịch Ph&ugrave; Hợp&quot;,
             &quot;description&quot;: &quot;B&iacute; quyết chọn balo du lịch ph&ugrave; hợp cho từng loại h&igrave;nh du lịch. T&igrave;m hiểu về dung t&iacute;ch, chất liệu, t&iacute;nh năng v&agrave; c&aacute;ch bảo quản balo để c&oacute; những chuyến đi tuyệt vời.&quot;,
-            &quot;thumbnail&quot;: &quot;news/huong-dan-chon-balo-du-lich.jpg&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;
+            &quot;thumbnail&quot;: &quot;https://placehold.co/600x400?text=news/huong-dan-chon-balo-du-lich.jpg&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
         },
         {
             &quot;id&quot;: 3,
             &quot;title&quot;: &quot;Xu Hướng Thời Trang Balo 2025&quot;,
             &quot;description&quot;: &quot;Cập nhật những xu hướng mới nhất trong thiết kế balo năm 2025. Từ m&agrave;u sắc pastel nhẹ nh&agrave;ng đến thiết kế minimalist hiện đại, tất cả đều c&oacute; tại BaloZone.&quot;,
-            &quot;thumbnail&quot;: &quot;news/xu-huong-thoi-trang-balo-2025.jpg&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;
+            &quot;thumbnail&quot;: &quot;https://placehold.co/600x400?text=news/xu-huong-thoi-trang-balo-2025.jpg&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
         },
         {
             &quot;id&quot;: 4,
             &quot;title&quot;: &quot;C&aacute;ch Bảo Quản Balo Để Bền L&acirc;u&quot;,
             &quot;description&quot;: &quot;Chia sẻ những mẹo hay để bảo quản balo của bạn lu&ocirc;n như mới. Từ c&aacute;ch vệ sinh, sắp xếp đồ đạc đến c&aacute;ch bảo quản khi kh&ocirc;ng sử dụng.&quot;,
-            &quot;thumbnail&quot;: &quot;news/cach-bao-quan-balo.jpg&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;
+            &quot;thumbnail&quot;: &quot;https://placehold.co/600x400?text=news/cach-bao-quan-balo.jpg&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
         },
         {
             &quot;id&quot;: 5,
             &quot;title&quot;: &quot;Review Chi Tiết Balo The North Face Borealis&quot;,
             &quot;description&quot;: &quot;Đ&aacute;nh gi&aacute; chi tiết về mẫu balo The North Face Borealis 28L - lựa chọn h&agrave;ng đầu cho c&aacute;c chuyến trekking v&agrave; du lịch ngắn ng&agrave;y. Ưu nhược điểm v&agrave; so s&aacute;nh gi&aacute; cả.&quot;,
-            &quot;thumbnail&quot;: &quot;news/review-tnf-borealis.jpg&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;
+            &quot;thumbnail&quot;: &quot;https://placehold.co/600x400?text=news/review-tnf-borealis.jpg&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
         },
         {
             &quot;id&quot;: 6,
             &quot;title&quot;: &quot;So S&aacute;nh Balo Nike vs Adidas: Đ&acirc;u L&agrave; Lựa Chọn Tốt?&quot;,
             &quot;description&quot;: &quot;Ph&acirc;n t&iacute;ch chi tiết ưu nhược điểm của balo Nike v&agrave; Adidas. Gi&uacute;p bạn đưa ra quyết định đ&uacute;ng đắn khi lựa chọn giữa hai thương hiệu thể thao h&agrave;ng đầu thế giới.&quot;,
-            &quot;thumbnail&quot;: &quot;news/so-sanh-nike-vs-adidas.jpg&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;
+            &quot;thumbnail&quot;: &quot;https://placehold.co/600x400?text=news/so-sanh-nike-vs-adidas.jpg&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
         },
         {
             &quot;id&quot;: 7,
             &quot;title&quot;: &quot;Balo Laptop: Lựa Chọn Ho&agrave;n Hảo Cho D&acirc;n Văn Ph&ograve;ng&quot;,
             &quot;description&quot;: &quot;T&igrave;m hiểu về những mẫu balo laptop chất lượng cao, ph&ugrave; hợp cho d&acirc;n văn ph&ograve;ng v&agrave; sinh vi&ecirc;n. Đảm bảo bảo vệ tối đa cho thiết bị c&ocirc;ng nghệ của bạn.&quot;,
-            &quot;thumbnail&quot;: &quot;news/balo-laptop-van-phong.jpg&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;
+            &quot;thumbnail&quot;: &quot;https://placehold.co/600x400?text=news/balo-laptop-van-phong.jpg&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
         },
         {
             &quot;id&quot;: 8,
             &quot;title&quot;: &quot;Sale Khủng Th&aacute;ng 6: Giảm Gi&aacute; Đến 50% To&agrave;n Bộ Balo&quot;,
             &quot;description&quot;: &quot;Chương tr&igrave;nh khuyến m&atilde;i lớn nhất trong năm đ&atilde; bắt đầu! Giảm gi&aacute; l&ecirc;n đến 50% cho tất cả c&aacute;c d&ograve;ng balo. Nhanh tay sở hữu những mẫu balo y&ecirc;u th&iacute;ch với gi&aacute; ưu đ&atilde;i.&quot;,
-            &quot;thumbnail&quot;: &quot;news/sale-thang-6.jpg&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;
+            &quot;thumbnail&quot;: &quot;https://placehold.co/600x400?text=news/sale-thang-6.jpg&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
         },
         {
             &quot;id&quot;: 9,
-            &quot;title&quot;: &quot;Est et error dicta similique occaecati.&quot;,
-            &quot;description&quot;: &quot;Non ut dolorem tempora voluptate pariatur ut. Dolorem sed fugiat ipsum quidem dolore. Laudantium error et minima eos molestiae. Quos aperiam et cum consectetur eum exercitationem.&quot;,
-            &quot;thumbnail&quot;: &quot;https://via.placeholder.com/800x600.png/00aa66?text=business+dolorem&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;
+            &quot;title&quot;: &quot;Possimus voluptas quibusdam sapiente error ipsa autem eum sunt iure sunt.&quot;,
+            &quot;description&quot;: &quot;Autem in qui fuga qui voluptatem similique. Ut ut quo est vel quam. Ea animi sapiente maxime ea sequi ex esse.&quot;,
+            &quot;thumbnail&quot;: &quot;https://via.placeholder.com/800x600.png/00bb66?text=business+voluptas&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
         },
         {
             &quot;id&quot;: 10,
-            &quot;title&quot;: &quot;Maiores repellendus esse at deleniti dolorem perferendis assumenda cum est.&quot;,
-            &quot;description&quot;: &quot;Ducimus veritatis officiis sapiente modi corrupti qui. Eum nisi doloremque ut. Maiores voluptatibus voluptas autem deleniti impedit. Officiis possimus quia mollitia quia dolores. Dolorem qui odit unde eos ipsum quam alias.&quot;,
-            &quot;thumbnail&quot;: &quot;https://via.placeholder.com/800x600.png/006644?text=business+sed&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;
+            &quot;title&quot;: &quot;Aliquam ea ea est facere reprehenderit nulla consequatur a maiores in autem.&quot;,
+            &quot;description&quot;: &quot;Molestiae in totam reprehenderit qui quasi iusto. Aut ipsam facere saepe id magnam autem. Ullam rerum ipsam possimus rerum.&quot;,
+            &quot;thumbnail&quot;: &quot;https://via.placeholder.com/800x600.png/00aa11?text=business+accusantium&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
         }
     ],
-    &quot;first_page_url&quot;: &quot;http://localhost/api/news?page=1&quot;,
+    &quot;first_page_url&quot;: &quot;http://localhost:8000/api/news?page=1&quot;,
     &quot;from&quot;: 1,
     &quot;last_page&quot;: 2,
-    &quot;last_page_url&quot;: &quot;http://localhost/api/news?page=2&quot;,
+    &quot;last_page_url&quot;: &quot;http://localhost:8000/api/news?page=2&quot;,
     &quot;links&quot;: [
         {
             &quot;url&quot;: null,
@@ -12415,23 +12299,23 @@ access-control-allow-origin: *
             &quot;active&quot;: false
         },
         {
-            &quot;url&quot;: &quot;http://localhost/api/news?page=1&quot;,
+            &quot;url&quot;: &quot;http://localhost:8000/api/news?page=1&quot;,
             &quot;label&quot;: &quot;1&quot;,
             &quot;active&quot;: true
         },
         {
-            &quot;url&quot;: &quot;http://localhost/api/news?page=2&quot;,
+            &quot;url&quot;: &quot;http://localhost:8000/api/news?page=2&quot;,
             &quot;label&quot;: &quot;2&quot;,
             &quot;active&quot;: false
         },
         {
-            &quot;url&quot;: &quot;http://localhost/api/news?page=2&quot;,
+            &quot;url&quot;: &quot;http://localhost:8000/api/news?page=2&quot;,
             &quot;label&quot;: &quot;Next &amp;raquo;&quot;,
             &quot;active&quot;: false
         }
     ],
-    &quot;next_page_url&quot;: &quot;http://localhost/api/news?page=2&quot;,
-    &quot;path&quot;: &quot;http://localhost/api/news&quot;,
+    &quot;next_page_url&quot;: &quot;http://localhost:8000/api/news?page=2&quot;,
+    &quot;path&quot;: &quot;http://localhost:8000/api/news&quot;,
     &quot;per_page&quot;: 10,
     &quot;prev_page_url&quot;: null,
     &quot;to&quot;: 10,
@@ -12523,14 +12407,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/news/1" \
+    --get "http://localhost:8000/api/news/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/news/1"
+    "http://localhost:8000/api/news/1"
 );
 
 const headers = {
@@ -12563,9 +12447,9 @@ access-control-allow-origin: *
         &quot;id&quot;: 1,
         &quot;title&quot;: &quot;Top 10 Balo Học Sinh Được Y&ecirc;u Th&iacute;ch Nhất 2025&quot;,
         &quot;description&quot;: &quot;Kh&aacute;m ph&aacute; những mẫu balo học sinh hot nhất năm 2025 với thiết kế trẻ trung, chất lượng cao v&agrave; gi&aacute; cả phải chăng. Từ c&aacute;c thương hiệu nổi tiếng như Nike, Adidas đến JanSport.&quot;,
-        &quot;thumbnail&quot;: &quot;news/top-10-balo-hoc-sinh-2025.jpg&quot;,
-        &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;
+        &quot;thumbnail&quot;: &quot;https://placehold.co/600x400?text=news/top-10-balo-hoc-sinh-2025.jpg&quot;,
+        &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
     }
 }</code>
  </pre>
@@ -12666,14 +12550,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/news-latest" \
+    --get "http://localhost:8000/api/news-latest" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/news-latest"
+    "http://localhost:8000/api/news-latest"
 );
 
 const headers = {
@@ -12707,49 +12591,49 @@ access-control-allow-origin: *
             &quot;id&quot;: 1,
             &quot;title&quot;: &quot;Top 10 Balo Học Sinh Được Y&ecirc;u Th&iacute;ch Nhất 2025&quot;,
             &quot;description&quot;: &quot;Kh&aacute;m ph&aacute; những mẫu balo học sinh hot nhất năm 2025 với thiết kế trẻ trung, chất lượng cao v&agrave; gi&aacute; cả phải chăng. Từ c&aacute;c thương hiệu nổi tiếng như Nike, Adidas đến JanSport.&quot;,
-            &quot;thumbnail&quot;: &quot;news/top-10-balo-hoc-sinh-2025.jpg&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;
+            &quot;thumbnail&quot;: &quot;https://placehold.co/600x400?text=news/top-10-balo-hoc-sinh-2025.jpg&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
         },
         {
             &quot;id&quot;: 2,
             &quot;title&quot;: &quot;Hướng Dẫn Chọn Balo Du Lịch Ph&ugrave; Hợp&quot;,
             &quot;description&quot;: &quot;B&iacute; quyết chọn balo du lịch ph&ugrave; hợp cho từng loại h&igrave;nh du lịch. T&igrave;m hiểu về dung t&iacute;ch, chất liệu, t&iacute;nh năng v&agrave; c&aacute;ch bảo quản balo để c&oacute; những chuyến đi tuyệt vời.&quot;,
-            &quot;thumbnail&quot;: &quot;news/huong-dan-chon-balo-du-lich.jpg&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;
+            &quot;thumbnail&quot;: &quot;https://placehold.co/600x400?text=news/huong-dan-chon-balo-du-lich.jpg&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
         },
         {
             &quot;id&quot;: 3,
             &quot;title&quot;: &quot;Xu Hướng Thời Trang Balo 2025&quot;,
             &quot;description&quot;: &quot;Cập nhật những xu hướng mới nhất trong thiết kế balo năm 2025. Từ m&agrave;u sắc pastel nhẹ nh&agrave;ng đến thiết kế minimalist hiện đại, tất cả đều c&oacute; tại BaloZone.&quot;,
-            &quot;thumbnail&quot;: &quot;news/xu-huong-thoi-trang-balo-2025.jpg&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;
+            &quot;thumbnail&quot;: &quot;https://placehold.co/600x400?text=news/xu-huong-thoi-trang-balo-2025.jpg&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
         },
         {
             &quot;id&quot;: 4,
             &quot;title&quot;: &quot;C&aacute;ch Bảo Quản Balo Để Bền L&acirc;u&quot;,
             &quot;description&quot;: &quot;Chia sẻ những mẹo hay để bảo quản balo của bạn lu&ocirc;n như mới. Từ c&aacute;ch vệ sinh, sắp xếp đồ đạc đến c&aacute;ch bảo quản khi kh&ocirc;ng sử dụng.&quot;,
-            &quot;thumbnail&quot;: &quot;news/cach-bao-quan-balo.jpg&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;
+            &quot;thumbnail&quot;: &quot;https://placehold.co/600x400?text=news/cach-bao-quan-balo.jpg&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
         },
         {
             &quot;id&quot;: 5,
             &quot;title&quot;: &quot;Review Chi Tiết Balo The North Face Borealis&quot;,
             &quot;description&quot;: &quot;Đ&aacute;nh gi&aacute; chi tiết về mẫu balo The North Face Borealis 28L - lựa chọn h&agrave;ng đầu cho c&aacute;c chuyến trekking v&agrave; du lịch ngắn ng&agrave;y. Ưu nhược điểm v&agrave; so s&aacute;nh gi&aacute; cả.&quot;,
-            &quot;thumbnail&quot;: &quot;news/review-tnf-borealis.jpg&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;
+            &quot;thumbnail&quot;: &quot;https://placehold.co/600x400?text=news/review-tnf-borealis.jpg&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
         },
         {
             &quot;id&quot;: 6,
             &quot;title&quot;: &quot;So S&aacute;nh Balo Nike vs Adidas: Đ&acirc;u L&agrave; Lựa Chọn Tốt?&quot;,
             &quot;description&quot;: &quot;Ph&acirc;n t&iacute;ch chi tiết ưu nhược điểm của balo Nike v&agrave; Adidas. Gi&uacute;p bạn đưa ra quyết định đ&uacute;ng đắn khi lựa chọn giữa hai thương hiệu thể thao h&agrave;ng đầu thế giới.&quot;,
-            &quot;thumbnail&quot;: &quot;news/so-sanh-nike-vs-adidas.jpg&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;
+            &quot;thumbnail&quot;: &quot;https://placehold.co/600x400?text=news/so-sanh-nike-vs-adidas.jpg&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
         }
     ]
 }</code>
@@ -12839,7 +12723,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/contacts" \
+    "http://localhost:8000/api/contacts" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -12852,7 +12736,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/contacts"
+    "http://localhost:8000/api/contacts"
 );
 
 const headers = {
@@ -12994,14 +12878,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/contacts" \
+    --get "http://localhost:8000/api/contacts" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/contacts"
+    "http://localhost:8000/api/contacts"
 );
 
 const headers = {
@@ -13038,8 +12922,8 @@ access-control-allow-origin: *
             &quot;email&quot;: &quot;tai.nguyen@gmail.com&quot;,
             &quot;message&quot;: &quot;Xin ch&agrave;o, t&ocirc;i muốn hỏi về ch&iacute;nh s&aacute;ch đổi trả của cửa h&agrave;ng. T&ocirc;i vừa mua một chiếc balo nhưng k&iacute;ch thước kh&ocirc;ng ph&ugrave; hợp.&quot;,
             &quot;status&quot;: &quot;resolved&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
         },
         {
             &quot;id&quot;: 2,
@@ -13047,8 +12931,8 @@ access-control-allow-origin: *
             &quot;email&quot;: &quot;lan.tran@gmail.com&quot;,
             &quot;message&quot;: &quot;Balo t&ocirc;i đặt h&ocirc;m qua đ&atilde; được giao chưa ạ? T&ocirc;i cần gấp để đi c&ocirc;ng t&aacute;c.&quot;,
             &quot;status&quot;: &quot;resolved&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
         },
         {
             &quot;id&quot;: 3,
@@ -13056,8 +12940,8 @@ access-control-allow-origin: *
             &quot;email&quot;: &quot;minh.le@gmail.com&quot;,
             &quot;message&quot;: &quot;Cửa h&agrave;ng c&oacute; balo chống nước cho việc leo n&uacute;i kh&ocirc;ng? T&ocirc;i cần loại c&oacute; dung t&iacute;ch khoảng 40-50L.&quot;,
             &quot;status&quot;: &quot;pending&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
         },
         {
             &quot;id&quot;: 4,
@@ -13065,8 +12949,8 @@ access-control-allow-origin: *
             &quot;email&quot;: &quot;huong.pham@gmail.com&quot;,
             &quot;message&quot;: &quot;Xin lỗi, t&ocirc;i nhận được balo nhưng kh&oacute;a k&eacute;o bị hỏng. Cửa h&agrave;ng c&oacute; thể hỗ trợ đổi sản phẩm kh&ocirc;ng?&quot;,
             &quot;status&quot;: &quot;resolved&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
         },
         {
             &quot;id&quot;: 5,
@@ -13074,8 +12958,8 @@ access-control-allow-origin: *
             &quot;email&quot;: &quot;duc.hoang@gmail.com&quot;,
             &quot;message&quot;: &quot;T&ocirc;i muốn mua balo laptop, cửa h&agrave;ng c&oacute; những loại n&agrave;o ph&ugrave; hợp với laptop 15.6 inch?&quot;,
             &quot;status&quot;: &quot;pending&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
         },
         {
             &quot;id&quot;: 6,
@@ -13083,8 +12967,8 @@ access-control-allow-origin: *
             &quot;email&quot;: &quot;mai.vu@gmail.com&quot;,
             &quot;message&quot;: &quot;Cảm ơn shop đ&atilde; giao h&agrave;ng nhanh ch&oacute;ng. Balo rất đẹp v&agrave; chất lượng tốt!&quot;,
             &quot;status&quot;: &quot;resolved&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
         },
         {
             &quot;id&quot;: 7,
@@ -13092,8 +12976,8 @@ access-control-allow-origin: *
             &quot;email&quot;: &quot;hai.dinh@gmail.com&quot;,
             &quot;message&quot;: &quot;Xin hỏi cửa h&agrave;ng c&oacute; &aacute;p dụng ch&iacute;nh s&aacute;ch giảm gi&aacute; cho kh&aacute;ch h&agrave;ng th&acirc;n thiết kh&ocirc;ng?&quot;,
             &quot;status&quot;: &quot;pending&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
         },
         {
             &quot;id&quot;: 8,
@@ -13101,77 +12985,77 @@ access-control-allow-origin: *
             &quot;email&quot;: &quot;nga.bui@gmail.com&quot;,
             &quot;message&quot;: &quot;T&ocirc;i cần tư vấn chọn balo ph&ugrave; hợp cho con trai lớp 6. Cảm ơn shop!&quot;,
             &quot;status&quot;: &quot;resolved&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
         },
         {
             &quot;id&quot;: 9,
-            &quot;fullname&quot;: &quot;Demetris Botsford&quot;,
-            &quot;email&quot;: &quot;zhoeger@hotmail.com&quot;,
-            &quot;message&quot;: &quot;Itaque ut similique labore facilis esse facere. Est dignissimos voluptas inventore rerum accusantium optio. Illo quo quo ipsam hic. Illum a totam eius sed vel.&quot;,
-            &quot;status&quot;: &quot;pending&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;
+            &quot;fullname&quot;: &quot;Devante Legros&quot;,
+            &quot;email&quot;: &quot;linda58@hotmail.com&quot;,
+            &quot;message&quot;: &quot;Rem harum debitis eius id natus. Tenetur ea cupiditate soluta eligendi ut voluptatem. Incidunt consequatur dolores dolor.&quot;,
+            &quot;status&quot;: &quot;resolved&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
         },
         {
             &quot;id&quot;: 10,
-            &quot;fullname&quot;: &quot;Mrs. Dawn Prohaska I&quot;,
-            &quot;email&quot;: &quot;cole.rocky@yahoo.com&quot;,
-            &quot;message&quot;: &quot;Autem esse dignissimos sed eaque. Velit hic unde aut omnis. Dolor minus et perferendis. Consequuntur in ratione quae rerum alias necessitatibus ullam.&quot;,
-            &quot;status&quot;: &quot;pending&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;
+            &quot;fullname&quot;: &quot;Winifred Kessler&quot;,
+            &quot;email&quot;: &quot;feeney.jaime@yahoo.com&quot;,
+            &quot;message&quot;: &quot;Ea consequuntur et ipsum dolor est sit. Fugit earum velit dicta similique vel et sunt. Et fugiat odio pariatur placeat hic officia excepturi. Consequatur laborum quos tenetur repellendus eum.&quot;,
+            &quot;status&quot;: &quot;resolved&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
         },
         {
             &quot;id&quot;: 11,
-            &quot;fullname&quot;: &quot;Adell Waters&quot;,
-            &quot;email&quot;: &quot;dedrick04@glover.com&quot;,
-            &quot;message&quot;: &quot;Enim facilis consequatur quisquam quasi pariatur cumque dolorem. Incidunt corporis nesciunt culpa et. Explicabo voluptatibus quia et laborum. Fuga voluptatem esse aliquam qui deserunt.&quot;,
-            &quot;status&quot;: &quot;pending&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;
+            &quot;fullname&quot;: &quot;Lori Hudson Sr.&quot;,
+            &quot;email&quot;: &quot;oblanda@heaney.com&quot;,
+            &quot;message&quot;: &quot;Sint consequatur voluptatum ut commodi. Voluptates nam voluptatibus qui enim consequatur laudantium aliquid. Sint omnis provident repellendus quaerat dicta et.&quot;,
+            &quot;status&quot;: &quot;resolved&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
         },
         {
             &quot;id&quot;: 12,
-            &quot;fullname&quot;: &quot;Kendra Hermiston&quot;,
-            &quot;email&quot;: &quot;davonte.haag@yahoo.com&quot;,
-            &quot;message&quot;: &quot;Ad illum molestias a placeat fugit. Repellat non dicta doloribus error. Dolorem eius debitis ut est cumque omnis illum.&quot;,
-            &quot;status&quot;: &quot;pending&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;
+            &quot;fullname&quot;: &quot;Savanna Marquardt DDS&quot;,
+            &quot;email&quot;: &quot;canderson@walker.com&quot;,
+            &quot;message&quot;: &quot;Ut et et accusantium magni tenetur velit animi. Consequatur aperiam error quia in eum itaque amet fuga.&quot;,
+            &quot;status&quot;: &quot;resolved&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
         },
         {
             &quot;id&quot;: 13,
-            &quot;fullname&quot;: &quot;Prof. Modesta Kassulke&quot;,
-            &quot;email&quot;: &quot;reinhold.champlin@yahoo.com&quot;,
-            &quot;message&quot;: &quot;Error illum doloremque rerum recusandae. Reiciendis dolorum eligendi nihil deserunt. Tempore quam atque corrupti.&quot;,
+            &quot;fullname&quot;: &quot;Evans McDermott&quot;,
+            &quot;email&quot;: &quot;garrick.maggio@yahoo.com&quot;,
+            &quot;message&quot;: &quot;Illo qui similique quis repudiandae necessitatibus harum error. Qui illum quia neque ab sit. Dolorem hic ut saepe nam eum.&quot;,
             &quot;status&quot;: &quot;pending&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
         },
         {
             &quot;id&quot;: 14,
-            &quot;fullname&quot;: &quot;Gilda Goldner&quot;,
-            &quot;email&quot;: &quot;paige.wisozk@gmail.com&quot;,
-            &quot;message&quot;: &quot;Quibusdam et voluptates et consequatur temporibus error quia. Saepe in libero sapiente officiis. Rerum sit libero perspiciatis magnam voluptatum.&quot;,
+            &quot;fullname&quot;: &quot;Helena Dickens&quot;,
+            &quot;email&quot;: &quot;ngreenfelder@deckow.com&quot;,
+            &quot;message&quot;: &quot;Et illum eaque et necessitatibus sed architecto et dolores. Eligendi repellendus officia expedita maiores a saepe. Quam qui numquam labore beatae aut id placeat.&quot;,
             &quot;status&quot;: &quot;pending&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
         },
         {
             &quot;id&quot;: 15,
-            &quot;fullname&quot;: &quot;Miss Yolanda Feil&quot;,
-            &quot;email&quot;: &quot;sadye.harvey@dietrich.com&quot;,
-            &quot;message&quot;: &quot;Veniam ut commodi autem labore. Voluptatibus illum veritatis quae nihil quis veniam. Et et error quis sed. Voluptatibus ut repellat sed sint.&quot;,
-            &quot;status&quot;: &quot;pending&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;
+            &quot;fullname&quot;: &quot;Jamel Rowe&quot;,
+            &quot;email&quot;: &quot;betsy.reynolds@bahringer.org&quot;,
+            &quot;message&quot;: &quot;Veritatis occaecati inventore aspernatur et est odio. Facere et sed sint praesentium amet maiores. Doloremque doloribus deserunt magnam accusantium sed. Et fuga nostrum perspiciatis provident.&quot;,
+            &quot;status&quot;: &quot;resolved&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
         }
     ],
-    &quot;first_page_url&quot;: &quot;http://localhost/api/contacts?page=1&quot;,
+    &quot;first_page_url&quot;: &quot;http://localhost:8000/api/contacts?page=1&quot;,
     &quot;from&quot;: 1,
     &quot;last_page&quot;: 2,
-    &quot;last_page_url&quot;: &quot;http://localhost/api/contacts?page=2&quot;,
+    &quot;last_page_url&quot;: &quot;http://localhost:8000/api/contacts?page=2&quot;,
     &quot;links&quot;: [
         {
             &quot;url&quot;: null,
@@ -13179,23 +13063,23 @@ access-control-allow-origin: *
             &quot;active&quot;: false
         },
         {
-            &quot;url&quot;: &quot;http://localhost/api/contacts?page=1&quot;,
+            &quot;url&quot;: &quot;http://localhost:8000/api/contacts?page=1&quot;,
             &quot;label&quot;: &quot;1&quot;,
             &quot;active&quot;: true
         },
         {
-            &quot;url&quot;: &quot;http://localhost/api/contacts?page=2&quot;,
+            &quot;url&quot;: &quot;http://localhost:8000/api/contacts?page=2&quot;,
             &quot;label&quot;: &quot;2&quot;,
             &quot;active&quot;: false
         },
         {
-            &quot;url&quot;: &quot;http://localhost/api/contacts?page=2&quot;,
+            &quot;url&quot;: &quot;http://localhost:8000/api/contacts?page=2&quot;,
             &quot;label&quot;: &quot;Next &amp;raquo;&quot;,
             &quot;active&quot;: false
         }
     ],
-    &quot;next_page_url&quot;: &quot;http://localhost/api/contacts?page=2&quot;,
-    &quot;path&quot;: &quot;http://localhost/api/contacts&quot;,
+    &quot;next_page_url&quot;: &quot;http://localhost:8000/api/contacts?page=2&quot;,
+    &quot;path&quot;: &quot;http://localhost:8000/api/contacts&quot;,
     &quot;per_page&quot;: 15,
     &quot;prev_page_url&quot;: null,
     &quot;to&quot;: 15,
@@ -13287,14 +13171,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/contacts/1" \
+    --get "http://localhost:8000/api/contacts/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/contacts/1"
+    "http://localhost:8000/api/contacts/1"
 );
 
 const headers = {
@@ -13329,8 +13213,8 @@ access-control-allow-origin: *
         &quot;email&quot;: &quot;tai.nguyen@gmail.com&quot;,
         &quot;message&quot;: &quot;Xin ch&agrave;o, t&ocirc;i muốn hỏi về ch&iacute;nh s&aacute;ch đổi trả của cửa h&agrave;ng. T&ocirc;i vừa mua một chiếc balo nhưng k&iacute;ch thước kh&ocirc;ng ph&ugrave; hợp.&quot;,
         &quot;status&quot;: &quot;resolved&quot;,
-        &quot;created_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2025-06-18T02:22:23.000000Z&quot;
+        &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
     }
 }</code>
  </pre>
@@ -13431,14 +13315,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/sale-campaigns" \
+    --get "http://localhost:8000/api/sale-campaigns" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/sale-campaigns"
+    "http://localhost:8000/api/sale-campaigns"
 );
 
 const headers = {
@@ -13474,9 +13358,9 @@ access-control-allow-origin: *
             &quot;name&quot;: &quot;Black Friday 2025&quot;,
             &quot;slug&quot;: &quot;black-friday-2025&quot;,
             &quot;description&quot;: &quot;Si&ecirc;u sale Black Friday - Giảm gi&aacute; khủng l&ecirc;n đến 70% tất cả sản phẩm balo&quot;,
-            &quot;banner_image&quot;: &quot;campaigns/black-friday-2025.jpg&quot;,
-            &quot;start_date&quot;: &quot;2025-06-19T17:17:58.000000Z&quot;,
-            &quot;end_date&quot;: &quot;2025-06-25T17:17:58.000000Z&quot;,
+            &quot;banner_image&quot;: &quot;https://placehold.co/600x400?text=campaigns/black-friday-2025.jpg&quot;,
+            &quot;start_date&quot;: &quot;2025-06-19T22:14:51.000000Z&quot;,
+            &quot;end_date&quot;: &quot;2025-06-25T22:14:51.000000Z&quot;,
             &quot;status&quot;: &quot;active&quot;,
             &quot;is_featured&quot;: true,
             &quot;priority&quot;: 100,
@@ -13489,255 +13373,131 @@ access-control-allow-origin: *
                 &quot;color&quot;: &quot;#000000&quot;,
                 &quot;description_short&quot;: &quot;Giảm gi&aacute; l&ecirc;n đến 70%&quot;
             },
-            &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
             &quot;sale_products&quot;: [
                 {
                     &quot;id&quot;: 1,
                     &quot;sale_campaign_id&quot;: 1,
-                    &quot;product_id&quot;: 6,
-                    &quot;original_price&quot;: &quot;1562024.00&quot;,
-                    &quot;sale_price&quot;: &quot;531088.16&quot;,
-                    &quot;discount_percentage&quot;: &quot;66.00&quot;,
-                    &quot;discount_amount&quot;: &quot;1030935.84&quot;,
+                    &quot;product_id&quot;: 8,
+                    &quot;original_price&quot;: &quot;1549132.00&quot;,
+                    &quot;sale_price&quot;: &quot;913987.88&quot;,
+                    &quot;discount_percentage&quot;: &quot;41.00&quot;,
+                    &quot;discount_amount&quot;: &quot;635144.12&quot;,
                     &quot;discount_type&quot;: &quot;percentage&quot;,
                     &quot;start_date&quot;: null,
                     &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 40,
-                    &quot;sold_quantity&quot;: 4,
+                    &quot;max_quantity&quot;: 41,
+                    &quot;sold_quantity&quot;: 3,
                     &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
                     &quot;product&quot;: {
-                        &quot;id&quot;: 6,
-                        &quot;category_id&quot;: 3,
-                        &quot;brand_id&quot;: 10,
-                        &quot;name&quot;: &quot;Balo Gaming RGB aperiam&quot;,
-                        &quot;description&quot;: &quot;Debitis natus dolorum et. Optio sed sunt error culpa voluptas. Eos occaecati consectetur ipsum molestiae ut occaecati tempora. Autem quae veniam qui fuga.&quot;,
-                        &quot;price&quot;: &quot;1562024.00&quot;,
-                        &quot;quantity&quot;: 72,
-                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/007744?text=fashion+rerum&quot;,
-                        &quot;slug&quot;: &quot;balo-gaming-rgb-aperiam-7459&quot;,
-                        &quot;color&quot;: &quot;Cam&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;
+                        &quot;id&quot;: 8,
+                        &quot;category_id&quot;: 5,
+                        &quot;brand_id&quot;: 16,
+                        &quot;name&quot;: &quot;Balo Leo N&uacute;i The North Face reprehenderit&quot;,
+                        &quot;description&quot;: &quot;Quae quia totam aut laudantium. Dolor illum praesentium illum aperiam est in. Error dolor provident ea. Ut accusamus et consequatur ut consectetur.&quot;,
+                        &quot;price&quot;: &quot;1549132.00&quot;,
+                        &quot;quantity&quot;: 33,
+                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0088bb?text=fashion+architecto&quot;,
+                        &quot;slug&quot;: &quot;balo-leo-nui-the-north-face-reprehenderit-9748&quot;,
+                        &quot;color&quot;: &quot;Đen&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;
                     }
                 },
                 {
                     &quot;id&quot;: 2,
                     &quot;sale_campaign_id&quot;: 1,
-                    &quot;product_id&quot;: 8,
-                    &quot;original_price&quot;: &quot;370894.00&quot;,
-                    &quot;sale_price&quot;: &quot;207700.64&quot;,
-                    &quot;discount_percentage&quot;: &quot;44.00&quot;,
-                    &quot;discount_amount&quot;: &quot;163193.36&quot;,
+                    &quot;product_id&quot;: 9,
+                    &quot;original_price&quot;: &quot;1547100.00&quot;,
+                    &quot;sale_price&quot;: &quot;928260.00&quot;,
+                    &quot;discount_percentage&quot;: &quot;40.00&quot;,
+                    &quot;discount_amount&quot;: &quot;618840.00&quot;,
                     &quot;discount_type&quot;: &quot;percentage&quot;,
                     &quot;start_date&quot;: null,
                     &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 36,
-                    &quot;sold_quantity&quot;: 5,
+                    &quot;max_quantity&quot;: 41,
+                    &quot;sold_quantity&quot;: 4,
                     &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
                     &quot;product&quot;: {
-                        &quot;id&quot;: 8,
-                        &quot;category_id&quot;: 3,
-                        &quot;brand_id&quot;: 14,
-                        &quot;name&quot;: &quot;Balo Học Sinh JanSport est&quot;,
-                        &quot;description&quot;: &quot;Sed non nobis sapiente non sapiente et. Quasi consequuntur enim dolor. Quo est voluptas explicabo possimus quasi odit. Est eaque molestias quo natus. Quas omnis recusandae repellendus doloremque eveniet laudantium et quasi.&quot;,
-                        &quot;price&quot;: &quot;370894.00&quot;,
-                        &quot;quantity&quot;: 30,
-                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0011aa?text=fashion+magni&quot;,
-                        &quot;slug&quot;: &quot;balo-hoc-sinh-jansport-est-1299&quot;,
-                        &quot;color&quot;: &quot;N&acirc;u&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;
+                        &quot;id&quot;: 9,
+                        &quot;category_id&quot;: 2,
+                        &quot;brand_id&quot;: 7,
+                        &quot;name&quot;: &quot;Balo Học Sinh JanSport fugiat&quot;,
+                        &quot;description&quot;: &quot;Quo aut veniam iusto molestiae. Aut dolor ipsa delectus unde voluptatibus. Libero officia magnam id eveniet. Est rerum dolores magnam reiciendis quos voluptatibus. Eum soluta facilis aut ratione tempore.&quot;,
+                        &quot;price&quot;: &quot;1547100.00&quot;,
+                        &quot;quantity&quot;: 38,
+                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/006699?text=fashion+repellendus&quot;,
+                        &quot;slug&quot;: &quot;balo-hoc-sinh-jansport-fugiat-9624&quot;,
+                        &quot;color&quot;: &quot;Đỏ&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;
                     }
                 },
                 {
                     &quot;id&quot;: 3,
                     &quot;sale_campaign_id&quot;: 1,
-                    &quot;product_id&quot;: 9,
-                    &quot;original_price&quot;: &quot;1608008.00&quot;,
-                    &quot;sale_price&quot;: &quot;498482.48&quot;,
-                    &quot;discount_percentage&quot;: &quot;69.00&quot;,
-                    &quot;discount_amount&quot;: &quot;1109525.52&quot;,
+                    &quot;product_id&quot;: 10,
+                    &quot;original_price&quot;: &quot;856922.00&quot;,
+                    &quot;sale_price&quot;: &quot;505583.98&quot;,
+                    &quot;discount_percentage&quot;: &quot;41.00&quot;,
+                    &quot;discount_amount&quot;: &quot;351338.02&quot;,
                     &quot;discount_type&quot;: &quot;percentage&quot;,
                     &quot;start_date&quot;: null,
                     &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 28,
-                    &quot;sold_quantity&quot;: 2,
+                    &quot;max_quantity&quot;: 45,
+                    &quot;sold_quantity&quot;: 1,
                     &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
                     &quot;product&quot;: {
-                        &quot;id&quot;: 9,
+                        &quot;id&quot;: 10,
                         &quot;category_id&quot;: 5,
-                        &quot;brand_id&quot;: 1,
-                        &quot;name&quot;: &quot;Balo Gaming RGB rerum&quot;,
-                        &quot;description&quot;: &quot;Facilis dolor commodi dolores itaque consequuntur modi. Laborum reiciendis est libero facere sint neque. Est eius sed autem quod est in eum. Aut et temporibus velit hic error officiis explicabo.&quot;,
-                        &quot;price&quot;: &quot;1608008.00&quot;,
-                        &quot;quantity&quot;: 18,
-                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/001144?text=fashion+sed&quot;,
-                        &quot;slug&quot;: &quot;balo-gaming-rgb-rerum-5919&quot;,
-                        &quot;color&quot;: &quot;Xanh&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;
+                        &quot;brand_id&quot;: 2,
+                        &quot;name&quot;: &quot;Balo Du Lịch Samsonite et&quot;,
+                        &quot;description&quot;: &quot;Dicta ut incidunt voluptas animi perspiciatis aut. Qui reprehenderit laborum provident consequatur. Totam veniam excepturi reiciendis aut.&quot;,
+                        &quot;price&quot;: &quot;856922.00&quot;,
+                        &quot;quantity&quot;: 80,
+                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/001155?text=fashion+incidunt&quot;,
+                        &quot;slug&quot;: &quot;balo-du-lich-samsonite-et-7894&quot;,
+                        &quot;color&quot;: &quot;Đen&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;
                     }
                 },
                 {
                     &quot;id&quot;: 4,
                     &quot;sale_campaign_id&quot;: 1,
-                    &quot;product_id&quot;: 10,
-                    &quot;original_price&quot;: &quot;1683107.00&quot;,
-                    &quot;sale_price&quot;: &quot;757398.15&quot;,
-                    &quot;discount_percentage&quot;: &quot;55.00&quot;,
-                    &quot;discount_amount&quot;: &quot;925708.85&quot;,
-                    &quot;discount_type&quot;: &quot;percentage&quot;,
-                    &quot;start_date&quot;: null,
-                    &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 40,
-                    &quot;sold_quantity&quot;: 2,
-                    &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;product&quot;: {
-                        &quot;id&quot;: 10,
-                        &quot;category_id&quot;: 1,
-                        &quot;brand_id&quot;: 4,
-                        &quot;name&quot;: &quot;Balo Mini Cute ducimus&quot;,
-                        &quot;description&quot;: &quot;Quisquam eius consequatur facere deleniti. Voluptatem laboriosam aliquid esse ullam. Sed natus saepe sit modi molestias. Ipsum rem voluptatem incidunt et consequatur.&quot;,
-                        &quot;price&quot;: &quot;1683107.00&quot;,
-                        &quot;quantity&quot;: 28,
-                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00cc66?text=fashion+odio&quot;,
-                        &quot;slug&quot;: &quot;balo-mini-cute-ducimus-4436&quot;,
-                        &quot;color&quot;: &quot;Hồng&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;
-                    }
-                },
-                {
-                    &quot;id&quot;: 5,
-                    &quot;sale_campaign_id&quot;: 1,
-                    &quot;product_id&quot;: 11,
-                    &quot;original_price&quot;: &quot;1992332.00&quot;,
-                    &quot;sale_price&quot;: &quot;1036012.64&quot;,
-                    &quot;discount_percentage&quot;: &quot;48.00&quot;,
-                    &quot;discount_amount&quot;: &quot;956319.36&quot;,
-                    &quot;discount_type&quot;: &quot;percentage&quot;,
-                    &quot;start_date&quot;: null,
-                    &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 44,
-                    &quot;sold_quantity&quot;: 2,
-                    &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;product&quot;: {
-                        &quot;id&quot;: 11,
-                        &quot;category_id&quot;: 6,
-                        &quot;brand_id&quot;: 10,
-                        &quot;name&quot;: &quot;Balo Thể Thao Nike Air et&quot;,
-                        &quot;description&quot;: &quot;Qui ea enim earum. Deserunt commodi aliquid repellat perspiciatis sit quaerat sunt. Assumenda sit excepturi consectetur aut iure. Repellat aut velit est pariatur dolor facere sapiente. Perspiciatis animi doloribus ducimus a optio qui quisquam.&quot;,
-                        &quot;price&quot;: &quot;1992332.00&quot;,
-                        &quot;quantity&quot;: 72,
-                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00cc77?text=fashion+quae&quot;,
-                        &quot;slug&quot;: &quot;balo-the-thao-nike-air-et-2618&quot;,
-                        &quot;color&quot;: &quot;V&agrave;ng&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;
-                    }
-                },
-                {
-                    &quot;id&quot;: 6,
-                    &quot;sale_campaign_id&quot;: 1,
-                    &quot;product_id&quot;: 12,
-                    &quot;original_price&quot;: &quot;1655267.00&quot;,
-                    &quot;sale_price&quot;: &quot;761422.82&quot;,
-                    &quot;discount_percentage&quot;: &quot;54.00&quot;,
-                    &quot;discount_amount&quot;: &quot;893844.18&quot;,
-                    &quot;discount_type&quot;: &quot;percentage&quot;,
-                    &quot;start_date&quot;: null,
-                    &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 19,
-                    &quot;sold_quantity&quot;: 3,
-                    &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;product&quot;: {
-                        &quot;id&quot;: 12,
-                        &quot;category_id&quot;: 1,
-                        &quot;brand_id&quot;: 8,
-                        &quot;name&quot;: &quot;Balo Gaming RGB omnis&quot;,
-                        &quot;description&quot;: &quot;Accusamus commodi iure sed sapiente repellendus fugiat. Voluptas veritatis dignissimos in sint ipsum. Explicabo iste aut consequatur aut incidunt non minus assumenda. Non quos eos consequatur iste molestiae labore delectus. Cum dignissimos vel enim. Sed dolore aut quia.&quot;,
-                        &quot;price&quot;: &quot;1655267.00&quot;,
-                        &quot;quantity&quot;: 0,
-                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0077ff?text=fashion+tempora&quot;,
-                        &quot;slug&quot;: &quot;balo-gaming-rgb-omnis-6960&quot;,
-                        &quot;color&quot;: &quot;Cam&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;
-                    }
-                },
-                {
-                    &quot;id&quot;: 7,
-                    &quot;sale_campaign_id&quot;: 1,
-                    &quot;product_id&quot;: 13,
-                    &quot;original_price&quot;: &quot;1328286.00&quot;,
-                    &quot;sale_price&quot;: &quot;637577.28&quot;,
-                    &quot;discount_percentage&quot;: &quot;52.00&quot;,
-                    &quot;discount_amount&quot;: &quot;690708.72&quot;,
-                    &quot;discount_type&quot;: &quot;percentage&quot;,
-                    &quot;start_date&quot;: null,
-                    &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 12,
-                    &quot;sold_quantity&quot;: 1,
-                    &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;product&quot;: {
-                        &quot;id&quot;: 13,
-                        &quot;category_id&quot;: 1,
-                        &quot;brand_id&quot;: 3,
-                        &quot;name&quot;: &quot;Balo Nike Sportswear ut&quot;,
-                        &quot;description&quot;: &quot;Impedit ut totam consequatur dolorem voluptatem ipsam. Qui deleniti pariatur a accusantium ea dolor ut. Eos sed delectus laudantium recusandae incidunt beatae omnis.&quot;,
-                        &quot;price&quot;: &quot;1328286.00&quot;,
-                        &quot;quantity&quot;: 25,
-                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0077aa?text=fashion+quia&quot;,
-                        &quot;slug&quot;: &quot;balo-nike-sportswear-ut-6782&quot;,
-                        &quot;color&quot;: &quot;Đen&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;
-                    }
-                },
-                {
-                    &quot;id&quot;: 8,
-                    &quot;sale_campaign_id&quot;: 1,
                     &quot;product_id&quot;: 14,
-                    &quot;original_price&quot;: &quot;1321639.00&quot;,
-                    &quot;sale_price&quot;: &quot;766550.62&quot;,
-                    &quot;discount_percentage&quot;: &quot;42.00&quot;,
-                    &quot;discount_amount&quot;: &quot;555088.38&quot;,
+                    &quot;original_price&quot;: &quot;206616.00&quot;,
+                    &quot;sale_price&quot;: &quot;115704.96&quot;,
+                    &quot;discount_percentage&quot;: &quot;44.00&quot;,
+                    &quot;discount_amount&quot;: &quot;90911.04&quot;,
                     &quot;discount_type&quot;: &quot;percentage&quot;,
                     &quot;start_date&quot;: null,
                     &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 44,
-                    &quot;sold_quantity&quot;: 3,
+                    &quot;max_quantity&quot;: 29,
+                    &quot;sold_quantity&quot;: 2,
                     &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
                     &quot;product&quot;: {
                         &quot;id&quot;: 14,
                         &quot;category_id&quot;: 2,
-                        &quot;brand_id&quot;: 11,
-                        &quot;name&quot;: &quot;T&uacute;i Adidas Classic facilis&quot;,
-                        &quot;description&quot;: &quot;Consequatur voluptas et inventore consequatur voluptatem cupiditate laborum. Vero et amet qui qui et reprehenderit. Incidunt ipsa corporis ea. Cupiditate voluptatem sequi impedit dicta. Nulla numquam veniam ut ratione itaque.&quot;,
-                        &quot;price&quot;: &quot;1321639.00&quot;,
-                        &quot;quantity&quot;: 42,
-                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/005599?text=fashion+et&quot;,
-                        &quot;slug&quot;: &quot;tui-adidas-classic-facilis-7403&quot;,
-                        &quot;color&quot;: &quot;X&aacute;m&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;
+                        &quot;brand_id&quot;: 1,
+                        &quot;name&quot;: &quot;Balo Du Lịch Samsonite rerum&quot;,
+                        &quot;description&quot;: &quot;Unde qui unde deserunt non nostrum quia. Maxime rerum numquam repellat dolor doloremque odio et. Aliquid est qui sint aperiam. Aliquid aut perspiciatis non earum iste in asperiores sit. Sit quasi laboriosam ipsa excepturi sit nemo at.&quot;,
+                        &quot;price&quot;: &quot;206616.00&quot;,
+                        &quot;quantity&quot;: 53,
+                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/001177?text=fashion+voluptate&quot;,
+                        &quot;slug&quot;: &quot;balo-du-lich-samsonite-rerum-5582&quot;,
+                        &quot;color&quot;: &quot;Đỏ&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;
                     }
                 }
             ]
@@ -13747,9 +13507,9 @@ access-control-allow-origin: *
             &quot;name&quot;: &quot;Mega Sale Khai Trương&quot;,
             &quot;slug&quot;: &quot;mega-sale-khai-truong&quot;,
             &quot;description&quot;: &quot;Mega sale khai trương cửa h&agrave;ng mới - Ưu đ&atilde;i cực sốc&quot;,
-            &quot;banner_image&quot;: &quot;campaigns/mega-sale-khai-truong.jpg&quot;,
-            &quot;start_date&quot;: &quot;2025-06-28T17:17:58.000000Z&quot;,
-            &quot;end_date&quot;: &quot;2025-07-05T17:17:58.000000Z&quot;,
+            &quot;banner_image&quot;: &quot;https://placehold.co/600x400?text=campaigns/mega-sale-khai-truong.jpg&quot;,
+            &quot;start_date&quot;: &quot;2025-06-28T22:14:51.000000Z&quot;,
+            &quot;end_date&quot;: &quot;2025-07-05T22:14:51.000000Z&quot;,
             &quot;status&quot;: &quot;draft&quot;,
             &quot;is_featured&quot;: true,
             &quot;priority&quot;: 95,
@@ -13762,100 +13522,131 @@ access-control-allow-origin: *
                 &quot;color&quot;: &quot;#34a853&quot;,
                 &quot;description_short&quot;: &quot;Khai trương - Giảm 80%&quot;
             },
-            &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
             &quot;sale_products&quot;: [
                 {
-                    &quot;id&quot;: 24,
+                    &quot;id&quot;: 15,
                     &quot;sale_campaign_id&quot;: 4,
-                    &quot;product_id&quot;: 7,
-                    &quot;original_price&quot;: &quot;1169763.00&quot;,
-                    &quot;sale_price&quot;: &quot;269045.49&quot;,
-                    &quot;discount_percentage&quot;: &quot;77.00&quot;,
-                    &quot;discount_amount&quot;: &quot;900717.51&quot;,
+                    &quot;product_id&quot;: 1,
+                    &quot;original_price&quot;: &quot;899000.00&quot;,
+                    &quot;sale_price&quot;: &quot;350610.00&quot;,
+                    &quot;discount_percentage&quot;: &quot;61.00&quot;,
+                    &quot;discount_amount&quot;: &quot;548390.00&quot;,
                     &quot;discount_type&quot;: &quot;percentage&quot;,
                     &quot;start_date&quot;: null,
                     &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 28,
+                    &quot;max_quantity&quot;: 50,
                     &quot;sold_quantity&quot;: 1,
                     &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
                     &quot;product&quot;: {
-                        &quot;id&quot;: 7,
-                        &quot;category_id&quot;: 3,
-                        &quot;brand_id&quot;: 8,
-                        &quot;name&quot;: &quot;Balo Gaming RGB iste&quot;,
-                        &quot;description&quot;: &quot;Ipsum voluptatem assumenda sed quod repellendus laborum. Suscipit ipsa ab delectus veritatis provident consectetur aliquid. Est et ut eum sunt doloribus repudiandae. Sint omnis placeat velit molestias quod.&quot;,
-                        &quot;price&quot;: &quot;1169763.00&quot;,
-                        &quot;quantity&quot;: 0,
-                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/000099?text=fashion+nobis&quot;,
-                        &quot;slug&quot;: &quot;balo-gaming-rgb-iste-7686&quot;,
-                        &quot;color&quot;: &quot;Xanh&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;
+                        &quot;id&quot;: 1,
+                        &quot;category_id&quot;: 1,
+                        &quot;brand_id&quot;: 4,
+                        &quot;name&quot;: &quot;Balo JanSport SuperBreak Classic&quot;,
+                        &quot;description&quot;: &quot;Balo học sinh kinh điển với thiết kế đơn giản, chất liệu bền bỉ. Dung t&iacute;ch 25L ph&ugrave; hợp cho việc đi học h&agrave;ng ng&agrave;y.&quot;,
+                        &quot;price&quot;: &quot;899000.00&quot;,
+                        &quot;quantity&quot;: 50,
+                        &quot;image&quot;: &quot;https://placehold.co/600x400?text=products/balo-jansport-superbreak-classic.jpg&quot;,
+                        &quot;slug&quot;: &quot;balo-jansport-superbreak-classic&quot;,
+                        &quot;color&quot;: &quot;Đen&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;
                     }
                 },
                 {
-                    &quot;id&quot;: 25,
+                    &quot;id&quot;: 16,
                     &quot;sale_campaign_id&quot;: 4,
-                    &quot;product_id&quot;: 11,
-                    &quot;original_price&quot;: &quot;1992332.00&quot;,
-                    &quot;sale_price&quot;: &quot;697316.20&quot;,
-                    &quot;discount_percentage&quot;: &quot;65.00&quot;,
-                    &quot;discount_amount&quot;: &quot;1295015.80&quot;,
+                    &quot;product_id&quot;: 4,
+                    &quot;original_price&quot;: &quot;3200000.00&quot;,
+                    &quot;sale_price&quot;: &quot;896000.00&quot;,
+                    &quot;discount_percentage&quot;: &quot;72.00&quot;,
+                    &quot;discount_amount&quot;: &quot;2304000.00&quot;,
                     &quot;discount_type&quot;: &quot;percentage&quot;,
                     &quot;start_date&quot;: null,
                     &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 43,
-                    &quot;sold_quantity&quot;: 1,
+                    &quot;max_quantity&quot;: 39,
+                    &quot;sold_quantity&quot;: 4,
                     &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
                     &quot;product&quot;: {
-                        &quot;id&quot;: 11,
-                        &quot;category_id&quot;: 6,
-                        &quot;brand_id&quot;: 10,
-                        &quot;name&quot;: &quot;Balo Thể Thao Nike Air et&quot;,
-                        &quot;description&quot;: &quot;Qui ea enim earum. Deserunt commodi aliquid repellat perspiciatis sit quaerat sunt. Assumenda sit excepturi consectetur aut iure. Repellat aut velit est pariatur dolor facere sapiente. Perspiciatis animi doloribus ducimus a optio qui quisquam.&quot;,
-                        &quot;price&quot;: &quot;1992332.00&quot;,
-                        &quot;quantity&quot;: 72,
-                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00cc77?text=fashion+quae&quot;,
-                        &quot;slug&quot;: &quot;balo-the-thao-nike-air-et-2618&quot;,
-                        &quot;color&quot;: &quot;V&agrave;ng&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;
+                        &quot;id&quot;: 4,
+                        &quot;category_id&quot;: 2,
+                        &quot;brand_id&quot;: 3,
+                        &quot;name&quot;: &quot;Balo Samsonite Guardit 2.0&quot;,
+                        &quot;description&quot;: &quot;Balo du lịch cao cấp với ngăn laptop 15.6\&quot;, chống thấm nước. Thiết kế sang trọng, ph&ugrave; hợp cho c&ocirc;ng t&aacute;c.&quot;,
+                        &quot;price&quot;: &quot;3200000.00&quot;,
+                        &quot;quantity&quot;: 20,
+                        &quot;image&quot;: &quot;https://placehold.co/600x400?text=products/balo-samsonite-guardit-20.jpg&quot;,
+                        &quot;slug&quot;: &quot;balo-samsonite-guardit-20&quot;,
+                        &quot;color&quot;: &quot;Đen&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;
                     }
                 },
                 {
-                    &quot;id&quot;: 26,
+                    &quot;id&quot;: 17,
+                    &quot;sale_campaign_id&quot;: 4,
+                    &quot;product_id&quot;: 9,
+                    &quot;original_price&quot;: &quot;1547100.00&quot;,
+                    &quot;sale_price&quot;: &quot;587898.00&quot;,
+                    &quot;discount_percentage&quot;: &quot;62.00&quot;,
+                    &quot;discount_amount&quot;: &quot;959202.00&quot;,
+                    &quot;discount_type&quot;: &quot;percentage&quot;,
+                    &quot;start_date&quot;: null,
+                    &quot;end_date&quot;: null,
+                    &quot;max_quantity&quot;: 18,
+                    &quot;sold_quantity&quot;: 2,
+                    &quot;is_active&quot;: true,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;product&quot;: {
+                        &quot;id&quot;: 9,
+                        &quot;category_id&quot;: 2,
+                        &quot;brand_id&quot;: 7,
+                        &quot;name&quot;: &quot;Balo Học Sinh JanSport fugiat&quot;,
+                        &quot;description&quot;: &quot;Quo aut veniam iusto molestiae. Aut dolor ipsa delectus unde voluptatibus. Libero officia magnam id eveniet. Est rerum dolores magnam reiciendis quos voluptatibus. Eum soluta facilis aut ratione tempore.&quot;,
+                        &quot;price&quot;: &quot;1547100.00&quot;,
+                        &quot;quantity&quot;: 38,
+                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/006699?text=fashion+repellendus&quot;,
+                        &quot;slug&quot;: &quot;balo-hoc-sinh-jansport-fugiat-9624&quot;,
+                        &quot;color&quot;: &quot;Đỏ&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;
+                    }
+                },
+                {
+                    &quot;id&quot;: 18,
                     &quot;sale_campaign_id&quot;: 4,
                     &quot;product_id&quot;: 14,
-                    &quot;original_price&quot;: &quot;1321639.00&quot;,
-                    &quot;sale_price&quot;: &quot;462573.65&quot;,
-                    &quot;discount_percentage&quot;: &quot;65.00&quot;,
-                    &quot;discount_amount&quot;: &quot;859065.35&quot;,
+                    &quot;original_price&quot;: &quot;206616.00&quot;,
+                    &quot;sale_price&quot;: &quot;74381.76&quot;,
+                    &quot;discount_percentage&quot;: &quot;64.00&quot;,
+                    &quot;discount_amount&quot;: &quot;132234.24&quot;,
                     &quot;discount_type&quot;: &quot;percentage&quot;,
                     &quot;start_date&quot;: null,
                     &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 19,
+                    &quot;max_quantity&quot;: 45,
                     &quot;sold_quantity&quot;: 0,
                     &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
                     &quot;product&quot;: {
                         &quot;id&quot;: 14,
                         &quot;category_id&quot;: 2,
-                        &quot;brand_id&quot;: 11,
-                        &quot;name&quot;: &quot;T&uacute;i Adidas Classic facilis&quot;,
-                        &quot;description&quot;: &quot;Consequatur voluptas et inventore consequatur voluptatem cupiditate laborum. Vero et amet qui qui et reprehenderit. Incidunt ipsa corporis ea. Cupiditate voluptatem sequi impedit dicta. Nulla numquam veniam ut ratione itaque.&quot;,
-                        &quot;price&quot;: &quot;1321639.00&quot;,
-                        &quot;quantity&quot;: 42,
-                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/005599?text=fashion+et&quot;,
-                        &quot;slug&quot;: &quot;tui-adidas-classic-facilis-7403&quot;,
-                        &quot;color&quot;: &quot;X&aacute;m&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;
+                        &quot;brand_id&quot;: 1,
+                        &quot;name&quot;: &quot;Balo Du Lịch Samsonite rerum&quot;,
+                        &quot;description&quot;: &quot;Unde qui unde deserunt non nostrum quia. Maxime rerum numquam repellat dolor doloremque odio et. Aliquid est qui sint aperiam. Aliquid aut perspiciatis non earum iste in asperiores sit. Sit quasi laboriosam ipsa excepturi sit nemo at.&quot;,
+                        &quot;price&quot;: &quot;206616.00&quot;,
+                        &quot;quantity&quot;: 53,
+                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/001177?text=fashion+voluptate&quot;,
+                        &quot;slug&quot;: &quot;balo-du-lich-samsonite-rerum-5582&quot;,
+                        &quot;color&quot;: &quot;Đỏ&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;
                     }
                 }
             ]
@@ -13865,9 +13656,9 @@ access-control-allow-origin: *
             &quot;name&quot;: &quot;Flash Sale Cuối Tuần&quot;,
             &quot;slug&quot;: &quot;flash-sale-weekend&quot;,
             &quot;description&quot;: &quot;Flash sale cuối tuần - Cơ hội v&agrave;ng săn balo gi&aacute; rẻ&quot;,
-            &quot;banner_image&quot;: &quot;campaigns/flash-sale-weekend.jpg&quot;,
-            &quot;start_date&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-            &quot;end_date&quot;: &quot;2025-06-21T17:17:58.000000Z&quot;,
+            &quot;banner_image&quot;: &quot;https://placehold.co/600x400?text=campaigns/flash-sale-weekend.jpg&quot;,
+            &quot;start_date&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;end_date&quot;: &quot;2025-06-21T22:14:51.000000Z&quot;,
             &quot;status&quot;: &quot;active&quot;,
             &quot;is_featured&quot;: true,
             &quot;priority&quot;: 90,
@@ -13880,25 +13671,25 @@ access-control-allow-origin: *
                 &quot;color&quot;: &quot;#ff6b35&quot;,
                 &quot;description_short&quot;: &quot;Giảm ngay 50%&quot;
             },
-            &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
             &quot;sale_products&quot;: [
                 {
-                    &quot;id&quot;: 9,
+                    &quot;id&quot;: 5,
                     &quot;sale_campaign_id&quot;: 2,
                     &quot;product_id&quot;: 2,
                     &quot;original_price&quot;: &quot;1200000.00&quot;,
-                    &quot;sale_price&quot;: &quot;672000.00&quot;,
-                    &quot;discount_percentage&quot;: &quot;44.00&quot;,
-                    &quot;discount_amount&quot;: &quot;528000.00&quot;,
+                    &quot;sale_price&quot;: &quot;732000.00&quot;,
+                    &quot;discount_percentage&quot;: &quot;39.00&quot;,
+                    &quot;discount_amount&quot;: &quot;468000.00&quot;,
                     &quot;discount_type&quot;: &quot;percentage&quot;,
                     &quot;start_date&quot;: null,
                     &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 32,
-                    &quot;sold_quantity&quot;: 5,
+                    &quot;max_quantity&quot;: 24,
+                    &quot;sold_quantity&quot;: 0,
                     &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
                     &quot;product&quot;: {
                         &quot;id&quot;: 2,
                         &quot;category_id&quot;: 1,
@@ -13907,29 +13698,29 @@ access-control-allow-origin: *
                         &quot;description&quot;: &quot;Balo thể thao năng động với logo Nike nổi bật. Thiết kế hiện đại, ph&ugrave; hợp cho học sinh cấp 3.&quot;,
                         &quot;price&quot;: &quot;1200000.00&quot;,
                         &quot;quantity&quot;: 30,
-                        &quot;image&quot;: &quot;products/balo-nike-heritage-20.jpg&quot;,
+                        &quot;image&quot;: &quot;https://placehold.co/600x400?text=products/balo-nike-heritage-20.jpg&quot;,
                         &quot;slug&quot;: &quot;balo-nike-heritage-20&quot;,
                         &quot;color&quot;: &quot;Xanh Navy&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;
                     }
                 },
                 {
-                    &quot;id&quot;: 10,
+                    &quot;id&quot;: 6,
                     &quot;sale_campaign_id&quot;: 2,
                     &quot;product_id&quot;: 3,
                     &quot;original_price&quot;: &quot;2500000.00&quot;,
-                    &quot;sale_price&quot;: &quot;1550000.00&quot;,
-                    &quot;discount_percentage&quot;: &quot;38.00&quot;,
-                    &quot;discount_amount&quot;: &quot;950000.00&quot;,
+                    &quot;sale_price&quot;: &quot;1300000.00&quot;,
+                    &quot;discount_percentage&quot;: &quot;48.00&quot;,
+                    &quot;discount_amount&quot;: &quot;1200000.00&quot;,
                     &quot;discount_type&quot;: &quot;percentage&quot;,
                     &quot;start_date&quot;: null,
                     &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 47,
-                    &quot;sold_quantity&quot;: 3,
+                    &quot;max_quantity&quot;: 20,
+                    &quot;sold_quantity&quot;: 1,
                     &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
                     &quot;product&quot;: {
                         &quot;id&quot;: 3,
                         &quot;category_id&quot;: 2,
@@ -13938,197 +13729,104 @@ access-control-allow-origin: *
                         &quot;description&quot;: &quot;Balo trekking chuy&ecirc;n nghiệp với nhiều ngăn tiện &iacute;ch, d&acirc;y đeo thoải m&aacute;i. L&yacute; tưởng cho c&aacute;c chuyến du lịch ngắn ng&agrave;y.&quot;,
                         &quot;price&quot;: &quot;2500000.00&quot;,
                         &quot;quantity&quot;: 25,
-                        &quot;image&quot;: &quot;products/balo-the-north-face-borealis-28l.jpg&quot;,
+                        &quot;image&quot;: &quot;https://placehold.co/600x400?text=products/balo-the-north-face-borealis-28l.jpg&quot;,
                         &quot;slug&quot;: &quot;balo-the-north-face-borealis-28l&quot;,
                         &quot;color&quot;: &quot;X&aacute;m&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;
                     }
                 },
                 {
-                    &quot;id&quot;: 11,
+                    &quot;id&quot;: 7,
                     &quot;sale_campaign_id&quot;: 2,
-                    &quot;product_id&quot;: 4,
-                    &quot;original_price&quot;: &quot;3200000.00&quot;,
-                    &quot;sale_price&quot;: &quot;2016000.00&quot;,
-                    &quot;discount_percentage&quot;: &quot;37.00&quot;,
-                    &quot;discount_amount&quot;: &quot;1184000.00&quot;,
+                    &quot;product_id&quot;: 9,
+                    &quot;original_price&quot;: &quot;1547100.00&quot;,
+                    &quot;sale_price&quot;: &quot;1005615.00&quot;,
+                    &quot;discount_percentage&quot;: &quot;35.00&quot;,
+                    &quot;discount_amount&quot;: &quot;541485.00&quot;,
                     &quot;discount_type&quot;: &quot;percentage&quot;,
                     &quot;start_date&quot;: null,
                     &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 41,
-                    &quot;sold_quantity&quot;: 5,
-                    &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;product&quot;: {
-                        &quot;id&quot;: 4,
-                        &quot;category_id&quot;: 2,
-                        &quot;brand_id&quot;: 3,
-                        &quot;name&quot;: &quot;Balo Samsonite Guardit 2.0&quot;,
-                        &quot;description&quot;: &quot;Balo du lịch cao cấp với ngăn laptop 15.6\&quot;, chống thấm nước. Thiết kế sang trọng, ph&ugrave; hợp cho c&ocirc;ng t&aacute;c.&quot;,
-                        &quot;price&quot;: &quot;3200000.00&quot;,
-                        &quot;quantity&quot;: 20,
-                        &quot;image&quot;: &quot;products/balo-samsonite-guardit-20.jpg&quot;,
-                        &quot;slug&quot;: &quot;balo-samsonite-guardit-20&quot;,
-                        &quot;color&quot;: &quot;Đen&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;
-                    }
-                },
-                {
-                    &quot;id&quot;: 12,
-                    &quot;sale_campaign_id&quot;: 2,
-                    &quot;product_id&quot;: 5,
-                    &quot;original_price&quot;: &quot;1800000.00&quot;,
-                    &quot;sale_price&quot;: &quot;1080000.00&quot;,
-                    &quot;discount_percentage&quot;: &quot;40.00&quot;,
-                    &quot;discount_amount&quot;: &quot;720000.00&quot;,
-                    &quot;discount_type&quot;: &quot;percentage&quot;,
-                    &quot;start_date&quot;: null,
-                    &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 10,
-                    &quot;sold_quantity&quot;: 1,
-                    &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;product&quot;: {
-                        &quot;id&quot;: 5,
-                        &quot;category_id&quot;: 3,
-                        &quot;brand_id&quot;: 6,
-                        &quot;name&quot;: &quot;Balo Laptop Herschel Pop Quiz&quot;,
-                        &quot;description&quot;: &quot;Balo laptop thời trang với thiết kế vintage. Ngăn laptop 15\&quot; được đệm bảo vệ tối ưu.&quot;,
-                        &quot;price&quot;: &quot;1800000.00&quot;,
-                        &quot;quantity&quot;: 35,
-                        &quot;image&quot;: &quot;products/balo-laptop-herschel-pop-quiz.jpg&quot;,
-                        &quot;slug&quot;: &quot;balo-laptop-herschel-pop-quiz&quot;,
-                        &quot;color&quot;: &quot;N&acirc;u&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;
-                    }
-                },
-                {
-                    &quot;id&quot;: 13,
-                    &quot;sale_campaign_id&quot;: 2,
-                    &quot;product_id&quot;: 6,
-                    &quot;original_price&quot;: &quot;1562024.00&quot;,
-                    &quot;sale_price&quot;: &quot;905973.92&quot;,
-                    &quot;discount_percentage&quot;: &quot;42.00&quot;,
-                    &quot;discount_amount&quot;: &quot;656050.08&quot;,
-                    &quot;discount_type&quot;: &quot;percentage&quot;,
-                    &quot;start_date&quot;: null,
-                    &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 10,
-                    &quot;sold_quantity&quot;: 1,
-                    &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;product&quot;: {
-                        &quot;id&quot;: 6,
-                        &quot;category_id&quot;: 3,
-                        &quot;brand_id&quot;: 10,
-                        &quot;name&quot;: &quot;Balo Gaming RGB aperiam&quot;,
-                        &quot;description&quot;: &quot;Debitis natus dolorum et. Optio sed sunt error culpa voluptas. Eos occaecati consectetur ipsum molestiae ut occaecati tempora. Autem quae veniam qui fuga.&quot;,
-                        &quot;price&quot;: &quot;1562024.00&quot;,
-                        &quot;quantity&quot;: 72,
-                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/007744?text=fashion+rerum&quot;,
-                        &quot;slug&quot;: &quot;balo-gaming-rgb-aperiam-7459&quot;,
-                        &quot;color&quot;: &quot;Cam&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;
-                    }
-                },
-                {
-                    &quot;id&quot;: 14,
-                    &quot;sale_campaign_id&quot;: 2,
-                    &quot;product_id&quot;: 10,
-                    &quot;original_price&quot;: &quot;1683107.00&quot;,
-                    &quot;sale_price&quot;: &quot;1144512.76&quot;,
-                    &quot;discount_percentage&quot;: &quot;32.00&quot;,
-                    &quot;discount_amount&quot;: &quot;538594.24&quot;,
-                    &quot;discount_type&quot;: &quot;percentage&quot;,
-                    &quot;start_date&quot;: null,
-                    &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 31,
-                    &quot;sold_quantity&quot;: 1,
-                    &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;product&quot;: {
-                        &quot;id&quot;: 10,
-                        &quot;category_id&quot;: 1,
-                        &quot;brand_id&quot;: 4,
-                        &quot;name&quot;: &quot;Balo Mini Cute ducimus&quot;,
-                        &quot;description&quot;: &quot;Quisquam eius consequatur facere deleniti. Voluptatem laboriosam aliquid esse ullam. Sed natus saepe sit modi molestias. Ipsum rem voluptatem incidunt et consequatur.&quot;,
-                        &quot;price&quot;: &quot;1683107.00&quot;,
-                        &quot;quantity&quot;: 28,
-                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00cc66?text=fashion+odio&quot;,
-                        &quot;slug&quot;: &quot;balo-mini-cute-ducimus-4436&quot;,
-                        &quot;color&quot;: &quot;Hồng&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;
-                    }
-                },
-                {
-                    &quot;id&quot;: 15,
-                    &quot;sale_campaign_id&quot;: 2,
-                    &quot;product_id&quot;: 13,
-                    &quot;original_price&quot;: &quot;1328286.00&quot;,
-                    &quot;sale_price&quot;: &quot;770405.88&quot;,
-                    &quot;discount_percentage&quot;: &quot;42.00&quot;,
-                    &quot;discount_amount&quot;: &quot;557880.12&quot;,
-                    &quot;discount_type&quot;: &quot;percentage&quot;,
-                    &quot;start_date&quot;: null,
-                    &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 20,
-                    &quot;sold_quantity&quot;: 5,
-                    &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;product&quot;: {
-                        &quot;id&quot;: 13,
-                        &quot;category_id&quot;: 1,
-                        &quot;brand_id&quot;: 3,
-                        &quot;name&quot;: &quot;Balo Nike Sportswear ut&quot;,
-                        &quot;description&quot;: &quot;Impedit ut totam consequatur dolorem voluptatem ipsam. Qui deleniti pariatur a accusantium ea dolor ut. Eos sed delectus laudantium recusandae incidunt beatae omnis.&quot;,
-                        &quot;price&quot;: &quot;1328286.00&quot;,
-                        &quot;quantity&quot;: 25,
-                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0077aa?text=fashion+quia&quot;,
-                        &quot;slug&quot;: &quot;balo-nike-sportswear-ut-6782&quot;,
-                        &quot;color&quot;: &quot;Đen&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;
-                    }
-                },
-                {
-                    &quot;id&quot;: 16,
-                    &quot;sale_campaign_id&quot;: 2,
-                    &quot;product_id&quot;: 15,
-                    &quot;original_price&quot;: &quot;935683.00&quot;,
-                    &quot;sale_price&quot;: &quot;598837.12&quot;,
-                    &quot;discount_percentage&quot;: &quot;36.00&quot;,
-                    &quot;discount_amount&quot;: &quot;336845.88&quot;,
-                    &quot;discount_type&quot;: &quot;percentage&quot;,
-                    &quot;start_date&quot;: null,
-                    &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 33,
+                    &quot;max_quantity&quot;: 42,
                     &quot;sold_quantity&quot;: 0,
                     &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
                     &quot;product&quot;: {
-                        &quot;id&quot;: 15,
-                        &quot;category_id&quot;: 3,
-                        &quot;brand_id&quot;: 5,
-                        &quot;name&quot;: &quot;Balo Nike Sportswear rerum&quot;,
-                        &quot;description&quot;: &quot;Doloremque aut laborum velit est suscipit aut. Magnam possimus fugiat magni saepe eaque ut et. Saepe rem enim totam sed quia omnis ex.&quot;,
-                        &quot;price&quot;: &quot;935683.00&quot;,
-                        &quot;quantity&quot;: 47,
-                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00aa00?text=fashion+sed&quot;,
-                        &quot;slug&quot;: &quot;balo-nike-sportswear-rerum-3524&quot;,
+                        &quot;id&quot;: 9,
+                        &quot;category_id&quot;: 2,
+                        &quot;brand_id&quot;: 7,
+                        &quot;name&quot;: &quot;Balo Học Sinh JanSport fugiat&quot;,
+                        &quot;description&quot;: &quot;Quo aut veniam iusto molestiae. Aut dolor ipsa delectus unde voluptatibus. Libero officia magnam id eveniet. Est rerum dolores magnam reiciendis quos voluptatibus. Eum soluta facilis aut ratione tempore.&quot;,
+                        &quot;price&quot;: &quot;1547100.00&quot;,
+                        &quot;quantity&quot;: 38,
+                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/006699?text=fashion+repellendus&quot;,
+                        &quot;slug&quot;: &quot;balo-hoc-sinh-jansport-fugiat-9624&quot;,
+                        &quot;color&quot;: &quot;Đỏ&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;
+                    }
+                },
+                {
+                    &quot;id&quot;: 8,
+                    &quot;sale_campaign_id&quot;: 2,
+                    &quot;product_id&quot;: 10,
+                    &quot;original_price&quot;: &quot;856922.00&quot;,
+                    &quot;sale_price&quot;: &quot;565568.52&quot;,
+                    &quot;discount_percentage&quot;: &quot;34.00&quot;,
+                    &quot;discount_amount&quot;: &quot;291353.48&quot;,
+                    &quot;discount_type&quot;: &quot;percentage&quot;,
+                    &quot;start_date&quot;: null,
+                    &quot;end_date&quot;: null,
+                    &quot;max_quantity&quot;: 25,
+                    &quot;sold_quantity&quot;: 2,
+                    &quot;is_active&quot;: true,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;product&quot;: {
+                        &quot;id&quot;: 10,
+                        &quot;category_id&quot;: 5,
+                        &quot;brand_id&quot;: 2,
+                        &quot;name&quot;: &quot;Balo Du Lịch Samsonite et&quot;,
+                        &quot;description&quot;: &quot;Dicta ut incidunt voluptas animi perspiciatis aut. Qui reprehenderit laborum provident consequatur. Totam veniam excepturi reiciendis aut.&quot;,
+                        &quot;price&quot;: &quot;856922.00&quot;,
+                        &quot;quantity&quot;: 80,
+                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/001155?text=fashion+incidunt&quot;,
+                        &quot;slug&quot;: &quot;balo-du-lich-samsonite-et-7894&quot;,
+                        &quot;color&quot;: &quot;Đen&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;
+                    }
+                },
+                {
+                    &quot;id&quot;: 9,
+                    &quot;sale_campaign_id&quot;: 2,
+                    &quot;product_id&quot;: 13,
+                    &quot;original_price&quot;: &quot;321501.00&quot;,
+                    &quot;sale_price&quot;: &quot;221835.69&quot;,
+                    &quot;discount_percentage&quot;: &quot;31.00&quot;,
+                    &quot;discount_amount&quot;: &quot;99665.31&quot;,
+                    &quot;discount_type&quot;: &quot;percentage&quot;,
+                    &quot;start_date&quot;: null,
+                    &quot;end_date&quot;: null,
+                    &quot;max_quantity&quot;: 37,
+                    &quot;sold_quantity&quot;: 5,
+                    &quot;is_active&quot;: true,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;product&quot;: {
+                        &quot;id&quot;: 13,
+                        &quot;category_id&quot;: 6,
+                        &quot;brand_id&quot;: 13,
+                        &quot;name&quot;: &quot;Balo Thể Thao Nike Air soluta&quot;,
+                        &quot;description&quot;: &quot;Beatae totam voluptas et enim rerum unde. Quos id esse voluptas voluptatum iste veniam veritatis. Non itaque est numquam saepe ratione est aut. Accusamus est tempora eligendi omnis quis facilis consequatur. Explicabo aut quasi dignissimos adipisci rerum eum perspiciatis vel. Officia quia nam nam quae doloribus.&quot;,
+                        &quot;price&quot;: &quot;321501.00&quot;,
+                        &quot;quantity&quot;: 44,
+                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00bbcc?text=fashion+ratione&quot;,
+                        &quot;slug&quot;: &quot;balo-the-thao-nike-air-soluta-1843&quot;,
                         &quot;color&quot;: &quot;Hồng&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;
                     }
                 }
             ]
@@ -14138,9 +13836,9 @@ access-control-allow-origin: *
             &quot;name&quot;: &quot;Sale Sinh Vi&ecirc;n&quot;,
             &quot;slug&quot;: &quot;sale-sinh-vien&quot;,
             &quot;description&quot;: &quot;Ưu đ&atilde;i đặc biệt d&agrave;nh cho sinh vi&ecirc;n - Balo học tập gi&aacute; ưu đ&atilde;i&quot;,
-            &quot;banner_image&quot;: &quot;campaigns/sale-sinh-vien.jpg&quot;,
-            &quot;start_date&quot;: &quot;2025-06-16T17:17:58.000000Z&quot;,
-            &quot;end_date&quot;: &quot;2025-07-02T17:17:58.000000Z&quot;,
+            &quot;banner_image&quot;: &quot;https://placehold.co/600x400?text=campaigns/sale-sinh-vien.jpg&quot;,
+            &quot;start_date&quot;: &quot;2025-06-16T22:14:51.000000Z&quot;,
+            &quot;end_date&quot;: &quot;2025-07-02T22:14:51.000000Z&quot;,
             &quot;status&quot;: &quot;active&quot;,
             &quot;is_featured&quot;: false,
             &quot;priority&quot;: 70,
@@ -14153,56 +13851,25 @@ access-control-allow-origin: *
                 &quot;color&quot;: &quot;#4285f4&quot;,
                 &quot;description_short&quot;: &quot;Giảm 30% cho sinh vi&ecirc;n&quot;
             },
-            &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
             &quot;sale_products&quot;: [
                 {
-                    &quot;id&quot;: 17,
-                    &quot;sale_campaign_id&quot;: 3,
-                    &quot;product_id&quot;: 1,
-                    &quot;original_price&quot;: &quot;899000.00&quot;,
-                    &quot;sale_price&quot;: &quot;683240.00&quot;,
-                    &quot;discount_percentage&quot;: &quot;24.00&quot;,
-                    &quot;discount_amount&quot;: &quot;215760.00&quot;,
-                    &quot;discount_type&quot;: &quot;percentage&quot;,
-                    &quot;start_date&quot;: null,
-                    &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 31,
-                    &quot;sold_quantity&quot;: 0,
-                    &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;product&quot;: {
-                        &quot;id&quot;: 1,
-                        &quot;category_id&quot;: 1,
-                        &quot;brand_id&quot;: 4,
-                        &quot;name&quot;: &quot;Balo JanSport SuperBreak Classic&quot;,
-                        &quot;description&quot;: &quot;Balo học sinh kinh điển với thiết kế đơn giản, chất liệu bền bỉ. Dung t&iacute;ch 25L ph&ugrave; hợp cho việc đi học h&agrave;ng ng&agrave;y.&quot;,
-                        &quot;price&quot;: &quot;899000.00&quot;,
-                        &quot;quantity&quot;: 50,
-                        &quot;image&quot;: &quot;products/balo-jansport-superbreak-classic.jpg&quot;,
-                        &quot;slug&quot;: &quot;balo-jansport-superbreak-classic&quot;,
-                        &quot;color&quot;: &quot;Đen&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;
-                    }
-                },
-                {
-                    &quot;id&quot;: 18,
+                    &quot;id&quot;: 10,
                     &quot;sale_campaign_id&quot;: 3,
                     &quot;product_id&quot;: 2,
                     &quot;original_price&quot;: &quot;1200000.00&quot;,
-                    &quot;sale_price&quot;: &quot;936000.00&quot;,
-                    &quot;discount_percentage&quot;: &quot;22.00&quot;,
-                    &quot;discount_amount&quot;: &quot;264000.00&quot;,
+                    &quot;sale_price&quot;: &quot;888000.00&quot;,
+                    &quot;discount_percentage&quot;: &quot;26.00&quot;,
+                    &quot;discount_amount&quot;: &quot;312000.00&quot;,
                     &quot;discount_type&quot;: &quot;percentage&quot;,
                     &quot;start_date&quot;: null,
                     &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 32,
-                    &quot;sold_quantity&quot;: 1,
+                    &quot;max_quantity&quot;: 49,
+                    &quot;sold_quantity&quot;: 0,
                     &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
                     &quot;product&quot;: {
                         &quot;id&quot;: 2,
                         &quot;category_id&quot;: 1,
@@ -14211,29 +13878,60 @@ access-control-allow-origin: *
                         &quot;description&quot;: &quot;Balo thể thao năng động với logo Nike nổi bật. Thiết kế hiện đại, ph&ugrave; hợp cho học sinh cấp 3.&quot;,
                         &quot;price&quot;: &quot;1200000.00&quot;,
                         &quot;quantity&quot;: 30,
-                        &quot;image&quot;: &quot;products/balo-nike-heritage-20.jpg&quot;,
+                        &quot;image&quot;: &quot;https://placehold.co/600x400?text=products/balo-nike-heritage-20.jpg&quot;,
                         &quot;slug&quot;: &quot;balo-nike-heritage-20&quot;,
                         &quot;color&quot;: &quot;Xanh Navy&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;
                     }
                 },
                 {
-                    &quot;id&quot;: 19,
+                    &quot;id&quot;: 11,
                     &quot;sale_campaign_id&quot;: 3,
-                    &quot;product_id&quot;: 5,
-                    &quot;original_price&quot;: &quot;1800000.00&quot;,
-                    &quot;sale_price&quot;: &quot;1260000.00&quot;,
-                    &quot;discount_percentage&quot;: &quot;30.00&quot;,
-                    &quot;discount_amount&quot;: &quot;540000.00&quot;,
+                    &quot;product_id&quot;: 4,
+                    &quot;original_price&quot;: &quot;3200000.00&quot;,
+                    &quot;sale_price&quot;: &quot;2368000.00&quot;,
+                    &quot;discount_percentage&quot;: &quot;26.00&quot;,
+                    &quot;discount_amount&quot;: &quot;832000.00&quot;,
                     &quot;discount_type&quot;: &quot;percentage&quot;,
                     &quot;start_date&quot;: null,
                     &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 45,
-                    &quot;sold_quantity&quot;: 3,
+                    &quot;max_quantity&quot;: 33,
+                    &quot;sold_quantity&quot;: 0,
                     &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;product&quot;: {
+                        &quot;id&quot;: 4,
+                        &quot;category_id&quot;: 2,
+                        &quot;brand_id&quot;: 3,
+                        &quot;name&quot;: &quot;Balo Samsonite Guardit 2.0&quot;,
+                        &quot;description&quot;: &quot;Balo du lịch cao cấp với ngăn laptop 15.6\&quot;, chống thấm nước. Thiết kế sang trọng, ph&ugrave; hợp cho c&ocirc;ng t&aacute;c.&quot;,
+                        &quot;price&quot;: &quot;3200000.00&quot;,
+                        &quot;quantity&quot;: 20,
+                        &quot;image&quot;: &quot;https://placehold.co/600x400?text=products/balo-samsonite-guardit-20.jpg&quot;,
+                        &quot;slug&quot;: &quot;balo-samsonite-guardit-20&quot;,
+                        &quot;color&quot;: &quot;Đen&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;
+                    }
+                },
+                {
+                    &quot;id&quot;: 12,
+                    &quot;sale_campaign_id&quot;: 3,
+                    &quot;product_id&quot;: 5,
+                    &quot;original_price&quot;: &quot;1800000.00&quot;,
+                    &quot;sale_price&quot;: &quot;1440000.00&quot;,
+                    &quot;discount_percentage&quot;: &quot;20.00&quot;,
+                    &quot;discount_amount&quot;: &quot;360000.00&quot;,
+                    &quot;discount_type&quot;: &quot;percentage&quot;,
+                    &quot;start_date&quot;: null,
+                    &quot;end_date&quot;: null,
+                    &quot;max_quantity&quot;: 17,
+                    &quot;sold_quantity&quot;: 4,
+                    &quot;is_active&quot;: true,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
                     &quot;product&quot;: {
                         &quot;id&quot;: 5,
                         &quot;category_id&quot;: 3,
@@ -14242,144 +13940,82 @@ access-control-allow-origin: *
                         &quot;description&quot;: &quot;Balo laptop thời trang với thiết kế vintage. Ngăn laptop 15\&quot; được đệm bảo vệ tối ưu.&quot;,
                         &quot;price&quot;: &quot;1800000.00&quot;,
                         &quot;quantity&quot;: 35,
-                        &quot;image&quot;: &quot;products/balo-laptop-herschel-pop-quiz.jpg&quot;,
+                        &quot;image&quot;: &quot;https://placehold.co/600x400?text=products/balo-laptop-herschel-pop-quiz.jpg&quot;,
                         &quot;slug&quot;: &quot;balo-laptop-herschel-pop-quiz&quot;,
                         &quot;color&quot;: &quot;N&acirc;u&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;
                     }
                 },
                 {
-                    &quot;id&quot;: 20,
+                    &quot;id&quot;: 13,
                     &quot;sale_campaign_id&quot;: 3,
-                    &quot;product_id&quot;: 6,
-                    &quot;original_price&quot;: &quot;1562024.00&quot;,
-                    &quot;sale_price&quot;: &quot;1062176.32&quot;,
-                    &quot;discount_percentage&quot;: &quot;32.00&quot;,
-                    &quot;discount_amount&quot;: &quot;499847.68&quot;,
+                    &quot;product_id&quot;: 7,
+                    &quot;original_price&quot;: &quot;530095.00&quot;,
+                    &quot;sale_price&quot;: &quot;355163.65&quot;,
+                    &quot;discount_percentage&quot;: &quot;33.00&quot;,
+                    &quot;discount_amount&quot;: &quot;174931.35&quot;,
                     &quot;discount_type&quot;: &quot;percentage&quot;,
                     &quot;start_date&quot;: null,
                     &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 18,
-                    &quot;sold_quantity&quot;: 3,
-                    &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;product&quot;: {
-                        &quot;id&quot;: 6,
-                        &quot;category_id&quot;: 3,
-                        &quot;brand_id&quot;: 10,
-                        &quot;name&quot;: &quot;Balo Gaming RGB aperiam&quot;,
-                        &quot;description&quot;: &quot;Debitis natus dolorum et. Optio sed sunt error culpa voluptas. Eos occaecati consectetur ipsum molestiae ut occaecati tempora. Autem quae veniam qui fuga.&quot;,
-                        &quot;price&quot;: &quot;1562024.00&quot;,
-                        &quot;quantity&quot;: 72,
-                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/007744?text=fashion+rerum&quot;,
-                        &quot;slug&quot;: &quot;balo-gaming-rgb-aperiam-7459&quot;,
-                        &quot;color&quot;: &quot;Cam&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;
-                    }
-                },
-                {
-                    &quot;id&quot;: 21,
-                    &quot;sale_campaign_id&quot;: 3,
-                    &quot;product_id&quot;: 9,
-                    &quot;original_price&quot;: &quot;1608008.00&quot;,
-                    &quot;sale_price&quot;: &quot;1125605.60&quot;,
-                    &quot;discount_percentage&quot;: &quot;30.00&quot;,
-                    &quot;discount_amount&quot;: &quot;482402.40&quot;,
-                    &quot;discount_type&quot;: &quot;percentage&quot;,
-                    &quot;start_date&quot;: null,
-                    &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 48,
+                    &quot;max_quantity&quot;: 34,
                     &quot;sold_quantity&quot;: 4,
                     &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
                     &quot;product&quot;: {
-                        &quot;id&quot;: 9,
+                        &quot;id&quot;: 7,
                         &quot;category_id&quot;: 5,
-                        &quot;brand_id&quot;: 1,
-                        &quot;name&quot;: &quot;Balo Gaming RGB rerum&quot;,
-                        &quot;description&quot;: &quot;Facilis dolor commodi dolores itaque consequuntur modi. Laborum reiciendis est libero facere sint neque. Est eius sed autem quod est in eum. Aut et temporibus velit hic error officiis explicabo.&quot;,
-                        &quot;price&quot;: &quot;1608008.00&quot;,
-                        &quot;quantity&quot;: 18,
-                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/001144?text=fashion+sed&quot;,
-                        &quot;slug&quot;: &quot;balo-gaming-rgb-rerum-5919&quot;,
+                        &quot;brand_id&quot;: 12,
+                        &quot;name&quot;: &quot;Balo Leo N&uacute;i The North Face eveniet&quot;,
+                        &quot;description&quot;: &quot;Saepe maiores est minima deserunt. Rerum quasi tempora corrupti dolore laboriosam delectus. Labore iste hic laboriosam neque dolorum perspiciatis. Tenetur voluptas facilis est pariatur.&quot;,
+                        &quot;price&quot;: &quot;530095.00&quot;,
+                        &quot;quantity&quot;: 85,
+                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0099bb?text=fashion+iure&quot;,
+                        &quot;slug&quot;: &quot;balo-leo-nui-the-north-face-eveniet-5382&quot;,
                         &quot;color&quot;: &quot;Xanh&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;
                     }
                 },
                 {
-                    &quot;id&quot;: 22,
-                    &quot;sale_campaign_id&quot;: 3,
-                    &quot;product_id&quot;: 13,
-                    &quot;original_price&quot;: &quot;1328286.00&quot;,
-                    &quot;sale_price&quot;: &quot;863385.90&quot;,
-                    &quot;discount_percentage&quot;: &quot;35.00&quot;,
-                    &quot;discount_amount&quot;: &quot;464900.10&quot;,
-                    &quot;discount_type&quot;: &quot;percentage&quot;,
-                    &quot;start_date&quot;: null,
-                    &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 50,
-                    &quot;sold_quantity&quot;: 0,
-                    &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;product&quot;: {
-                        &quot;id&quot;: 13,
-                        &quot;category_id&quot;: 1,
-                        &quot;brand_id&quot;: 3,
-                        &quot;name&quot;: &quot;Balo Nike Sportswear ut&quot;,
-                        &quot;description&quot;: &quot;Impedit ut totam consequatur dolorem voluptatem ipsam. Qui deleniti pariatur a accusantium ea dolor ut. Eos sed delectus laudantium recusandae incidunt beatae omnis.&quot;,
-                        &quot;price&quot;: &quot;1328286.00&quot;,
-                        &quot;quantity&quot;: 25,
-                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0077aa?text=fashion+quia&quot;,
-                        &quot;slug&quot;: &quot;balo-nike-sportswear-ut-6782&quot;,
-                        &quot;color&quot;: &quot;Đen&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;
-                    }
-                },
-                {
-                    &quot;id&quot;: 23,
+                    &quot;id&quot;: 14,
                     &quot;sale_campaign_id&quot;: 3,
                     &quot;product_id&quot;: 15,
-                    &quot;original_price&quot;: &quot;935683.00&quot;,
-                    &quot;sale_price&quot;: &quot;720475.91&quot;,
-                    &quot;discount_percentage&quot;: &quot;23.00&quot;,
-                    &quot;discount_amount&quot;: &quot;215207.09&quot;,
+                    &quot;original_price&quot;: &quot;1976534.00&quot;,
+                    &quot;sale_price&quot;: &quot;1403339.14&quot;,
+                    &quot;discount_percentage&quot;: &quot;29.00&quot;,
+                    &quot;discount_amount&quot;: &quot;573194.86&quot;,
                     &quot;discount_type&quot;: &quot;percentage&quot;,
                     &quot;start_date&quot;: null,
                     &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 48,
+                    &quot;max_quantity&quot;: 37,
                     &quot;sold_quantity&quot;: 0,
                     &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
                     &quot;product&quot;: {
                         &quot;id&quot;: 15,
-                        &quot;category_id&quot;: 3,
-                        &quot;brand_id&quot;: 5,
-                        &quot;name&quot;: &quot;Balo Nike Sportswear rerum&quot;,
-                        &quot;description&quot;: &quot;Doloremque aut laborum velit est suscipit aut. Magnam possimus fugiat magni saepe eaque ut et. Saepe rem enim totam sed quia omnis ex.&quot;,
-                        &quot;price&quot;: &quot;935683.00&quot;,
-                        &quot;quantity&quot;: 47,
-                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00aa00?text=fashion+sed&quot;,
-                        &quot;slug&quot;: &quot;balo-nike-sportswear-rerum-3524&quot;,
-                        &quot;color&quot;: &quot;Hồng&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;
+                        &quot;category_id&quot;: 5,
+                        &quot;brand_id&quot;: 14,
+                        &quot;name&quot;: &quot;Balo Du Lịch Samsonite eius&quot;,
+                        &quot;description&quot;: &quot;Eos consequuntur deserunt delectus vel mollitia. Dolore earum facere voluptatum libero delectus magni sed. Facilis aut aut illum velit. Sed sit animi animi excepturi autem voluptatem nisi sint.&quot;,
+                        &quot;price&quot;: &quot;1976534.00&quot;,
+                        &quot;quantity&quot;: 81,
+                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00cc99?text=fashion+enim&quot;,
+                        &quot;slug&quot;: &quot;balo-du-lich-samsonite-eius-1519&quot;,
+                        &quot;color&quot;: &quot;Xanh&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;
                     }
                 }
             ]
         }
     ],
-    &quot;first_page_url&quot;: &quot;http://localhost/api/sale-campaigns?page=1&quot;,
+    &quot;first_page_url&quot;: &quot;http://localhost:8000/api/sale-campaigns?page=1&quot;,
     &quot;from&quot;: 1,
     &quot;last_page&quot;: 1,
-    &quot;last_page_url&quot;: &quot;http://localhost/api/sale-campaigns?page=1&quot;,
+    &quot;last_page_url&quot;: &quot;http://localhost:8000/api/sale-campaigns?page=1&quot;,
     &quot;links&quot;: [
         {
             &quot;url&quot;: null,
@@ -14387,7 +14023,7 @@ access-control-allow-origin: *
             &quot;active&quot;: false
         },
         {
-            &quot;url&quot;: &quot;http://localhost/api/sale-campaigns?page=1&quot;,
+            &quot;url&quot;: &quot;http://localhost:8000/api/sale-campaigns?page=1&quot;,
             &quot;label&quot;: &quot;1&quot;,
             &quot;active&quot;: true
         },
@@ -14398,7 +14034,7 @@ access-control-allow-origin: *
         }
     ],
     &quot;next_page_url&quot;: null,
-    &quot;path&quot;: &quot;http://localhost/api/sale-campaigns&quot;,
+    &quot;path&quot;: &quot;http://localhost:8000/api/sale-campaigns&quot;,
     &quot;per_page&quot;: 10,
     &quot;prev_page_url&quot;: null,
     &quot;to&quot;: 4,
@@ -14490,7 +14126,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/sale-campaigns" \
+    "http://localhost:8000/api/sale-campaigns" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -14500,7 +14136,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
     \"banner_image\": \"ilpmufinllwloauydlsms\",
     \"start_date\": \"2106-07-18\",
     \"end_date\": \"2106-07-18\",
-    \"status\": \"draft\",
+    \"status\": \"active\",
     \"is_featured\": true,
     \"priority\": 13,
     \"metadata\": {
@@ -14515,7 +14151,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/sale-campaigns"
+    "http://localhost:8000/api/sale-campaigns"
 );
 
 const headers = {
@@ -14530,7 +14166,7 @@ let body = {
     "banner_image": "ilpmufinllwloauydlsms",
     "start_date": "2106-07-18",
     "end_date": "2106-07-18",
-    "status": "draft",
+    "status": "active",
     "is_featured": true,
     "priority": 13,
     "metadata": {
@@ -14693,10 +14329,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="status"                data-endpoint="POSTapi-sale-campaigns"
-               value="draft"
+               value="active"
                data-component="body">
     <br>
-<p>Example: <code>draft</code></p>
+<p>Example: <code>active</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>draft</code></li> <li><code>active</code></li> <li><code>expired</code></li> <li><code>cancelled</code></li></ul>
         </div>
@@ -14782,14 +14418,14 @@ Must be one of:
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/sale-campaigns/1" \
+    --get "http://localhost:8000/api/sale-campaigns/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/sale-campaigns/1"
+    "http://localhost:8000/api/sale-campaigns/1"
 );
 
 const headers = {
@@ -14823,9 +14459,9 @@ access-control-allow-origin: *
         &quot;name&quot;: &quot;Black Friday 2025&quot;,
         &quot;slug&quot;: &quot;black-friday-2025&quot;,
         &quot;description&quot;: &quot;Si&ecirc;u sale Black Friday - Giảm gi&aacute; khủng l&ecirc;n đến 70% tất cả sản phẩm balo&quot;,
-        &quot;banner_image&quot;: &quot;campaigns/black-friday-2025.jpg&quot;,
-        &quot;start_date&quot;: &quot;2025-06-19T17:17:58.000000Z&quot;,
-        &quot;end_date&quot;: &quot;2025-06-25T17:17:58.000000Z&quot;,
+        &quot;banner_image&quot;: &quot;https://placehold.co/600x400?text=campaigns/black-friday-2025.jpg&quot;,
+        &quot;start_date&quot;: &quot;2025-06-19T22:14:51.000000Z&quot;,
+        &quot;end_date&quot;: &quot;2025-06-25T22:14:51.000000Z&quot;,
         &quot;status&quot;: &quot;active&quot;,
         &quot;is_featured&quot;: true,
         &quot;priority&quot;: 100,
@@ -14838,406 +14474,206 @@ access-control-allow-origin: *
             &quot;color&quot;: &quot;#000000&quot;,
             &quot;description_short&quot;: &quot;Giảm gi&aacute; l&ecirc;n đến 70%&quot;
         },
-        &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
+        &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+        &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
         &quot;sale_products&quot;: [
             {
                 &quot;id&quot;: 1,
                 &quot;sale_campaign_id&quot;: 1,
-                &quot;product_id&quot;: 6,
-                &quot;original_price&quot;: &quot;1562024.00&quot;,
-                &quot;sale_price&quot;: &quot;531088.16&quot;,
-                &quot;discount_percentage&quot;: &quot;66.00&quot;,
-                &quot;discount_amount&quot;: &quot;1030935.84&quot;,
+                &quot;product_id&quot;: 8,
+                &quot;original_price&quot;: &quot;1549132.00&quot;,
+                &quot;sale_price&quot;: &quot;913987.88&quot;,
+                &quot;discount_percentage&quot;: &quot;41.00&quot;,
+                &quot;discount_amount&quot;: &quot;635144.12&quot;,
                 &quot;discount_type&quot;: &quot;percentage&quot;,
                 &quot;start_date&quot;: null,
                 &quot;end_date&quot;: null,
-                &quot;max_quantity&quot;: 40,
-                &quot;sold_quantity&quot;: 4,
+                &quot;max_quantity&quot;: 41,
+                &quot;sold_quantity&quot;: 3,
                 &quot;is_active&quot;: true,
-                &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
                 &quot;product&quot;: {
-                    &quot;id&quot;: 6,
-                    &quot;category_id&quot;: 3,
-                    &quot;brand_id&quot;: 10,
-                    &quot;name&quot;: &quot;Balo Gaming RGB aperiam&quot;,
-                    &quot;description&quot;: &quot;Debitis natus dolorum et. Optio sed sunt error culpa voluptas. Eos occaecati consectetur ipsum molestiae ut occaecati tempora. Autem quae veniam qui fuga.&quot;,
-                    &quot;price&quot;: &quot;1562024.00&quot;,
-                    &quot;quantity&quot;: 72,
-                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/007744?text=fashion+rerum&quot;,
-                    &quot;slug&quot;: &quot;balo-gaming-rgb-aperiam-7459&quot;,
-                    &quot;color&quot;: &quot;Cam&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
+                    &quot;id&quot;: 8,
+                    &quot;category_id&quot;: 5,
+                    &quot;brand_id&quot;: 16,
+                    &quot;name&quot;: &quot;Balo Leo N&uacute;i The North Face reprehenderit&quot;,
+                    &quot;description&quot;: &quot;Quae quia totam aut laudantium. Dolor illum praesentium illum aperiam est in. Error dolor provident ea. Ut accusamus et consequatur ut consectetur.&quot;,
+                    &quot;price&quot;: &quot;1549132.00&quot;,
+                    &quot;quantity&quot;: 33,
+                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0088bb?text=fashion+architecto&quot;,
+                    &quot;slug&quot;: &quot;balo-leo-nui-the-north-face-reprehenderit-9748&quot;,
+                    &quot;color&quot;: &quot;Đen&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
                     &quot;category&quot;: {
-                        &quot;id&quot;: 3,
-                        &quot;name&quot;: &quot;Balo Laptop&quot;,
-                        &quot;description&quot;: &quot;Balo chuy&ecirc;n dụng để đựng laptop v&agrave; c&aacute;c thiết bị c&ocirc;ng nghệ với lớp đệm bảo vệ&quot;,
-                        &quot;slug&quot;: &quot;balo-laptop&quot;,
-                        &quot;image&quot;: &quot;categories/balo-laptop.jpg&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                        &quot;id&quot;: 5,
+                        &quot;name&quot;: &quot;T&uacute;i X&aacute;ch&quot;,
+                        &quot;description&quot;: &quot;C&aacute;c loại t&uacute;i x&aacute;ch thời trang cho nam v&agrave; nữ&quot;,
+                        &quot;slug&quot;: &quot;tui-xach&quot;,
+                        &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/tui-xach.jpg&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                     },
                     &quot;brand&quot;: {
-                        &quot;id&quot;: 10,
-                        &quot;name&quot;: &quot;Bechtelar Ltd&quot;,
-                        &quot;description&quot;: &quot;Aut repudiandae dignissimos ut omnis. Sunt sint repellendus neque corporis eum velit ipsa.&quot;,
-                        &quot;slug&quot;: &quot;bechtelar-ltd&quot;,
-                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/009977?text=business+labore&quot;,
+                        &quot;id&quot;: 16,
+                        &quot;name&quot;: &quot;Heathcote-DuBuque&quot;,
+                        &quot;description&quot;: &quot;Dolor occaecati ullam quidem quas. Qui nesciunt reiciendis temporibus iure ad. Temporibus et qui quo eligendi repellendus veritatis incidunt quae. Perspiciatis maxime ipsum non.&quot;,
+                        &quot;slug&quot;: &quot;heathcote-dubuque&quot;,
+                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00bbee?text=business+perspiciatis&quot;,
                         &quot;status&quot;: &quot;inactive&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                     }
                 }
             },
             {
                 &quot;id&quot;: 2,
                 &quot;sale_campaign_id&quot;: 1,
-                &quot;product_id&quot;: 8,
-                &quot;original_price&quot;: &quot;370894.00&quot;,
-                &quot;sale_price&quot;: &quot;207700.64&quot;,
-                &quot;discount_percentage&quot;: &quot;44.00&quot;,
-                &quot;discount_amount&quot;: &quot;163193.36&quot;,
+                &quot;product_id&quot;: 9,
+                &quot;original_price&quot;: &quot;1547100.00&quot;,
+                &quot;sale_price&quot;: &quot;928260.00&quot;,
+                &quot;discount_percentage&quot;: &quot;40.00&quot;,
+                &quot;discount_amount&quot;: &quot;618840.00&quot;,
                 &quot;discount_type&quot;: &quot;percentage&quot;,
                 &quot;start_date&quot;: null,
                 &quot;end_date&quot;: null,
-                &quot;max_quantity&quot;: 36,
-                &quot;sold_quantity&quot;: 5,
+                &quot;max_quantity&quot;: 41,
+                &quot;sold_quantity&quot;: 4,
                 &quot;is_active&quot;: true,
-                &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
                 &quot;product&quot;: {
-                    &quot;id&quot;: 8,
-                    &quot;category_id&quot;: 3,
-                    &quot;brand_id&quot;: 14,
-                    &quot;name&quot;: &quot;Balo Học Sinh JanSport est&quot;,
-                    &quot;description&quot;: &quot;Sed non nobis sapiente non sapiente et. Quasi consequuntur enim dolor. Quo est voluptas explicabo possimus quasi odit. Est eaque molestias quo natus. Quas omnis recusandae repellendus doloremque eveniet laudantium et quasi.&quot;,
-                    &quot;price&quot;: &quot;370894.00&quot;,
-                    &quot;quantity&quot;: 30,
-                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0011aa?text=fashion+magni&quot;,
-                    &quot;slug&quot;: &quot;balo-hoc-sinh-jansport-est-1299&quot;,
-                    &quot;color&quot;: &quot;N&acirc;u&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
+                    &quot;id&quot;: 9,
+                    &quot;category_id&quot;: 2,
+                    &quot;brand_id&quot;: 7,
+                    &quot;name&quot;: &quot;Balo Học Sinh JanSport fugiat&quot;,
+                    &quot;description&quot;: &quot;Quo aut veniam iusto molestiae. Aut dolor ipsa delectus unde voluptatibus. Libero officia magnam id eveniet. Est rerum dolores magnam reiciendis quos voluptatibus. Eum soluta facilis aut ratione tempore.&quot;,
+                    &quot;price&quot;: &quot;1547100.00&quot;,
+                    &quot;quantity&quot;: 38,
+                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/006699?text=fashion+repellendus&quot;,
+                    &quot;slug&quot;: &quot;balo-hoc-sinh-jansport-fugiat-9624&quot;,
+                    &quot;color&quot;: &quot;Đỏ&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
                     &quot;category&quot;: {
-                        &quot;id&quot;: 3,
-                        &quot;name&quot;: &quot;Balo Laptop&quot;,
-                        &quot;description&quot;: &quot;Balo chuy&ecirc;n dụng để đựng laptop v&agrave; c&aacute;c thiết bị c&ocirc;ng nghệ với lớp đệm bảo vệ&quot;,
-                        &quot;slug&quot;: &quot;balo-laptop&quot;,
-                        &quot;image&quot;: &quot;categories/balo-laptop.jpg&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                        &quot;id&quot;: 2,
+                        &quot;name&quot;: &quot;Balo Du Lịch&quot;,
+                        &quot;description&quot;: &quot;Balo d&agrave;nh cho c&aacute;c chuyến du lịch, trekking với dung t&iacute;ch lớn v&agrave; nhiều ngăn tiện &iacute;ch&quot;,
+                        &quot;slug&quot;: &quot;balo-du-lich&quot;,
+                        &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/balo-du-lich.jpg&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                     },
                     &quot;brand&quot;: {
-                        &quot;id&quot;: 14,
-                        &quot;name&quot;: &quot;Davis-Klein&quot;,
-                        &quot;description&quot;: &quot;Ipsum aspernatur consequatur velit rerum. Sunt debitis explicabo consequatur laboriosam. Et consequatur eius tempore occaecati corporis sint.&quot;,
-                        &quot;slug&quot;: &quot;davis-klein&quot;,
-                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00aa99?text=business+sunt&quot;,
-                        &quot;status&quot;: &quot;active&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                        &quot;id&quot;: 7,
+                        &quot;name&quot;: &quot;Stiedemann and Sons&quot;,
+                        &quot;description&quot;: &quot;Velit enim et tempore. Nostrum itaque praesentium nisi voluptatum iure sint voluptas est. Et esse architecto id amet amet.&quot;,
+                        &quot;slug&quot;: &quot;stiedemann-and-sons&quot;,
+                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/005566?text=business+eum&quot;,
+                        &quot;status&quot;: &quot;inactive&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                     }
                 }
             },
             {
                 &quot;id&quot;: 3,
                 &quot;sale_campaign_id&quot;: 1,
-                &quot;product_id&quot;: 9,
-                &quot;original_price&quot;: &quot;1608008.00&quot;,
-                &quot;sale_price&quot;: &quot;498482.48&quot;,
-                &quot;discount_percentage&quot;: &quot;69.00&quot;,
-                &quot;discount_amount&quot;: &quot;1109525.52&quot;,
+                &quot;product_id&quot;: 10,
+                &quot;original_price&quot;: &quot;856922.00&quot;,
+                &quot;sale_price&quot;: &quot;505583.98&quot;,
+                &quot;discount_percentage&quot;: &quot;41.00&quot;,
+                &quot;discount_amount&quot;: &quot;351338.02&quot;,
                 &quot;discount_type&quot;: &quot;percentage&quot;,
                 &quot;start_date&quot;: null,
                 &quot;end_date&quot;: null,
-                &quot;max_quantity&quot;: 28,
-                &quot;sold_quantity&quot;: 2,
+                &quot;max_quantity&quot;: 45,
+                &quot;sold_quantity&quot;: 1,
                 &quot;is_active&quot;: true,
-                &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
                 &quot;product&quot;: {
-                    &quot;id&quot;: 9,
+                    &quot;id&quot;: 10,
                     &quot;category_id&quot;: 5,
-                    &quot;brand_id&quot;: 1,
-                    &quot;name&quot;: &quot;Balo Gaming RGB rerum&quot;,
-                    &quot;description&quot;: &quot;Facilis dolor commodi dolores itaque consequuntur modi. Laborum reiciendis est libero facere sint neque. Est eius sed autem quod est in eum. Aut et temporibus velit hic error officiis explicabo.&quot;,
-                    &quot;price&quot;: &quot;1608008.00&quot;,
-                    &quot;quantity&quot;: 18,
-                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/001144?text=fashion+sed&quot;,
-                    &quot;slug&quot;: &quot;balo-gaming-rgb-rerum-5919&quot;,
-                    &quot;color&quot;: &quot;Xanh&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
+                    &quot;brand_id&quot;: 2,
+                    &quot;name&quot;: &quot;Balo Du Lịch Samsonite et&quot;,
+                    &quot;description&quot;: &quot;Dicta ut incidunt voluptas animi perspiciatis aut. Qui reprehenderit laborum provident consequatur. Totam veniam excepturi reiciendis aut.&quot;,
+                    &quot;price&quot;: &quot;856922.00&quot;,
+                    &quot;quantity&quot;: 80,
+                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/001155?text=fashion+incidunt&quot;,
+                    &quot;slug&quot;: &quot;balo-du-lich-samsonite-et-7894&quot;,
+                    &quot;color&quot;: &quot;Đen&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
                     &quot;category&quot;: {
                         &quot;id&quot;: 5,
                         &quot;name&quot;: &quot;T&uacute;i X&aacute;ch&quot;,
                         &quot;description&quot;: &quot;C&aacute;c loại t&uacute;i x&aacute;ch thời trang cho nam v&agrave; nữ&quot;,
                         &quot;slug&quot;: &quot;tui-xach&quot;,
-                        &quot;image&quot;: &quot;categories/tui-xach.jpg&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                        &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/tui-xach.jpg&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                     },
                     &quot;brand&quot;: {
-                        &quot;id&quot;: 1,
-                        &quot;name&quot;: &quot;Nike&quot;,
-                        &quot;description&quot;: &quot;Nike l&agrave; thương hiệu thể thao h&agrave;ng đầu thế giới, nổi tiếng với c&aacute;c sản phẩm balo v&agrave; t&uacute;i thể thao chất lượng cao.&quot;,
-                        &quot;slug&quot;: &quot;nike&quot;,
-                        &quot;logo&quot;: &quot;brands/nike-logo.png&quot;,
+                        &quot;id&quot;: 2,
+                        &quot;name&quot;: &quot;Adidas&quot;,
+                        &quot;description&quot;: &quot;Adidas l&agrave; thương hiệu thể thao nổi tiếng với thiết kế năng động v&agrave; chất lượng vượt trội.&quot;,
+                        &quot;slug&quot;: &quot;adidas&quot;,
+                        &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/adidas-logo.png&quot;,
                         &quot;status&quot;: &quot;active&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                     }
                 }
             },
             {
                 &quot;id&quot;: 4,
                 &quot;sale_campaign_id&quot;: 1,
-                &quot;product_id&quot;: 10,
-                &quot;original_price&quot;: &quot;1683107.00&quot;,
-                &quot;sale_price&quot;: &quot;757398.15&quot;,
-                &quot;discount_percentage&quot;: &quot;55.00&quot;,
-                &quot;discount_amount&quot;: &quot;925708.85&quot;,
-                &quot;discount_type&quot;: &quot;percentage&quot;,
-                &quot;start_date&quot;: null,
-                &quot;end_date&quot;: null,
-                &quot;max_quantity&quot;: 40,
-                &quot;sold_quantity&quot;: 2,
-                &quot;is_active&quot;: true,
-                &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                &quot;product&quot;: {
-                    &quot;id&quot;: 10,
-                    &quot;category_id&quot;: 1,
-                    &quot;brand_id&quot;: 4,
-                    &quot;name&quot;: &quot;Balo Mini Cute ducimus&quot;,
-                    &quot;description&quot;: &quot;Quisquam eius consequatur facere deleniti. Voluptatem laboriosam aliquid esse ullam. Sed natus saepe sit modi molestias. Ipsum rem voluptatem incidunt et consequatur.&quot;,
-                    &quot;price&quot;: &quot;1683107.00&quot;,
-                    &quot;quantity&quot;: 28,
-                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00cc66?text=fashion+odio&quot;,
-                    &quot;slug&quot;: &quot;balo-mini-cute-ducimus-4436&quot;,
-                    &quot;color&quot;: &quot;Hồng&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                    &quot;category&quot;: {
-                        &quot;id&quot;: 1,
-                        &quot;name&quot;: &quot;Balo Học Sinh&quot;,
-                        &quot;description&quot;: &quot;C&aacute;c loại balo d&agrave;nh cho học sinh, sinh vi&ecirc;n với thiết kế trẻ trung v&agrave; tiện dụng&quot;,
-                        &quot;slug&quot;: &quot;balo-hoc-sinh&quot;,
-                        &quot;image&quot;: &quot;categories/balo-hoc-sinh.jpg&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                    },
-                    &quot;brand&quot;: {
-                        &quot;id&quot;: 4,
-                        &quot;name&quot;: &quot;JanSport&quot;,
-                        &quot;description&quot;: &quot;JanSport chuy&ecirc;n sản xuất balo học sinh v&agrave; du lịch với thiết kế trẻ trung, năng động.&quot;,
-                        &quot;slug&quot;: &quot;jansport&quot;,
-                        &quot;logo&quot;: &quot;brands/jansport-logo.png&quot;,
-                        &quot;status&quot;: &quot;active&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                    }
-                }
-            },
-            {
-                &quot;id&quot;: 5,
-                &quot;sale_campaign_id&quot;: 1,
-                &quot;product_id&quot;: 11,
-                &quot;original_price&quot;: &quot;1992332.00&quot;,
-                &quot;sale_price&quot;: &quot;1036012.64&quot;,
-                &quot;discount_percentage&quot;: &quot;48.00&quot;,
-                &quot;discount_amount&quot;: &quot;956319.36&quot;,
-                &quot;discount_type&quot;: &quot;percentage&quot;,
-                &quot;start_date&quot;: null,
-                &quot;end_date&quot;: null,
-                &quot;max_quantity&quot;: 44,
-                &quot;sold_quantity&quot;: 2,
-                &quot;is_active&quot;: true,
-                &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                &quot;product&quot;: {
-                    &quot;id&quot;: 11,
-                    &quot;category_id&quot;: 6,
-                    &quot;brand_id&quot;: 10,
-                    &quot;name&quot;: &quot;Balo Thể Thao Nike Air et&quot;,
-                    &quot;description&quot;: &quot;Qui ea enim earum. Deserunt commodi aliquid repellat perspiciatis sit quaerat sunt. Assumenda sit excepturi consectetur aut iure. Repellat aut velit est pariatur dolor facere sapiente. Perspiciatis animi doloribus ducimus a optio qui quisquam.&quot;,
-                    &quot;price&quot;: &quot;1992332.00&quot;,
-                    &quot;quantity&quot;: 72,
-                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00cc77?text=fashion+quae&quot;,
-                    &quot;slug&quot;: &quot;balo-the-thao-nike-air-et-2618&quot;,
-                    &quot;color&quot;: &quot;V&agrave;ng&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                    &quot;category&quot;: {
-                        &quot;id&quot;: 6,
-                        &quot;name&quot;: &quot;Balo Mini&quot;,
-                        &quot;description&quot;: &quot;Balo nhỏ gọn d&agrave;nh cho việc đi chơi, dạo phố&quot;,
-                        &quot;slug&quot;: &quot;balo-mini&quot;,
-                        &quot;image&quot;: &quot;categories/balo-mini.jpg&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                    },
-                    &quot;brand&quot;: {
-                        &quot;id&quot;: 10,
-                        &quot;name&quot;: &quot;Bechtelar Ltd&quot;,
-                        &quot;description&quot;: &quot;Aut repudiandae dignissimos ut omnis. Sunt sint repellendus neque corporis eum velit ipsa.&quot;,
-                        &quot;slug&quot;: &quot;bechtelar-ltd&quot;,
-                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/009977?text=business+labore&quot;,
-                        &quot;status&quot;: &quot;inactive&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                    }
-                }
-            },
-            {
-                &quot;id&quot;: 6,
-                &quot;sale_campaign_id&quot;: 1,
-                &quot;product_id&quot;: 12,
-                &quot;original_price&quot;: &quot;1655267.00&quot;,
-                &quot;sale_price&quot;: &quot;761422.82&quot;,
-                &quot;discount_percentage&quot;: &quot;54.00&quot;,
-                &quot;discount_amount&quot;: &quot;893844.18&quot;,
-                &quot;discount_type&quot;: &quot;percentage&quot;,
-                &quot;start_date&quot;: null,
-                &quot;end_date&quot;: null,
-                &quot;max_quantity&quot;: 19,
-                &quot;sold_quantity&quot;: 3,
-                &quot;is_active&quot;: true,
-                &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                &quot;product&quot;: {
-                    &quot;id&quot;: 12,
-                    &quot;category_id&quot;: 1,
-                    &quot;brand_id&quot;: 8,
-                    &quot;name&quot;: &quot;Balo Gaming RGB omnis&quot;,
-                    &quot;description&quot;: &quot;Accusamus commodi iure sed sapiente repellendus fugiat. Voluptas veritatis dignissimos in sint ipsum. Explicabo iste aut consequatur aut incidunt non minus assumenda. Non quos eos consequatur iste molestiae labore delectus. Cum dignissimos vel enim. Sed dolore aut quia.&quot;,
-                    &quot;price&quot;: &quot;1655267.00&quot;,
-                    &quot;quantity&quot;: 0,
-                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0077ff?text=fashion+tempora&quot;,
-                    &quot;slug&quot;: &quot;balo-gaming-rgb-omnis-6960&quot;,
-                    &quot;color&quot;: &quot;Cam&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                    &quot;category&quot;: {
-                        &quot;id&quot;: 1,
-                        &quot;name&quot;: &quot;Balo Học Sinh&quot;,
-                        &quot;description&quot;: &quot;C&aacute;c loại balo d&agrave;nh cho học sinh, sinh vi&ecirc;n với thiết kế trẻ trung v&agrave; tiện dụng&quot;,
-                        &quot;slug&quot;: &quot;balo-hoc-sinh&quot;,
-                        &quot;image&quot;: &quot;categories/balo-hoc-sinh.jpg&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                    },
-                    &quot;brand&quot;: {
-                        &quot;id&quot;: 8,
-                        &quot;name&quot;: &quot;Roob, Stehr and Considine&quot;,
-                        &quot;description&quot;: &quot;Deserunt sunt neque aut explicabo quis atque ex iure. Eligendi ducimus cum atque. Aspernatur reiciendis neque esse necessitatibus.&quot;,
-                        &quot;slug&quot;: &quot;roob-stehr-and-considine&quot;,
-                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/0088ee?text=business+autem&quot;,
-                        &quot;status&quot;: &quot;active&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                    }
-                }
-            },
-            {
-                &quot;id&quot;: 7,
-                &quot;sale_campaign_id&quot;: 1,
-                &quot;product_id&quot;: 13,
-                &quot;original_price&quot;: &quot;1328286.00&quot;,
-                &quot;sale_price&quot;: &quot;637577.28&quot;,
-                &quot;discount_percentage&quot;: &quot;52.00&quot;,
-                &quot;discount_amount&quot;: &quot;690708.72&quot;,
-                &quot;discount_type&quot;: &quot;percentage&quot;,
-                &quot;start_date&quot;: null,
-                &quot;end_date&quot;: null,
-                &quot;max_quantity&quot;: 12,
-                &quot;sold_quantity&quot;: 1,
-                &quot;is_active&quot;: true,
-                &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                &quot;product&quot;: {
-                    &quot;id&quot;: 13,
-                    &quot;category_id&quot;: 1,
-                    &quot;brand_id&quot;: 3,
-                    &quot;name&quot;: &quot;Balo Nike Sportswear ut&quot;,
-                    &quot;description&quot;: &quot;Impedit ut totam consequatur dolorem voluptatem ipsam. Qui deleniti pariatur a accusantium ea dolor ut. Eos sed delectus laudantium recusandae incidunt beatae omnis.&quot;,
-                    &quot;price&quot;: &quot;1328286.00&quot;,
-                    &quot;quantity&quot;: 25,
-                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0077aa?text=fashion+quia&quot;,
-                    &quot;slug&quot;: &quot;balo-nike-sportswear-ut-6782&quot;,
-                    &quot;color&quot;: &quot;Đen&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                    &quot;category&quot;: {
-                        &quot;id&quot;: 1,
-                        &quot;name&quot;: &quot;Balo Học Sinh&quot;,
-                        &quot;description&quot;: &quot;C&aacute;c loại balo d&agrave;nh cho học sinh, sinh vi&ecirc;n với thiết kế trẻ trung v&agrave; tiện dụng&quot;,
-                        &quot;slug&quot;: &quot;balo-hoc-sinh&quot;,
-                        &quot;image&quot;: &quot;categories/balo-hoc-sinh.jpg&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                    },
-                    &quot;brand&quot;: {
-                        &quot;id&quot;: 3,
-                        &quot;name&quot;: &quot;Samsonite&quot;,
-                        &quot;description&quot;: &quot;Samsonite l&agrave; thương hiệu h&agrave;ng đầu thế giới về h&agrave;nh l&yacute; v&agrave; balo du lịch cao cấp.&quot;,
-                        &quot;slug&quot;: &quot;samsonite&quot;,
-                        &quot;logo&quot;: &quot;brands/samsonite-logo.png&quot;,
-                        &quot;status&quot;: &quot;active&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                    }
-                }
-            },
-            {
-                &quot;id&quot;: 8,
-                &quot;sale_campaign_id&quot;: 1,
                 &quot;product_id&quot;: 14,
-                &quot;original_price&quot;: &quot;1321639.00&quot;,
-                &quot;sale_price&quot;: &quot;766550.62&quot;,
-                &quot;discount_percentage&quot;: &quot;42.00&quot;,
-                &quot;discount_amount&quot;: &quot;555088.38&quot;,
+                &quot;original_price&quot;: &quot;206616.00&quot;,
+                &quot;sale_price&quot;: &quot;115704.96&quot;,
+                &quot;discount_percentage&quot;: &quot;44.00&quot;,
+                &quot;discount_amount&quot;: &quot;90911.04&quot;,
                 &quot;discount_type&quot;: &quot;percentage&quot;,
                 &quot;start_date&quot;: null,
                 &quot;end_date&quot;: null,
-                &quot;max_quantity&quot;: 44,
-                &quot;sold_quantity&quot;: 3,
+                &quot;max_quantity&quot;: 29,
+                &quot;sold_quantity&quot;: 2,
                 &quot;is_active&quot;: true,
-                &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
                 &quot;product&quot;: {
                     &quot;id&quot;: 14,
                     &quot;category_id&quot;: 2,
-                    &quot;brand_id&quot;: 11,
-                    &quot;name&quot;: &quot;T&uacute;i Adidas Classic facilis&quot;,
-                    &quot;description&quot;: &quot;Consequatur voluptas et inventore consequatur voluptatem cupiditate laborum. Vero et amet qui qui et reprehenderit. Incidunt ipsa corporis ea. Cupiditate voluptatem sequi impedit dicta. Nulla numquam veniam ut ratione itaque.&quot;,
-                    &quot;price&quot;: &quot;1321639.00&quot;,
-                    &quot;quantity&quot;: 42,
-                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/005599?text=fashion+et&quot;,
-                    &quot;slug&quot;: &quot;tui-adidas-classic-facilis-7403&quot;,
-                    &quot;color&quot;: &quot;X&aacute;m&quot;,
-                    &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
+                    &quot;brand_id&quot;: 1,
+                    &quot;name&quot;: &quot;Balo Du Lịch Samsonite rerum&quot;,
+                    &quot;description&quot;: &quot;Unde qui unde deserunt non nostrum quia. Maxime rerum numquam repellat dolor doloremque odio et. Aliquid est qui sint aperiam. Aliquid aut perspiciatis non earum iste in asperiores sit. Sit quasi laboriosam ipsa excepturi sit nemo at.&quot;,
+                    &quot;price&quot;: &quot;206616.00&quot;,
+                    &quot;quantity&quot;: 53,
+                    &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/001177?text=fashion+voluptate&quot;,
+                    &quot;slug&quot;: &quot;balo-du-lich-samsonite-rerum-5582&quot;,
+                    &quot;color&quot;: &quot;Đỏ&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
                     &quot;category&quot;: {
                         &quot;id&quot;: 2,
                         &quot;name&quot;: &quot;Balo Du Lịch&quot;,
                         &quot;description&quot;: &quot;Balo d&agrave;nh cho c&aacute;c chuyến du lịch, trekking với dung t&iacute;ch lớn v&agrave; nhiều ngăn tiện &iacute;ch&quot;,
                         &quot;slug&quot;: &quot;balo-du-lich&quot;,
-                        &quot;image&quot;: &quot;categories/balo-du-lich.jpg&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                        &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/balo-du-lich.jpg&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                     },
                     &quot;brand&quot;: {
-                        &quot;id&quot;: 11,
-                        &quot;name&quot;: &quot;Lockman, Mueller and Hickle&quot;,
-                        &quot;description&quot;: &quot;Quia omnis sed sunt amet labore nostrum recusandae. Totam odio eveniet quibusdam. Quaerat adipisci rerum quis repudiandae et dolores.&quot;,
-                        &quot;slug&quot;: &quot;lockman-mueller-and-hickle&quot;,
-                        &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/0077ee?text=business+reprehenderit&quot;,
+                        &quot;id&quot;: 1,
+                        &quot;name&quot;: &quot;Nike&quot;,
+                        &quot;description&quot;: &quot;Nike l&agrave; thương hiệu thể thao h&agrave;ng đầu thế giới, nổi tiếng với c&aacute;c sản phẩm balo v&agrave; t&uacute;i thể thao chất lượng cao.&quot;,
+                        &quot;slug&quot;: &quot;nike&quot;,
+                        &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/nike-logo.png&quot;,
                         &quot;status&quot;: &quot;active&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                     }
                 }
             }
@@ -15342,7 +14778,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost/api/sale-campaigns/1" \
+    "http://localhost:8000/api/sale-campaigns/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -15367,7 +14803,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/sale-campaigns/1"
+    "http://localhost:8000/api/sale-campaigns/1"
 );
 
 const headers = {
@@ -15650,14 +15086,14 @@ Must be one of:
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/sale-campaigns/1" \
+    "http://localhost:8000/api/sale-campaigns/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/sale-campaigns/1"
+    "http://localhost:8000/api/sale-campaigns/1"
 );
 
 const headers = {
@@ -15770,14 +15206,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/sale-campaigns-active" \
+    --get "http://localhost:8000/api/sale-campaigns-active" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/sale-campaigns-active"
+    "http://localhost:8000/api/sale-campaigns-active"
 );
 
 const headers = {
@@ -15812,9 +15248,9 @@ access-control-allow-origin: *
             &quot;name&quot;: &quot;Flash Sale Cuối Tuần&quot;,
             &quot;slug&quot;: &quot;flash-sale-weekend&quot;,
             &quot;description&quot;: &quot;Flash sale cuối tuần - Cơ hội v&agrave;ng săn balo gi&aacute; rẻ&quot;,
-            &quot;banner_image&quot;: &quot;campaigns/flash-sale-weekend.jpg&quot;,
-            &quot;start_date&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-            &quot;end_date&quot;: &quot;2025-06-21T17:17:58.000000Z&quot;,
+            &quot;banner_image&quot;: &quot;https://placehold.co/600x400?text=campaigns/flash-sale-weekend.jpg&quot;,
+            &quot;start_date&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;end_date&quot;: &quot;2025-06-21T22:14:51.000000Z&quot;,
             &quot;status&quot;: &quot;active&quot;,
             &quot;is_featured&quot;: true,
             &quot;priority&quot;: 90,
@@ -15827,25 +15263,25 @@ access-control-allow-origin: *
                 &quot;color&quot;: &quot;#ff6b35&quot;,
                 &quot;description_short&quot;: &quot;Giảm ngay 50%&quot;
             },
-            &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
             &quot;sale_products&quot;: [
                 {
-                    &quot;id&quot;: 9,
+                    &quot;id&quot;: 5,
                     &quot;sale_campaign_id&quot;: 2,
                     &quot;product_id&quot;: 2,
                     &quot;original_price&quot;: &quot;1200000.00&quot;,
-                    &quot;sale_price&quot;: &quot;672000.00&quot;,
-                    &quot;discount_percentage&quot;: &quot;44.00&quot;,
-                    &quot;discount_amount&quot;: &quot;528000.00&quot;,
+                    &quot;sale_price&quot;: &quot;732000.00&quot;,
+                    &quot;discount_percentage&quot;: &quot;39.00&quot;,
+                    &quot;discount_amount&quot;: &quot;468000.00&quot;,
                     &quot;discount_type&quot;: &quot;percentage&quot;,
                     &quot;start_date&quot;: null,
                     &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 32,
-                    &quot;sold_quantity&quot;: 5,
+                    &quot;max_quantity&quot;: 24,
+                    &quot;sold_quantity&quot;: 0,
                     &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
                     &quot;product&quot;: {
                         &quot;id&quot;: 2,
                         &quot;category_id&quot;: 1,
@@ -15854,48 +15290,48 @@ access-control-allow-origin: *
                         &quot;description&quot;: &quot;Balo thể thao năng động với logo Nike nổi bật. Thiết kế hiện đại, ph&ugrave; hợp cho học sinh cấp 3.&quot;,
                         &quot;price&quot;: &quot;1200000.00&quot;,
                         &quot;quantity&quot;: 30,
-                        &quot;image&quot;: &quot;products/balo-nike-heritage-20.jpg&quot;,
+                        &quot;image&quot;: &quot;https://placehold.co/600x400?text=products/balo-nike-heritage-20.jpg&quot;,
                         &quot;slug&quot;: &quot;balo-nike-heritage-20&quot;,
                         &quot;color&quot;: &quot;Xanh Navy&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
                         &quot;category&quot;: {
                             &quot;id&quot;: 1,
                             &quot;name&quot;: &quot;Balo Học Sinh&quot;,
                             &quot;description&quot;: &quot;C&aacute;c loại balo d&agrave;nh cho học sinh, sinh vi&ecirc;n với thiết kế trẻ trung v&agrave; tiện dụng&quot;,
                             &quot;slug&quot;: &quot;balo-hoc-sinh&quot;,
-                            &quot;image&quot;: &quot;categories/balo-hoc-sinh.jpg&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                            &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/balo-hoc-sinh.jpg&quot;,
+                            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                         },
                         &quot;brand&quot;: {
                             &quot;id&quot;: 1,
                             &quot;name&quot;: &quot;Nike&quot;,
                             &quot;description&quot;: &quot;Nike l&agrave; thương hiệu thể thao h&agrave;ng đầu thế giới, nổi tiếng với c&aacute;c sản phẩm balo v&agrave; t&uacute;i thể thao chất lượng cao.&quot;,
                             &quot;slug&quot;: &quot;nike&quot;,
-                            &quot;logo&quot;: &quot;brands/nike-logo.png&quot;,
+                            &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/nike-logo.png&quot;,
                             &quot;status&quot;: &quot;active&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                         }
                     }
                 },
                 {
-                    &quot;id&quot;: 10,
+                    &quot;id&quot;: 6,
                     &quot;sale_campaign_id&quot;: 2,
                     &quot;product_id&quot;: 3,
                     &quot;original_price&quot;: &quot;2500000.00&quot;,
-                    &quot;sale_price&quot;: &quot;1550000.00&quot;,
-                    &quot;discount_percentage&quot;: &quot;38.00&quot;,
-                    &quot;discount_amount&quot;: &quot;950000.00&quot;,
+                    &quot;sale_price&quot;: &quot;1300000.00&quot;,
+                    &quot;discount_percentage&quot;: &quot;48.00&quot;,
+                    &quot;discount_amount&quot;: &quot;1200000.00&quot;,
                     &quot;discount_type&quot;: &quot;percentage&quot;,
                     &quot;start_date&quot;: null,
                     &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 47,
-                    &quot;sold_quantity&quot;: 3,
+                    &quot;max_quantity&quot;: 20,
+                    &quot;sold_quantity&quot;: 1,
                     &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
                     &quot;product&quot;: {
                         &quot;id&quot;: 3,
                         &quot;category_id&quot;: 2,
@@ -15904,329 +15340,179 @@ access-control-allow-origin: *
                         &quot;description&quot;: &quot;Balo trekking chuy&ecirc;n nghiệp với nhiều ngăn tiện &iacute;ch, d&acirc;y đeo thoải m&aacute;i. L&yacute; tưởng cho c&aacute;c chuyến du lịch ngắn ng&agrave;y.&quot;,
                         &quot;price&quot;: &quot;2500000.00&quot;,
                         &quot;quantity&quot;: 25,
-                        &quot;image&quot;: &quot;products/balo-the-north-face-borealis-28l.jpg&quot;,
+                        &quot;image&quot;: &quot;https://placehold.co/600x400?text=products/balo-the-north-face-borealis-28l.jpg&quot;,
                         &quot;slug&quot;: &quot;balo-the-north-face-borealis-28l&quot;,
                         &quot;color&quot;: &quot;X&aacute;m&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
                         &quot;category&quot;: {
                             &quot;id&quot;: 2,
                             &quot;name&quot;: &quot;Balo Du Lịch&quot;,
                             &quot;description&quot;: &quot;Balo d&agrave;nh cho c&aacute;c chuyến du lịch, trekking với dung t&iacute;ch lớn v&agrave; nhiều ngăn tiện &iacute;ch&quot;,
                             &quot;slug&quot;: &quot;balo-du-lich&quot;,
-                            &quot;image&quot;: &quot;categories/balo-du-lich.jpg&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                            &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/balo-du-lich.jpg&quot;,
+                            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                         },
                         &quot;brand&quot;: {
                             &quot;id&quot;: 5,
                             &quot;name&quot;: &quot;The North Face&quot;,
                             &quot;description&quot;: &quot;The North Face l&agrave; thương hiệu outdoor nổi tiếng với c&aacute;c sản phẩm balo trekking v&agrave; leo n&uacute;i.&quot;,
                             &quot;slug&quot;: &quot;the-north-face&quot;,
-                            &quot;logo&quot;: &quot;brands/tnf-logo.png&quot;,
+                            &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/tnf-logo.png&quot;,
                             &quot;status&quot;: &quot;active&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                         }
                     }
                 },
                 {
-                    &quot;id&quot;: 11,
+                    &quot;id&quot;: 7,
                     &quot;sale_campaign_id&quot;: 2,
-                    &quot;product_id&quot;: 4,
-                    &quot;original_price&quot;: &quot;3200000.00&quot;,
-                    &quot;sale_price&quot;: &quot;2016000.00&quot;,
-                    &quot;discount_percentage&quot;: &quot;37.00&quot;,
-                    &quot;discount_amount&quot;: &quot;1184000.00&quot;,
+                    &quot;product_id&quot;: 9,
+                    &quot;original_price&quot;: &quot;1547100.00&quot;,
+                    &quot;sale_price&quot;: &quot;1005615.00&quot;,
+                    &quot;discount_percentage&quot;: &quot;35.00&quot;,
+                    &quot;discount_amount&quot;: &quot;541485.00&quot;,
                     &quot;discount_type&quot;: &quot;percentage&quot;,
                     &quot;start_date&quot;: null,
                     &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 41,
-                    &quot;sold_quantity&quot;: 5,
-                    &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;product&quot;: {
-                        &quot;id&quot;: 4,
-                        &quot;category_id&quot;: 2,
-                        &quot;brand_id&quot;: 3,
-                        &quot;name&quot;: &quot;Balo Samsonite Guardit 2.0&quot;,
-                        &quot;description&quot;: &quot;Balo du lịch cao cấp với ngăn laptop 15.6\&quot;, chống thấm nước. Thiết kế sang trọng, ph&ugrave; hợp cho c&ocirc;ng t&aacute;c.&quot;,
-                        &quot;price&quot;: &quot;3200000.00&quot;,
-                        &quot;quantity&quot;: 20,
-                        &quot;image&quot;: &quot;products/balo-samsonite-guardit-20.jpg&quot;,
-                        &quot;slug&quot;: &quot;balo-samsonite-guardit-20&quot;,
-                        &quot;color&quot;: &quot;Đen&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;category&quot;: {
-                            &quot;id&quot;: 2,
-                            &quot;name&quot;: &quot;Balo Du Lịch&quot;,
-                            &quot;description&quot;: &quot;Balo d&agrave;nh cho c&aacute;c chuyến du lịch, trekking với dung t&iacute;ch lớn v&agrave; nhiều ngăn tiện &iacute;ch&quot;,
-                            &quot;slug&quot;: &quot;balo-du-lich&quot;,
-                            &quot;image&quot;: &quot;categories/balo-du-lich.jpg&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                        },
-                        &quot;brand&quot;: {
-                            &quot;id&quot;: 3,
-                            &quot;name&quot;: &quot;Samsonite&quot;,
-                            &quot;description&quot;: &quot;Samsonite l&agrave; thương hiệu h&agrave;ng đầu thế giới về h&agrave;nh l&yacute; v&agrave; balo du lịch cao cấp.&quot;,
-                            &quot;slug&quot;: &quot;samsonite&quot;,
-                            &quot;logo&quot;: &quot;brands/samsonite-logo.png&quot;,
-                            &quot;status&quot;: &quot;active&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                        }
-                    }
-                },
-                {
-                    &quot;id&quot;: 12,
-                    &quot;sale_campaign_id&quot;: 2,
-                    &quot;product_id&quot;: 5,
-                    &quot;original_price&quot;: &quot;1800000.00&quot;,
-                    &quot;sale_price&quot;: &quot;1080000.00&quot;,
-                    &quot;discount_percentage&quot;: &quot;40.00&quot;,
-                    &quot;discount_amount&quot;: &quot;720000.00&quot;,
-                    &quot;discount_type&quot;: &quot;percentage&quot;,
-                    &quot;start_date&quot;: null,
-                    &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 10,
-                    &quot;sold_quantity&quot;: 1,
-                    &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;product&quot;: {
-                        &quot;id&quot;: 5,
-                        &quot;category_id&quot;: 3,
-                        &quot;brand_id&quot;: 6,
-                        &quot;name&quot;: &quot;Balo Laptop Herschel Pop Quiz&quot;,
-                        &quot;description&quot;: &quot;Balo laptop thời trang với thiết kế vintage. Ngăn laptop 15\&quot; được đệm bảo vệ tối ưu.&quot;,
-                        &quot;price&quot;: &quot;1800000.00&quot;,
-                        &quot;quantity&quot;: 35,
-                        &quot;image&quot;: &quot;products/balo-laptop-herschel-pop-quiz.jpg&quot;,
-                        &quot;slug&quot;: &quot;balo-laptop-herschel-pop-quiz&quot;,
-                        &quot;color&quot;: &quot;N&acirc;u&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;category&quot;: {
-                            &quot;id&quot;: 3,
-                            &quot;name&quot;: &quot;Balo Laptop&quot;,
-                            &quot;description&quot;: &quot;Balo chuy&ecirc;n dụng để đựng laptop v&agrave; c&aacute;c thiết bị c&ocirc;ng nghệ với lớp đệm bảo vệ&quot;,
-                            &quot;slug&quot;: &quot;balo-laptop&quot;,
-                            &quot;image&quot;: &quot;categories/balo-laptop.jpg&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                        },
-                        &quot;brand&quot;: {
-                            &quot;id&quot;: 6,
-                            &quot;name&quot;: &quot;Herschel&quot;,
-                            &quot;description&quot;: &quot;Herschel Supply Co. nổi tiếng với thiết kế vintage v&agrave; hiện đại, ph&ugrave; hợp cho mọi lứa tuổi.&quot;,
-                            &quot;slug&quot;: &quot;herschel&quot;,
-                            &quot;logo&quot;: &quot;brands/herschel-logo.png&quot;,
-                            &quot;status&quot;: &quot;active&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                        }
-                    }
-                },
-                {
-                    &quot;id&quot;: 13,
-                    &quot;sale_campaign_id&quot;: 2,
-                    &quot;product_id&quot;: 6,
-                    &quot;original_price&quot;: &quot;1562024.00&quot;,
-                    &quot;sale_price&quot;: &quot;905973.92&quot;,
-                    &quot;discount_percentage&quot;: &quot;42.00&quot;,
-                    &quot;discount_amount&quot;: &quot;656050.08&quot;,
-                    &quot;discount_type&quot;: &quot;percentage&quot;,
-                    &quot;start_date&quot;: null,
-                    &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 10,
-                    &quot;sold_quantity&quot;: 1,
-                    &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;product&quot;: {
-                        &quot;id&quot;: 6,
-                        &quot;category_id&quot;: 3,
-                        &quot;brand_id&quot;: 10,
-                        &quot;name&quot;: &quot;Balo Gaming RGB aperiam&quot;,
-                        &quot;description&quot;: &quot;Debitis natus dolorum et. Optio sed sunt error culpa voluptas. Eos occaecati consectetur ipsum molestiae ut occaecati tempora. Autem quae veniam qui fuga.&quot;,
-                        &quot;price&quot;: &quot;1562024.00&quot;,
-                        &quot;quantity&quot;: 72,
-                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/007744?text=fashion+rerum&quot;,
-                        &quot;slug&quot;: &quot;balo-gaming-rgb-aperiam-7459&quot;,
-                        &quot;color&quot;: &quot;Cam&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;category&quot;: {
-                            &quot;id&quot;: 3,
-                            &quot;name&quot;: &quot;Balo Laptop&quot;,
-                            &quot;description&quot;: &quot;Balo chuy&ecirc;n dụng để đựng laptop v&agrave; c&aacute;c thiết bị c&ocirc;ng nghệ với lớp đệm bảo vệ&quot;,
-                            &quot;slug&quot;: &quot;balo-laptop&quot;,
-                            &quot;image&quot;: &quot;categories/balo-laptop.jpg&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                        },
-                        &quot;brand&quot;: {
-                            &quot;id&quot;: 10,
-                            &quot;name&quot;: &quot;Bechtelar Ltd&quot;,
-                            &quot;description&quot;: &quot;Aut repudiandae dignissimos ut omnis. Sunt sint repellendus neque corporis eum velit ipsa.&quot;,
-                            &quot;slug&quot;: &quot;bechtelar-ltd&quot;,
-                            &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/009977?text=business+labore&quot;,
-                            &quot;status&quot;: &quot;inactive&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                        }
-                    }
-                },
-                {
-                    &quot;id&quot;: 14,
-                    &quot;sale_campaign_id&quot;: 2,
-                    &quot;product_id&quot;: 10,
-                    &quot;original_price&quot;: &quot;1683107.00&quot;,
-                    &quot;sale_price&quot;: &quot;1144512.76&quot;,
-                    &quot;discount_percentage&quot;: &quot;32.00&quot;,
-                    &quot;discount_amount&quot;: &quot;538594.24&quot;,
-                    &quot;discount_type&quot;: &quot;percentage&quot;,
-                    &quot;start_date&quot;: null,
-                    &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 31,
-                    &quot;sold_quantity&quot;: 1,
-                    &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;product&quot;: {
-                        &quot;id&quot;: 10,
-                        &quot;category_id&quot;: 1,
-                        &quot;brand_id&quot;: 4,
-                        &quot;name&quot;: &quot;Balo Mini Cute ducimus&quot;,
-                        &quot;description&quot;: &quot;Quisquam eius consequatur facere deleniti. Voluptatem laboriosam aliquid esse ullam. Sed natus saepe sit modi molestias. Ipsum rem voluptatem incidunt et consequatur.&quot;,
-                        &quot;price&quot;: &quot;1683107.00&quot;,
-                        &quot;quantity&quot;: 28,
-                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00cc66?text=fashion+odio&quot;,
-                        &quot;slug&quot;: &quot;balo-mini-cute-ducimus-4436&quot;,
-                        &quot;color&quot;: &quot;Hồng&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;category&quot;: {
-                            &quot;id&quot;: 1,
-                            &quot;name&quot;: &quot;Balo Học Sinh&quot;,
-                            &quot;description&quot;: &quot;C&aacute;c loại balo d&agrave;nh cho học sinh, sinh vi&ecirc;n với thiết kế trẻ trung v&agrave; tiện dụng&quot;,
-                            &quot;slug&quot;: &quot;balo-hoc-sinh&quot;,
-                            &quot;image&quot;: &quot;categories/balo-hoc-sinh.jpg&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                        },
-                        &quot;brand&quot;: {
-                            &quot;id&quot;: 4,
-                            &quot;name&quot;: &quot;JanSport&quot;,
-                            &quot;description&quot;: &quot;JanSport chuy&ecirc;n sản xuất balo học sinh v&agrave; du lịch với thiết kế trẻ trung, năng động.&quot;,
-                            &quot;slug&quot;: &quot;jansport&quot;,
-                            &quot;logo&quot;: &quot;brands/jansport-logo.png&quot;,
-                            &quot;status&quot;: &quot;active&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                        }
-                    }
-                },
-                {
-                    &quot;id&quot;: 15,
-                    &quot;sale_campaign_id&quot;: 2,
-                    &quot;product_id&quot;: 13,
-                    &quot;original_price&quot;: &quot;1328286.00&quot;,
-                    &quot;sale_price&quot;: &quot;770405.88&quot;,
-                    &quot;discount_percentage&quot;: &quot;42.00&quot;,
-                    &quot;discount_amount&quot;: &quot;557880.12&quot;,
-                    &quot;discount_type&quot;: &quot;percentage&quot;,
-                    &quot;start_date&quot;: null,
-                    &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 20,
-                    &quot;sold_quantity&quot;: 5,
-                    &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;product&quot;: {
-                        &quot;id&quot;: 13,
-                        &quot;category_id&quot;: 1,
-                        &quot;brand_id&quot;: 3,
-                        &quot;name&quot;: &quot;Balo Nike Sportswear ut&quot;,
-                        &quot;description&quot;: &quot;Impedit ut totam consequatur dolorem voluptatem ipsam. Qui deleniti pariatur a accusantium ea dolor ut. Eos sed delectus laudantium recusandae incidunt beatae omnis.&quot;,
-                        &quot;price&quot;: &quot;1328286.00&quot;,
-                        &quot;quantity&quot;: 25,
-                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0077aa?text=fashion+quia&quot;,
-                        &quot;slug&quot;: &quot;balo-nike-sportswear-ut-6782&quot;,
-                        &quot;color&quot;: &quot;Đen&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;category&quot;: {
-                            &quot;id&quot;: 1,
-                            &quot;name&quot;: &quot;Balo Học Sinh&quot;,
-                            &quot;description&quot;: &quot;C&aacute;c loại balo d&agrave;nh cho học sinh, sinh vi&ecirc;n với thiết kế trẻ trung v&agrave; tiện dụng&quot;,
-                            &quot;slug&quot;: &quot;balo-hoc-sinh&quot;,
-                            &quot;image&quot;: &quot;categories/balo-hoc-sinh.jpg&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                        },
-                        &quot;brand&quot;: {
-                            &quot;id&quot;: 3,
-                            &quot;name&quot;: &quot;Samsonite&quot;,
-                            &quot;description&quot;: &quot;Samsonite l&agrave; thương hiệu h&agrave;ng đầu thế giới về h&agrave;nh l&yacute; v&agrave; balo du lịch cao cấp.&quot;,
-                            &quot;slug&quot;: &quot;samsonite&quot;,
-                            &quot;logo&quot;: &quot;brands/samsonite-logo.png&quot;,
-                            &quot;status&quot;: &quot;active&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                        }
-                    }
-                },
-                {
-                    &quot;id&quot;: 16,
-                    &quot;sale_campaign_id&quot;: 2,
-                    &quot;product_id&quot;: 15,
-                    &quot;original_price&quot;: &quot;935683.00&quot;,
-                    &quot;sale_price&quot;: &quot;598837.12&quot;,
-                    &quot;discount_percentage&quot;: &quot;36.00&quot;,
-                    &quot;discount_amount&quot;: &quot;336845.88&quot;,
-                    &quot;discount_type&quot;: &quot;percentage&quot;,
-                    &quot;start_date&quot;: null,
-                    &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 33,
+                    &quot;max_quantity&quot;: 42,
                     &quot;sold_quantity&quot;: 0,
                     &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
                     &quot;product&quot;: {
-                        &quot;id&quot;: 15,
-                        &quot;category_id&quot;: 3,
-                        &quot;brand_id&quot;: 5,
-                        &quot;name&quot;: &quot;Balo Nike Sportswear rerum&quot;,
-                        &quot;description&quot;: &quot;Doloremque aut laborum velit est suscipit aut. Magnam possimus fugiat magni saepe eaque ut et. Saepe rem enim totam sed quia omnis ex.&quot;,
-                        &quot;price&quot;: &quot;935683.00&quot;,
-                        &quot;quantity&quot;: 47,
-                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00aa00?text=fashion+sed&quot;,
-                        &quot;slug&quot;: &quot;balo-nike-sportswear-rerum-3524&quot;,
-                        &quot;color&quot;: &quot;Hồng&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
+                        &quot;id&quot;: 9,
+                        &quot;category_id&quot;: 2,
+                        &quot;brand_id&quot;: 7,
+                        &quot;name&quot;: &quot;Balo Học Sinh JanSport fugiat&quot;,
+                        &quot;description&quot;: &quot;Quo aut veniam iusto molestiae. Aut dolor ipsa delectus unde voluptatibus. Libero officia magnam id eveniet. Est rerum dolores magnam reiciendis quos voluptatibus. Eum soluta facilis aut ratione tempore.&quot;,
+                        &quot;price&quot;: &quot;1547100.00&quot;,
+                        &quot;quantity&quot;: 38,
+                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/006699?text=fashion+repellendus&quot;,
+                        &quot;slug&quot;: &quot;balo-hoc-sinh-jansport-fugiat-9624&quot;,
+                        &quot;color&quot;: &quot;Đỏ&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
                         &quot;category&quot;: {
-                            &quot;id&quot;: 3,
-                            &quot;name&quot;: &quot;Balo Laptop&quot;,
-                            &quot;description&quot;: &quot;Balo chuy&ecirc;n dụng để đựng laptop v&agrave; c&aacute;c thiết bị c&ocirc;ng nghệ với lớp đệm bảo vệ&quot;,
-                            &quot;slug&quot;: &quot;balo-laptop&quot;,
-                            &quot;image&quot;: &quot;categories/balo-laptop.jpg&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                            &quot;id&quot;: 2,
+                            &quot;name&quot;: &quot;Balo Du Lịch&quot;,
+                            &quot;description&quot;: &quot;Balo d&agrave;nh cho c&aacute;c chuyến du lịch, trekking với dung t&iacute;ch lớn v&agrave; nhiều ngăn tiện &iacute;ch&quot;,
+                            &quot;slug&quot;: &quot;balo-du-lich&quot;,
+                            &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/balo-du-lich.jpg&quot;,
+                            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                         },
                         &quot;brand&quot;: {
+                            &quot;id&quot;: 7,
+                            &quot;name&quot;: &quot;Stiedemann and Sons&quot;,
+                            &quot;description&quot;: &quot;Velit enim et tempore. Nostrum itaque praesentium nisi voluptatum iure sint voluptas est. Et esse architecto id amet amet.&quot;,
+                            &quot;slug&quot;: &quot;stiedemann-and-sons&quot;,
+                            &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/005566?text=business+eum&quot;,
+                            &quot;status&quot;: &quot;inactive&quot;,
+                            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+                        }
+                    }
+                },
+                {
+                    &quot;id&quot;: 8,
+                    &quot;sale_campaign_id&quot;: 2,
+                    &quot;product_id&quot;: 10,
+                    &quot;original_price&quot;: &quot;856922.00&quot;,
+                    &quot;sale_price&quot;: &quot;565568.52&quot;,
+                    &quot;discount_percentage&quot;: &quot;34.00&quot;,
+                    &quot;discount_amount&quot;: &quot;291353.48&quot;,
+                    &quot;discount_type&quot;: &quot;percentage&quot;,
+                    &quot;start_date&quot;: null,
+                    &quot;end_date&quot;: null,
+                    &quot;max_quantity&quot;: 25,
+                    &quot;sold_quantity&quot;: 2,
+                    &quot;is_active&quot;: true,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;product&quot;: {
+                        &quot;id&quot;: 10,
+                        &quot;category_id&quot;: 5,
+                        &quot;brand_id&quot;: 2,
+                        &quot;name&quot;: &quot;Balo Du Lịch Samsonite et&quot;,
+                        &quot;description&quot;: &quot;Dicta ut incidunt voluptas animi perspiciatis aut. Qui reprehenderit laborum provident consequatur. Totam veniam excepturi reiciendis aut.&quot;,
+                        &quot;price&quot;: &quot;856922.00&quot;,
+                        &quot;quantity&quot;: 80,
+                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/001155?text=fashion+incidunt&quot;,
+                        &quot;slug&quot;: &quot;balo-du-lich-samsonite-et-7894&quot;,
+                        &quot;color&quot;: &quot;Đen&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                        &quot;category&quot;: {
                             &quot;id&quot;: 5,
-                            &quot;name&quot;: &quot;The North Face&quot;,
-                            &quot;description&quot;: &quot;The North Face l&agrave; thương hiệu outdoor nổi tiếng với c&aacute;c sản phẩm balo trekking v&agrave; leo n&uacute;i.&quot;,
-                            &quot;slug&quot;: &quot;the-north-face&quot;,
-                            &quot;logo&quot;: &quot;brands/tnf-logo.png&quot;,
+                            &quot;name&quot;: &quot;T&uacute;i X&aacute;ch&quot;,
+                            &quot;description&quot;: &quot;C&aacute;c loại t&uacute;i x&aacute;ch thời trang cho nam v&agrave; nữ&quot;,
+                            &quot;slug&quot;: &quot;tui-xach&quot;,
+                            &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/tui-xach.jpg&quot;,
+                            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+                        },
+                        &quot;brand&quot;: {
+                            &quot;id&quot;: 2,
+                            &quot;name&quot;: &quot;Adidas&quot;,
+                            &quot;description&quot;: &quot;Adidas l&agrave; thương hiệu thể thao nổi tiếng với thiết kế năng động v&agrave; chất lượng vượt trội.&quot;,
+                            &quot;slug&quot;: &quot;adidas&quot;,
+                            &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/adidas-logo.png&quot;,
                             &quot;status&quot;: &quot;active&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+                        }
+                    }
+                },
+                {
+                    &quot;id&quot;: 9,
+                    &quot;sale_campaign_id&quot;: 2,
+                    &quot;product_id&quot;: 13,
+                    &quot;original_price&quot;: &quot;321501.00&quot;,
+                    &quot;sale_price&quot;: &quot;221835.69&quot;,
+                    &quot;discount_percentage&quot;: &quot;31.00&quot;,
+                    &quot;discount_amount&quot;: &quot;99665.31&quot;,
+                    &quot;discount_type&quot;: &quot;percentage&quot;,
+                    &quot;start_date&quot;: null,
+                    &quot;end_date&quot;: null,
+                    &quot;max_quantity&quot;: 37,
+                    &quot;sold_quantity&quot;: 5,
+                    &quot;is_active&quot;: true,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;product&quot;: {
+                        &quot;id&quot;: 13,
+                        &quot;category_id&quot;: 6,
+                        &quot;brand_id&quot;: 13,
+                        &quot;name&quot;: &quot;Balo Thể Thao Nike Air soluta&quot;,
+                        &quot;description&quot;: &quot;Beatae totam voluptas et enim rerum unde. Quos id esse voluptas voluptatum iste veniam veritatis. Non itaque est numquam saepe ratione est aut. Accusamus est tempora eligendi omnis quis facilis consequatur. Explicabo aut quasi dignissimos adipisci rerum eum perspiciatis vel. Officia quia nam nam quae doloribus.&quot;,
+                        &quot;price&quot;: &quot;321501.00&quot;,
+                        &quot;quantity&quot;: 44,
+                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00bbcc?text=fashion+ratione&quot;,
+                        &quot;slug&quot;: &quot;balo-the-thao-nike-air-soluta-1843&quot;,
+                        &quot;color&quot;: &quot;Hồng&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                        &quot;category&quot;: {
+                            &quot;id&quot;: 6,
+                            &quot;name&quot;: &quot;Balo Mini&quot;,
+                            &quot;description&quot;: &quot;Balo nhỏ gọn d&agrave;nh cho việc đi chơi, dạo phố&quot;,
+                            &quot;slug&quot;: &quot;balo-mini&quot;,
+                            &quot;image&quot;: &quot;categories/balo-mini.jpg&quot;,
+                            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+                        },
+                        &quot;brand&quot;: {
+                            &quot;id&quot;: 13,
+                            &quot;name&quot;: &quot;Hintz-Pfannerstill&quot;,
+                            &quot;description&quot;: &quot;Voluptatum a delectus voluptatem inventore qui eveniet. In sapiente quo nemo incidunt enim. Maiores et sit id ipsum reprehenderit modi iusto. Et fugiat excepturi tenetur molestiae et similique et beatae.&quot;,
+                            &quot;slug&quot;: &quot;hintz-pfannerstill&quot;,
+                            &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00ff22?text=business+sit&quot;,
+                            &quot;status&quot;: &quot;active&quot;,
+                            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                         }
                     }
                 }
@@ -16237,9 +15523,9 @@ access-control-allow-origin: *
             &quot;name&quot;: &quot;Sale Sinh Vi&ecirc;n&quot;,
             &quot;slug&quot;: &quot;sale-sinh-vien&quot;,
             &quot;description&quot;: &quot;Ưu đ&atilde;i đặc biệt d&agrave;nh cho sinh vi&ecirc;n - Balo học tập gi&aacute; ưu đ&atilde;i&quot;,
-            &quot;banner_image&quot;: &quot;campaigns/sale-sinh-vien.jpg&quot;,
-            &quot;start_date&quot;: &quot;2025-06-16T17:17:58.000000Z&quot;,
-            &quot;end_date&quot;: &quot;2025-07-02T17:17:58.000000Z&quot;,
+            &quot;banner_image&quot;: &quot;https://placehold.co/600x400?text=campaigns/sale-sinh-vien.jpg&quot;,
+            &quot;start_date&quot;: &quot;2025-06-16T22:14:51.000000Z&quot;,
+            &quot;end_date&quot;: &quot;2025-07-02T22:14:51.000000Z&quot;,
             &quot;status&quot;: &quot;active&quot;,
             &quot;is_featured&quot;: false,
             &quot;priority&quot;: 70,
@@ -16252,75 +15538,25 @@ access-control-allow-origin: *
                 &quot;color&quot;: &quot;#4285f4&quot;,
                 &quot;description_short&quot;: &quot;Giảm 30% cho sinh vi&ecirc;n&quot;
             },
-            &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
             &quot;sale_products&quot;: [
                 {
-                    &quot;id&quot;: 17,
-                    &quot;sale_campaign_id&quot;: 3,
-                    &quot;product_id&quot;: 1,
-                    &quot;original_price&quot;: &quot;899000.00&quot;,
-                    &quot;sale_price&quot;: &quot;683240.00&quot;,
-                    &quot;discount_percentage&quot;: &quot;24.00&quot;,
-                    &quot;discount_amount&quot;: &quot;215760.00&quot;,
-                    &quot;discount_type&quot;: &quot;percentage&quot;,
-                    &quot;start_date&quot;: null,
-                    &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 31,
-                    &quot;sold_quantity&quot;: 0,
-                    &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;product&quot;: {
-                        &quot;id&quot;: 1,
-                        &quot;category_id&quot;: 1,
-                        &quot;brand_id&quot;: 4,
-                        &quot;name&quot;: &quot;Balo JanSport SuperBreak Classic&quot;,
-                        &quot;description&quot;: &quot;Balo học sinh kinh điển với thiết kế đơn giản, chất liệu bền bỉ. Dung t&iacute;ch 25L ph&ugrave; hợp cho việc đi học h&agrave;ng ng&agrave;y.&quot;,
-                        &quot;price&quot;: &quot;899000.00&quot;,
-                        &quot;quantity&quot;: 50,
-                        &quot;image&quot;: &quot;products/balo-jansport-superbreak-classic.jpg&quot;,
-                        &quot;slug&quot;: &quot;balo-jansport-superbreak-classic&quot;,
-                        &quot;color&quot;: &quot;Đen&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;category&quot;: {
-                            &quot;id&quot;: 1,
-                            &quot;name&quot;: &quot;Balo Học Sinh&quot;,
-                            &quot;description&quot;: &quot;C&aacute;c loại balo d&agrave;nh cho học sinh, sinh vi&ecirc;n với thiết kế trẻ trung v&agrave; tiện dụng&quot;,
-                            &quot;slug&quot;: &quot;balo-hoc-sinh&quot;,
-                            &quot;image&quot;: &quot;categories/balo-hoc-sinh.jpg&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                        },
-                        &quot;brand&quot;: {
-                            &quot;id&quot;: 4,
-                            &quot;name&quot;: &quot;JanSport&quot;,
-                            &quot;description&quot;: &quot;JanSport chuy&ecirc;n sản xuất balo học sinh v&agrave; du lịch với thiết kế trẻ trung, năng động.&quot;,
-                            &quot;slug&quot;: &quot;jansport&quot;,
-                            &quot;logo&quot;: &quot;brands/jansport-logo.png&quot;,
-                            &quot;status&quot;: &quot;active&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                        }
-                    }
-                },
-                {
-                    &quot;id&quot;: 18,
+                    &quot;id&quot;: 10,
                     &quot;sale_campaign_id&quot;: 3,
                     &quot;product_id&quot;: 2,
                     &quot;original_price&quot;: &quot;1200000.00&quot;,
-                    &quot;sale_price&quot;: &quot;936000.00&quot;,
-                    &quot;discount_percentage&quot;: &quot;22.00&quot;,
-                    &quot;discount_amount&quot;: &quot;264000.00&quot;,
+                    &quot;sale_price&quot;: &quot;888000.00&quot;,
+                    &quot;discount_percentage&quot;: &quot;26.00&quot;,
+                    &quot;discount_amount&quot;: &quot;312000.00&quot;,
                     &quot;discount_type&quot;: &quot;percentage&quot;,
                     &quot;start_date&quot;: null,
                     &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 32,
-                    &quot;sold_quantity&quot;: 1,
+                    &quot;max_quantity&quot;: 49,
+                    &quot;sold_quantity&quot;: 0,
                     &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
                     &quot;product&quot;: {
                         &quot;id&quot;: 2,
                         &quot;category_id&quot;: 1,
@@ -16329,48 +15565,98 @@ access-control-allow-origin: *
                         &quot;description&quot;: &quot;Balo thể thao năng động với logo Nike nổi bật. Thiết kế hiện đại, ph&ugrave; hợp cho học sinh cấp 3.&quot;,
                         &quot;price&quot;: &quot;1200000.00&quot;,
                         &quot;quantity&quot;: 30,
-                        &quot;image&quot;: &quot;products/balo-nike-heritage-20.jpg&quot;,
+                        &quot;image&quot;: &quot;https://placehold.co/600x400?text=products/balo-nike-heritage-20.jpg&quot;,
                         &quot;slug&quot;: &quot;balo-nike-heritage-20&quot;,
                         &quot;color&quot;: &quot;Xanh Navy&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
                         &quot;category&quot;: {
                             &quot;id&quot;: 1,
                             &quot;name&quot;: &quot;Balo Học Sinh&quot;,
                             &quot;description&quot;: &quot;C&aacute;c loại balo d&agrave;nh cho học sinh, sinh vi&ecirc;n với thiết kế trẻ trung v&agrave; tiện dụng&quot;,
                             &quot;slug&quot;: &quot;balo-hoc-sinh&quot;,
-                            &quot;image&quot;: &quot;categories/balo-hoc-sinh.jpg&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                            &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/balo-hoc-sinh.jpg&quot;,
+                            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                         },
                         &quot;brand&quot;: {
                             &quot;id&quot;: 1,
                             &quot;name&quot;: &quot;Nike&quot;,
                             &quot;description&quot;: &quot;Nike l&agrave; thương hiệu thể thao h&agrave;ng đầu thế giới, nổi tiếng với c&aacute;c sản phẩm balo v&agrave; t&uacute;i thể thao chất lượng cao.&quot;,
                             &quot;slug&quot;: &quot;nike&quot;,
-                            &quot;logo&quot;: &quot;brands/nike-logo.png&quot;,
+                            &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/nike-logo.png&quot;,
                             &quot;status&quot;: &quot;active&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                         }
                     }
                 },
                 {
-                    &quot;id&quot;: 19,
+                    &quot;id&quot;: 11,
                     &quot;sale_campaign_id&quot;: 3,
-                    &quot;product_id&quot;: 5,
-                    &quot;original_price&quot;: &quot;1800000.00&quot;,
-                    &quot;sale_price&quot;: &quot;1260000.00&quot;,
-                    &quot;discount_percentage&quot;: &quot;30.00&quot;,
-                    &quot;discount_amount&quot;: &quot;540000.00&quot;,
+                    &quot;product_id&quot;: 4,
+                    &quot;original_price&quot;: &quot;3200000.00&quot;,
+                    &quot;sale_price&quot;: &quot;2368000.00&quot;,
+                    &quot;discount_percentage&quot;: &quot;26.00&quot;,
+                    &quot;discount_amount&quot;: &quot;832000.00&quot;,
                     &quot;discount_type&quot;: &quot;percentage&quot;,
                     &quot;start_date&quot;: null,
                     &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 45,
-                    &quot;sold_quantity&quot;: 3,
+                    &quot;max_quantity&quot;: 33,
+                    &quot;sold_quantity&quot;: 0,
                     &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;product&quot;: {
+                        &quot;id&quot;: 4,
+                        &quot;category_id&quot;: 2,
+                        &quot;brand_id&quot;: 3,
+                        &quot;name&quot;: &quot;Balo Samsonite Guardit 2.0&quot;,
+                        &quot;description&quot;: &quot;Balo du lịch cao cấp với ngăn laptop 15.6\&quot;, chống thấm nước. Thiết kế sang trọng, ph&ugrave; hợp cho c&ocirc;ng t&aacute;c.&quot;,
+                        &quot;price&quot;: &quot;3200000.00&quot;,
+                        &quot;quantity&quot;: 20,
+                        &quot;image&quot;: &quot;https://placehold.co/600x400?text=products/balo-samsonite-guardit-20.jpg&quot;,
+                        &quot;slug&quot;: &quot;balo-samsonite-guardit-20&quot;,
+                        &quot;color&quot;: &quot;Đen&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                        &quot;category&quot;: {
+                            &quot;id&quot;: 2,
+                            &quot;name&quot;: &quot;Balo Du Lịch&quot;,
+                            &quot;description&quot;: &quot;Balo d&agrave;nh cho c&aacute;c chuyến du lịch, trekking với dung t&iacute;ch lớn v&agrave; nhiều ngăn tiện &iacute;ch&quot;,
+                            &quot;slug&quot;: &quot;balo-du-lich&quot;,
+                            &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/balo-du-lich.jpg&quot;,
+                            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+                        },
+                        &quot;brand&quot;: {
+                            &quot;id&quot;: 3,
+                            &quot;name&quot;: &quot;Samsonite&quot;,
+                            &quot;description&quot;: &quot;Samsonite l&agrave; thương hiệu h&agrave;ng đầu thế giới về h&agrave;nh l&yacute; v&agrave; balo du lịch cao cấp.&quot;,
+                            &quot;slug&quot;: &quot;samsonite&quot;,
+                            &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/samsonite-logo.png&quot;,
+                            &quot;status&quot;: &quot;active&quot;,
+                            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+                        }
+                    }
+                },
+                {
+                    &quot;id&quot;: 12,
+                    &quot;sale_campaign_id&quot;: 3,
+                    &quot;product_id&quot;: 5,
+                    &quot;original_price&quot;: &quot;1800000.00&quot;,
+                    &quot;sale_price&quot;: &quot;1440000.00&quot;,
+                    &quot;discount_percentage&quot;: &quot;20.00&quot;,
+                    &quot;discount_amount&quot;: &quot;360000.00&quot;,
+                    &quot;discount_type&quot;: &quot;percentage&quot;,
+                    &quot;start_date&quot;: null,
+                    &quot;end_date&quot;: null,
+                    &quot;max_quantity&quot;: 17,
+                    &quot;sold_quantity&quot;: 4,
+                    &quot;is_active&quot;: true,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
                     &quot;product&quot;: {
                         &quot;id&quot;: 5,
                         &quot;category_id&quot;: 3,
@@ -16379,229 +15665,129 @@ access-control-allow-origin: *
                         &quot;description&quot;: &quot;Balo laptop thời trang với thiết kế vintage. Ngăn laptop 15\&quot; được đệm bảo vệ tối ưu.&quot;,
                         &quot;price&quot;: &quot;1800000.00&quot;,
                         &quot;quantity&quot;: 35,
-                        &quot;image&quot;: &quot;products/balo-laptop-herschel-pop-quiz.jpg&quot;,
+                        &quot;image&quot;: &quot;https://placehold.co/600x400?text=products/balo-laptop-herschel-pop-quiz.jpg&quot;,
                         &quot;slug&quot;: &quot;balo-laptop-herschel-pop-quiz&quot;,
                         &quot;color&quot;: &quot;N&acirc;u&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
                         &quot;category&quot;: {
                             &quot;id&quot;: 3,
                             &quot;name&quot;: &quot;Balo Laptop&quot;,
                             &quot;description&quot;: &quot;Balo chuy&ecirc;n dụng để đựng laptop v&agrave; c&aacute;c thiết bị c&ocirc;ng nghệ với lớp đệm bảo vệ&quot;,
                             &quot;slug&quot;: &quot;balo-laptop&quot;,
-                            &quot;image&quot;: &quot;categories/balo-laptop.jpg&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                            &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/balo-laptop.jpg&quot;,
+                            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                         },
                         &quot;brand&quot;: {
                             &quot;id&quot;: 6,
                             &quot;name&quot;: &quot;Herschel&quot;,
                             &quot;description&quot;: &quot;Herschel Supply Co. nổi tiếng với thiết kế vintage v&agrave; hiện đại, ph&ugrave; hợp cho mọi lứa tuổi.&quot;,
                             &quot;slug&quot;: &quot;herschel&quot;,
-                            &quot;logo&quot;: &quot;brands/herschel-logo.png&quot;,
+                            &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/herschel-logo.png&quot;,
                             &quot;status&quot;: &quot;active&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                         }
                     }
                 },
                 {
-                    &quot;id&quot;: 20,
+                    &quot;id&quot;: 13,
                     &quot;sale_campaign_id&quot;: 3,
-                    &quot;product_id&quot;: 6,
-                    &quot;original_price&quot;: &quot;1562024.00&quot;,
-                    &quot;sale_price&quot;: &quot;1062176.32&quot;,
-                    &quot;discount_percentage&quot;: &quot;32.00&quot;,
-                    &quot;discount_amount&quot;: &quot;499847.68&quot;,
+                    &quot;product_id&quot;: 7,
+                    &quot;original_price&quot;: &quot;530095.00&quot;,
+                    &quot;sale_price&quot;: &quot;355163.65&quot;,
+                    &quot;discount_percentage&quot;: &quot;33.00&quot;,
+                    &quot;discount_amount&quot;: &quot;174931.35&quot;,
                     &quot;discount_type&quot;: &quot;percentage&quot;,
                     &quot;start_date&quot;: null,
                     &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 18,
-                    &quot;sold_quantity&quot;: 3,
-                    &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;product&quot;: {
-                        &quot;id&quot;: 6,
-                        &quot;category_id&quot;: 3,
-                        &quot;brand_id&quot;: 10,
-                        &quot;name&quot;: &quot;Balo Gaming RGB aperiam&quot;,
-                        &quot;description&quot;: &quot;Debitis natus dolorum et. Optio sed sunt error culpa voluptas. Eos occaecati consectetur ipsum molestiae ut occaecati tempora. Autem quae veniam qui fuga.&quot;,
-                        &quot;price&quot;: &quot;1562024.00&quot;,
-                        &quot;quantity&quot;: 72,
-                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/007744?text=fashion+rerum&quot;,
-                        &quot;slug&quot;: &quot;balo-gaming-rgb-aperiam-7459&quot;,
-                        &quot;color&quot;: &quot;Cam&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;category&quot;: {
-                            &quot;id&quot;: 3,
-                            &quot;name&quot;: &quot;Balo Laptop&quot;,
-                            &quot;description&quot;: &quot;Balo chuy&ecirc;n dụng để đựng laptop v&agrave; c&aacute;c thiết bị c&ocirc;ng nghệ với lớp đệm bảo vệ&quot;,
-                            &quot;slug&quot;: &quot;balo-laptop&quot;,
-                            &quot;image&quot;: &quot;categories/balo-laptop.jpg&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                        },
-                        &quot;brand&quot;: {
-                            &quot;id&quot;: 10,
-                            &quot;name&quot;: &quot;Bechtelar Ltd&quot;,
-                            &quot;description&quot;: &quot;Aut repudiandae dignissimos ut omnis. Sunt sint repellendus neque corporis eum velit ipsa.&quot;,
-                            &quot;slug&quot;: &quot;bechtelar-ltd&quot;,
-                            &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/009977?text=business+labore&quot;,
-                            &quot;status&quot;: &quot;inactive&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                        }
-                    }
-                },
-                {
-                    &quot;id&quot;: 21,
-                    &quot;sale_campaign_id&quot;: 3,
-                    &quot;product_id&quot;: 9,
-                    &quot;original_price&quot;: &quot;1608008.00&quot;,
-                    &quot;sale_price&quot;: &quot;1125605.60&quot;,
-                    &quot;discount_percentage&quot;: &quot;30.00&quot;,
-                    &quot;discount_amount&quot;: &quot;482402.40&quot;,
-                    &quot;discount_type&quot;: &quot;percentage&quot;,
-                    &quot;start_date&quot;: null,
-                    &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 48,
+                    &quot;max_quantity&quot;: 34,
                     &quot;sold_quantity&quot;: 4,
                     &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
                     &quot;product&quot;: {
-                        &quot;id&quot;: 9,
+                        &quot;id&quot;: 7,
                         &quot;category_id&quot;: 5,
-                        &quot;brand_id&quot;: 1,
-                        &quot;name&quot;: &quot;Balo Gaming RGB rerum&quot;,
-                        &quot;description&quot;: &quot;Facilis dolor commodi dolores itaque consequuntur modi. Laborum reiciendis est libero facere sint neque. Est eius sed autem quod est in eum. Aut et temporibus velit hic error officiis explicabo.&quot;,
-                        &quot;price&quot;: &quot;1608008.00&quot;,
-                        &quot;quantity&quot;: 18,
-                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/001144?text=fashion+sed&quot;,
-                        &quot;slug&quot;: &quot;balo-gaming-rgb-rerum-5919&quot;,
+                        &quot;brand_id&quot;: 12,
+                        &quot;name&quot;: &quot;Balo Leo N&uacute;i The North Face eveniet&quot;,
+                        &quot;description&quot;: &quot;Saepe maiores est minima deserunt. Rerum quasi tempora corrupti dolore laboriosam delectus. Labore iste hic laboriosam neque dolorum perspiciatis. Tenetur voluptas facilis est pariatur.&quot;,
+                        &quot;price&quot;: &quot;530095.00&quot;,
+                        &quot;quantity&quot;: 85,
+                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0099bb?text=fashion+iure&quot;,
+                        &quot;slug&quot;: &quot;balo-leo-nui-the-north-face-eveniet-5382&quot;,
                         &quot;color&quot;: &quot;Xanh&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
                         &quot;category&quot;: {
                             &quot;id&quot;: 5,
                             &quot;name&quot;: &quot;T&uacute;i X&aacute;ch&quot;,
                             &quot;description&quot;: &quot;C&aacute;c loại t&uacute;i x&aacute;ch thời trang cho nam v&agrave; nữ&quot;,
                             &quot;slug&quot;: &quot;tui-xach&quot;,
-                            &quot;image&quot;: &quot;categories/tui-xach.jpg&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                            &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/tui-xach.jpg&quot;,
+                            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                         },
                         &quot;brand&quot;: {
-                            &quot;id&quot;: 1,
-                            &quot;name&quot;: &quot;Nike&quot;,
-                            &quot;description&quot;: &quot;Nike l&agrave; thương hiệu thể thao h&agrave;ng đầu thế giới, nổi tiếng với c&aacute;c sản phẩm balo v&agrave; t&uacute;i thể thao chất lượng cao.&quot;,
-                            &quot;slug&quot;: &quot;nike&quot;,
-                            &quot;logo&quot;: &quot;brands/nike-logo.png&quot;,
+                            &quot;id&quot;: 12,
+                            &quot;name&quot;: &quot;Friesen-Gorczany&quot;,
+                            &quot;description&quot;: &quot;Illum non at commodi ipsa deleniti quo. Amet officia in voluptas qui laboriosam magnam odit. Voluptates quibusdam et enim ducimus maxime omnis. Ut eveniet quo explicabo id dolores est rerum.&quot;,
+                            &quot;slug&quot;: &quot;friesen-gorczany&quot;,
+                            &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00cc44?text=business+recusandae&quot;,
                             &quot;status&quot;: &quot;active&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                         }
                     }
                 },
                 {
-                    &quot;id&quot;: 22,
-                    &quot;sale_campaign_id&quot;: 3,
-                    &quot;product_id&quot;: 13,
-                    &quot;original_price&quot;: &quot;1328286.00&quot;,
-                    &quot;sale_price&quot;: &quot;863385.90&quot;,
-                    &quot;discount_percentage&quot;: &quot;35.00&quot;,
-                    &quot;discount_amount&quot;: &quot;464900.10&quot;,
-                    &quot;discount_type&quot;: &quot;percentage&quot;,
-                    &quot;start_date&quot;: null,
-                    &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 50,
-                    &quot;sold_quantity&quot;: 0,
-                    &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;product&quot;: {
-                        &quot;id&quot;: 13,
-                        &quot;category_id&quot;: 1,
-                        &quot;brand_id&quot;: 3,
-                        &quot;name&quot;: &quot;Balo Nike Sportswear ut&quot;,
-                        &quot;description&quot;: &quot;Impedit ut totam consequatur dolorem voluptatem ipsam. Qui deleniti pariatur a accusantium ea dolor ut. Eos sed delectus laudantium recusandae incidunt beatae omnis.&quot;,
-                        &quot;price&quot;: &quot;1328286.00&quot;,
-                        &quot;quantity&quot;: 25,
-                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0077aa?text=fashion+quia&quot;,
-                        &quot;slug&quot;: &quot;balo-nike-sportswear-ut-6782&quot;,
-                        &quot;color&quot;: &quot;Đen&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;category&quot;: {
-                            &quot;id&quot;: 1,
-                            &quot;name&quot;: &quot;Balo Học Sinh&quot;,
-                            &quot;description&quot;: &quot;C&aacute;c loại balo d&agrave;nh cho học sinh, sinh vi&ecirc;n với thiết kế trẻ trung v&agrave; tiện dụng&quot;,
-                            &quot;slug&quot;: &quot;balo-hoc-sinh&quot;,
-                            &quot;image&quot;: &quot;categories/balo-hoc-sinh.jpg&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                        },
-                        &quot;brand&quot;: {
-                            &quot;id&quot;: 3,
-                            &quot;name&quot;: &quot;Samsonite&quot;,
-                            &quot;description&quot;: &quot;Samsonite l&agrave; thương hiệu h&agrave;ng đầu thế giới về h&agrave;nh l&yacute; v&agrave; balo du lịch cao cấp.&quot;,
-                            &quot;slug&quot;: &quot;samsonite&quot;,
-                            &quot;logo&quot;: &quot;brands/samsonite-logo.png&quot;,
-                            &quot;status&quot;: &quot;active&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                        }
-                    }
-                },
-                {
-                    &quot;id&quot;: 23,
+                    &quot;id&quot;: 14,
                     &quot;sale_campaign_id&quot;: 3,
                     &quot;product_id&quot;: 15,
-                    &quot;original_price&quot;: &quot;935683.00&quot;,
-                    &quot;sale_price&quot;: &quot;720475.91&quot;,
-                    &quot;discount_percentage&quot;: &quot;23.00&quot;,
-                    &quot;discount_amount&quot;: &quot;215207.09&quot;,
+                    &quot;original_price&quot;: &quot;1976534.00&quot;,
+                    &quot;sale_price&quot;: &quot;1403339.14&quot;,
+                    &quot;discount_percentage&quot;: &quot;29.00&quot;,
+                    &quot;discount_amount&quot;: &quot;573194.86&quot;,
                     &quot;discount_type&quot;: &quot;percentage&quot;,
                     &quot;start_date&quot;: null,
                     &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 48,
+                    &quot;max_quantity&quot;: 37,
                     &quot;sold_quantity&quot;: 0,
                     &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
                     &quot;product&quot;: {
                         &quot;id&quot;: 15,
-                        &quot;category_id&quot;: 3,
-                        &quot;brand_id&quot;: 5,
-                        &quot;name&quot;: &quot;Balo Nike Sportswear rerum&quot;,
-                        &quot;description&quot;: &quot;Doloremque aut laborum velit est suscipit aut. Magnam possimus fugiat magni saepe eaque ut et. Saepe rem enim totam sed quia omnis ex.&quot;,
-                        &quot;price&quot;: &quot;935683.00&quot;,
-                        &quot;quantity&quot;: 47,
-                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00aa00?text=fashion+sed&quot;,
-                        &quot;slug&quot;: &quot;balo-nike-sportswear-rerum-3524&quot;,
-                        &quot;color&quot;: &quot;Hồng&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
+                        &quot;category_id&quot;: 5,
+                        &quot;brand_id&quot;: 14,
+                        &quot;name&quot;: &quot;Balo Du Lịch Samsonite eius&quot;,
+                        &quot;description&quot;: &quot;Eos consequuntur deserunt delectus vel mollitia. Dolore earum facere voluptatum libero delectus magni sed. Facilis aut aut illum velit. Sed sit animi animi excepturi autem voluptatem nisi sint.&quot;,
+                        &quot;price&quot;: &quot;1976534.00&quot;,
+                        &quot;quantity&quot;: 81,
+                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00cc99?text=fashion+enim&quot;,
+                        &quot;slug&quot;: &quot;balo-du-lich-samsonite-eius-1519&quot;,
+                        &quot;color&quot;: &quot;Xanh&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
                         &quot;category&quot;: {
-                            &quot;id&quot;: 3,
-                            &quot;name&quot;: &quot;Balo Laptop&quot;,
-                            &quot;description&quot;: &quot;Balo chuy&ecirc;n dụng để đựng laptop v&agrave; c&aacute;c thiết bị c&ocirc;ng nghệ với lớp đệm bảo vệ&quot;,
-                            &quot;slug&quot;: &quot;balo-laptop&quot;,
-                            &quot;image&quot;: &quot;categories/balo-laptop.jpg&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                            &quot;id&quot;: 5,
+                            &quot;name&quot;: &quot;T&uacute;i X&aacute;ch&quot;,
+                            &quot;description&quot;: &quot;C&aacute;c loại t&uacute;i x&aacute;ch thời trang cho nam v&agrave; nữ&quot;,
+                            &quot;slug&quot;: &quot;tui-xach&quot;,
+                            &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/tui-xach.jpg&quot;,
+                            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                         },
                         &quot;brand&quot;: {
-                            &quot;id&quot;: 5,
-                            &quot;name&quot;: &quot;The North Face&quot;,
-                            &quot;description&quot;: &quot;The North Face l&agrave; thương hiệu outdoor nổi tiếng với c&aacute;c sản phẩm balo trekking v&agrave; leo n&uacute;i.&quot;,
-                            &quot;slug&quot;: &quot;the-north-face&quot;,
-                            &quot;logo&quot;: &quot;brands/tnf-logo.png&quot;,
+                            &quot;id&quot;: 14,
+                            &quot;name&quot;: &quot;Zboncak, Jones and Romaguera&quot;,
+                            &quot;description&quot;: &quot;Quas non ab culpa ea quia iusto ad. Est aperiam nulla voluptate neque aut magnam. Velit natus non nam ut non. Architecto sint neque cumque aut delectus quaerat.&quot;,
+                            &quot;slug&quot;: &quot;zboncak-jones-and-romaguera&quot;,
+                            &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00aa77?text=business+rerum&quot;,
                             &quot;status&quot;: &quot;active&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                         }
                     }
                 }
@@ -16695,14 +15881,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/sale-campaigns-featured" \
+    --get "http://localhost:8000/api/sale-campaigns-featured" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/sale-campaigns-featured"
+    "http://localhost:8000/api/sale-campaigns-featured"
 );
 
 const headers = {
@@ -16737,9 +15923,9 @@ access-control-allow-origin: *
             &quot;name&quot;: &quot;Flash Sale Cuối Tuần&quot;,
             &quot;slug&quot;: &quot;flash-sale-weekend&quot;,
             &quot;description&quot;: &quot;Flash sale cuối tuần - Cơ hội v&agrave;ng săn balo gi&aacute; rẻ&quot;,
-            &quot;banner_image&quot;: &quot;campaigns/flash-sale-weekend.jpg&quot;,
-            &quot;start_date&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-            &quot;end_date&quot;: &quot;2025-06-21T17:17:58.000000Z&quot;,
+            &quot;banner_image&quot;: &quot;https://placehold.co/600x400?text=campaigns/flash-sale-weekend.jpg&quot;,
+            &quot;start_date&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;end_date&quot;: &quot;2025-06-21T22:14:51.000000Z&quot;,
             &quot;status&quot;: &quot;active&quot;,
             &quot;is_featured&quot;: true,
             &quot;priority&quot;: 90,
@@ -16752,25 +15938,25 @@ access-control-allow-origin: *
                 &quot;color&quot;: &quot;#ff6b35&quot;,
                 &quot;description_short&quot;: &quot;Giảm ngay 50%&quot;
             },
-            &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
             &quot;sale_products&quot;: [
                 {
-                    &quot;id&quot;: 9,
+                    &quot;id&quot;: 5,
                     &quot;sale_campaign_id&quot;: 2,
                     &quot;product_id&quot;: 2,
                     &quot;original_price&quot;: &quot;1200000.00&quot;,
-                    &quot;sale_price&quot;: &quot;672000.00&quot;,
-                    &quot;discount_percentage&quot;: &quot;44.00&quot;,
-                    &quot;discount_amount&quot;: &quot;528000.00&quot;,
+                    &quot;sale_price&quot;: &quot;732000.00&quot;,
+                    &quot;discount_percentage&quot;: &quot;39.00&quot;,
+                    &quot;discount_amount&quot;: &quot;468000.00&quot;,
                     &quot;discount_type&quot;: &quot;percentage&quot;,
                     &quot;start_date&quot;: null,
                     &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 32,
-                    &quot;sold_quantity&quot;: 5,
+                    &quot;max_quantity&quot;: 24,
+                    &quot;sold_quantity&quot;: 0,
                     &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
                     &quot;product&quot;: {
                         &quot;id&quot;: 2,
                         &quot;category_id&quot;: 1,
@@ -16779,48 +15965,48 @@ access-control-allow-origin: *
                         &quot;description&quot;: &quot;Balo thể thao năng động với logo Nike nổi bật. Thiết kế hiện đại, ph&ugrave; hợp cho học sinh cấp 3.&quot;,
                         &quot;price&quot;: &quot;1200000.00&quot;,
                         &quot;quantity&quot;: 30,
-                        &quot;image&quot;: &quot;products/balo-nike-heritage-20.jpg&quot;,
+                        &quot;image&quot;: &quot;https://placehold.co/600x400?text=products/balo-nike-heritage-20.jpg&quot;,
                         &quot;slug&quot;: &quot;balo-nike-heritage-20&quot;,
                         &quot;color&quot;: &quot;Xanh Navy&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
                         &quot;category&quot;: {
                             &quot;id&quot;: 1,
                             &quot;name&quot;: &quot;Balo Học Sinh&quot;,
                             &quot;description&quot;: &quot;C&aacute;c loại balo d&agrave;nh cho học sinh, sinh vi&ecirc;n với thiết kế trẻ trung v&agrave; tiện dụng&quot;,
                             &quot;slug&quot;: &quot;balo-hoc-sinh&quot;,
-                            &quot;image&quot;: &quot;categories/balo-hoc-sinh.jpg&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                            &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/balo-hoc-sinh.jpg&quot;,
+                            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                         },
                         &quot;brand&quot;: {
                             &quot;id&quot;: 1,
                             &quot;name&quot;: &quot;Nike&quot;,
                             &quot;description&quot;: &quot;Nike l&agrave; thương hiệu thể thao h&agrave;ng đầu thế giới, nổi tiếng với c&aacute;c sản phẩm balo v&agrave; t&uacute;i thể thao chất lượng cao.&quot;,
                             &quot;slug&quot;: &quot;nike&quot;,
-                            &quot;logo&quot;: &quot;brands/nike-logo.png&quot;,
+                            &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/nike-logo.png&quot;,
                             &quot;status&quot;: &quot;active&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                         }
                     }
                 },
                 {
-                    &quot;id&quot;: 10,
+                    &quot;id&quot;: 6,
                     &quot;sale_campaign_id&quot;: 2,
                     &quot;product_id&quot;: 3,
                     &quot;original_price&quot;: &quot;2500000.00&quot;,
-                    &quot;sale_price&quot;: &quot;1550000.00&quot;,
-                    &quot;discount_percentage&quot;: &quot;38.00&quot;,
-                    &quot;discount_amount&quot;: &quot;950000.00&quot;,
+                    &quot;sale_price&quot;: &quot;1300000.00&quot;,
+                    &quot;discount_percentage&quot;: &quot;48.00&quot;,
+                    &quot;discount_amount&quot;: &quot;1200000.00&quot;,
                     &quot;discount_type&quot;: &quot;percentage&quot;,
                     &quot;start_date&quot;: null,
                     &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 47,
-                    &quot;sold_quantity&quot;: 3,
+                    &quot;max_quantity&quot;: 20,
+                    &quot;sold_quantity&quot;: 1,
                     &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
                     &quot;product&quot;: {
                         &quot;id&quot;: 3,
                         &quot;category_id&quot;: 2,
@@ -16829,329 +16015,179 @@ access-control-allow-origin: *
                         &quot;description&quot;: &quot;Balo trekking chuy&ecirc;n nghiệp với nhiều ngăn tiện &iacute;ch, d&acirc;y đeo thoải m&aacute;i. L&yacute; tưởng cho c&aacute;c chuyến du lịch ngắn ng&agrave;y.&quot;,
                         &quot;price&quot;: &quot;2500000.00&quot;,
                         &quot;quantity&quot;: 25,
-                        &quot;image&quot;: &quot;products/balo-the-north-face-borealis-28l.jpg&quot;,
+                        &quot;image&quot;: &quot;https://placehold.co/600x400?text=products/balo-the-north-face-borealis-28l.jpg&quot;,
                         &quot;slug&quot;: &quot;balo-the-north-face-borealis-28l&quot;,
                         &quot;color&quot;: &quot;X&aacute;m&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
                         &quot;category&quot;: {
                             &quot;id&quot;: 2,
                             &quot;name&quot;: &quot;Balo Du Lịch&quot;,
                             &quot;description&quot;: &quot;Balo d&agrave;nh cho c&aacute;c chuyến du lịch, trekking với dung t&iacute;ch lớn v&agrave; nhiều ngăn tiện &iacute;ch&quot;,
                             &quot;slug&quot;: &quot;balo-du-lich&quot;,
-                            &quot;image&quot;: &quot;categories/balo-du-lich.jpg&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                            &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/balo-du-lich.jpg&quot;,
+                            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                         },
                         &quot;brand&quot;: {
                             &quot;id&quot;: 5,
                             &quot;name&quot;: &quot;The North Face&quot;,
                             &quot;description&quot;: &quot;The North Face l&agrave; thương hiệu outdoor nổi tiếng với c&aacute;c sản phẩm balo trekking v&agrave; leo n&uacute;i.&quot;,
                             &quot;slug&quot;: &quot;the-north-face&quot;,
-                            &quot;logo&quot;: &quot;brands/tnf-logo.png&quot;,
+                            &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/tnf-logo.png&quot;,
                             &quot;status&quot;: &quot;active&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                         }
                     }
                 },
                 {
-                    &quot;id&quot;: 11,
+                    &quot;id&quot;: 7,
                     &quot;sale_campaign_id&quot;: 2,
-                    &quot;product_id&quot;: 4,
-                    &quot;original_price&quot;: &quot;3200000.00&quot;,
-                    &quot;sale_price&quot;: &quot;2016000.00&quot;,
-                    &quot;discount_percentage&quot;: &quot;37.00&quot;,
-                    &quot;discount_amount&quot;: &quot;1184000.00&quot;,
+                    &quot;product_id&quot;: 9,
+                    &quot;original_price&quot;: &quot;1547100.00&quot;,
+                    &quot;sale_price&quot;: &quot;1005615.00&quot;,
+                    &quot;discount_percentage&quot;: &quot;35.00&quot;,
+                    &quot;discount_amount&quot;: &quot;541485.00&quot;,
                     &quot;discount_type&quot;: &quot;percentage&quot;,
                     &quot;start_date&quot;: null,
                     &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 41,
-                    &quot;sold_quantity&quot;: 5,
-                    &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;product&quot;: {
-                        &quot;id&quot;: 4,
-                        &quot;category_id&quot;: 2,
-                        &quot;brand_id&quot;: 3,
-                        &quot;name&quot;: &quot;Balo Samsonite Guardit 2.0&quot;,
-                        &quot;description&quot;: &quot;Balo du lịch cao cấp với ngăn laptop 15.6\&quot;, chống thấm nước. Thiết kế sang trọng, ph&ugrave; hợp cho c&ocirc;ng t&aacute;c.&quot;,
-                        &quot;price&quot;: &quot;3200000.00&quot;,
-                        &quot;quantity&quot;: 20,
-                        &quot;image&quot;: &quot;products/balo-samsonite-guardit-20.jpg&quot;,
-                        &quot;slug&quot;: &quot;balo-samsonite-guardit-20&quot;,
-                        &quot;color&quot;: &quot;Đen&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;category&quot;: {
-                            &quot;id&quot;: 2,
-                            &quot;name&quot;: &quot;Balo Du Lịch&quot;,
-                            &quot;description&quot;: &quot;Balo d&agrave;nh cho c&aacute;c chuyến du lịch, trekking với dung t&iacute;ch lớn v&agrave; nhiều ngăn tiện &iacute;ch&quot;,
-                            &quot;slug&quot;: &quot;balo-du-lich&quot;,
-                            &quot;image&quot;: &quot;categories/balo-du-lich.jpg&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                        },
-                        &quot;brand&quot;: {
-                            &quot;id&quot;: 3,
-                            &quot;name&quot;: &quot;Samsonite&quot;,
-                            &quot;description&quot;: &quot;Samsonite l&agrave; thương hiệu h&agrave;ng đầu thế giới về h&agrave;nh l&yacute; v&agrave; balo du lịch cao cấp.&quot;,
-                            &quot;slug&quot;: &quot;samsonite&quot;,
-                            &quot;logo&quot;: &quot;brands/samsonite-logo.png&quot;,
-                            &quot;status&quot;: &quot;active&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                        }
-                    }
-                },
-                {
-                    &quot;id&quot;: 12,
-                    &quot;sale_campaign_id&quot;: 2,
-                    &quot;product_id&quot;: 5,
-                    &quot;original_price&quot;: &quot;1800000.00&quot;,
-                    &quot;sale_price&quot;: &quot;1080000.00&quot;,
-                    &quot;discount_percentage&quot;: &quot;40.00&quot;,
-                    &quot;discount_amount&quot;: &quot;720000.00&quot;,
-                    &quot;discount_type&quot;: &quot;percentage&quot;,
-                    &quot;start_date&quot;: null,
-                    &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 10,
-                    &quot;sold_quantity&quot;: 1,
-                    &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;product&quot;: {
-                        &quot;id&quot;: 5,
-                        &quot;category_id&quot;: 3,
-                        &quot;brand_id&quot;: 6,
-                        &quot;name&quot;: &quot;Balo Laptop Herschel Pop Quiz&quot;,
-                        &quot;description&quot;: &quot;Balo laptop thời trang với thiết kế vintage. Ngăn laptop 15\&quot; được đệm bảo vệ tối ưu.&quot;,
-                        &quot;price&quot;: &quot;1800000.00&quot;,
-                        &quot;quantity&quot;: 35,
-                        &quot;image&quot;: &quot;products/balo-laptop-herschel-pop-quiz.jpg&quot;,
-                        &quot;slug&quot;: &quot;balo-laptop-herschel-pop-quiz&quot;,
-                        &quot;color&quot;: &quot;N&acirc;u&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;category&quot;: {
-                            &quot;id&quot;: 3,
-                            &quot;name&quot;: &quot;Balo Laptop&quot;,
-                            &quot;description&quot;: &quot;Balo chuy&ecirc;n dụng để đựng laptop v&agrave; c&aacute;c thiết bị c&ocirc;ng nghệ với lớp đệm bảo vệ&quot;,
-                            &quot;slug&quot;: &quot;balo-laptop&quot;,
-                            &quot;image&quot;: &quot;categories/balo-laptop.jpg&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                        },
-                        &quot;brand&quot;: {
-                            &quot;id&quot;: 6,
-                            &quot;name&quot;: &quot;Herschel&quot;,
-                            &quot;description&quot;: &quot;Herschel Supply Co. nổi tiếng với thiết kế vintage v&agrave; hiện đại, ph&ugrave; hợp cho mọi lứa tuổi.&quot;,
-                            &quot;slug&quot;: &quot;herschel&quot;,
-                            &quot;logo&quot;: &quot;brands/herschel-logo.png&quot;,
-                            &quot;status&quot;: &quot;active&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                        }
-                    }
-                },
-                {
-                    &quot;id&quot;: 13,
-                    &quot;sale_campaign_id&quot;: 2,
-                    &quot;product_id&quot;: 6,
-                    &quot;original_price&quot;: &quot;1562024.00&quot;,
-                    &quot;sale_price&quot;: &quot;905973.92&quot;,
-                    &quot;discount_percentage&quot;: &quot;42.00&quot;,
-                    &quot;discount_amount&quot;: &quot;656050.08&quot;,
-                    &quot;discount_type&quot;: &quot;percentage&quot;,
-                    &quot;start_date&quot;: null,
-                    &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 10,
-                    &quot;sold_quantity&quot;: 1,
-                    &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;product&quot;: {
-                        &quot;id&quot;: 6,
-                        &quot;category_id&quot;: 3,
-                        &quot;brand_id&quot;: 10,
-                        &quot;name&quot;: &quot;Balo Gaming RGB aperiam&quot;,
-                        &quot;description&quot;: &quot;Debitis natus dolorum et. Optio sed sunt error culpa voluptas. Eos occaecati consectetur ipsum molestiae ut occaecati tempora. Autem quae veniam qui fuga.&quot;,
-                        &quot;price&quot;: &quot;1562024.00&quot;,
-                        &quot;quantity&quot;: 72,
-                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/007744?text=fashion+rerum&quot;,
-                        &quot;slug&quot;: &quot;balo-gaming-rgb-aperiam-7459&quot;,
-                        &quot;color&quot;: &quot;Cam&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;category&quot;: {
-                            &quot;id&quot;: 3,
-                            &quot;name&quot;: &quot;Balo Laptop&quot;,
-                            &quot;description&quot;: &quot;Balo chuy&ecirc;n dụng để đựng laptop v&agrave; c&aacute;c thiết bị c&ocirc;ng nghệ với lớp đệm bảo vệ&quot;,
-                            &quot;slug&quot;: &quot;balo-laptop&quot;,
-                            &quot;image&quot;: &quot;categories/balo-laptop.jpg&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                        },
-                        &quot;brand&quot;: {
-                            &quot;id&quot;: 10,
-                            &quot;name&quot;: &quot;Bechtelar Ltd&quot;,
-                            &quot;description&quot;: &quot;Aut repudiandae dignissimos ut omnis. Sunt sint repellendus neque corporis eum velit ipsa.&quot;,
-                            &quot;slug&quot;: &quot;bechtelar-ltd&quot;,
-                            &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/009977?text=business+labore&quot;,
-                            &quot;status&quot;: &quot;inactive&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                        }
-                    }
-                },
-                {
-                    &quot;id&quot;: 14,
-                    &quot;sale_campaign_id&quot;: 2,
-                    &quot;product_id&quot;: 10,
-                    &quot;original_price&quot;: &quot;1683107.00&quot;,
-                    &quot;sale_price&quot;: &quot;1144512.76&quot;,
-                    &quot;discount_percentage&quot;: &quot;32.00&quot;,
-                    &quot;discount_amount&quot;: &quot;538594.24&quot;,
-                    &quot;discount_type&quot;: &quot;percentage&quot;,
-                    &quot;start_date&quot;: null,
-                    &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 31,
-                    &quot;sold_quantity&quot;: 1,
-                    &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;product&quot;: {
-                        &quot;id&quot;: 10,
-                        &quot;category_id&quot;: 1,
-                        &quot;brand_id&quot;: 4,
-                        &quot;name&quot;: &quot;Balo Mini Cute ducimus&quot;,
-                        &quot;description&quot;: &quot;Quisquam eius consequatur facere deleniti. Voluptatem laboriosam aliquid esse ullam. Sed natus saepe sit modi molestias. Ipsum rem voluptatem incidunt et consequatur.&quot;,
-                        &quot;price&quot;: &quot;1683107.00&quot;,
-                        &quot;quantity&quot;: 28,
-                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00cc66?text=fashion+odio&quot;,
-                        &quot;slug&quot;: &quot;balo-mini-cute-ducimus-4436&quot;,
-                        &quot;color&quot;: &quot;Hồng&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;category&quot;: {
-                            &quot;id&quot;: 1,
-                            &quot;name&quot;: &quot;Balo Học Sinh&quot;,
-                            &quot;description&quot;: &quot;C&aacute;c loại balo d&agrave;nh cho học sinh, sinh vi&ecirc;n với thiết kế trẻ trung v&agrave; tiện dụng&quot;,
-                            &quot;slug&quot;: &quot;balo-hoc-sinh&quot;,
-                            &quot;image&quot;: &quot;categories/balo-hoc-sinh.jpg&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                        },
-                        &quot;brand&quot;: {
-                            &quot;id&quot;: 4,
-                            &quot;name&quot;: &quot;JanSport&quot;,
-                            &quot;description&quot;: &quot;JanSport chuy&ecirc;n sản xuất balo học sinh v&agrave; du lịch với thiết kế trẻ trung, năng động.&quot;,
-                            &quot;slug&quot;: &quot;jansport&quot;,
-                            &quot;logo&quot;: &quot;brands/jansport-logo.png&quot;,
-                            &quot;status&quot;: &quot;active&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                        }
-                    }
-                },
-                {
-                    &quot;id&quot;: 15,
-                    &quot;sale_campaign_id&quot;: 2,
-                    &quot;product_id&quot;: 13,
-                    &quot;original_price&quot;: &quot;1328286.00&quot;,
-                    &quot;sale_price&quot;: &quot;770405.88&quot;,
-                    &quot;discount_percentage&quot;: &quot;42.00&quot;,
-                    &quot;discount_amount&quot;: &quot;557880.12&quot;,
-                    &quot;discount_type&quot;: &quot;percentage&quot;,
-                    &quot;start_date&quot;: null,
-                    &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 20,
-                    &quot;sold_quantity&quot;: 5,
-                    &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;product&quot;: {
-                        &quot;id&quot;: 13,
-                        &quot;category_id&quot;: 1,
-                        &quot;brand_id&quot;: 3,
-                        &quot;name&quot;: &quot;Balo Nike Sportswear ut&quot;,
-                        &quot;description&quot;: &quot;Impedit ut totam consequatur dolorem voluptatem ipsam. Qui deleniti pariatur a accusantium ea dolor ut. Eos sed delectus laudantium recusandae incidunt beatae omnis.&quot;,
-                        &quot;price&quot;: &quot;1328286.00&quot;,
-                        &quot;quantity&quot;: 25,
-                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0077aa?text=fashion+quia&quot;,
-                        &quot;slug&quot;: &quot;balo-nike-sportswear-ut-6782&quot;,
-                        &quot;color&quot;: &quot;Đen&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;category&quot;: {
-                            &quot;id&quot;: 1,
-                            &quot;name&quot;: &quot;Balo Học Sinh&quot;,
-                            &quot;description&quot;: &quot;C&aacute;c loại balo d&agrave;nh cho học sinh, sinh vi&ecirc;n với thiết kế trẻ trung v&agrave; tiện dụng&quot;,
-                            &quot;slug&quot;: &quot;balo-hoc-sinh&quot;,
-                            &quot;image&quot;: &quot;categories/balo-hoc-sinh.jpg&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                        },
-                        &quot;brand&quot;: {
-                            &quot;id&quot;: 3,
-                            &quot;name&quot;: &quot;Samsonite&quot;,
-                            &quot;description&quot;: &quot;Samsonite l&agrave; thương hiệu h&agrave;ng đầu thế giới về h&agrave;nh l&yacute; v&agrave; balo du lịch cao cấp.&quot;,
-                            &quot;slug&quot;: &quot;samsonite&quot;,
-                            &quot;logo&quot;: &quot;brands/samsonite-logo.png&quot;,
-                            &quot;status&quot;: &quot;active&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-                        }
-                    }
-                },
-                {
-                    &quot;id&quot;: 16,
-                    &quot;sale_campaign_id&quot;: 2,
-                    &quot;product_id&quot;: 15,
-                    &quot;original_price&quot;: &quot;935683.00&quot;,
-                    &quot;sale_price&quot;: &quot;598837.12&quot;,
-                    &quot;discount_percentage&quot;: &quot;36.00&quot;,
-                    &quot;discount_amount&quot;: &quot;336845.88&quot;,
-                    &quot;discount_type&quot;: &quot;percentage&quot;,
-                    &quot;start_date&quot;: null,
-                    &quot;end_date&quot;: null,
-                    &quot;max_quantity&quot;: 33,
+                    &quot;max_quantity&quot;: 42,
                     &quot;sold_quantity&quot;: 0,
                     &quot;is_active&quot;: true,
-                    &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                    &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
                     &quot;product&quot;: {
-                        &quot;id&quot;: 15,
-                        &quot;category_id&quot;: 3,
-                        &quot;brand_id&quot;: 5,
-                        &quot;name&quot;: &quot;Balo Nike Sportswear rerum&quot;,
-                        &quot;description&quot;: &quot;Doloremque aut laborum velit est suscipit aut. Magnam possimus fugiat magni saepe eaque ut et. Saepe rem enim totam sed quia omnis ex.&quot;,
-                        &quot;price&quot;: &quot;935683.00&quot;,
-                        &quot;quantity&quot;: 47,
-                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00aa00?text=fashion+sed&quot;,
-                        &quot;slug&quot;: &quot;balo-nike-sportswear-rerum-3524&quot;,
-                        &quot;color&quot;: &quot;Hồng&quot;,
-                        &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-                        &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
+                        &quot;id&quot;: 9,
+                        &quot;category_id&quot;: 2,
+                        &quot;brand_id&quot;: 7,
+                        &quot;name&quot;: &quot;Balo Học Sinh JanSport fugiat&quot;,
+                        &quot;description&quot;: &quot;Quo aut veniam iusto molestiae. Aut dolor ipsa delectus unde voluptatibus. Libero officia magnam id eveniet. Est rerum dolores magnam reiciendis quos voluptatibus. Eum soluta facilis aut ratione tempore.&quot;,
+                        &quot;price&quot;: &quot;1547100.00&quot;,
+                        &quot;quantity&quot;: 38,
+                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/006699?text=fashion+repellendus&quot;,
+                        &quot;slug&quot;: &quot;balo-hoc-sinh-jansport-fugiat-9624&quot;,
+                        &quot;color&quot;: &quot;Đỏ&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
                         &quot;category&quot;: {
-                            &quot;id&quot;: 3,
-                            &quot;name&quot;: &quot;Balo Laptop&quot;,
-                            &quot;description&quot;: &quot;Balo chuy&ecirc;n dụng để đựng laptop v&agrave; c&aacute;c thiết bị c&ocirc;ng nghệ với lớp đệm bảo vệ&quot;,
-                            &quot;slug&quot;: &quot;balo-laptop&quot;,
-                            &quot;image&quot;: &quot;categories/balo-laptop.jpg&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                            &quot;id&quot;: 2,
+                            &quot;name&quot;: &quot;Balo Du Lịch&quot;,
+                            &quot;description&quot;: &quot;Balo d&agrave;nh cho c&aacute;c chuyến du lịch, trekking với dung t&iacute;ch lớn v&agrave; nhiều ngăn tiện &iacute;ch&quot;,
+                            &quot;slug&quot;: &quot;balo-du-lich&quot;,
+                            &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/balo-du-lich.jpg&quot;,
+                            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                         },
                         &quot;brand&quot;: {
+                            &quot;id&quot;: 7,
+                            &quot;name&quot;: &quot;Stiedemann and Sons&quot;,
+                            &quot;description&quot;: &quot;Velit enim et tempore. Nostrum itaque praesentium nisi voluptatum iure sint voluptas est. Et esse architecto id amet amet.&quot;,
+                            &quot;slug&quot;: &quot;stiedemann-and-sons&quot;,
+                            &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/005566?text=business+eum&quot;,
+                            &quot;status&quot;: &quot;inactive&quot;,
+                            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+                        }
+                    }
+                },
+                {
+                    &quot;id&quot;: 8,
+                    &quot;sale_campaign_id&quot;: 2,
+                    &quot;product_id&quot;: 10,
+                    &quot;original_price&quot;: &quot;856922.00&quot;,
+                    &quot;sale_price&quot;: &quot;565568.52&quot;,
+                    &quot;discount_percentage&quot;: &quot;34.00&quot;,
+                    &quot;discount_amount&quot;: &quot;291353.48&quot;,
+                    &quot;discount_type&quot;: &quot;percentage&quot;,
+                    &quot;start_date&quot;: null,
+                    &quot;end_date&quot;: null,
+                    &quot;max_quantity&quot;: 25,
+                    &quot;sold_quantity&quot;: 2,
+                    &quot;is_active&quot;: true,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;product&quot;: {
+                        &quot;id&quot;: 10,
+                        &quot;category_id&quot;: 5,
+                        &quot;brand_id&quot;: 2,
+                        &quot;name&quot;: &quot;Balo Du Lịch Samsonite et&quot;,
+                        &quot;description&quot;: &quot;Dicta ut incidunt voluptas animi perspiciatis aut. Qui reprehenderit laborum provident consequatur. Totam veniam excepturi reiciendis aut.&quot;,
+                        &quot;price&quot;: &quot;856922.00&quot;,
+                        &quot;quantity&quot;: 80,
+                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/001155?text=fashion+incidunt&quot;,
+                        &quot;slug&quot;: &quot;balo-du-lich-samsonite-et-7894&quot;,
+                        &quot;color&quot;: &quot;Đen&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                        &quot;category&quot;: {
                             &quot;id&quot;: 5,
-                            &quot;name&quot;: &quot;The North Face&quot;,
-                            &quot;description&quot;: &quot;The North Face l&agrave; thương hiệu outdoor nổi tiếng với c&aacute;c sản phẩm balo trekking v&agrave; leo n&uacute;i.&quot;,
-                            &quot;slug&quot;: &quot;the-north-face&quot;,
-                            &quot;logo&quot;: &quot;brands/tnf-logo.png&quot;,
+                            &quot;name&quot;: &quot;T&uacute;i X&aacute;ch&quot;,
+                            &quot;description&quot;: &quot;C&aacute;c loại t&uacute;i x&aacute;ch thời trang cho nam v&agrave; nữ&quot;,
+                            &quot;slug&quot;: &quot;tui-xach&quot;,
+                            &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/tui-xach.jpg&quot;,
+                            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+                        },
+                        &quot;brand&quot;: {
+                            &quot;id&quot;: 2,
+                            &quot;name&quot;: &quot;Adidas&quot;,
+                            &quot;description&quot;: &quot;Adidas l&agrave; thương hiệu thể thao nổi tiếng với thiết kế năng động v&agrave; chất lượng vượt trội.&quot;,
+                            &quot;slug&quot;: &quot;adidas&quot;,
+                            &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/adidas-logo.png&quot;,
                             &quot;status&quot;: &quot;active&quot;,
-                            &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                            &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+                        }
+                    }
+                },
+                {
+                    &quot;id&quot;: 9,
+                    &quot;sale_campaign_id&quot;: 2,
+                    &quot;product_id&quot;: 13,
+                    &quot;original_price&quot;: &quot;321501.00&quot;,
+                    &quot;sale_price&quot;: &quot;221835.69&quot;,
+                    &quot;discount_percentage&quot;: &quot;31.00&quot;,
+                    &quot;discount_amount&quot;: &quot;99665.31&quot;,
+                    &quot;discount_type&quot;: &quot;percentage&quot;,
+                    &quot;start_date&quot;: null,
+                    &quot;end_date&quot;: null,
+                    &quot;max_quantity&quot;: 37,
+                    &quot;sold_quantity&quot;: 5,
+                    &quot;is_active&quot;: true,
+                    &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                    &quot;product&quot;: {
+                        &quot;id&quot;: 13,
+                        &quot;category_id&quot;: 6,
+                        &quot;brand_id&quot;: 13,
+                        &quot;name&quot;: &quot;Balo Thể Thao Nike Air soluta&quot;,
+                        &quot;description&quot;: &quot;Beatae totam voluptas et enim rerum unde. Quos id esse voluptas voluptatum iste veniam veritatis. Non itaque est numquam saepe ratione est aut. Accusamus est tempora eligendi omnis quis facilis consequatur. Explicabo aut quasi dignissimos adipisci rerum eum perspiciatis vel. Officia quia nam nam quae doloribus.&quot;,
+                        &quot;price&quot;: &quot;321501.00&quot;,
+                        &quot;quantity&quot;: 44,
+                        &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00bbcc?text=fashion+ratione&quot;,
+                        &quot;slug&quot;: &quot;balo-the-thao-nike-air-soluta-1843&quot;,
+                        &quot;color&quot;: &quot;Hồng&quot;,
+                        &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                        &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+                        &quot;category&quot;: {
+                            &quot;id&quot;: 6,
+                            &quot;name&quot;: &quot;Balo Mini&quot;,
+                            &quot;description&quot;: &quot;Balo nhỏ gọn d&agrave;nh cho việc đi chơi, dạo phố&quot;,
+                            &quot;slug&quot;: &quot;balo-mini&quot;,
+                            &quot;image&quot;: &quot;categories/balo-mini.jpg&quot;,
+                            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+                        },
+                        &quot;brand&quot;: {
+                            &quot;id&quot;: 13,
+                            &quot;name&quot;: &quot;Hintz-Pfannerstill&quot;,
+                            &quot;description&quot;: &quot;Voluptatum a delectus voluptatem inventore qui eveniet. In sapiente quo nemo incidunt enim. Maiores et sit id ipsum reprehenderit modi iusto. Et fugiat excepturi tenetur molestiae et similique et beatae.&quot;,
+                            &quot;slug&quot;: &quot;hintz-pfannerstill&quot;,
+                            &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00ff22?text=business+sit&quot;,
+                            &quot;status&quot;: &quot;active&quot;,
+                            &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                            &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
                         }
                     }
                 }
@@ -17245,14 +16281,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/sale-campaigns/1/products" \
+    --get "http://localhost:8000/api/sale-campaigns/1/products" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/sale-campaigns/1/products"
+    "http://localhost:8000/api/sale-campaigns/1/products"
 );
 
 const headers = {
@@ -17284,402 +16320,206 @@ access-control-allow-origin: *
     &quot;current_page&quot;: 1,
     &quot;data&quot;: [
         {
-            &quot;id&quot;: 6,
-            &quot;category_id&quot;: 3,
-            &quot;brand_id&quot;: 10,
-            &quot;name&quot;: &quot;Balo Gaming RGB aperiam&quot;,
-            &quot;description&quot;: &quot;Debitis natus dolorum et. Optio sed sunt error culpa voluptas. Eos occaecati consectetur ipsum molestiae ut occaecati tempora. Autem quae veniam qui fuga.&quot;,
-            &quot;price&quot;: &quot;1562024.00&quot;,
-            &quot;quantity&quot;: 72,
-            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/007744?text=fashion+rerum&quot;,
-            &quot;slug&quot;: &quot;balo-gaming-rgb-aperiam-7459&quot;,
-            &quot;color&quot;: &quot;Cam&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-            &quot;category&quot;: {
-                &quot;id&quot;: 3,
-                &quot;name&quot;: &quot;Balo Laptop&quot;,
-                &quot;description&quot;: &quot;Balo chuy&ecirc;n dụng để đựng laptop v&agrave; c&aacute;c thiết bị c&ocirc;ng nghệ với lớp đệm bảo vệ&quot;,
-                &quot;slug&quot;: &quot;balo-laptop&quot;,
-                &quot;image&quot;: &quot;categories/balo-laptop.jpg&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            },
-            &quot;brand&quot;: {
-                &quot;id&quot;: 10,
-                &quot;name&quot;: &quot;Bechtelar Ltd&quot;,
-                &quot;description&quot;: &quot;Aut repudiandae dignissimos ut omnis. Sunt sint repellendus neque corporis eum velit ipsa.&quot;,
-                &quot;slug&quot;: &quot;bechtelar-ltd&quot;,
-                &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/009977?text=business+labore&quot;,
-                &quot;status&quot;: &quot;inactive&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            },
-            &quot;pivot&quot;: {
-                &quot;sale_campaign_id&quot;: 1,
-                &quot;product_id&quot;: 6,
-                &quot;original_price&quot;: &quot;1562024.00&quot;,
-                &quot;sale_price&quot;: &quot;531088.16&quot;,
-                &quot;discount_percentage&quot;: &quot;66.00&quot;,
-                &quot;discount_amount&quot;: &quot;1030935.84&quot;,
-                &quot;discount_type&quot;: &quot;percentage&quot;,
-                &quot;start_date&quot;: null,
-                &quot;end_date&quot;: null,
-                &quot;max_quantity&quot;: 40,
-                &quot;sold_quantity&quot;: 4,
-                &quot;is_active&quot;: 1,
-                &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 12,
-            &quot;category_id&quot;: 1,
-            &quot;brand_id&quot;: 8,
-            &quot;name&quot;: &quot;Balo Gaming RGB omnis&quot;,
-            &quot;description&quot;: &quot;Accusamus commodi iure sed sapiente repellendus fugiat. Voluptas veritatis dignissimos in sint ipsum. Explicabo iste aut consequatur aut incidunt non minus assumenda. Non quos eos consequatur iste molestiae labore delectus. Cum dignissimos vel enim. Sed dolore aut quia.&quot;,
-            &quot;price&quot;: &quot;1655267.00&quot;,
-            &quot;quantity&quot;: 0,
-            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0077ff?text=fashion+tempora&quot;,
-            &quot;slug&quot;: &quot;balo-gaming-rgb-omnis-6960&quot;,
-            &quot;color&quot;: &quot;Cam&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-            &quot;category&quot;: {
-                &quot;id&quot;: 1,
-                &quot;name&quot;: &quot;Balo Học Sinh&quot;,
-                &quot;description&quot;: &quot;C&aacute;c loại balo d&agrave;nh cho học sinh, sinh vi&ecirc;n với thiết kế trẻ trung v&agrave; tiện dụng&quot;,
-                &quot;slug&quot;: &quot;balo-hoc-sinh&quot;,
-                &quot;image&quot;: &quot;categories/balo-hoc-sinh.jpg&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            },
-            &quot;brand&quot;: {
-                &quot;id&quot;: 8,
-                &quot;name&quot;: &quot;Roob, Stehr and Considine&quot;,
-                &quot;description&quot;: &quot;Deserunt sunt neque aut explicabo quis atque ex iure. Eligendi ducimus cum atque. Aspernatur reiciendis neque esse necessitatibus.&quot;,
-                &quot;slug&quot;: &quot;roob-stehr-and-considine&quot;,
-                &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/0088ee?text=business+autem&quot;,
-                &quot;status&quot;: &quot;active&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            },
-            &quot;pivot&quot;: {
-                &quot;sale_campaign_id&quot;: 1,
-                &quot;product_id&quot;: 12,
-                &quot;original_price&quot;: &quot;1655267.00&quot;,
-                &quot;sale_price&quot;: &quot;761422.82&quot;,
-                &quot;discount_percentage&quot;: &quot;54.00&quot;,
-                &quot;discount_amount&quot;: &quot;893844.18&quot;,
-                &quot;discount_type&quot;: &quot;percentage&quot;,
-                &quot;start_date&quot;: null,
-                &quot;end_date&quot;: null,
-                &quot;max_quantity&quot;: 19,
-                &quot;sold_quantity&quot;: 3,
-                &quot;is_active&quot;: 1,
-                &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 9,
+            &quot;id&quot;: 10,
             &quot;category_id&quot;: 5,
-            &quot;brand_id&quot;: 1,
-            &quot;name&quot;: &quot;Balo Gaming RGB rerum&quot;,
-            &quot;description&quot;: &quot;Facilis dolor commodi dolores itaque consequuntur modi. Laborum reiciendis est libero facere sint neque. Est eius sed autem quod est in eum. Aut et temporibus velit hic error officiis explicabo.&quot;,
-            &quot;price&quot;: &quot;1608008.00&quot;,
-            &quot;quantity&quot;: 18,
-            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/001144?text=fashion+sed&quot;,
-            &quot;slug&quot;: &quot;balo-gaming-rgb-rerum-5919&quot;,
-            &quot;color&quot;: &quot;Xanh&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
+            &quot;brand_id&quot;: 2,
+            &quot;name&quot;: &quot;Balo Du Lịch Samsonite et&quot;,
+            &quot;description&quot;: &quot;Dicta ut incidunt voluptas animi perspiciatis aut. Qui reprehenderit laborum provident consequatur. Totam veniam excepturi reiciendis aut.&quot;,
+            &quot;price&quot;: &quot;856922.00&quot;,
+            &quot;quantity&quot;: 80,
+            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/001155?text=fashion+incidunt&quot;,
+            &quot;slug&quot;: &quot;balo-du-lich-samsonite-et-7894&quot;,
+            &quot;color&quot;: &quot;Đen&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
             &quot;category&quot;: {
                 &quot;id&quot;: 5,
                 &quot;name&quot;: &quot;T&uacute;i X&aacute;ch&quot;,
                 &quot;description&quot;: &quot;C&aacute;c loại t&uacute;i x&aacute;ch thời trang cho nam v&agrave; nữ&quot;,
                 &quot;slug&quot;: &quot;tui-xach&quot;,
-                &quot;image&quot;: &quot;categories/tui-xach.jpg&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/tui-xach.jpg&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+            },
+            &quot;brand&quot;: {
+                &quot;id&quot;: 2,
+                &quot;name&quot;: &quot;Adidas&quot;,
+                &quot;description&quot;: &quot;Adidas l&agrave; thương hiệu thể thao nổi tiếng với thiết kế năng động v&agrave; chất lượng vượt trội.&quot;,
+                &quot;slug&quot;: &quot;adidas&quot;,
+                &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/adidas-logo.png&quot;,
+                &quot;status&quot;: &quot;active&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+            },
+            &quot;pivot&quot;: {
+                &quot;sale_campaign_id&quot;: 1,
+                &quot;product_id&quot;: 10,
+                &quot;original_price&quot;: &quot;856922.00&quot;,
+                &quot;sale_price&quot;: &quot;505583.98&quot;,
+                &quot;discount_percentage&quot;: &quot;41.00&quot;,
+                &quot;discount_amount&quot;: &quot;351338.02&quot;,
+                &quot;discount_type&quot;: &quot;percentage&quot;,
+                &quot;start_date&quot;: null,
+                &quot;end_date&quot;: null,
+                &quot;max_quantity&quot;: 45,
+                &quot;sold_quantity&quot;: 1,
+                &quot;is_active&quot;: 1,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 14,
+            &quot;category_id&quot;: 2,
+            &quot;brand_id&quot;: 1,
+            &quot;name&quot;: &quot;Balo Du Lịch Samsonite rerum&quot;,
+            &quot;description&quot;: &quot;Unde qui unde deserunt non nostrum quia. Maxime rerum numquam repellat dolor doloremque odio et. Aliquid est qui sint aperiam. Aliquid aut perspiciatis non earum iste in asperiores sit. Sit quasi laboriosam ipsa excepturi sit nemo at.&quot;,
+            &quot;price&quot;: &quot;206616.00&quot;,
+            &quot;quantity&quot;: 53,
+            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/001177?text=fashion+voluptate&quot;,
+            &quot;slug&quot;: &quot;balo-du-lich-samsonite-rerum-5582&quot;,
+            &quot;color&quot;: &quot;Đỏ&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;category&quot;: {
+                &quot;id&quot;: 2,
+                &quot;name&quot;: &quot;Balo Du Lịch&quot;,
+                &quot;description&quot;: &quot;Balo d&agrave;nh cho c&aacute;c chuyến du lịch, trekking với dung t&iacute;ch lớn v&agrave; nhiều ngăn tiện &iacute;ch&quot;,
+                &quot;slug&quot;: &quot;balo-du-lich&quot;,
+                &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/balo-du-lich.jpg&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
             },
             &quot;brand&quot;: {
                 &quot;id&quot;: 1,
                 &quot;name&quot;: &quot;Nike&quot;,
                 &quot;description&quot;: &quot;Nike l&agrave; thương hiệu thể thao h&agrave;ng đầu thế giới, nổi tiếng với c&aacute;c sản phẩm balo v&agrave; t&uacute;i thể thao chất lượng cao.&quot;,
                 &quot;slug&quot;: &quot;nike&quot;,
-                &quot;logo&quot;: &quot;brands/nike-logo.png&quot;,
+                &quot;logo&quot;: &quot;https://placehold.co/600x400?text=brands/nike-logo.png&quot;,
                 &quot;status&quot;: &quot;active&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
             },
             &quot;pivot&quot;: {
                 &quot;sale_campaign_id&quot;: 1,
-                &quot;product_id&quot;: 9,
-                &quot;original_price&quot;: &quot;1608008.00&quot;,
-                &quot;sale_price&quot;: &quot;498482.48&quot;,
-                &quot;discount_percentage&quot;: &quot;69.00&quot;,
-                &quot;discount_amount&quot;: &quot;1109525.52&quot;,
-                &quot;discount_type&quot;: &quot;percentage&quot;,
-                &quot;start_date&quot;: null,
-                &quot;end_date&quot;: null,
-                &quot;max_quantity&quot;: 28,
-                &quot;sold_quantity&quot;: 2,
-                &quot;is_active&quot;: 1,
-                &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 8,
-            &quot;category_id&quot;: 3,
-            &quot;brand_id&quot;: 14,
-            &quot;name&quot;: &quot;Balo Học Sinh JanSport est&quot;,
-            &quot;description&quot;: &quot;Sed non nobis sapiente non sapiente et. Quasi consequuntur enim dolor. Quo est voluptas explicabo possimus quasi odit. Est eaque molestias quo natus. Quas omnis recusandae repellendus doloremque eveniet laudantium et quasi.&quot;,
-            &quot;price&quot;: &quot;370894.00&quot;,
-            &quot;quantity&quot;: 30,
-            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0011aa?text=fashion+magni&quot;,
-            &quot;slug&quot;: &quot;balo-hoc-sinh-jansport-est-1299&quot;,
-            &quot;color&quot;: &quot;N&acirc;u&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-            &quot;category&quot;: {
-                &quot;id&quot;: 3,
-                &quot;name&quot;: &quot;Balo Laptop&quot;,
-                &quot;description&quot;: &quot;Balo chuy&ecirc;n dụng để đựng laptop v&agrave; c&aacute;c thiết bị c&ocirc;ng nghệ với lớp đệm bảo vệ&quot;,
-                &quot;slug&quot;: &quot;balo-laptop&quot;,
-                &quot;image&quot;: &quot;categories/balo-laptop.jpg&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            },
-            &quot;brand&quot;: {
-                &quot;id&quot;: 14,
-                &quot;name&quot;: &quot;Davis-Klein&quot;,
-                &quot;description&quot;: &quot;Ipsum aspernatur consequatur velit rerum. Sunt debitis explicabo consequatur laboriosam. Et consequatur eius tempore occaecati corporis sint.&quot;,
-                &quot;slug&quot;: &quot;davis-klein&quot;,
-                &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00aa99?text=business+sunt&quot;,
-                &quot;status&quot;: &quot;active&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            },
-            &quot;pivot&quot;: {
-                &quot;sale_campaign_id&quot;: 1,
-                &quot;product_id&quot;: 8,
-                &quot;original_price&quot;: &quot;370894.00&quot;,
-                &quot;sale_price&quot;: &quot;207700.64&quot;,
+                &quot;product_id&quot;: 14,
+                &quot;original_price&quot;: &quot;206616.00&quot;,
+                &quot;sale_price&quot;: &quot;115704.96&quot;,
                 &quot;discount_percentage&quot;: &quot;44.00&quot;,
-                &quot;discount_amount&quot;: &quot;163193.36&quot;,
+                &quot;discount_amount&quot;: &quot;90911.04&quot;,
                 &quot;discount_type&quot;: &quot;percentage&quot;,
                 &quot;start_date&quot;: null,
                 &quot;end_date&quot;: null,
-                &quot;max_quantity&quot;: 36,
-                &quot;sold_quantity&quot;: 5,
-                &quot;is_active&quot;: 1,
-                &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 10,
-            &quot;category_id&quot;: 1,
-            &quot;brand_id&quot;: 4,
-            &quot;name&quot;: &quot;Balo Mini Cute ducimus&quot;,
-            &quot;description&quot;: &quot;Quisquam eius consequatur facere deleniti. Voluptatem laboriosam aliquid esse ullam. Sed natus saepe sit modi molestias. Ipsum rem voluptatem incidunt et consequatur.&quot;,
-            &quot;price&quot;: &quot;1683107.00&quot;,
-            &quot;quantity&quot;: 28,
-            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00cc66?text=fashion+odio&quot;,
-            &quot;slug&quot;: &quot;balo-mini-cute-ducimus-4436&quot;,
-            &quot;color&quot;: &quot;Hồng&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-            &quot;category&quot;: {
-                &quot;id&quot;: 1,
-                &quot;name&quot;: &quot;Balo Học Sinh&quot;,
-                &quot;description&quot;: &quot;C&aacute;c loại balo d&agrave;nh cho học sinh, sinh vi&ecirc;n với thiết kế trẻ trung v&agrave; tiện dụng&quot;,
-                &quot;slug&quot;: &quot;balo-hoc-sinh&quot;,
-                &quot;image&quot;: &quot;categories/balo-hoc-sinh.jpg&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            },
-            &quot;brand&quot;: {
-                &quot;id&quot;: 4,
-                &quot;name&quot;: &quot;JanSport&quot;,
-                &quot;description&quot;: &quot;JanSport chuy&ecirc;n sản xuất balo học sinh v&agrave; du lịch với thiết kế trẻ trung, năng động.&quot;,
-                &quot;slug&quot;: &quot;jansport&quot;,
-                &quot;logo&quot;: &quot;brands/jansport-logo.png&quot;,
-                &quot;status&quot;: &quot;active&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            },
-            &quot;pivot&quot;: {
-                &quot;sale_campaign_id&quot;: 1,
-                &quot;product_id&quot;: 10,
-                &quot;original_price&quot;: &quot;1683107.00&quot;,
-                &quot;sale_price&quot;: &quot;757398.15&quot;,
-                &quot;discount_percentage&quot;: &quot;55.00&quot;,
-                &quot;discount_amount&quot;: &quot;925708.85&quot;,
-                &quot;discount_type&quot;: &quot;percentage&quot;,
-                &quot;start_date&quot;: null,
-                &quot;end_date&quot;: null,
-                &quot;max_quantity&quot;: 40,
+                &quot;max_quantity&quot;: 29,
                 &quot;sold_quantity&quot;: 2,
                 &quot;is_active&quot;: 1,
-                &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
             }
         },
         {
-            &quot;id&quot;: 13,
-            &quot;category_id&quot;: 1,
-            &quot;brand_id&quot;: 3,
-            &quot;name&quot;: &quot;Balo Nike Sportswear ut&quot;,
-            &quot;description&quot;: &quot;Impedit ut totam consequatur dolorem voluptatem ipsam. Qui deleniti pariatur a accusantium ea dolor ut. Eos sed delectus laudantium recusandae incidunt beatae omnis.&quot;,
-            &quot;price&quot;: &quot;1328286.00&quot;,
-            &quot;quantity&quot;: 25,
-            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0077aa?text=fashion+quia&quot;,
-            &quot;slug&quot;: &quot;balo-nike-sportswear-ut-6782&quot;,
-            &quot;color&quot;: &quot;Đen&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-            &quot;category&quot;: {
-                &quot;id&quot;: 1,
-                &quot;name&quot;: &quot;Balo Học Sinh&quot;,
-                &quot;description&quot;: &quot;C&aacute;c loại balo d&agrave;nh cho học sinh, sinh vi&ecirc;n với thiết kế trẻ trung v&agrave; tiện dụng&quot;,
-                &quot;slug&quot;: &quot;balo-hoc-sinh&quot;,
-                &quot;image&quot;: &quot;categories/balo-hoc-sinh.jpg&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            },
-            &quot;brand&quot;: {
-                &quot;id&quot;: 3,
-                &quot;name&quot;: &quot;Samsonite&quot;,
-                &quot;description&quot;: &quot;Samsonite l&agrave; thương hiệu h&agrave;ng đầu thế giới về h&agrave;nh l&yacute; v&agrave; balo du lịch cao cấp.&quot;,
-                &quot;slug&quot;: &quot;samsonite&quot;,
-                &quot;logo&quot;: &quot;brands/samsonite-logo.png&quot;,
-                &quot;status&quot;: &quot;active&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            },
-            &quot;pivot&quot;: {
-                &quot;sale_campaign_id&quot;: 1,
-                &quot;product_id&quot;: 13,
-                &quot;original_price&quot;: &quot;1328286.00&quot;,
-                &quot;sale_price&quot;: &quot;637577.28&quot;,
-                &quot;discount_percentage&quot;: &quot;52.00&quot;,
-                &quot;discount_amount&quot;: &quot;690708.72&quot;,
-                &quot;discount_type&quot;: &quot;percentage&quot;,
-                &quot;start_date&quot;: null,
-                &quot;end_date&quot;: null,
-                &quot;max_quantity&quot;: 12,
-                &quot;sold_quantity&quot;: 1,
-                &quot;is_active&quot;: 1,
-                &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 11,
-            &quot;category_id&quot;: 6,
-            &quot;brand_id&quot;: 10,
-            &quot;name&quot;: &quot;Balo Thể Thao Nike Air et&quot;,
-            &quot;description&quot;: &quot;Qui ea enim earum. Deserunt commodi aliquid repellat perspiciatis sit quaerat sunt. Assumenda sit excepturi consectetur aut iure. Repellat aut velit est pariatur dolor facere sapiente. Perspiciatis animi doloribus ducimus a optio qui quisquam.&quot;,
-            &quot;price&quot;: &quot;1992332.00&quot;,
-            &quot;quantity&quot;: 72,
-            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/00cc77?text=fashion+quae&quot;,
-            &quot;slug&quot;: &quot;balo-the-thao-nike-air-et-2618&quot;,
-            &quot;color&quot;: &quot;V&agrave;ng&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-            &quot;category&quot;: {
-                &quot;id&quot;: 6,
-                &quot;name&quot;: &quot;Balo Mini&quot;,
-                &quot;description&quot;: &quot;Balo nhỏ gọn d&agrave;nh cho việc đi chơi, dạo phố&quot;,
-                &quot;slug&quot;: &quot;balo-mini&quot;,
-                &quot;image&quot;: &quot;categories/balo-mini.jpg&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            },
-            &quot;brand&quot;: {
-                &quot;id&quot;: 10,
-                &quot;name&quot;: &quot;Bechtelar Ltd&quot;,
-                &quot;description&quot;: &quot;Aut repudiandae dignissimos ut omnis. Sunt sint repellendus neque corporis eum velit ipsa.&quot;,
-                &quot;slug&quot;: &quot;bechtelar-ltd&quot;,
-                &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/009977?text=business+labore&quot;,
-                &quot;status&quot;: &quot;inactive&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
-            },
-            &quot;pivot&quot;: {
-                &quot;sale_campaign_id&quot;: 1,
-                &quot;product_id&quot;: 11,
-                &quot;original_price&quot;: &quot;1992332.00&quot;,
-                &quot;sale_price&quot;: &quot;1036012.64&quot;,
-                &quot;discount_percentage&quot;: &quot;48.00&quot;,
-                &quot;discount_amount&quot;: &quot;956319.36&quot;,
-                &quot;discount_type&quot;: &quot;percentage&quot;,
-                &quot;start_date&quot;: null,
-                &quot;end_date&quot;: null,
-                &quot;max_quantity&quot;: 44,
-                &quot;sold_quantity&quot;: 2,
-                &quot;is_active&quot;: 1,
-                &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;
-            }
-        },
-        {
-            &quot;id&quot;: 14,
+            &quot;id&quot;: 9,
             &quot;category_id&quot;: 2,
-            &quot;brand_id&quot;: 11,
-            &quot;name&quot;: &quot;T&uacute;i Adidas Classic facilis&quot;,
-            &quot;description&quot;: &quot;Consequatur voluptas et inventore consequatur voluptatem cupiditate laborum. Vero et amet qui qui et reprehenderit. Incidunt ipsa corporis ea. Cupiditate voluptatem sequi impedit dicta. Nulla numquam veniam ut ratione itaque.&quot;,
-            &quot;price&quot;: &quot;1321639.00&quot;,
-            &quot;quantity&quot;: 42,
-            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/005599?text=fashion+et&quot;,
-            &quot;slug&quot;: &quot;tui-adidas-classic-facilis-7403&quot;,
-            &quot;color&quot;: &quot;X&aacute;m&quot;,
-            &quot;created_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2025-06-18T02:22:21.000000Z&quot;,
+            &quot;brand_id&quot;: 7,
+            &quot;name&quot;: &quot;Balo Học Sinh JanSport fugiat&quot;,
+            &quot;description&quot;: &quot;Quo aut veniam iusto molestiae. Aut dolor ipsa delectus unde voluptatibus. Libero officia magnam id eveniet. Est rerum dolores magnam reiciendis quos voluptatibus. Eum soluta facilis aut ratione tempore.&quot;,
+            &quot;price&quot;: &quot;1547100.00&quot;,
+            &quot;quantity&quot;: 38,
+            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/006699?text=fashion+repellendus&quot;,
+            &quot;slug&quot;: &quot;balo-hoc-sinh-jansport-fugiat-9624&quot;,
+            &quot;color&quot;: &quot;Đỏ&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
             &quot;category&quot;: {
                 &quot;id&quot;: 2,
                 &quot;name&quot;: &quot;Balo Du Lịch&quot;,
                 &quot;description&quot;: &quot;Balo d&agrave;nh cho c&aacute;c chuyến du lịch, trekking với dung t&iacute;ch lớn v&agrave; nhiều ngăn tiện &iacute;ch&quot;,
                 &quot;slug&quot;: &quot;balo-du-lich&quot;,
-                &quot;image&quot;: &quot;categories/balo-du-lich.jpg&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/balo-du-lich.jpg&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
             },
             &quot;brand&quot;: {
-                &quot;id&quot;: 11,
-                &quot;name&quot;: &quot;Lockman, Mueller and Hickle&quot;,
-                &quot;description&quot;: &quot;Quia omnis sed sunt amet labore nostrum recusandae. Totam odio eveniet quibusdam. Quaerat adipisci rerum quis repudiandae et dolores.&quot;,
-                &quot;slug&quot;: &quot;lockman-mueller-and-hickle&quot;,
-                &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/0077ee?text=business+reprehenderit&quot;,
-                &quot;status&quot;: &quot;active&quot;,
-                &quot;created_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T02:22:19.000000Z&quot;
+                &quot;id&quot;: 7,
+                &quot;name&quot;: &quot;Stiedemann and Sons&quot;,
+                &quot;description&quot;: &quot;Velit enim et tempore. Nostrum itaque praesentium nisi voluptatum iure sint voluptas est. Et esse architecto id amet amet.&quot;,
+                &quot;slug&quot;: &quot;stiedemann-and-sons&quot;,
+                &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/005566?text=business+eum&quot;,
+                &quot;status&quot;: &quot;inactive&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
             },
             &quot;pivot&quot;: {
                 &quot;sale_campaign_id&quot;: 1,
-                &quot;product_id&quot;: 14,
-                &quot;original_price&quot;: &quot;1321639.00&quot;,
-                &quot;sale_price&quot;: &quot;766550.62&quot;,
-                &quot;discount_percentage&quot;: &quot;42.00&quot;,
-                &quot;discount_amount&quot;: &quot;555088.38&quot;,
+                &quot;product_id&quot;: 9,
+                &quot;original_price&quot;: &quot;1547100.00&quot;,
+                &quot;sale_price&quot;: &quot;928260.00&quot;,
+                &quot;discount_percentage&quot;: &quot;40.00&quot;,
+                &quot;discount_amount&quot;: &quot;618840.00&quot;,
                 &quot;discount_type&quot;: &quot;percentage&quot;,
                 &quot;start_date&quot;: null,
                 &quot;end_date&quot;: null,
-                &quot;max_quantity&quot;: 44,
+                &quot;max_quantity&quot;: 41,
+                &quot;sold_quantity&quot;: 4,
+                &quot;is_active&quot;: 1,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
+            }
+        },
+        {
+            &quot;id&quot;: 8,
+            &quot;category_id&quot;: 5,
+            &quot;brand_id&quot;: 16,
+            &quot;name&quot;: &quot;Balo Leo N&uacute;i The North Face reprehenderit&quot;,
+            &quot;description&quot;: &quot;Quae quia totam aut laudantium. Dolor illum praesentium illum aperiam est in. Error dolor provident ea. Ut accusamus et consequatur ut consectetur.&quot;,
+            &quot;price&quot;: &quot;1549132.00&quot;,
+            &quot;quantity&quot;: 33,
+            &quot;image&quot;: &quot;https://via.placeholder.com/400x400.png/0088bb?text=fashion+architecto&quot;,
+            &quot;slug&quot;: &quot;balo-leo-nui-the-north-face-reprehenderit-9748&quot;,
+            &quot;color&quot;: &quot;Đen&quot;,
+            &quot;created_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2025-06-18T22:14:50.000000Z&quot;,
+            &quot;category&quot;: {
+                &quot;id&quot;: 5,
+                &quot;name&quot;: &quot;T&uacute;i X&aacute;ch&quot;,
+                &quot;description&quot;: &quot;C&aacute;c loại t&uacute;i x&aacute;ch thời trang cho nam v&agrave; nữ&quot;,
+                &quot;slug&quot;: &quot;tui-xach&quot;,
+                &quot;image&quot;: &quot;https://placehold.co/600x400?text=categories/tui-xach.jpg&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+            },
+            &quot;brand&quot;: {
+                &quot;id&quot;: 16,
+                &quot;name&quot;: &quot;Heathcote-DuBuque&quot;,
+                &quot;description&quot;: &quot;Dolor occaecati ullam quidem quas. Qui nesciunt reiciendis temporibus iure ad. Temporibus et qui quo eligendi repellendus veritatis incidunt quae. Perspiciatis maxime ipsum non.&quot;,
+                &quot;slug&quot;: &quot;heathcote-dubuque&quot;,
+                &quot;logo&quot;: &quot;https://via.placeholder.com/200x200.png/00bbee?text=business+perspiciatis&quot;,
+                &quot;status&quot;: &quot;inactive&quot;,
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:48.000000Z&quot;
+            },
+            &quot;pivot&quot;: {
+                &quot;sale_campaign_id&quot;: 1,
+                &quot;product_id&quot;: 8,
+                &quot;original_price&quot;: &quot;1549132.00&quot;,
+                &quot;sale_price&quot;: &quot;913987.88&quot;,
+                &quot;discount_percentage&quot;: &quot;41.00&quot;,
+                &quot;discount_amount&quot;: &quot;635144.12&quot;,
+                &quot;discount_type&quot;: &quot;percentage&quot;,
+                &quot;start_date&quot;: null,
+                &quot;end_date&quot;: null,
+                &quot;max_quantity&quot;: 41,
                 &quot;sold_quantity&quot;: 3,
                 &quot;is_active&quot;: 1,
-                &quot;created_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;,
-                &quot;updated_at&quot;: &quot;2025-06-18T17:17:58.000000Z&quot;
+                &quot;created_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;,
+                &quot;updated_at&quot;: &quot;2025-06-18T22:14:51.000000Z&quot;
             }
         }
     ],
-    &quot;first_page_url&quot;: &quot;http://localhost/api/sale-campaigns/1/products?page=1&quot;,
+    &quot;first_page_url&quot;: &quot;http://localhost:8000/api/sale-campaigns/1/products?page=1&quot;,
     &quot;from&quot;: 1,
     &quot;last_page&quot;: 1,
-    &quot;last_page_url&quot;: &quot;http://localhost/api/sale-campaigns/1/products?page=1&quot;,
+    &quot;last_page_url&quot;: &quot;http://localhost:8000/api/sale-campaigns/1/products?page=1&quot;,
     &quot;links&quot;: [
         {
             &quot;url&quot;: null,
@@ -17687,7 +16527,7 @@ access-control-allow-origin: *
             &quot;active&quot;: false
         },
         {
-            &quot;url&quot;: &quot;http://localhost/api/sale-campaigns/1/products?page=1&quot;,
+            &quot;url&quot;: &quot;http://localhost:8000/api/sale-campaigns/1/products?page=1&quot;,
             &quot;label&quot;: &quot;1&quot;,
             &quot;active&quot;: true
         },
@@ -17698,11 +16538,11 @@ access-control-allow-origin: *
         }
     ],
     &quot;next_page_url&quot;: null,
-    &quot;path&quot;: &quot;http://localhost/api/sale-campaigns/1/products&quot;,
+    &quot;path&quot;: &quot;http://localhost:8000/api/sale-campaigns/1/products&quot;,
     &quot;per_page&quot;: 12,
     &quot;prev_page_url&quot;: null,
-    &quot;to&quot;: 8,
-    &quot;total&quot;: 8
+    &quot;to&quot;: 4,
+    &quot;total&quot;: 4
 }</code>
  </pre>
     </span>
@@ -17802,7 +16642,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/sale-campaigns/1/products" \
+    "http://localhost:8000/api/sale-campaigns/1/products" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
@@ -17810,7 +16650,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
         {
             \"product_id\": \"consequatur\",
             \"sale_price\": 45,
-            \"discount_type\": \"fixed_amount\",
+            \"discount_type\": \"percentage\",
             \"max_quantity\": 56
         }
     ]
@@ -17820,7 +16660,7 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/sale-campaigns/1/products"
+    "http://localhost:8000/api/sale-campaigns/1/products"
 );
 
 const headers = {
@@ -17833,7 +16673,7 @@ let body = {
         {
             "product_id": "consequatur",
             "sale_price": 45,
-            "discount_type": "fixed_amount",
+            "discount_type": "percentage",
             "max_quantity": 56
         }
     ]
@@ -17968,10 +16808,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                               name="products.0.discount_type"                data-endpoint="POSTapi-sale-campaigns--saleCampaign_id--products"
-               value="fixed_amount"
+               value="percentage"
                data-component="body">
     <br>
-<p>Example: <code>fixed_amount</code></p>
+<p>Example: <code>percentage</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>percentage</code></li> <li><code>fixed_amount</code></li></ul>
                     </div>
@@ -18003,14 +16843,14 @@ Must be one of:
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/sale-campaigns/1/products/1" \
+    "http://localhost:8000/api/sale-campaigns/1/products/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/sale-campaigns/1/products/1"
+    "http://localhost:8000/api/sale-campaigns/1/products/1"
 );
 
 const headers = {

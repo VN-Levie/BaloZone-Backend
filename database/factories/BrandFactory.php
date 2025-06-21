@@ -22,7 +22,7 @@ class BrandFactory extends Factory
             'name' => $name,
             'description' => fake()->paragraph(3),
             'slug' => str($name)->slug(),
-            'logo' => fake()->imageUrl(200, 200, 'business'),
+            'logo' => 'https://placehold.co/200x100?text=brands/' . str($name)->slug() . '.jpg',
             'status' => fake()->randomElement(['active', 'inactive']),
         ];
     }
