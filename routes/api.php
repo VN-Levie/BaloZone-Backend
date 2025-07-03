@@ -190,3 +190,10 @@ Route::middleware(['auth:api', 'role:admin,contributor'])->group(function () {
     Route::put('payment-methods/{paymentMethod}', [PaymentMethodController::class, 'update']);
     Route::delete('payment-methods/{paymentMethod}', [PaymentMethodController::class, 'destroy']);
 });
+
+// Test route for 500 error (only in development)
+if (config('app.debug')) {
+    Route::get('test-500-error', function () {
+        throw new \Exception('This is a test 500 error for API exception handling');
+    });
+}
