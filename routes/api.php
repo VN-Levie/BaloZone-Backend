@@ -15,6 +15,7 @@ use App\Http\Controllers\AddressBookController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SaleCampaignController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\PaymentMethodController;
 
 // Public routes
 Route::get('/user', function (Request $request) {
@@ -82,6 +83,11 @@ Route::get('sale-campaigns/{saleCampaign}', [SaleCampaignController::class, 'sho
 Route::get('sale-campaigns-active', [SaleCampaignController::class, 'getActive']);
 Route::get('sale-campaigns-featured', [SaleCampaignController::class, 'getFeatured']);
 Route::get('sale-campaigns/{saleCampaign}/products', [SaleCampaignController::class, 'getProducts']);
+
+// Payment Method routes (public read-only)
+Route::get('payment-methods', [PaymentMethodController::class, 'index']);
+Route::get('payment-methods/{paymentMethod}', [PaymentMethodController::class, 'show']);
+Route::get('payment-methods-active', [PaymentMethodController::class, 'getActive']);
 
 // ===================
 // AUTHENTICATED USER ROUTES
@@ -176,4 +182,9 @@ Route::middleware(['auth:api', 'role:admin,contributor'])->group(function () {
     Route::get('admin/contacts', [ContactController::class, 'adminIndex']);
     Route::put('contacts/{contact}', [ContactController::class, 'update']);
     Route::delete('contacts/{contact}', [ContactController::class, 'destroy']);
+
+    // Payment Method management
+    Route::post('payment-methods', [PaymentMethodController::class, 'store']);
+    Route::put('payment-methods/{paymentMethod}', [PaymentMethodController::class, 'update']);
+    Route::delete('payment-methods/{paymentMethod}', [PaymentMethodController::class, 'destroy']);
 });

@@ -2270,6 +2270,204 @@ Các endpoint để quản lý vai trò và phân quyền cho người dùng. Y�
 
 ---
 
+## 14. Payment Methods - Phương thức thanh toán
+
+Các endpoint để quản lý phương thức thanh toán. Endpoint công khai cho phép frontend lấy danh sách các phương thức thanh toán khả dụng.
+
+<details>
+<summary><strong>Lấy danh sách tất cả phương thức thanh toán</strong></summary>
+
+- **Endpoint:** `GET /api/payment-methods`
+- **Mô tả:** Lấy danh sách tất cả các phương thức thanh toán trong hệ thống.
+- **Output (200 OK):**
+  ```json
+  {
+    "success": true,
+    "data": [
+      {
+        "id": 1,
+        "name": "cash_on_delivery",
+        "display_name": "Thanh toán khi nhận hàng",
+        "status": "active",
+        "created_at": "2025-07-04T12:00:00.000000Z",
+        "updated_at": "2025-07-04T12:00:00.000000Z"
+      },
+      {
+        "id": 2,
+        "name": "bank_transfer",
+        "display_name": "Chuyển khoản ngân hàng",
+        "status": "active",
+        "created_at": "2025-07-04T12:00:00.000000Z",
+        "updated_at": "2025-07-04T12:00:00.000000Z"
+      },
+      {
+        "id": 3,
+        "name": "credit_card",
+        "display_name": "Thẻ tín dụng",
+        "status": "inactive",
+        "created_at": "2025-07-04T12:00:00.000000Z",
+        "updated_at": "2025-07-04T12:00:00.000000Z"
+      }
+    ],
+    "message": "Payment methods retrieved successfully"
+  }
+  ```
+
+</details>
+
+<details>
+<summary><strong>Lấy danh sách phương thức thanh toán đang hoạt động</strong></summary>
+
+- **Endpoint:** `GET /api/payment-methods-active`
+- **Mô tả:** Lấy danh sách các phương thức thanh toán đang hoạt động (status = 'active'). Đây là endpoint quan trọng nhất cho frontend khi hiển thị các lựa chọn thanh toán cho khách hàng.
+- **Output (200 OK):**
+  ```json
+  {
+    "success": true,
+    "data": [
+      {
+        "id": 1,
+        "name": "cash_on_delivery",
+        "display_name": "Thanh toán khi nhận hàng",
+        "status": "active",
+        "created_at": "2025-07-04T12:00:00.000000Z",
+        "updated_at": "2025-07-04T12:00:00.000000Z"
+      },
+      {
+        "id": 2,
+        "name": "bank_transfer",
+        "display_name": "Chuyển khoản ngân hàng",
+        "status": "active",
+        "created_at": "2025-07-04T12:00:00.000000Z",
+        "updated_at": "2025-07-04T12:00:00.000000Z"
+      }
+    ],
+    "message": "Active payment methods retrieved successfully"
+  }
+  ```
+
+</details>
+
+<details>
+<summary><strong>Lấy thông tin chi tiết một phương thức thanh toán</strong></summary>
+
+- **Endpoint:** `GET /api/payment-methods/{id}`
+- **Mô tả:** Lấy thông tin chi tiết của một phương thức thanh toán cụ thể.
+- **Output (200 OK):**
+  ```json
+  {
+    "success": true,
+    "data": {
+      "id": 1,
+      "name": "cash_on_delivery",
+      "display_name": "Thanh toán khi nhận hàng",
+      "status": "active",
+      "created_at": "2025-07-04T12:00:00.000000Z",
+      "updated_at": "2025-07-04T12:00:00.000000Z"
+    },
+    "message": "Payment method retrieved successfully"
+  }
+  ```
+
+</details>
+
+### [Admin/Contributor] Quản lý phương thức thanh toán
+
+Các endpoint sau yêu cầu quyền `Admin` hoặc `Contributor` và cần có `Authorization: Bearer <token>` trong header.
+
+<details>
+<summary><strong>Tạo phương thức thanh toán mới</strong></summary>
+
+- **Endpoint:** `POST /api/payment-methods`
+- **Mô tả:** Tạo một phương thức thanh toán mới.
+- **Input (JSON):**
+  ```json
+  {
+    "name": "e_wallet",
+    "display_name": "Ví điện tử",
+    "status": "active"
+  }
+  ```
+- **Validation:**
+  - `name`: `required|string|max:255|unique:payment_methods`
+  - `display_name`: `required|string|max:255`
+  - `status`: `required|in:active,inactive`
+- **Output (201 Created):**
+  ```json
+  {
+    "success": true,
+    "data": {
+      "id": 4,
+      "name": "e_wallet",
+      "display_name": "Ví điện tử",
+      "status": "active",
+      "created_at": "2025-07-04T12:00:00.000000Z",
+      "updated_at": "2025-07-04T12:00:00.000000Z"
+    },
+    "message": "Payment method created successfully"
+  }
+  ```
+
+</details>
+
+<details>
+<summary><strong>Cập nhật phương thức thanh toán</strong></summary>
+
+- **Endpoint:** `PUT /api/payment-methods/{id}`
+- **Mô tả:** Cập nhật thông tin của một phương thức thanh toán.
+- **Input (JSON):**
+  ```json
+  {
+    "display_name": "Ví điện tử MoMo",
+    "status": "inactive"
+  }
+  ```
+- **Validation:**
+  - `name`: `sometimes|required|string|max:255|unique:payment_methods,name,{id}`
+  - `display_name`: `sometimes|required|string|max:255`
+  - `status`: `sometimes|required|in:active,inactive`
+- **Output (200 OK):**
+  ```json
+  {
+    "success": true,
+    "data": {
+      "id": 4,
+      "name": "e_wallet",
+      "display_name": "Ví điện tử MoMo",
+      "status": "inactive",
+      "created_at": "2025-07-04T12:00:00.000000Z",
+      "updated_at": "2025-07-04T12:00:00.000000Z"
+    },
+    "message": "Payment method updated successfully"
+  }
+  ```
+
+</details>
+
+<details>
+<summary><strong>Xóa phương thức thanh toán</strong></summary>
+
+- **Endpoint:** `DELETE /api/payment-methods/{id}`
+- **Mô tả:** Xóa một phương thức thanh toán. Không thể xóa nếu phương thức thanh toán đang được sử dụng trong các đơn hàng.
+- **Output (200 OK):**
+  ```json
+  {
+    "success": true,
+    "message": "Payment method deleted successfully"
+  }
+  ```
+- **Output (400 Bad Request):**
+  ```json
+  {
+    "success": false,
+    "message": "Cannot delete payment method that is being used in orders"
+  }
+  ```
+
+</details>
+
+---
+
 ## Tổng kết và Lưu ý chung
 
 ### 1. Authentication
