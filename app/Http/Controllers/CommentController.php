@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Comment;
 use App\Http\Requests\CommentRequest;
 use App\Http\Requests\CommentByProductRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 
@@ -39,6 +40,7 @@ class CommentController extends Controller
      */
     public function store(CommentRequest $request): JsonResponse
     {
+        /** @var User|null $user */
         $user = auth('api')->user();
 
         if (!$user) {
@@ -191,6 +193,7 @@ class CommentController extends Controller
      */
     public function storeByProduct(CommentByProductRequest $request, $product): JsonResponse
     {
+        /** @var User|null */
         $user = auth('api')->user();
 
         if (!$user) {
