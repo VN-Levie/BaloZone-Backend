@@ -11,6 +11,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 class OrderController extends Controller
 {
@@ -231,16 +232,18 @@ class OrderController extends Controller
         try {
             // Restore product quantities
             foreach ($order->orderDetails as $detail) {
-                $detail->product->increment('quantity', $detail->quantity);
+                $detail->product->increment('stock', $detail->quantity);
             }
 
-            // Restore voucher quantity if used
+            // Restore voucher usage if used
             if ($order->voucher_id) {
-                $order->voucher->increment('quantity');
+                $order->voucher->decrement('used_count');
             }
 
             // Update order status
             $order->update(['payment_status' => 'failed']);
+            $order->status = 'cancelled';
+            $order->save();
 
             DB::commit();
 
@@ -250,6 +253,11 @@ class OrderController extends Controller
 
         } catch (\Exception $e) {
             DB::rollBack();
+
+            // Log lỗi để debug
+            Log::error('Cancel order error: ' . $e->getMessage());
+            Log::error('Line: ' . $e->getLine());
+            Log::error('File: ' . $e->getFile());
 
             return response()->json([
                 'message' => 'Có lỗi xảy ra khi hủy đơn hàng'

@@ -49,8 +49,8 @@ class UserSeeder extends Seeder
         $specificUsers = [
             [
                 'name' => 'Nguyễn Văn An',
-                'email' => 'an.nguyen@gmail.com',
-                'phone' => '0912345678',
+                'email' => 'user@example.com',
+                'phone' => 'password123',
             ],
             [
                 'name' => 'Trần Thị Bình',
