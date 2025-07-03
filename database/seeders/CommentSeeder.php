@@ -51,7 +51,8 @@ class CommentSeeder extends Seeder
             Comment::create([
                 'product_id' => $products->random()->id,
                 'user_id' => $users->random()->id,
-                'comment' => fake()->randomElement($sampleComments),
+                'content' => fake()->randomElement($sampleComments),
+                'rating' => fake()->numberBetween(1, 5),
             ]);
         }
 

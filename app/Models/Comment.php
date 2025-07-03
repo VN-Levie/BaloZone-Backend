@@ -12,7 +12,12 @@ class Comment extends Model
     protected $fillable = [
         'product_id',
         'user_id',
-        'comment',
+        'content',
+        'rating',
+    ];
+
+    protected $casts = [
+        'rating' => 'integer',
     ];
 
     /**

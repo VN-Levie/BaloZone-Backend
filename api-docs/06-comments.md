@@ -16,11 +16,15 @@
 
 - `product_id` (integer, required): ID sản phẩm
 
+**Tham số query**:
+- `page` (integer, optional): Số trang (mặc định: 1)
+- `per_page` (integer, optional): Số bình luận mỗi trang (mặc định: 10)
+
 **Response thành công (200)**:
 
 ```json
 {
-  "success": true,
+  "current_page": 1,
   "data": [
     {
       "id": 1,
@@ -37,7 +41,33 @@
       "updated_at": "2024-01-01T00:00:00.000000Z"
     }
   ],
-  "message": "Lấy bình luận thành công"
+  "first_page_url": "http://localhost:8000/api/products/1/comments?page=1",
+  "from": 1,
+  "last_page": 1,
+  "last_page_url": "http://localhost:8000/api/products/1/comments?page=1",
+  "links": [
+    {
+      "url": null,
+      "label": "&laquo; Previous",
+      "active": false
+    },
+    {
+      "url": "http://localhost:8000/api/products/1/comments?page=1",
+      "label": "1",
+      "active": true
+    },
+    {
+      "url": null,
+      "label": "Next &raquo;",
+      "active": false
+    }
+  ],
+  "next_page_url": null,
+  "path": "http://localhost:8000/api/products/1/comments",
+  "per_page": 10,
+  "prev_page_url": null,
+  "to": 1,
+  "total": 1
 }
 ```
 

@@ -14,23 +14,33 @@ class BrandController extends Controller
      */
     public function index(Request $request): JsonResponse
     {
-        $query = Brand::query();
+        try {
+            $query = Brand::query();
 
-        // Tìm kiếm theo tên
-        if ($request->has('search')) {
-            $query->where('name', 'like', '%' . $request->search . '%');
+            // Tìm kiếm theo tên
+            if ($request->has('search')) {
+                $query->where('name', 'like', '%' . $request->search . '%');
+            }
+
+            // Lọc theo status
+            if ($request->has('status')) {
+                $query->where('status', $request->status);
+            }
+
+            // Lấy tất cả brands theo thứ tự name
+            $brands = $query->orderBy('name')->get();
+
+            return response()->json([
+                'success' => true,
+                'data' => $brands,
+                'message' => 'Lấy danh sách thương hiệu thành công'
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Lỗi hệ thống khi lấy danh sách thương hiệu'
+            ], 500);
         }
-
-        // Lọc theo status
-        if ($request->has('status')) {
-            $query->where('status', $request->status);
-        }
-
-        // Phân trang
-        $perPage = $request->get('per_page', 15);
-        $brands = $query->orderBy('name')->paginate($perPage);
-
-        return response()->json($brands);
     }
 
     /**

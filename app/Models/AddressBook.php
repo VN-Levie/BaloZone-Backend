@@ -12,11 +12,13 @@ class AddressBook extends Model
     protected $fillable = [
         'user_id',
         'name',
-        'phone',
+        'recipient_name',
+        'recipient_phone',
         'address',
-        'province',
-        'district',
         'ward',
+        'district',
+        'province',
+        'postal_code',
         'is_default',
     ];
 

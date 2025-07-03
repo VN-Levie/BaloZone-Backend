@@ -46,7 +46,7 @@ class ProductController extends Controller
 
         // Lọc sản phẩm còn hàng
         if ($request->has('in_stock') && $request->in_stock) {
-            $query->where('quantity', '>', 0);
+            $query->where('stock', '>', 0);
         }
 
         // Sắp xếp
@@ -55,10 +55,62 @@ class ProductController extends Controller
         $query->orderBy($sortBy, $sortOrder);
 
         // Phân trang
-        $perPage = $request->get('per_page', 12);
+        $perPage = $request->get('per_page', 10);
         $products = $query->paginate($perPage);
 
-        return response()->json($products);
+        // Transform the data to match API documentation
+        $transformedProducts = $products->getCollection()->map(function ($product) {
+            return $this->transformProduct($product);
+        });
+
+        return response()->json([
+            'success' => true,
+            'data' => [
+                'current_page' => $products->currentPage(),
+                'data' => $transformedProducts,
+                'first_page_url' => $products->url(1),
+                'from' => $products->firstItem(),
+                'last_page' => $products->lastPage(),
+                'last_page_url' => $products->url($products->lastPage()),
+                'links' => $products->linkCollection(),
+                'next_page_url' => $products->nextPageUrl(),
+                'path' => $products->path(),
+                'per_page' => $products->perPage(),
+                'prev_page_url' => $products->previousPageUrl(),
+                'to' => $products->lastItem(),
+                'total' => $products->total()
+            ]
+        ]);
+    }
+
+    /**
+     * Transform product data to match API documentation format
+     */
+    private function transformProduct($product)
+    {
+        return [
+            'id' => $product->id,
+            'name' => $product->name,
+            'slug' => $product->slug,
+            'description' => $product->description,
+            'price' => $product->price,
+            'discount_price' => $product->discount_price,
+            'image' => $product->image,
+            'gallery' => $product->gallery ?? [],
+            'stock' => $product->stock,
+            'brand' => $product->brand ? [
+                'id' => $product->brand->id,
+                'name' => $product->brand->name,
+                'slug' => $product->brand->slug
+            ] : null,
+            'category' => $product->category ? [
+                'id' => $product->category->id,
+                'name' => $product->category->name,
+                'slug' => $product->category->slug
+            ] : null,
+            'created_at' => $product->created_at,
+            'updated_at' => $product->updated_at
+        ];
     }
 
     /**
@@ -70,8 +122,9 @@ class ProductController extends Controller
         $product->load(['category', 'brand']);
 
         return response()->json([
+            'success' => true,
             'message' => 'Product created successfully',
-            'data' => $product
+            'data' => $this->transformProduct($product)
         ], 201);
     }
 
@@ -83,7 +136,8 @@ class ProductController extends Controller
         $product->load(['category', 'brand', 'comments.user']);
 
         return response()->json([
-            'data' => $product
+            'success' => true,
+            'data' => $this->transformProduct($product)
         ]);
     }
 
@@ -96,8 +150,9 @@ class ProductController extends Controller
         $product->load(['category', 'brand']);
 
         return response()->json([
+            'success' => true,
             'message' => 'Product updated successfully',
-            'data' => $product
+            'data' => $this->transformProduct($product)
         ]);
     }
 

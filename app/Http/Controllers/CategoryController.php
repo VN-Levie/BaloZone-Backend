@@ -14,21 +14,28 @@ class CategoryController extends Controller
      */
     public function index(Request $request): JsonResponse
     {
-        $query = Category::query();
+        try {
+            $query = Category::query();
 
-        // Tìm kiếm theo tên
-        if ($request->has('search')) {
-            $query->where('name', 'like', '%' . $request->search . '%');
+            // Tìm kiếm theo tên
+            if ($request->has('search')) {
+                $query->where('name', 'like', '%' . $request->search . '%');
+            }
+
+            // Lấy tất cả categories theo thứ tự name
+            $categories = $query->orderBy('name')->get();
+
+            return response()->json([
+                'success' => true,
+                'data' => $categories,
+                'message' => 'Lấy danh sách danh mục thành công'
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Lỗi hệ thống khi lấy danh sách danh mục'
+            ], 500);
         }
-
-        // Lấy kèm số lượng sản phẩm
-        $query->withCount('products');
-
-        // Phân trang
-        $perPage = $request->get('per_page', 15);
-        $categories = $query->orderBy('name')->paginate($perPage);
-
-        return response()->json($categories);
     }
 
     /**

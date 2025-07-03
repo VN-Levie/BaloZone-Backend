@@ -15,14 +15,18 @@ class Product extends Model
         'name',
         'description',
         'price',
-        'quantity',
+        'discount_price',
+        'stock',
         'image',
+        'gallery',
         'slug',
         'color',
     ];
 
     protected $casts = [
         'price' => 'decimal:2',
+        'discount_price' => 'decimal:2',
+        'gallery' => 'array',
     ];
 
     /**

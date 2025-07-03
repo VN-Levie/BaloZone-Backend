@@ -24,15 +24,25 @@ class OrderController extends Controller
         $query = Order::with(['address', 'paymentMethod', 'voucher', 'orderDetails.product'])
             ->where('user_id', $user->id);
 
-        // Lọc theo trạng thái thanh toán
-        if ($request->has('payment_status')) {
-            $query->where('payment_status', $request->payment_status);
+        // Lọc theo trạng thái đơn hàng
+        if ($request->has('status')) {
+            $query->where('status', $request->status);
         }
 
         // Sắp xếp theo ngày tạo mới nhất
-        $orders = $query->orderBy('created_at', 'desc')->paginate(10);
+        $perPage = $request->get('per_page', 10);
+        $orders = $query->orderBy('created_at', 'desc')->paginate($perPage);
 
-        return response()->json($orders);
+        // Transform data theo format API
+        $transformedData = $orders->through(function ($order) {
+            return $this->transformOrder($order);
+        });
+
+        return response()->json([
+            'success' => true,
+            'data' => $transformedData,
+            'message' => 'Lấy danh sách đơn hàng thành công'
+        ]);
     }
 
     /**
@@ -42,12 +52,14 @@ class OrderController extends Controller
     {
         /** @var User|null $user */
         $user = auth('api')->user();
+        $validated = $request->validated();
 
         // Verify that address belongs to user
-        $address = $user->addressBooks()->find($request->address_id);
+        $address = $user->addressBooks()->find($validated['shipping_address_id']);
         if (!$address) {
             return response()->json([
-                'message' => 'Địa chỉ không thuộc về bạn'
+                'success' => false,
+                'message' => 'Địa chỉ giao hàng không thuộc về bạn'
             ], 403);
         }
 
@@ -58,15 +70,15 @@ class OrderController extends Controller
             $orderItems = [];
 
             // Validate products and calculate total
-            foreach ($request->items as $item) {
+            foreach ($validated['items'] as $item) {
                 $product = Product::find($item['product_id']);
 
                 if (!$product) {
                     throw new \Exception('Sản phẩm không tồn tại');
                 }
 
-                if ($product->quantity < $item['quantity']) {
-                    throw new \Exception("Sản phẩm {$product->name} không đủ số lượng. Còn lại: {$product->quantity}");
+                if ($product->stock < $item['quantity']) {
+                    throw new \Exception("Sản phẩm {$product->name} không đủ số lượng. Còn lại: {$product->stock}");
                 }
 
                 $itemTotal = $product->price * $item['quantity'];
@@ -82,8 +94,9 @@ class OrderController extends Controller
 
             // Apply voucher if provided
             $voucherDiscount = 0;
-            if ($request->voucher_id) {
-                $voucher = Voucher::find($request->voucher_id);
+            $voucherId = null;
+            if (!empty($validated['voucher_code'])) {
+                $voucher = Voucher::where('code', strtoupper($validated['voucher_code']))->first();
 
                 if (!$voucher) {
                     throw new \Exception('Voucher không tồn tại');
@@ -99,19 +112,31 @@ class OrderController extends Controller
 
                 $voucherDiscount = $voucher->calculateDiscount($totalPrice);
                 $voucher->incrementUsage();
+                $voucherId = $voucher->id;
             }
 
-            $finalTotal = max(0, $totalPrice - $voucherDiscount);
+            $shippingFee = 30000; // Fixed shipping fee 30k for now
+            $finalTotal = $totalPrice + $shippingFee - $voucherDiscount;
+
+            // Generate order number
+            $orderNumber = 'ORD-' . date('Y') . '-' . str_pad(Order::count() + 1, 6, '0', STR_PAD_LEFT);
 
             // Create order
             $order = Order::create([
-                'address_id' => $request->address_id,
-                'payment_method_id' => $request->payment_method_id,
+                'order_number' => $orderNumber,
+                'status' => 'pending',
+                'total_amount' => $totalPrice,
+                'shipping_fee' => $shippingFee,
+                'voucher_discount' => $voucherDiscount,
+                'final_amount' => $finalTotal,
+                'payment_method' => $validated['payment_method'],
+                'note' => $validated['note'] ?? null,
+                'address_id' => $validated['shipping_address_id'],
+                'payment_method_id' => 1, // Default payment method ID
                 'payment_status' => 'pending',
-                'voucher_id' => $request->voucher_id,
-                'comment' => $request->comment,
+                'voucher_id' => $voucherId,
                 'user_id' => $user->id,
-                'total_price' => $finalTotal,
+                'total_price' => $finalTotal, // Backup field
             ]);
 
             // Create order details and update product quantities
@@ -124,7 +149,7 @@ class OrderController extends Controller
                 ]);
 
                 // Update product quantity
-                $item['product']->decrement('quantity', $item['quantity']);
+                $item['product']->decrement('stock', $item['quantity']);
             }
 
             DB::commit();
@@ -132,14 +157,16 @@ class OrderController extends Controller
             $order->load(['address', 'paymentMethod', 'voucher', 'orderDetails.product']);
 
             return response()->json([
-                'message' => 'Đặt hàng thành công',
-                'data' => $order
+                'success' => true,
+                'data' => $this->transformOrder($order),
+                'message' => 'Tạo đơn hàng thành công'
             ], 201);
 
         } catch (\Exception $e) {
             DB::rollBack();
 
             return response()->json([
+                'success' => false,
                 'message' => $e->getMessage()
             ], 400);
         }
@@ -154,33 +181,48 @@ class OrderController extends Controller
 
         if ($order->user_id !== $user->id) {
             return response()->json([
+                'success' => false,
                 'message' => 'Bạn không có quyền xem đơn hàng này'
             ], 403);
         }
 
         $order->load(['address', 'paymentMethod', 'voucher', 'orderDetails.product.category', 'orderDetails.product.brand']);
 
+        $transformedOrder = $this->transformOrder($order);
+        // Add order history for detail view
+        $transformedOrder['order_history'] = [
+            [
+                'status' => $order->status,
+                'note' => 'Đơn hàng đã được tạo',
+                'created_at' => $order->created_at
+            ]
+        ];
+
         return response()->json([
-            'data' => $order
+            'success' => true,
+            'data' => $transformedOrder,
+            'message' => 'Lấy chi tiết đơn hàng thành công'
         ]);
     }
 
     /**
      * Cancel order (only pending orders)
      */
-    public function cancel(Order $order): JsonResponse
+    public function cancel(Order $order, Request $request): JsonResponse
     {
         $user = auth('api')->user();
 
         if ($order->user_id !== $user->id) {
             return response()->json([
+                'success' => false,
                 'message' => 'Bạn không có quyền hủy đơn hàng này'
             ], 403);
         }
 
-        if ($order->payment_status !== 'pending') {
+        if ($order->status !== 'pending') {
             return response()->json([
-                'message' => 'Chỉ có thể hủy đơn hàng đang chờ xử lý'
+                'success' => false,
+                'message' => 'Không thể hủy đơn hàng ở trạng thái hiện tại'
             ], 400);
         }
 
@@ -294,5 +336,45 @@ class OrderController extends Controller
             'message' => 'Order status updated successfully',
             'data' => $order
         ]);
+    }
+
+    /**
+     * Transform order data to match API documentation format
+     */
+    private function transformOrder($order)
+    {
+        return [
+            'id' => $order->id,
+            'user_id' => $order->user_id,
+            'order_number' => $order->order_number,
+            'status' => $order->status,
+            'total_amount' => $order->total_amount,
+            'shipping_fee' => $order->shipping_fee,
+            'voucher_discount' => $order->voucher_discount,
+            'final_amount' => $order->final_amount,
+            'payment_method' => $order->payment_method,
+            'payment_status' => $order->payment_status,
+            'shipping_address' => [
+                'recipient_name' => $order->address->name,
+                'recipient_phone' => $order->address->phone,
+                'address' => $order->address->address,
+                'ward' => $order->address->ward,
+                'district' => $order->address->district,
+                'province' => $order->address->province,
+            ],
+            'items' => $order->orderDetails->map(function ($detail) {
+                return [
+                    'id' => $detail->id,
+                    'product_id' => $detail->product_id,
+                    'product_name' => $detail->product->name,
+                    'product_image' => $detail->product->image,
+                    'quantity' => $detail->quantity,
+                    'price' => $detail->price,
+                    'total' => $detail->price * $detail->quantity
+                ];
+            }),
+            'created_at' => $order->created_at,
+            'updated_at' => $order->updated_at,
+        ];
     }
 }

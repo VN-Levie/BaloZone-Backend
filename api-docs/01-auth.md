@@ -17,8 +17,8 @@ Các endpoint để quản lý xác thực người dùng sử dụng JWT (JSON 
 - **Input (JSON):**
 ```json
 {
-    "email": "user@example.com",
-    "password": "password123"
+    "email": "admin@balozone.com",
+    "password": "admin123"
 }
 ```
 - **Output thành công (JSON):**
@@ -33,13 +33,13 @@ Các endpoint để quản lý xác thực người dùng sử dụng JWT (JSON 
         "user": {
             "id": 1,
             "name": "Tên người dùng",
-            "email": "user@example.com",
-            "phone": "0123456789",
+            "email": "admin@balozone.com",
+            "phone": "admin123",
             "status": "active",
             "roles": [
                 {
-                    "id": 2,
-                    "name": "user",
+                    "id": 1,
+                    "name": "admin",
                     "guard_name": "api",
                     "created_at": "2025-07-04T12:00:00.000000Z",
                     "updated_at": "2025-07-04T12:00:00.000000Z",

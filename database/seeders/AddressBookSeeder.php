@@ -2,10 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\AddressBook;
-use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\AddressBook;
+use App\Models\User;
 
 class AddressBookSeeder extends Seeder
 {
@@ -16,74 +16,93 @@ class AddressBookSeeder extends Seeder
     {
         $users = User::all();
 
-        if ($users->isEmpty()) {
-            $this->command->warn('Vui lòng chạy UserSeeder trước!');
-            return;
-        }
-
-        $addresses = [
-            [
-                'name' => 'Nguyễn Văn An',
-                'phone' => '0901234567',
-                'address' => '123 Đường Nguyễn Huệ',
-                'province' => 'TP. Hồ Chí Minh',
-                'district' => 'Quận 1',
-                'ward' => 'Phường Bến Nghé',
-            ],
-            [
-                'name' => 'Trần Thị Bình',
-                'phone' => '0912345678',
-                'address' => '456 Phố Hoàn Kiếm',
-                'province' => 'Hà Nội',
-                'district' => 'Quận Hoàn Kiếm',
-                'ward' => 'Phường Hoàn Kiếm',
-            ],
-            [
-                'name' => 'Lê Văn Cường',
-                'phone' => '0923456789',
-                'address' => '789 Đường Lê Lợi',
-                'province' => 'Đà Nẵng',
-                'district' => 'Quận Hải Châu',
-                'ward' => 'Phường Thuận Phước',
-            ],
-            [
-                'name' => 'Phạm Thị Dung',
-                'phone' => '0934567890',
-                'address' => '321 Đường Võ Văn Kiệt',
-                'province' => 'TP. Hồ Chí Minh',
-                'district' => 'Quận 5',
-                'ward' => 'Phường 1',
-            ],
-            [
-                'name' => 'Hoàng Văn Em',
-                'phone' => '0945678901',
-                'address' => '654 Phố Tràng Tiền',
-                'province' => 'Hà Nội',
-                'district' => 'Quận Hoàn Kiếm',
-                'ward' => 'Phường Tràng Tiền',
-            ],
-        ];
-
-        // Tạo địa chỉ cho từng user (mỗi user có 1-3 địa chỉ)
         foreach ($users as $user) {
-            $numberOfAddresses = rand(1, 3);
-
-            for ($i = 0; $i < $numberOfAddresses; $i++) {
-                $addressData = fake()->randomElement($addresses);
-
+            // Create 2-3 addresses for each user
+            for ($i = 0; $i < rand(2, 3); $i++) {
                 AddressBook::create([
                     'user_id' => $user->id,
-                    'name' => $addressData['name'],
-                    'phone' => $addressData['phone'],
-                    'address' => $addressData['address'] . ' - ' . fake()->buildingNumber(),
-                    'province' => $addressData['province'],
-                    'district' => $addressData['district'],
-                    'ward' => $addressData['ward'],
-                    'is_default' => $i === 0, // Địa chỉ đầu tiên sẽ là mặc định
+                    'recipient_name' => $user->name,
+                    'recipient_phone' => '0' . rand(100000000, 999999999),
+                    'address' => $this->getRandomAddress(),
+                    'ward' => $this->getRandomWard(),
+                    'district' => $this->getRandomDistrict(),
+                    'province' => $this->getRandomProvince(),
+                    'postal_code' => rand(10000, 99999),
+                    'is_default' => $i === 0, // First address is default
                 ]);
             }
         }
+    }
 
-        $this->command->info('Đã tạo ' . AddressBook::count() . ' địa chỉ thành công!');
+    private function getRandomAddress(): string
+    {
+        $addresses = [
+            '123 Nguyễn Văn Linh',
+            '456 Lê Duẩn',
+            '789 Trần Hưng Đạo',
+            '321 Võ Văn Tần',
+            '654 Điện Biên Phủ',
+            '987 Nguyễn Thị Minh Khai',
+            '147 Lý Thường Kiệt',
+            '258 Hai Bà Trưng',
+            '369 Cách Mạng Tháng Tám',
+            '741 Nguyễn Huệ'
+        ];
+
+        return $addresses[array_rand($addresses)];
+    }
+
+    private function getRandomWard(): string
+    {
+        $wards = [
+            'Phường 1',
+            'Phường 2',
+            'Phường 3',
+            'Phường Bến Nghé',
+            'Phường Đa Kao',
+            'Phường Cô Giang',
+            'Phường Nguyễn Thái Bình',
+            'Phường Phạm Ngũ Lão',
+            'Phường Cầu Ông Lãnh',
+            'Phường Tân Định'
+        ];
+
+        return $wards[array_rand($wards)];
+    }
+
+    private function getRandomDistrict(): string
+    {
+        $districts = [
+            'Quận 1',
+            'Quận 2',
+            'Quận 3',
+            'Quận 4',
+            'Quận 5',
+            'Quận 6',
+            'Quận 7',
+            'Quận 8',
+            'Quận 9',
+            'Quận 10'
+        ];
+
+        return $districts[array_rand($districts)];
+    }
+
+    private function getRandomProvince(): string
+    {
+        $provinces = [
+            'TP. Hồ Chí Minh',
+            'Hà Nội',
+            'Đà Nẵng',
+            'Hải Phòng',
+            'Cần Thơ',
+            'Biên Hòa',
+            'Huế',
+            'Nha Trang',
+            'Buôn Ma Thuột',
+            'Quy Nhon'
+        ];
+
+        return $provinces[array_rand($provinces)];
     }
 }

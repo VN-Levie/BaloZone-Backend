@@ -65,7 +65,8 @@ Route::middleware('auth:api')->group(function () {
 // Comment routes (public read-only)
 Route::get('comments', [CommentController::class, 'index']);
 Route::get('comments/{comment}', [CommentController::class, 'show']);
-Route::get('comments/product/{productId}', [CommentController::class, 'getByProduct']);
+Route::get('comments/product/{product}', [CommentController::class, 'getByProduct']);
+Route::get('comments/product/{productId}/legacy', [CommentController::class, 'getByProduct']); // Legacy route for backward compatibility
 
 // News routes (public read-only)
 Route::get('news', [NewsController::class, 'index']);
@@ -115,6 +116,7 @@ Route::middleware('auth:api')->group(function () {
 
     // User comments
     Route::post('comments', [CommentController::class, 'store']);
+    Route::post('comments/product/{product}', [CommentController::class, 'storeByProduct']);
     Route::put('comments/{comment}', [CommentController::class, 'update']);
     Route::delete('comments/{comment}', [CommentController::class, 'destroy']);
     Route::get('my-comments', [CommentController::class, 'getUserComments']);
