@@ -12,6 +12,7 @@ This document provides a comprehensive overview of the BaloZone-Backend API endp
 - [8. Sổ địa chỉ (Address Book)](./08-address-book.md)
 - [13. Quản lý vai trò (Admin Roles)](./13-admin-roles.md)
 - [15. Quản lý người dùng (Admin Users)](./15-admin-users.md)
+- [19. Dashboard Admin (Admin Dashboard)](./19-admin-dashboard.md)
 
 ### 🛍️ Product Catalog
 - [2. Thương hiệu (Brands)](./02-brands.md)
@@ -56,11 +57,11 @@ Content-Type: application/json
 
 ## 📊 API Statistics
 
-- **Tổng số modules:** 16 modules
-- **Tổng số endpoints:** 101+ endpoints
+- **Tổng số modules:** 17 modules
+- **Tổng số endpoints:** 105+ endpoints
 - **Public endpoints:** ~40 endpoints (không cần authentication)
-- **Protected endpoints:** ~60 endpoints (cần authentication)
-- **Admin-only endpoints:** ~15 endpoints (cần quyền admin)
+- **Protected endpoints:** ~65 endpoints (cần authentication)
+- **Admin-only endpoints:** ~20 endpoints (cần quyền admin)
 
 ## 🔗 Related Files
 

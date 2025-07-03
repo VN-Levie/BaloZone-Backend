@@ -16,6 +16,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\SaleCampaignController;
 use App\Http\Controllers\RoleController;
 use App\Http\Controllers\PaymentMethodController;
+use App\Http\Controllers\DashboardController;
 
 // Public routes
 Route::get('/user', function (Request $request) {
@@ -137,6 +138,12 @@ Route::middleware(['auth:api', 'role:admin'])->group(function () {
     Route::put('admin/users/{user}', [UserController::class, 'update']);
     Route::delete('admin/users/{user}', [UserController::class, 'destroy']);
     Route::post('admin/users/{user}/toggle-status', [UserController::class, 'toggleStatus']);
+
+    // Dashboard statistics
+    Route::get('admin/dashboard/stats', [DashboardController::class, 'getAdminStats']);
+    Route::get('admin/dashboard/revenue', [DashboardController::class, 'getMonthlyRevenue']);
+    Route::get('admin/dashboard/users', [DashboardController::class, 'getUserAnalytics']);
+    Route::get('admin/dashboard/products', [DashboardController::class, 'getProductAnalytics']);
 });
 
 // ===================

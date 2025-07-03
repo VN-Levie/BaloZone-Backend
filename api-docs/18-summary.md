@@ -165,6 +165,7 @@ Accept: application/json
 - Payment: tạo thanh toán, check status
 
 ### Admin endpoints (cần auth + role admin)
+- Admin dashboard: thống kê tổng quan, doanh thu, phân tích users/products
 - Admin orders: quản lý đơn hàng
 - Admin users: quản lý người dùng
 - Admin contacts: quản lý liên hệ
