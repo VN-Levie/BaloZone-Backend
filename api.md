@@ -694,6 +694,245 @@ This document provides a detailed overview of the BaloZone-Backend API endpoints
 }
 ```
 
+### 6. Lấy sản phẩm nổi bật (Public)
+
+- **Endpoint:** `GET /api/products-featured`
+- **Mô tả:** Lấy danh sách 8 sản phẩm nổi bật mới nhất (có hàng trong kho).
+- **Output thành công (JSON):**
+```json
+{
+    "data": [
+        {
+            "id": 1,
+            "name": "Balo ABC",
+            "slug": "balo-abc",
+            "price": 500000,
+            "quantity": 50,
+            "category": { "id": 1, "name": "Danh mục A" },
+            "brand": { "id": 1, "name": "Thương hiệu A" }
+        }
+    ]
+}
+```
+
+### 7. Lấy sản phẩm theo danh mục (Public)
+
+- **Endpoint:** `GET /api/products/category/{categorySlug}`
+- **Mô tả:** Lấy danh sách sản phẩm thuộc một danh mục cụ thể dựa vào slug của danh mục.
+- **URL Params:**
+    - `categorySlug` (string, required): Slug của danh mục.
+- **Query Params:**
+    - `brand_id` (integer, optional): Lọc theo ID thương hiệu.
+    - `min_price` (numeric, optional): Lọc theo giá tối thiểu.
+    - `max_price` (numeric, optional): Lọc theo giá tối đa.
+    - `color` (string, optional): Lọc theo màu sắc.
+    - `search` (string, optional): Tìm kiếm theo tên sản phẩm.
+    - `sort_by` (string, optional): Sắp xếp theo (`name`, `price`). Mặc định: `name`.
+    - `sort_order` (string, optional): Thứ tự sắp xếp (`asc`, `desc`). Mặc định: `asc`.
+    - `per_page` (integer, optional): Số lượng kết quả mỗi trang (mặc định: 12).
+- **Output thành công (JSON):**
+```json
+{
+    "current_page": 1,
+    "data": [
+        {
+            "id": 1,
+            "name": "Balo ABC",
+            "slug": "balo-abc",
+            "price": 500000,
+            "quantity": 50,
+            "category": { "id": 1, "name": "Danh mục A" },
+            "brand": { "id": 1, "name": "Thương hiệu A" }
+        }
+    ],
+    "first_page_url": "http://localhost/api/products/category/balo-hoc-sinh?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http://localhost/api/products/category/balo-hoc-sinh?page=1",
+    "links": [],
+    "next_page_url": null,
+    "path": "http://localhost/api/products/category/balo-hoc-sinh",
+    "per_page": 12,
+    "prev_page_url": null,
+    "to": 1,
+    "total": 1
+}
+```
+
+### 8. Lấy sản phẩm theo thương hiệu (Public)
+
+- **Endpoint:** `GET /api/products/brand/{brandSlug}`
+- **Mô tả:** Lấy danh sách sản phẩm thuộc một thương hiệu cụ thể dựa vào slug của thương hiệu.
+- **URL Params:**
+    - `brandSlug` (string, required): Slug của thương hiệu.
+- **Query Params:**
+    - `category_id` (integer, optional): Lọc theo ID danh mục.
+    - `min_price` (numeric, optional): Lọc theo giá tối thiểu.
+    - `max_price` (numeric, optional): Lọc theo giá tối đa.
+    - `color` (string, optional): Lọc theo màu sắc.
+    - `search` (string, optional): Tìm kiếm theo tên sản phẩm.
+    - `sort_by` (string, optional): Sắp xếp theo (`name`, `price`). Mặc định: `name`.
+    - `sort_order` (string, optional): Thứ tự sắp xếp (`asc`, `desc`). Mặc định: `asc`.
+    - `per_page` (integer, optional): Số lượng kết quả mỗi trang (mặc định: 12).
+- **Output thành công (JSON):**
+```json
+{
+    "current_page": 1,
+    "data": [
+        {
+            "id": 1,
+            "name": "Balo ABC",
+            "slug": "balo-abc",
+            "price": 500000,
+            "quantity": 50,
+            "category": { "id": 1, "name": "Danh mục A" },
+            "brand": { "id": 1, "name": "Thương hiệu A" }
+        }
+    ],
+    "first_page_url": "http://localhost/api/products/brand/nike?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http://localhost/api/products/brand/nike?page=1",
+    "links": [],
+    "next_page_url": null,
+    "path": "http://localhost/api/products/brand/nike",
+    "per_page": 12,
+    "prev_page_url": null,
+    "to": 1,
+    "total": 1
+}
+```
+
+### 9. Tìm kiếm sản phẩm (Public)
+
+- **Endpoint:** `GET /api/products-search`
+- **Mô tả:** Tìm kiếm sản phẩm theo từ khóa (tìm trong tên, mô tả, tên danh mục và tên thương hiệu).
+- **Query Params:**
+    - `q` (string, required): Từ khóa tìm kiếm.
+- **Output thành công (JSON):**
+```json
+{
+    "current_page": 1,
+    "data": [
+        {
+            "id": 1,
+            "name": "Balo ABC",
+            "slug": "balo-abc",
+            "price": 500000,
+            "quantity": 50,
+            "category": { "id": 1, "name": "Danh mục A" },
+            "brand": { "id": 1, "name": "Thương hiệu A" }
+        }
+    ],
+    "first_page_url": "http://localhost/api/products-search?q=balo&page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http://localhost/api/products-search?q=balo&page=1",
+    "links": [],
+    "next_page_url": null,
+    "path": "http://localhost/api/products-search",
+    "per_page": 12,
+    "prev_page_url": null,
+    "to": 1,
+    "total": 1
+}
+```
+- **Output thất bại (JSON):**
+```json
+{
+    "data": [],
+    "message": "Search query is required"
+}
+```
+
+### 10. Lấy sản phẩm đang khuyến mãi (Public)
+
+- **Endpoint:** `GET /api/products-on-sale`
+- **Mô tả:** Lấy danh sách các sản phẩm đang có chương trình khuyến mãi hoạt động.
+- **Query Params:**
+    - `category_id` (integer, optional): Lọc theo ID danh mục.
+    - `brand_id` (integer, optional): Lọc theo ID thương hiệu.
+    - `min_discount` (numeric, optional): Lọc theo phần trăm giảm giá tối thiểu.
+    - `max_discount` (numeric, optional): Lọc theo phần trăm giảm giá tối đa.
+    - `min_price` (numeric, optional): Lọc theo giá sale tối thiểu.
+    - `max_price` (numeric, optional): Lọc theo giá sale tối đa.
+    - `search` (string, optional): Tìm kiếm theo tên, mô tả sản phẩm.
+    - `sort_by` (string, optional): Sắp xếp theo (`name`, `discount`, `sale_price`). Mặc định: `name`.
+    - `sort_order` (string, optional): Thứ tự sắp xếp (`asc`, `desc`). Mặc định: `asc`.
+    - `per_page` (integer, optional): Số lượng kết quả mỗi trang (mặc định: 12).
+- **Output thành công (JSON):**
+```json
+{
+    "current_page": 1,
+    "data": [
+        {
+            "id": 1,
+            "name": "Balo ABC",
+            "slug": "balo-abc",
+            "price": 500000,
+            "quantity": 50,
+            "category": { "id": 1, "name": "Danh mục A" },
+            "brand": { "id": 1, "name": "Thương hiệu A" },
+            "current_sale": {
+                "id": 1,
+                "sale_price": 400000,
+                "discount_percentage": 20,
+                "sale_campaign": {
+                    "id": 1,
+                    "name": "Flash Sale Cuối Tuần",
+                    "end_date": "2025-07-10T23:59:59.000000Z"
+                }
+            }
+        }
+    ],
+    "first_page_url": "http://localhost/api/products-on-sale?page=1",
+    "from": 1,
+    "last_page": 1,
+    "last_page_url": "http://localhost/api/products-on-sale?page=1",
+    "links": [],
+    "next_page_url": null,
+    "path": "http://localhost/api/products-on-sale",
+    "per_page": 12,
+    "prev_page_url": null,
+    "to": 1,
+    "total": 1
+}
+```
+
+### 11. Lấy các chương trình khuyến mãi của sản phẩm (Public)
+
+- **Endpoint:** `GET /api/products/{product}/sale-campaigns`
+- **Mô tả:** Lấy danh sách các chương trình khuyến mãi mà sản phẩm này đang tham gia.
+- **URL Params:**
+    - `product` (integer, required): ID của sản phẩm.
+- **Output thành công (JSON):**
+```json
+{
+    "data": [
+        {
+            "id": 1,
+            "name": "Flash Sale Cuối Tuần",
+            "slug": "flash-sale-weekend",
+            "description": "Flash sale cuối tuần - Cơ hội vàng săn balo giá rẻ",
+            "start_date": "2025-07-01T00:00:00.000000Z",
+            "end_date": "2025-07-10T23:59:59.000000Z",
+            "status": "active",
+            "is_featured": true,
+            "priority": 90,
+            "sale_products": [
+                {
+                    "id": 1,
+                    "product_id": 1,
+                    "original_price": 500000,
+                    "sale_price": 400000,
+                    "discount_percentage": 20
+                }
+            ]
+        }
+    ]
+}
+```
+
 ## Vouchers
 
 ### 1. Lấy danh sách voucher (Public)
@@ -1725,7 +1964,7 @@ Các endpoint để người dùng tạo, xem, hủy và thống kê đơn hàng
 <details>
 <summary><strong>Lấy thống kê đơn hàng</strong></summary>
 
-- **Endpoint:** `GET /api/order-stats`
+- **Endpoint:** `GET /api/orders-stats`
 - **Mô tả:** Lấy thống kê về các đơn hàng của người dùng.
 - **Phân quyền:** Người dùng đã đăng nhập.
 - **Output (200 OK):**
@@ -1737,6 +1976,58 @@ Các endpoint để người dùng tạo, xem, hủy và thống kê đơn hàng
       "paid_orders": 12,
       "failed_orders": 1,
       "total_spent": "12500000.00"
+    }
+  }
+  ```
+
+</details>
+
+### [Admin/Contributor] Quản lý đơn hàng
+
+<details>
+<summary><strong>Lấy danh sách tất cả đơn hàng (Admin)</strong></summary>
+
+- **Endpoint:** `GET /api/admin/orders`
+- **Mô tả:** Lấy danh sách tất cả các đơn hàng trong hệ thống với khả năng lọc và tìm kiếm.
+- **Phân quyền:** `Admin` / `Contributor`.
+- **Headers:**
+  - `Authorization: Bearer your_jwt_token`
+- **Query Params:**
+  - `page` (integer, optional): Số trang (mặc định: 1).
+  - `per_page` (integer, optional): Số mục mỗi trang (mặc định: 15).
+  - `payment_status` (string, optional): Lọc theo trạng thái thanh toán (`pending`, `paid`, `failed`).
+  - `user_id` (integer, optional): Lọc theo ID người dùng.
+  - `search` (string, optional): Tìm kiếm theo tên người dùng hoặc email.
+- **Output (200 OK):** (Dữ liệu Paginator tương tự user orders)
+
+</details>
+
+<details>
+<summary><strong>Cập nhật trạng thái đơn hàng (Admin)</strong></summary>
+
+- **Endpoint:** `PUT /api/orders/{order}/status`
+- **Mô tả:** Cập nhật trạng thái thanh toán của một đơn hàng.
+- **Phân quyền:** `Admin` / `Contributor`.
+- **Headers:**
+  - `Authorization: Bearer your_jwt_token`
+- **URL Params:**
+    - `order` (integer, required): ID của đơn hàng.
+- **Input (JSON):**
+  ```json
+  {
+    "payment_status": "paid"
+  }
+  ```
+- **Validation:**
+  - `payment_status`: `required|in:pending,paid,failed`
+- **Output (200 OK):**
+  ```json
+  {
+    "message": "Order status updated successfully",
+    "data": {
+      "id": 5,
+      "payment_status": "paid",
+      "updated_at": "2024-07-22T12:00:00.000000Z"
     }
   }
   ```
@@ -2224,7 +2515,7 @@ Các endpoint để quản lý vai trò và phân quyền cho người dùng. Y�
 <details>
 <summary><strong>Gán vai trò cho người dùng</strong></summary>
 
-- **Endpoint:** `POST /api/admin/roles/assign-role`
+- **Endpoint:** `POST /api/roles/assign`
 - **Mô tả:** Gán một vai trò cho một người dùng.
 - **Input (JSON):**
   ```json
@@ -2249,7 +2540,7 @@ Các endpoint để quản lý vai trò và phân quyền cho người dùng. Y�
 <details>
 <summary><strong>Xóa vai trò khỏi người dùng</strong></summary>
 
-- **Endpoint:** `POST /api/admin/roles/remove-role`
+- **Endpoint:** `POST /api/roles/remove`
 - **Mô tả:** Xóa một vai trò khỏi một người dùng.
 - **Input (JSON):**
   ```json
@@ -2461,6 +2752,183 @@ Các endpoint sau yêu cầu quyền `Admin` hoặc `Contributor` và cần có 
   {
     "success": false,
     "message": "Cannot delete payment method that is being used in orders"
+  }
+  ```
+
+</details>
+
+---
+
+## 15. [Admin] User Management - Quản lý người dùng
+
+Các endpoint để quản lý người dùng trong hệ thống. Yêu cầu quyền `Admin`.
+
+**Yêu cầu chung:** Cần có `Authorization: Bearer <token>` trong header.
+
+<details>
+<summary><strong>Lấy danh sách người dùng</strong></summary>
+
+- **Endpoint:** `GET /api/admin/users`
+- **Mô tả:** Lấy danh sách tất cả người dùng trong hệ thống với khả năng tìm kiếm và lọc.
+- **Phân quyền:** `Admin`.
+- **Query Params:**
+  - `page` (integer, optional): Số trang (mặc định: 1).
+  - `per_page` (integer, optional): Số mục mỗi trang (mặc định: 15).
+  - `search` (string, optional): Tìm kiếm theo tên hoặc email.
+  - `status` (string, optional): Lọc theo trạng thái (`active`, `inactive`).
+- **Output (200 OK):** (Dữ liệu Paginator)
+  ```json
+  {
+    "current_page": 1,
+    "data": [
+      {
+        "id": 1,
+        "name": "Nguyễn Văn A",
+        "email": "user@example.com",
+        "phone": "0123456789",
+        "status": "active",
+        "created_at": "2024-01-01T00:00:00.000000Z",
+        "roles": [
+          {
+            "id": 2,
+            "name": "user",
+            "display_name": "Người dùng"
+          }
+        ]
+      }
+    ]
+  }
+  ```
+
+</details>
+
+<details>
+<summary><strong>Cập nhật thông tin người dùng</strong></summary>
+
+- **Endpoint:** `PUT /api/admin/users/{user}`
+- **Mô tả:** Cập nhật thông tin của một người dùng.
+- **Phân quyền:** `Admin`.
+- **URL Params:**
+    - `user` (integer, required): ID của người dùng.
+- **Input (JSON):**
+  ```json
+  {
+    "name": "Tên mới",
+    "email": "email_moi@example.com",
+    "phone": "0987654321",
+    "status": "inactive"
+  }
+  ```
+- **Output (200 OK):**
+  ```json
+  {
+    "success": true,
+    "message": "User updated successfully",
+    "data": { ... } // Dữ liệu người dùng sau khi cập nhật
+  }
+  ```
+
+</details>
+
+<details>
+<summary><strong>Xóa người dùng</strong></summary>
+
+- **Endpoint:** `DELETE /api/admin/users/{user}`
+- **Mô tả:** Xóa một người dùng khỏi hệ thống.
+- **Phân quyền:** `Admin`.
+- **URL Params:**
+    - `user` (integer, required): ID của người dùng.
+- **Output (200 OK):**
+  ```json
+  {
+    "success": true,
+    "message": "User deleted successfully"
+  }
+  ```
+
+</details>
+
+<details>
+<summary><strong>Chuyển đổi trạng thái người dùng</strong></summary>
+
+- **Endpoint:** `POST /api/admin/users/{user}/toggle-status`
+- **Mô tả:** Chuyển đổi trạng thái active/inactive của người dùng.
+- **Phân quyền:** `Admin`.
+- **URL Params:**
+    - `user` (integer, required): ID của người dùng.
+- **Output (200 OK):**
+  ```json
+  {
+    "success": true,
+    "message": "User status toggled successfully",
+    "data": {
+      "id": 1,
+      "status": "inactive"
+    }
+  }
+  ```
+
+</details>
+
+---
+
+## 16. [Admin] Contact Management - Quản lý liên hệ
+
+Các endpoint để quản lý các tin nhắn liên hệ từ khách hàng. Yêu cầu quyền `Admin` hoặc `Contributor`.
+
+**Yêu cầu chung:** Cần có `Authorization: Bearer <token>` trong header.
+
+<details>
+<summary><strong>Lấy danh sách liên hệ (Admin)</strong></summary>
+
+- **Endpoint:** `GET /api/admin/contacts`
+- **Mô tả:** Lấy danh sách tất cả các tin nhắn liên hệ với khả năng tìm kiếm và lọc.
+- **Phân quyền:** `Admin` / `Contributor`.
+- **Query Params:**
+  - `page` (integer, optional): Số trang (mặc định: 1).
+  - `per_page` (integer, optional): Số mục mỗi trang (mặc định: 15).
+  - `status` (string, optional): Lọc theo trạng thái (`pending`, `replied`, `closed`).
+  - `search` (string, optional): Tìm kiếm theo tên hoặc email.
+- **Output (200 OK):** (Dữ liệu Paginator)
+  ```json
+  {
+    "current_page": 1,
+    "data": [
+      {
+        "id": 1,
+        "fullname": "Nguyễn Văn A",
+        "email": "contact@example.com",
+        "message": "Tôi cần hỗ trợ về sản phẩm...",
+        "status": "pending",
+        "created_at": "2024-07-22T11:00:00.000000Z"
+      }
+    ]
+  }
+  ```
+
+</details>
+
+---
+
+## 17. Sale Campaign Product Management - Quản lý sản phẩm trong chương trình khuyến mãi
+
+Các endpoint để quản lý sản phẩm trong chương trình khuyến mãi. Yêu cầu quyền `Admin` hoặc `Contributor`.
+
+**Yêu cầu chung:** Cần có `Authorization: Bearer <token>` trong header.
+
+<details>
+<summary><strong>[Admin] Xóa sản phẩm cụ thể khỏi chương trình</strong></summary>
+
+- **Endpoint:** `DELETE /api/sale-campaigns/{saleCampaign}/products/{product}`
+- **Mô tả:** Xóa một sản phẩm cụ thể khỏi chương trình khuyến mãi.
+- **Phân quyền:** `Admin` / `Contributor`.
+- **URL Params:**
+    - `saleCampaign` (integer, required): ID của chương trình khuyến mãi.
+    - `product` (integer, required): ID của sản phẩm cần xóa.
+- **Output (200 OK):**
+  ```json
+  {
+    "message": "Product removed from sale campaign successfully"
   }
   ```
 
