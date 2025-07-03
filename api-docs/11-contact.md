@@ -22,7 +22,7 @@ Content-Type: application/json
 
 ```json
 {
-  "name": "Nguyễn Văn A",
+  "fullname": "Nguyễn Văn A",
   "email": "user@example.com",
   "phone": "0123456789",
   "subject": "Hỏi về sản phẩm",
@@ -37,7 +37,7 @@ Content-Type: application/json
   "success": true,
   "data": {
     "id": 1,
-    "name": "Nguyễn Văn A",
+    "fullname": "Nguyễn Văn A",
     "email": "user@example.com",
     "phone": "0123456789",
     "subject": "Hỏi về sản phẩm",
@@ -57,7 +57,7 @@ Content-Type: application/json
   "success": false,
   "message": "Dữ liệu không hợp lệ",
   "errors": {
-    "name": ["Tên là bắt buộc"],
+    "fullname": ["Tên là bắt buộc"],
     "email": ["Email là bắt buộc", "Email không hợp lệ"],
     "phone": ["Số điện thoại là bắt buộc"],
     "subject": ["Chủ đề là bắt buộc"],
@@ -68,7 +68,7 @@ Content-Type: application/json
 
 **Validation rules**:
 
-- `name` (string, required): Tên người liên hệ
+- `fullname` (string, required): Tên người liên hệ
 - `email` (string, required): Email người liên hệ
 - `phone` (string, required): Số điện thoại người liên hệ
 - `subject` (string, required): Chủ đề liên hệ
