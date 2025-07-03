@@ -2,13 +2,13 @@
 
 ## Lấy thông tin người dùng hiện tại
 
-### GET /api/user
+### GET /api/profile
 
 **Mô tả**: Lấy thông tin chi tiết người dùng hiện tại
 
 **Phương thức**: GET
 
-**URL**: `/api/user`
+**URL**: `/api/profile`
 
 **Phân quyền**: Yêu cầu authentication (Bearer Token)
 
@@ -22,32 +22,52 @@ Authorization: Bearer {token}
 
 ```json
 {
-  "success": true,
   "data": {
     "id": 1,
     "name": "Nguyễn Văn A",
     "email": "user@example.com",
     "phone": "0123456789",
-    "avatar": "https://example.com/avatar.jpg",
-    "date_of_birth": "1990-01-01",
-    "gender": "male",
+    "status": "active",
     "email_verified_at": "2024-01-01T00:00:00.000000Z",
+    "address_books": [
+      {
+        "id": 1,
+        "name": "Địa chỉ nhà riêng",
+        "recipient_name": "Nguyễn Văn A",
+        "recipient_phone": "0123456789",
+        "address": "123 Đường ABC, Phường XYZ",
+        "ward": "Phường 1",
+        "district": "Quận 1",
+        "province": "TP. Hồ Chí Minh",
+        "postal_code": "70000",
+        "is_default": true
+      }
+    ],
+    "orders": [
+      {
+        "id": 1,
+        "order_number": "ORD-2024-001",
+        "status": "pending",
+        "total_price": 1200000,
+        "payment_status": "pending",
+        "created_at": "2024-01-01T00:00:00.000000Z"
+      }
+    ],
     "created_at": "2024-01-01T00:00:00.000000Z",
     "updated_at": "2024-01-01T00:00:00.000000Z"
-  },
-  "message": "Lấy thông tin người dùng thành công"
+  }
 }
 ```
 
 ## Cập nhật thông tin người dùng
 
-### PUT /api/user
+### PUT /api/profile
 
 **Mô tả**: Cập nhật thông tin người dùng hiện tại
 
 **Phương thức**: PUT
 
-**URL**: `/api/user`
+**URL**: `/api/profile`
 
 **Phân quyền**: Yêu cầu authentication (Bearer Token)
 
@@ -63,9 +83,8 @@ Content-Type: application/json
 ```json
 {
   "name": "Nguyễn Văn A Updated",
-  "phone": "0987654321",
-  "date_of_birth": "1990-01-01",
-  "gender": "male"
+  "email": "user-updated@example.com",
+  "phone": "0987654321"
 }
 ```
 
@@ -73,20 +92,17 @@ Content-Type: application/json
 
 ```json
 {
-  "success": true,
+  "message": "Profile updated successfully",
   "data": {
     "id": 1,
     "name": "Nguyễn Văn A Updated",
-    "email": "user@example.com",
+    "email": "user-updated@example.com",
     "phone": "0987654321",
-    "avatar": "https://example.com/avatar.jpg",
-    "date_of_birth": "1990-01-01",
-    "gender": "male",
+    "status": "active",
     "email_verified_at": "2024-01-01T00:00:00.000000Z",
     "created_at": "2024-01-01T00:00:00.000000Z",
     "updated_at": "2024-01-01T12:00:00.000000Z"
-  },
-  "message": "Cập nhật thông tin thành công"
+  }
 }
 ```
 
@@ -95,32 +111,30 @@ Content-Type: application/json
 ```json
 {
   "success": false,
-  "message": "Dữ liệu không hợp lệ",
+  "message": "Validation errors",
   "errors": {
-    "name": ["Tên không được để trống"],
-    "phone": ["Số điện thoại không hợp lệ"],
-    "date_of_birth": ["Ngày sinh không hợp lệ"],
-    "gender": ["Giới tính phải là male, female hoặc other"]
+    "name": ["The name field is required."],
+    "email": ["The email has already been taken."],
+    "phone": ["The phone must not be greater than 20 characters."]
   }
 }
 ```
 
 **Validation rules**:
 
-- `name` (string, required): Tên người dùng
-- `phone` (string, optional): Số điện thoại
-- `date_of_birth` (date, optional): Ngày sinh (format: YYYY-MM-DD)
-- `gender` (string, optional): Giới tính (male, female, other)
+- `name` (string, required, max:255): Tên người dùng
+- `email` (string, required, email, max:255, unique): Email người dùng
+- `phone` (string, optional, max:20): Số điện thoại
 
 ## Thay đổi mật khẩu
 
-### POST /api/user/change-password
+### POST /api/change-password
 
 **Mô tả**: Thay đổi mật khẩu người dùng
 
 **Phương thức**: POST
 
-**URL**: `/api/user/change-password`
+**URL**: `/api/change-password`
 
 **Phân quyền**: Yêu cầu authentication (Bearer Token)
 
@@ -145,8 +159,7 @@ Content-Type: application/json
 
 ```json
 {
-  "success": true,
-  "message": "Đổi mật khẩu thành công"
+  "message": "Password changed successfully"
 }
 ```
 
@@ -155,30 +168,38 @@ Content-Type: application/json
 ```json
 {
   "success": false,
-  "message": "Dữ liệu không hợp lệ",
+  "message": "Validation errors",
   "errors": {
-    "current_password": ["Mật khẩu hiện tại không đúng"],
-    "new_password": ["Mật khẩu mới phải có ít nhất 8 ký tự"],
-    "new_password_confirmation": ["Xác nhận mật khẩu không khớp"]
+    "current_password": ["The current password field is required."],
+    "new_password": ["The new password must be at least 6 characters.", "The new password confirmation does not match."]
   }
+}
+```
+
+**Response lỗi - Mật khẩu hiện tại sai (422)**:
+
+```json
+{
+  "success": false,
+  "message": "Mật khẩu hiện tại không đúng"
 }
 ```
 
 **Validation rules**:
 
 - `current_password` (string, required): Mật khẩu hiện tại
-- `new_password` (string, required): Mật khẩu mới (ít nhất 8 ký tự)
+- `new_password` (string, required, min:6, confirmed): Mật khẩu mới
 - `new_password_confirmation` (string, required): Xác nhận mật khẩu mới
 
-## Upload avatar
+## Lấy thống kê người dùng
 
-### POST /api/user/upload-avatar
+### GET /api/user-stats
 
-**Mô tả**: Upload avatar cho người dùng
+**Mô tả**: Lấy thống kê của người dùng hiện tại
 
-**Phương thức**: POST
+**Phương thức**: GET
 
-**URL**: `/api/user/upload-avatar`
+**URL**: `/api/user-stats`
 
 **Phân quyền**: Yêu cầu authentication (Bearer Token)
 
@@ -186,45 +207,84 @@ Content-Type: application/json
 
 ```
 Authorization: Bearer {token}
-Content-Type: multipart/form-data
 ```
-
-**Body (Form Data)**:
-
-- `avatar` (file, required): File ảnh avatar
 
 **Response thành công (200)**:
 
 ```json
 {
-  "success": true,
   "data": {
-    "avatar_url": "https://example.com/avatars/user-1-avatar.jpg"
-  },
-  "message": "Upload avatar thành công"
+    "total_orders": 5,
+    "pending_orders": 2,
+    "completed_orders": 3,
+    "total_spent": 6500000,
+    "total_comments": 8,
+    "addresses_count": 2,
+    "member_since": "2024-01-01"
+  }
 }
 ```
 
-**Response lỗi (422)**:
+## Xóa tài khoản
+
+### DELETE /api/delete-account
+
+**Mô tả**: Xóa tài khoản người dùng hiện tại
+
+**Phương thức**: DELETE
+
+**URL**: `/api/delete-account`
+
+**Phân quyền**: Yêu cầu authentication (Bearer Token)
+
+**Headers**:
+
+```
+Authorization: Bearer {token}
+Content-Type: application/json
+```
+
+**Body**:
+
+```json
+{
+  "password": "user_password123"
+}
+```
+
+**Response thành công (200)**:
+
+```json
+{
+  "message": "Account deleted successfully"
+}
+```
+
+**Response lỗi (422) - Mật khẩu sai**:
 
 ```json
 {
   "success": false,
-  "message": "Dữ liệu không hợp lệ",
-  "errors": {
-    "avatar": ["Avatar phải là file ảnh", "Kích thước file không được vượt quá 2MB"]
-  }
+  "message": "Mật khẩu không đúng"
+}
+```
+
+**Response lỗi (422) - Có đơn hàng pending**:
+
+```json
+{
+  "message": "Cannot delete account with pending orders"
 }
 ```
 
 **Validation rules**:
 
-- `avatar` (file, required): File ảnh (jpg, jpeg, png, gif, max 2MB)
+- `password` (string, required): Mật khẩu xác nhận
 
 **Lưu ý**:
 
 - Tất cả các endpoint trong module này đều yêu cầu authentication
-- Không thể thay đổi email thông qua API này
-- Avatar sẽ được lưu trữ và trả về URL đầy đủ
-- Khi upload avatar mới, avatar cũ sẽ bị ghi đè
-- Giới tính có 3 giá trị: "male", "female", "other"
+- Không thể xóa tài khoản khi có đơn hàng đang pending
+- Profile sẽ include thông tin addresses và orders gần đây (5 đơn hàng cuối)
+- Status chỉ có 2 giá trị: "active", "inactive"
+- Không có avatar, date_of_birth, gender trong hệ thống

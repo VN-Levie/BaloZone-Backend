@@ -39,9 +39,6 @@ Authorization: Bearer {token}
         "name": "Nguyễn Văn A",
         "email": "user@example.com",
         "phone": "0123456789",
-        "avatar": "https://example.com/avatar.jpg",
-        "date_of_birth": "1990-01-01",
-        "gender": "male",
         "status": "active",
         "email_verified_at": "2024-01-01T00:00:00.000000Z",
         "roles": [
@@ -53,7 +50,6 @@ Authorization: Bearer {token}
         ],
         "orders_count": 5,
         "total_spent": 6500000,
-        "last_login_at": "2024-01-01T10:00:00.000000Z",
         "created_at": "2024-01-01T00:00:00.000000Z",
         "updated_at": "2024-01-01T00:00:00.000000Z"
       }
@@ -105,9 +101,6 @@ Authorization: Bearer {token}
     "name": "Nguyễn Văn A",
     "email": "user@example.com",
     "phone": "0123456789",
-    "avatar": "https://example.com/avatar.jpg",
-    "date_of_birth": "1990-01-01",
-    "gender": "male",
     "status": "active",
     "email_verified_at": "2024-01-01T00:00:00.000000Z",
     "roles": [
@@ -135,14 +128,6 @@ Authorization: Bearer {token}
       "average_order_value": 1300000,
       "last_order_at": "2024-01-01T10:00:00.000000Z"
     },
-    "activity_log": [
-      {
-        "action": "login",
-        "ip_address": "192.168.1.1",
-        "user_agent": "Mozilla/5.0...",
-        "created_at": "2024-01-01T10:00:00.000000Z"
-      }
-    ],
     "created_at": "2024-01-01T00:00:00.000000Z",
     "updated_at": "2024-01-01T00:00:00.000000Z"
   },
@@ -150,15 +135,15 @@ Authorization: Bearer {token}
 }
 ```
 
-## Cập nhật trạng thái người dùng
+## Cập nhật thông tin người dùng (Admin)
 
-### PUT /api/admin/users/{id}/status
+### PUT /api/admin/users/{user}
 
-**Mô tả**: Cập nhật trạng thái người dùng (active, inactive, banned)
+**Mô tả**: Cập nhật thông tin người dùng
 
 **Phương thức**: PUT
 
-**URL**: `/api/admin/users/{id}/status`
+**URL**: `/api/admin/users/{user}`
 
 **Phân quyền**: Yêu cầu authentication (Bearer Token) + Role Admin
 
@@ -171,14 +156,16 @@ Content-Type: application/json
 
 **Tham số URL**:
 
-- `id` (integer, required): ID người dùng
+- `user` (integer, required): ID người dùng
 
 **Body**:
 
 ```json
 {
-  "status": "banned",
-  "reason": "Vi phạm chính sách sử dụng"
+  "name": "Nguyễn Văn A Updated",
+  "email": "user-updated@example.com",
+  "phone": "0987654321",
+  "status": "inactive"
 }
 ```
 
@@ -187,12 +174,24 @@ Content-Type: application/json
 ```json
 {
   "success": true,
+  "message": "User updated successfully",
   "data": {
     "id": 1,
-    "status": "banned",
+    "name": "Nguyễn Văn A Updated",
+    "email": "user-updated@example.com",
+    "phone": "0987654321",
+    "status": "inactive",
+    "email_verified_at": "2024-01-01T00:00:00.000000Z",
+    "roles": [
+      {
+        "id": 3,
+        "name": "customer",
+        "display_name": "Khách hàng"
+      }
+    ],
+    "created_at": "2024-01-01T00:00:00.000000Z",
     "updated_at": "2024-01-01T12:00:00.000000Z"
-  },
-  "message": "Cập nhật trạng thái người dùng thành công"
+  }
 }
 ```
 
@@ -201,28 +200,31 @@ Content-Type: application/json
 ```json
 {
   "success": false,
-  "message": "Dữ liệu không hợp lệ",
+  "message": "Validation errors",
   "errors": {
-    "status": ["Trạng thái không hợp lệ"],
-    "reason": ["Lý do là bắt buộc khi cấm người dùng"]
+    "name": ["The name field is required."],
+    "email": ["The email has already been taken."],
+    "status": ["The selected status is invalid."]
   }
 }
 ```
 
 **Validation rules**:
 
-- `status` (string, required): Trạng thái mới (active, inactive, banned)
-- `reason` (string, required if status is banned): Lý do cấm người dùng
+- `name` (string, required, max:255): Tên người dùng
+- `email` (string, required, email, max:255, unique): Email người dùng
+- `phone` (string, optional, max:20): Số điện thoại
+- `status` (string, required): Trạng thái (active, inactive)
 
-## Thống kê người dùng (Admin)
+## Xóa người dùng (Admin)
 
-### GET /api/admin/users/statistics
+### DELETE /api/admin/users/{user}
 
-**Mô tả**: Lấy thống kê người dùng cho admin
+**Mô tả**: Xóa người dùng
 
-**Phương thức**: GET
+**Phương thức**: DELETE
 
-**URL**: `/api/admin/users/statistics`
+**URL**: `/api/admin/users/{user}`
 
 **Phân quyền**: Yêu cầu authentication (Bearer Token) + Role Admin
 
@@ -232,51 +234,84 @@ Content-Type: application/json
 Authorization: Bearer {token}
 ```
 
-**Tham số query**:
+**Tham số URL**:
 
-- `period` (string, optional): Khoảng thời gian (today, week, month, year)
-- `from_date` (date, optional): Từ ngày (format: YYYY-MM-DD)
-- `to_date` (date, optional): Đến ngày (format: YYYY-MM-DD)
+- `user` (integer, required): ID người dùng
 
 **Response thành công (200)**:
 
 ```json
 {
   "success": true,
+  "message": "User deleted successfully"
+}
+```
+
+**Response lỗi (400) - Không thể xóa admin**:
+
+```json
+{
+  "success": false,
+  "message": "Cannot delete admin user"
+}
+```
+
+**Response lỗi (400) - Có đơn hàng pending**:
+
+```json
+{
+  "success": false,
+  "message": "Cannot delete user with pending orders"
+}
+```
+
+## Chuyển đổi trạng thái người dùng (Admin)
+
+### POST /api/admin/users/{user}/toggle-status
+
+**Mô tả**: Chuyển đổi trạng thái người dùng (active ↔ inactive)
+
+**Phương thức**: POST
+
+**URL**: `/api/admin/users/{user}/toggle-status`
+
+**Phân quyền**: Yêu cầu authentication (Bearer Token) + Role Admin
+
+**Headers**:
+
+```
+Authorization: Bearer {token}
+```
+
+**Tham số URL**:
+
+- `user` (integer, required): ID người dùng
+
+**Response thành công (200)**:
+
+```json
+{
+  "success": true,
+  "message": "User status updated successfully",
   "data": {
-    "total_users": 145,
-    "active_users": 120,
-    "inactive_users": 20,
-    "banned_users": 5,
-    "new_users_today": 3,
-    "new_users_this_week": 15,
-    "new_users_this_month": 45,
-    "users_by_role": {
-      "admin": 2,
-      "staff": 5,
-      "customer": 138
-    },
-    "users_by_gender": {
-      "male": 75,
-      "female": 60,
-      "other": 10
-    },
-    "top_spenders": [
-      {
-        "user_id": 1,
-        "user_name": "Nguyễn Văn A",
-        "total_spent": 12500000,
-        "orders_count": 8
-      }
-    ],
-    "registration_trend": [
-      {
-        "date": "2024-01-01",
-        "new_users": 5
-      }
-    ]
-  },
-  "message": "Lấy thống kê người dùng thành công"
+    "id": 1,
+    "name": "Nguyễn Văn A",
+    "email": "user@example.com",
+    "phone": "0123456789",
+    "status": "inactive",
+    "email_verified_at": "2024-01-01T00:00:00.000000Z",
+    "created_at": "2024-01-01T00:00:00.000000Z",
+    "updated_at": "2024-01-01T12:00:00.000000Z"
+  }
+}
+```
+
+**Response lỗi (400)**:
+
+```json
+{
+  "success": false,
+  "message": "Cannot change admin status"
 }
 ```
 
@@ -284,7 +319,9 @@ Authorization: Bearer {token}
 
 - Tất cả các endpoint đều yêu cầu authentication + role admin
 - Admin có thể xem tất cả thông tin chi tiết của người dùng
-- Có thể lọc và tìm kiếm người dùng theo nhiều tiêu chí
-- Khi cập nhật trạng thái, hệ thống sẽ lưu lịch sử thay đổi
-- Trạng thái "banned" sẽ ngăn người dùng đăng nhập
-- Thống kê cung cấp cái nhìn tổng quan về người dùng trong hệ thống
+- Có thể lọc và tìm kiếm người dùng theo nhiều tiêu chí (trong endpoint index)
+- Trạng thái chỉ có 2 giá trị: "active", "inactive" (không có "banned")
+- Không có avatar, date_of_birth, gender trong hệ thống
+- Không thể xóa hoặc thay đổi trạng thái admin user
+- Không thể xóa user có đơn hàng đang pending
+- Toggle status sẽ chuyển đổi giữa active ↔ inactive

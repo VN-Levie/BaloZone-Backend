@@ -22,7 +22,7 @@ class OrderSeeder extends Seeder
         $users = User::all();
         $addressBooks = AddressBook::all();
         $paymentMethods = PaymentMethod::where('status', 'active')->get();
-        $vouchers = Voucher::where('end_at', '>', now())->get();
+        $vouchers = Voucher::where('end_date', '>', now())->get();
         $products = Product::where('quantity', '>', 0)->get();
 
         if ($users->isEmpty() || $addressBooks->isEmpty() || $paymentMethods->isEmpty() || $products->isEmpty()) {

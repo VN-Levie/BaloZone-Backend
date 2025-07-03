@@ -89,16 +89,16 @@ class OrderController extends Controller
                     throw new \Exception('Voucher không tồn tại');
                 }
 
-                if ($voucher->end_at < now()) {
-                    throw new \Exception('Voucher đã hết hạn');
+                if (!$voucher->isValid()) {
+                    throw new \Exception('Voucher không còn hiệu lực');
                 }
 
-                if ($voucher->quantity <= 0) {
-                    throw new \Exception('Voucher đã hết lượt sử dụng');
+                if (!$voucher->canApplyToOrder($totalPrice)) {
+                    throw new \Exception('Đơn hàng không đủ điều kiện áp dụng voucher');
                 }
 
-                $voucherDiscount = $voucher->price;
-                $voucher->decrement('quantity');
+                $voucherDiscount = $voucher->calculateDiscount($totalPrice);
+                $voucher->incrementUsage();
             }
 
             $finalTotal = max(0, $totalPrice - $voucherDiscount);

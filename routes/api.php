@@ -56,11 +56,11 @@ Route::get('products-search', [ProductController::class, 'search']);
 Route::get('products-on-sale', [ProductController::class, 'getOnSale']);
 Route::get('products/{product}/sale-campaigns', [ProductController::class, 'getSaleCampaigns']);
 
-// Voucher routes (public read-only)
-Route::get('vouchers', [VoucherController::class, 'index']);
-Route::get('vouchers/{voucher}', [VoucherController::class, 'show']);
-Route::post('vouchers/validate', [VoucherController::class, 'validateCode']);
-Route::get('vouchers-active', [VoucherController::class, 'getActive']);
+// Voucher routes (require authentication)
+Route::middleware('auth:api')->group(function () {
+    Route::get('vouchers', [VoucherController::class, 'index']);
+    Route::post('vouchers/check', [VoucherController::class, 'check']);
+});
 
 // Comment routes (public read-only)
 Route::get('comments', [CommentController::class, 'index']);
