@@ -7,6 +7,7 @@ use App\Models\OrderDetail;
 use App\Models\Product;
 use App\Models\Voucher;
 use App\Http\Requests\OrderRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\DB;
@@ -39,6 +40,7 @@ class OrderController extends Controller
      */
     public function store(OrderRequest $request): JsonResponse
     {
+        /** @var User|null $user */
         $user = auth('api')->user();
 
         // Verify that address belongs to user
@@ -218,6 +220,7 @@ class OrderController extends Controller
      */
     public function getStats(): JsonResponse
     {
+        /** @var User|null $user */
         $user = auth('api')->user();
 
         $stats = [
@@ -230,6 +233,66 @@ class OrderController extends Controller
 
         return response()->json([
             'data' => $stats
+        ]);
+    }
+
+    /**
+     * [ADMIN] Display a listing of the resource.
+     */
+    public function adminIndex(Request $request): JsonResponse
+    {
+        $query = Order::with(['user', 'address', 'paymentMethod', 'voucher', 'orderDetails.product']);
+
+        // Lọc theo trạng thái thanh toán
+        if ($request->has('payment_status')) {
+            $query->where('payment_status', $request->payment_status);
+        }
+
+        // Lọc theo user
+        if ($request->has('user_id')) {
+            $query->where('user_id', $request->user_id);
+        }
+
+        // Tìm kiếm theo tên người dùng hoặc email
+        if ($request->has('search')) {
+            $searchTerm = $request->search;
+            $query->whereHas('user', function ($q) use ($searchTerm) {
+                $q->where('name', 'like', "%{$searchTerm}%")
+                  ->orWhere('email', 'like', "%{$searchTerm}%");
+            });
+        }
+
+        // Sắp xếp theo ngày tạo mới nhất
+        $orders = $query->orderBy('created_at', 'desc')->paginate(20);
+
+        return response()->json($orders);
+    }
+
+    /**
+     * [ADMIN] Update the specified resource in storage.
+     */
+    public function updateStatus(Request $request, Order $order): JsonResponse
+    {
+        $validator = \Illuminate\Support\Facades\Validator::make($request->all(), [
+            'payment_status' => 'required|in:pending,processing,shipped,delivered,failed,cancelled',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Validation errors',
+                'errors' => $validator->errors()
+            ], 422);
+        }
+
+        $order->update(['payment_status' => $request->payment_status]);
+
+        // Logic gửi email thông báo cho user có thể thêm ở đây
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Order status updated successfully',
+            'data' => $order
         ]);
     }
 }

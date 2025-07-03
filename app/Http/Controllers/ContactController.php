@@ -78,4 +78,70 @@ class ContactController extends Controller
             'data' => $contact
         ]);
     }
+
+    /**
+     * [ADMIN] Display a listing of the resource.
+     */
+    public function adminIndex(Request $request): JsonResponse
+    {
+        $query = Contact::query();
+
+        // Lọc theo trạng thái
+        if ($request->has('status')) {
+            $query->where('status', $request->status);
+        }
+
+        // Tìm kiếm theo tên hoặc email
+        if ($request->has('search')) {
+            $query->where(function($q) use ($request) {
+                $q->where('fullname', 'like', '%' . $request->search . '%')
+                  ->orWhere('email', 'like', '%' . $request->search . '%');
+            });
+        }
+
+        // Phân trang
+        $perPage = $request->get('per_page', 15);
+        $contacts = $query->orderBy('created_at', 'desc')->paginate($perPage);
+
+        return response()->json($contacts);
+    }
+
+    /**
+     * [ADMIN] Update the specified resource in storage.
+     */
+    public function update(Request $request, Contact $contact): JsonResponse
+    {
+        $validator = Validator::make($request->all(), [
+            'status' => 'required|in:pending,replied,closed',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Validation errors',
+                'errors' => $validator->errors()
+            ], 422);
+        }
+
+        $contact->update(['status' => $request->status]);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Contact status updated successfully',
+            'data' => $contact
+        ]);
+    }
+
+    /**
+     * [ADMIN] Remove the specified resource from storage.
+     */
+    public function destroy(Contact $contact): JsonResponse
+    {
+        $contact->delete();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Contact deleted successfully'
+        ]);
+    }
 }
