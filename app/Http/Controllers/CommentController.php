@@ -140,10 +140,10 @@ class CommentController extends Controller
             ], 403);
         }
 
-        $comment->delete();
+        $comment->delete(); // Soft delete
 
         return response()->json([
-            'message' => 'Bình luận đã được xóa'
+            'message' => 'Bình luận đã được xóa mềm'
         ]);
     }
 

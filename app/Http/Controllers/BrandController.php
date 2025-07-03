@@ -87,17 +87,70 @@ class BrandController extends Controller
      */
     public function destroy(Brand $brand): JsonResponse
     {
-        // Kiểm tra xem brand có products không
-        if ($brand->products()->count() > 0) {
+        // Kiểm tra xem brand có products không (chỉ kiểm tra products chưa bị xóa)
+        if ($brand->products()->whereNull('deleted_at')->count() > 0) {
             return response()->json([
-                'message' => 'Cannot delete brand that has products. Please remove or reassign products first.'
+                'message' => 'Cannot delete brand that has active products. Please remove or reassign products first.'
             ], 422);
         }
 
-        $brand->delete();
+        $brand->delete(); // Soft delete
 
         return response()->json([
-            'message' => 'Brand deleted successfully'
+            'message' => 'Brand soft deleted successfully'
+        ]);
+    }
+
+    /**
+     * Restore the specified soft deleted brand.
+     */
+    public function restore($id): JsonResponse
+    {
+        $brand = Brand::onlyTrashed()->findOrFail($id);
+        $brand->restore();
+
+        return response()->json([
+            'message' => 'Brand restored successfully',
+            'data' => $brand
+        ]);
+    }
+
+    /**
+     * Permanently delete the specified brand.
+     */
+    public function forceDelete($id): JsonResponse
+    {
+        $brand = Brand::onlyTrashed()->findOrFail($id);
+
+        // Kiểm tra xem brand có products nào không (cả đã xóa và chưa xóa)
+        if ($brand->products()->withTrashed()->count() > 0) {
+            return response()->json([
+                'message' => 'Cannot force delete brand that has products. Please force delete all products first.'
+            ], 422);
+        }
+
+        $brand->forceDelete();
+
+        return response()->json([
+            'message' => 'Brand permanently deleted'
+        ]);
+    }
+
+    /**
+     * Get trashed brands (Admin only)
+     */
+    public function trashed(): JsonResponse
+    {
+        $brands = Brand::onlyTrashed()
+            ->withCount(['products' => function($query) {
+                $query->withTrashed();
+            }])
+            ->orderBy('deleted_at', 'desc')
+            ->paginate(15);
+
+        return response()->json([
+            'success' => true,
+            'data' => $brands
         ]);
     }
 

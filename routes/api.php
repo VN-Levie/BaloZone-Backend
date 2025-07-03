@@ -138,6 +138,9 @@ Route::middleware(['auth:api', 'role:admin'])->group(function () {
     Route::put('admin/users/{user}', [UserController::class, 'update']);
     Route::delete('admin/users/{user}', [UserController::class, 'destroy']);
     Route::post('admin/users/{user}/toggle-status', [UserController::class, 'toggleStatus']);
+    // User soft delete management
+    Route::get('admin/users/trashed', [UserController::class, 'trashed']);
+    Route::post('admin/users/{id}/restore', [UserController::class, 'restore']);
 
     // Dashboard statistics
     Route::get('admin/dashboard/stats', [DashboardController::class, 'getAdminStats']);
@@ -155,16 +158,28 @@ Route::middleware(['auth:api', 'role:admin,contributor'])->group(function () {
     Route::post('brands', [BrandController::class, 'store']);
     Route::put('brands/{brand}', [BrandController::class, 'update']);
     Route::delete('brands/{brand}', [BrandController::class, 'destroy']);
+    // Brand soft delete management
+    Route::get('brands/trashed', [BrandController::class, 'trashed']);
+    Route::post('brands/{id}/restore', [BrandController::class, 'restore']);
+    Route::delete('brands/{id}/force', [BrandController::class, 'forceDelete']);
 
     // Category management
     Route::post('categories', [CategoryController::class, 'store']);
     Route::put('categories/{category}', [CategoryController::class, 'update']);
     Route::delete('categories/{category}', [CategoryController::class, 'destroy']);
+    // Category soft delete management
+    Route::get('categories/trashed', [CategoryController::class, 'trashed']);
+    Route::post('categories/{id}/restore', [CategoryController::class, 'restore']);
+    Route::delete('categories/{id}/force', [CategoryController::class, 'forceDelete']);
 
     // Product management
     Route::post('products', [ProductController::class, 'store']);
     Route::put('products/{product}', [ProductController::class, 'update']);
     Route::delete('products/{product}', [ProductController::class, 'destroy']);
+    // Product soft delete management
+    Route::get('products/trashed', [ProductController::class, 'trashed']);
+    Route::post('products/{id}/restore', [ProductController::class, 'restore']);
+    Route::delete('products/{id}/force', [ProductController::class, 'forceDelete']);
 
     // Voucher management
     Route::post('vouchers', [VoucherController::class, 'store']);

@@ -82,17 +82,70 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category): JsonResponse
     {
-        // Kiểm tra xem category có products không
-        if ($category->products()->count() > 0) {
+        // Kiểm tra xem category có products không (chỉ kiểm tra products chưa bị xóa)
+        if ($category->products()->whereNull('deleted_at')->count() > 0) {
             return response()->json([
-                'message' => 'Cannot delete category that has products. Please remove or reassign products first.'
+                'message' => 'Cannot delete category that has active products. Please remove or reassign products first.'
             ], 422);
         }
 
-        $category->delete();
+        $category->delete(); // Soft delete
 
         return response()->json([
-            'message' => 'Category deleted successfully'
+            'message' => 'Category soft deleted successfully'
+        ]);
+    }
+
+    /**
+     * Restore the specified soft deleted category.
+     */
+    public function restore($id): JsonResponse
+    {
+        $category = Category::onlyTrashed()->findOrFail($id);
+        $category->restore();
+
+        return response()->json([
+            'message' => 'Category restored successfully',
+            'data' => $category
+        ]);
+    }
+
+    /**
+     * Permanently delete the specified category.
+     */
+    public function forceDelete($id): JsonResponse
+    {
+        $category = Category::onlyTrashed()->findOrFail($id);
+
+        // Kiểm tra xem category có products nào không (cả đã xóa và chưa xóa)
+        if ($category->products()->withTrashed()->count() > 0) {
+            return response()->json([
+                'message' => 'Cannot force delete category that has products. Please force delete all products first.'
+            ], 422);
+        }
+
+        $category->forceDelete();
+
+        return response()->json([
+            'message' => 'Category permanently deleted'
+        ]);
+    }
+
+    /**
+     * Get trashed categories (Admin only)
+     */
+    public function trashed(): JsonResponse
+    {
+        $categories = Category::onlyTrashed()
+            ->withCount(['products' => function($query) {
+                $query->withTrashed();
+            }])
+            ->orderBy('deleted_at', 'desc')
+            ->paginate(15);
+
+        return response()->json([
+            'success' => true,
+            'data' => $categories
         ]);
     }
 

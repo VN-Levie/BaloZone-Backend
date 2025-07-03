@@ -161,17 +161,73 @@ class ProductController extends Controller
      */
     public function destroy(Product $product): JsonResponse
     {
-        // Kiểm tra xem product có trong order nào không
-        if ($product->orderDetails()->count() > 0) {
+        // Kiểm tra xem product có trong order nào không (chỉ kiểm tra orders chưa bị xóa)
+        if ($product->orderDetails()->whereHas('order', function($query) {
+            $query->whereNull('deleted_at');
+        })->count() > 0) {
             return response()->json([
-                'message' => 'Cannot delete product that has been ordered.'
+                'message' => 'Cannot delete product that has been ordered in active orders.'
             ], 422);
         }
 
-        $product->delete();
+        $product->delete(); // Soft delete
 
         return response()->json([
-            'message' => 'Product deleted successfully'
+            'message' => 'Product soft deleted successfully'
+        ]);
+    }
+
+    /**
+     * Restore the specified soft deleted product.
+     */
+    public function restore($id): JsonResponse
+    {
+        $product = Product::onlyTrashed()->with(['category', 'brand'])->findOrFail($id);
+        $product->restore();
+
+        return response()->json([
+            'message' => 'Product restored successfully',
+            'data' => $product
+        ]);
+    }
+
+    /**
+     * Permanently delete the specified product.
+     */
+    public function forceDelete($id): JsonResponse
+    {
+        $product = Product::onlyTrashed()->findOrFail($id);
+
+        // Kiểm tra xem product có trong order nào không (cả đã xóa và chưa xóa)
+        if ($product->orderDetails()->withTrashed()->count() > 0) {
+            return response()->json([
+                'message' => 'Cannot force delete product that has order history. Data integrity must be maintained.'
+            ], 422);
+        }
+
+        $product->forceDelete();
+
+        return response()->json([
+            'message' => 'Product permanently deleted'
+        ]);
+    }
+
+    /**
+     * Get trashed products (Admin only)
+     */
+    public function trashed(): JsonResponse
+    {
+        $products = Product::onlyTrashed()
+            ->with(['category', 'brand'])
+            ->withCount(['orderDetails' => function($query) {
+                $query->withTrashed();
+            }])
+            ->orderBy('deleted_at', 'desc')
+            ->paginate(15);
+
+        return response()->json([
+            'success' => true,
+            'data' => $products
         ]);
     }
 
