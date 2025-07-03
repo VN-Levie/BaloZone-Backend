@@ -1,6 +1,9 @@
-# Test Role System APIs
+# Test Role System APIs - Updated
 
-### 1. Đăng nhập với admin
+### 1. Test PUBLIC API (không cần auth)
+GET http://localhost:8000/api/products
+
+### 2. Đăng nhập với admin
 POST http://localhost:8000/api/auth/login
 Content-Type: application/json
 
@@ -9,66 +12,26 @@ Content-Type: application/json
     "password": "admin123"
 }
 
-### 2. Lấy thông tin user hiện tại (bao gồm roles)
-GET http://localhost:8000/api/auth/me
-Authorization: Bearer {{token}}
-
-### 3. Lấy danh sách roles (Admin only)
+### 3. Lấy danh sách roles với admin token (thay {admin_token} bằng token từ bước 2)
 GET http://localhost:8000/api/roles
-Authorization: Bearer {{token}}
+Authorization: Bearer {admin_token}
 
-### 4. Tạo role mới (Admin only)
-POST http://localhost:8000/api/roles
-Authorization: Bearer {{token}}
+### 4. Tạo sản phẩm với admin token (Admin có quyền)
+POST http://localhost:8000/api/products
+Authorization: Bearer {admin_token}
 Content-Type: application/json
 
 {
-    "name": "moderator",
-    "display_name": "Moderator",
-    "description": "Người kiểm duyệt nội dung"
+    "name": "Test Product by Admin",
+    "description": "Test product created by admin",
+    "price": 100000,
+    "quantity": 50,
+    "category_id": 1,
+    "brand_id": 1,
+    "color": "Đen"
 }
 
-### 5. Gán role cho user (Admin only)
-POST http://localhost:8000/api/roles/assign
-Authorization: Bearer {{token}}
-Content-Type: application/json
-
-{
-    "user_id": 2,
-    "role_name": "contributor"
-}
-
-### 6. Xóa role khỏi user (Admin only)
-POST http://localhost:8000/api/roles/remove
-Authorization: Bearer {{token}}
-Content-Type: application/json
-
-{
-    "user_id": 2,
-    "role_name": "contributor"
-}
-
-### 7. Lấy danh sách users (Admin only)
-GET http://localhost:8000/api/admin/users
-Authorization: Bearer {{token}}
-
-### 8. Cập nhật user (Admin only)
-PUT http://localhost:8000/api/admin/users/2
-Authorization: Bearer {{token}}
-Content-Type: application/json
-
-{
-    "name": "Test User Updated",
-    "email": "test@example.com",
-    "phone": "0987654321",
-    "status": "active"
-}
-
-### 9. Toggle user status (Admin only)
-POST http://localhost:8000/api/admin/users/2/toggle-status
-Authorization: Bearer {{token}}
-
-### 10. Đăng nhập với contributor
+### 5. Đăng nhập với contributor
 POST http://localhost:8000/api/auth/login
 Content-Type: application/json
 
@@ -77,20 +40,26 @@ Content-Type: application/json
     "password": "contributor123"
 }
 
-### 11. Tạo sản phẩm (Contributor or Admin)
+### 6. Tạo sản phẩm với contributor token (Contributor có quyền)
 POST http://localhost:8000/api/products
-Authorization: Bearer {{contributor_token}}
+Authorization: Bearer {contributor_token}
 Content-Type: application/json
 
 {
-    "name": "Test Product",
-    "description": "Test description",
-    "price": 100000,
+    "name": "Test Product by Contributor",
+    "description": "Test product created by contributor",
+    "price": 150000,
+    "quantity": 30,
     "category_id": 1,
-    "brand_id": 1
+    "brand_id": 1,
+    "color": "Xanh"
 }
 
-### 12. Đăng nhập với user thường
+### 7. Thử truy cập API admin với contributor token (sẽ bị từ chối)
+GET http://localhost:8000/api/roles
+Authorization: Bearer {contributor_token}
+
+### 8. Đăng nhập với user thường
 POST http://localhost:8000/api/auth/login
 Content-Type: application/json
 
@@ -99,19 +68,36 @@ Content-Type: application/json
     "password": "password"
 }
 
-### 13. Thử truy cập API admin (sẽ bị từ chối)
-GET http://localhost:8000/api/roles
-Authorization: Bearer {{user_token}}
-
-### 14. Thử tạo sản phẩm với user thường (sẽ bị từ chối)
+### 9. Thử tạo sản phẩm với user token (sẽ bị từ chối)
 POST http://localhost:8000/api/products
-Authorization: Bearer {{user_token}}
+Authorization: Bearer {user_token}
 Content-Type: application/json
 
 {
-    "name": "Test Product",
-    "description": "Test description",
-    "price": 100000,
+    "name": "Test Product by User",
+    "description": "Test product created by user",
+    "price": 200000,
+    "quantity": 10,
     "category_id": 1,
-    "brand_id": 1
+    "brand_id": 1,
+    "color": "Đỏ"
 }
+
+### 10. Tạo comment với user token (User có quyền)
+POST http://localhost:8000/api/comments
+Authorization: Bearer {user_token}
+Content-Type: application/json
+
+{
+    "product_id": 1,
+    "content": "Sản phẩm rất tốt!",
+    "rating": 5
+}
+
+### 11. Thử truy cập API admin với user token (sẽ bị từ chối)
+GET http://localhost:8000/api/admin/users
+Authorization: Bearer {user_token}
+
+### 12. Truy cập profile với user token (User có quyền)
+GET http://localhost:8000/api/profile
+Authorization: Bearer {user_token}
