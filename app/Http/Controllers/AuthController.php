@@ -88,6 +88,12 @@ class AuthController extends Controller
             'status' => 'active',
         ]);
 
+        // Gán role mặc định là user
+        $user->assignRole('user');
+
+        // Load roles cho response
+        $user->load('roles');
+
         // Generate token for the newly created user
         $token = JWTAuth::fromUser($user);
 
@@ -110,7 +116,7 @@ class AuthController extends Controller
     {
         /** @var User|null $user */
         $user = auth('api')->user();
-        $user->load(['addressBooks', 'orders.orderDetails.product']);
+        $user->load(['addressBooks', 'orders.orderDetails.product', 'roles']);
 
         return response()->json([
             'success' => true,
@@ -164,6 +170,10 @@ class AuthController extends Controller
                 'message' => 'Unauthorized'
             ], 401);
         }
+
+        // Load roles cho response
+        $user->load('roles');
+
         return response()->json([
             'success' => true,
             'message' => 'Đăng nhập thành công',

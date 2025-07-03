@@ -1,0 +1,117 @@
+# Test Role System APIs
+
+### 1. Đăng nhập với admin
+POST http://localhost:8000/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "admin@balozone.com",
+    "password": "admin123"
+}
+
+### 2. Lấy thông tin user hiện tại (bao gồm roles)
+GET http://localhost:8000/api/auth/me
+Authorization: Bearer {{token}}
+
+### 3. Lấy danh sách roles (Admin only)
+GET http://localhost:8000/api/roles
+Authorization: Bearer {{token}}
+
+### 4. Tạo role mới (Admin only)
+POST http://localhost:8000/api/roles
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "name": "moderator",
+    "display_name": "Moderator",
+    "description": "Người kiểm duyệt nội dung"
+}
+
+### 5. Gán role cho user (Admin only)
+POST http://localhost:8000/api/roles/assign
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "user_id": 2,
+    "role_name": "contributor"
+}
+
+### 6. Xóa role khỏi user (Admin only)
+POST http://localhost:8000/api/roles/remove
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "user_id": 2,
+    "role_name": "contributor"
+}
+
+### 7. Lấy danh sách users (Admin only)
+GET http://localhost:8000/api/admin/users
+Authorization: Bearer {{token}}
+
+### 8. Cập nhật user (Admin only)
+PUT http://localhost:8000/api/admin/users/2
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "name": "Test User Updated",
+    "email": "test@example.com",
+    "phone": "0987654321",
+    "status": "active"
+}
+
+### 9. Toggle user status (Admin only)
+POST http://localhost:8000/api/admin/users/2/toggle-status
+Authorization: Bearer {{token}}
+
+### 10. Đăng nhập với contributor
+POST http://localhost:8000/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "contributor@balozone.com",
+    "password": "contributor123"
+}
+
+### 11. Tạo sản phẩm (Contributor or Admin)
+POST http://localhost:8000/api/products
+Authorization: Bearer {{contributor_token}}
+Content-Type: application/json
+
+{
+    "name": "Test Product",
+    "description": "Test description",
+    "price": 100000,
+    "category_id": 1,
+    "brand_id": 1
+}
+
+### 12. Đăng nhập với user thường
+POST http://localhost:8000/api/auth/login
+Content-Type: application/json
+
+{
+    "email": "test@example.com",
+    "password": "password"
+}
+
+### 13. Thử truy cập API admin (sẽ bị từ chối)
+GET http://localhost:8000/api/roles
+Authorization: Bearer {{user_token}}
+
+### 14. Thử tạo sản phẩm với user thường (sẽ bị từ chối)
+POST http://localhost:8000/api/products
+Authorization: Bearer {{user_token}}
+Content-Type: application/json
+
+{
+    "name": "Test Product",
+    "description": "Test description",
+    "price": 100000,
+    "category_id": 1,
+    "brand_id": 1
+}

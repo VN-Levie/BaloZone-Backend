@@ -14,6 +14,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\AddressBookController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SaleCampaignController;
+use App\Http\Controllers\RoleController;
 
 // Public routes
 Route::get('/user', function (Request $request) {
@@ -94,4 +95,51 @@ Route::get('sale-campaigns/{saleCampaign}/products', [SaleCampaignController::cl
 Route::middleware('auth:api')->group(function () {
     Route::post('sale-campaigns/{saleCampaign}/products', [SaleCampaignController::class, 'addProducts']);
     Route::delete('sale-campaigns/{saleCampaign}/products/{product}', [SaleCampaignController::class, 'removeProduct']);
+});
+
+// Admin routes (Admin only)
+Route::middleware(['auth:api', 'role:admin'])->group(function () {
+    Route::apiResource('roles', RoleController::class);
+    Route::post('roles/assign', [RoleController::class, 'assignRole']);
+    Route::post('roles/remove', [RoleController::class, 'removeRole']);
+
+    // User management routes
+    Route::get('admin/users', [UserController::class, 'index']);
+    Route::put('admin/users/{user}', [UserController::class, 'update']);
+    Route::delete('admin/users/{user}', [UserController::class, 'destroy']);
+    Route::post('admin/users/{user}/toggle-status', [UserController::class, 'toggleStatus']);
+});
+
+// Contributor routes (Admin or Contributor)
+Route::middleware(['auth:api', 'role:admin,contributor'])->group(function () {
+    Route::post('news', [NewsController::class, 'store']);
+    Route::put('news/{news}', [NewsController::class, 'update']);
+    Route::delete('news/{news}', [NewsController::class, 'destroy']);
+
+    Route::post('brands', [BrandController::class, 'store']);
+    Route::put('brands/{brand}', [BrandController::class, 'update']);
+    Route::delete('brands/{brand}', [BrandController::class, 'destroy']);
+
+    Route::post('categories', [CategoryController::class, 'store']);
+    Route::put('categories/{category}', [CategoryController::class, 'update']);
+    Route::delete('categories/{category}', [CategoryController::class, 'destroy']);
+
+    Route::post('products', [ProductController::class, 'store']);
+    Route::put('products/{product}', [ProductController::class, 'update']);
+    Route::delete('products/{product}', [ProductController::class, 'destroy']);
+
+    Route::post('vouchers', [VoucherController::class, 'store']);
+    Route::put('vouchers/{voucher}', [VoucherController::class, 'update']);
+    Route::delete('vouchers/{voucher}', [VoucherController::class, 'destroy']);
+
+    Route::post('sale-campaigns', [SaleCampaignController::class, 'store']);
+    Route::put('sale-campaigns/{saleCampaign}', [SaleCampaignController::class, 'update']);
+    Route::delete('sale-campaigns/{saleCampaign}', [SaleCampaignController::class, 'destroy']);
+
+    Route::put('orders/{order}/status', [OrderController::class, 'updateStatus']);
+    Route::get('admin/orders', [OrderController::class, 'adminIndex']);
+
+    Route::get('admin/contacts', [ContactController::class, 'adminIndex']);
+    Route::put('contacts/{contact}', [ContactController::class, 'update']);
+    Route::delete('contacts/{contact}', [ContactController::class, 'destroy']);
 });
