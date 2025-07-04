@@ -16,11 +16,17 @@ class CheckRole
      */
     public function handle(Request $request, Closure $next, ...$roles): Response
     {
-        if (!Auth::check()) {
-            return response()->json(['error' => 'Unauthorized'], 401);
+        // Thử auth:api trước, sau đó mới thử auth default
+        $user = null;
+        if (auth('api')->check()) {
+            $user = auth('api')->user();
+        } elseif (Auth::check()) {
+            $user = Auth::user();
         }
 
-        $user = Auth::user();
+        if (!$user) {
+            return response()->json(['error' => 'Unauthorized'], 401);
+        }
 
         // Kiểm tra xem user có bất kỳ role nào được yêu cầu không
         foreach ($roles as $role) {

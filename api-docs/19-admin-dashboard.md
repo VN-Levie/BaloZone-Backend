@@ -1,14 +1,17 @@
 # 19. Dashboard Statistics (Admin Dashboard)
 
+> **Lưu ý**: Các endpoint dashboard analytics sử dụng `/api/dashboard/*` nhưng chỉ dành cho Admin (role: admin).  
+> Contributor không có quyền truy cập vào các endpoint thống kê này.
+
 ## Lấy thống kê tổng quan dashboard
 
-### GET /api/admin/dashboard/stats
+### GET /api/dashboard/stats
 
 **Mô tả**: Lấy thống kê tổng quan cho admin dashboard
 
 **Phương thức**: GET
 
-**URL**: `/api/admin/dashboard/stats`
+**URL**: `/api/dashboard/stats`
 
 **Phân quyền**: Yêu cầu authentication (Bearer Token) + Role Admin
 
@@ -169,13 +172,13 @@ Authorization: Bearer {token}
 
 ## Lấy báo cáo doanh thu theo tháng
 
-### GET /api/admin/dashboard/revenue
+### GET /api/dashboard/revenue
 
 **Mô tả**: Lấy báo cáo doanh thu theo từng tháng trong năm
 
 **Phương thức**: GET
 
-**URL**: `/api/admin/dashboard/revenue`
+**URL**: `/api/dashboard/revenue`
 
 **Phân quyền**: Yêu cầu authentication (Bearer Token) + Role Admin
 
@@ -277,13 +280,13 @@ Authorization: Bearer {token}
 
 ## Lấy phân tích người dùng
 
-### GET /api/admin/dashboard/users
+### GET /api/dashboard/users
 
 **Mô tả**: Lấy phân tích chi tiết về người dùng
 
 **Phương thức**: GET
 
-**URL**: `/api/admin/dashboard/users`
+**URL**: `/api/dashboard/users`
 
 **Phân quyền**: Yêu cầu authentication (Bearer Token) + Role Admin
 
@@ -381,13 +384,13 @@ Authorization: Bearer {token}
 
 ## Lấy phân tích sản phẩm
 
-### GET /api/admin/dashboard/products
+### GET /api/dashboard/products
 
 **Mô tả**: Lấy phân tích chi tiết về sản phẩm và inventory
 
 **Phương thức**: GET
 
-**URL**: `/api/admin/dashboard/products`
+**URL**: `/api/dashboard/products`
 
 **Phân quyền**: Yêu cầu authentication (Bearer Token) + Role Admin
 
@@ -528,7 +531,7 @@ curl -X POST http://localhost:8000/api/auth/login \
 ### 2. Lấy thống kê dashboard
 
 ```bash
-curl -X GET http://localhost:8000/api/admin/dashboard/stats \
+curl -X GET http://localhost:8000/api/dashboard/stats \
   -H "Authorization: Bearer YOUR_TOKEN_HERE" \
   -H "Content-Type: application/json"
 ```
@@ -536,7 +539,7 @@ curl -X GET http://localhost:8000/api/admin/dashboard/stats \
 ### 3. Lấy báo cáo doanh thu theo tháng
 
 ```bash
-curl -X GET "http://localhost:8000/api/admin/dashboard/revenue?year=2025" \
+curl -X GET "http://localhost:8000/api/dashboard/revenue?year=2025" \
   -H "Authorization: Bearer YOUR_TOKEN_HERE" \
   -H "Content-Type: application/json"
 ```
@@ -544,7 +547,7 @@ curl -X GET "http://localhost:8000/api/admin/dashboard/revenue?year=2025" \
 ### 4. Lấy phân tích người dùng
 
 ```bash
-curl -X GET "http://localhost:8000/api/admin/dashboard/users?year=2025" \
+curl -X GET "http://localhost:8000/api/dashboard/users?year=2025" \
   -H "Authorization: Bearer YOUR_TOKEN_HERE" \
   -H "Content-Type: application/json"
 ```
@@ -552,7 +555,7 @@ curl -X GET "http://localhost:8000/api/admin/dashboard/users?year=2025" \
 ### 5. Lấy phân tích sản phẩm
 
 ```bash
-curl -X GET "http://localhost:8000/api/admin/dashboard/products" \
+curl -X GET "http://localhost:8000/api/dashboard/products" \
   -H "Authorization: Bearer YOUR_TOKEN_HERE" \
   -H "Content-Type: application/json"
 ```

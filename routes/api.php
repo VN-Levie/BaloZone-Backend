@@ -49,12 +49,12 @@ Route::get('categories/slug/{slug}', [CategoryController::class, 'getBySlug']);
 
 // Product routes (public read-only)
 Route::get('products', [ProductController::class, 'index']);
-Route::get('products/{product}', [ProductController::class, 'show']);
 Route::get('products-featured', [ProductController::class, 'getFeatured']);
-Route::get('products/category/{categorySlug}', [ProductController::class, 'getByCategory']);
-Route::get('products/brand/{brandSlug}', [ProductController::class, 'getByBrand']);
 Route::get('products-search', [ProductController::class, 'search']);
 Route::get('products-on-sale', [ProductController::class, 'getOnSale']);
+Route::get('products/category/{categorySlug}', [ProductController::class, 'getByCategory']);
+Route::get('products/brand/{brandSlug}', [ProductController::class, 'getByBrand']);
+Route::get('products/{product}', [ProductController::class, 'show']);
 Route::get('products/{product}/sale-campaigns', [ProductController::class, 'getSaleCampaigns']);
 
 // Voucher routes (require authentication)
@@ -124,37 +124,37 @@ Route::middleware('auth:api')->group(function () {
 });
 
 // ===================
-// ADMIN ROUTES (Admin only)
+// DASHBOARD ROUTES (Admin + Contributor)
 // ===================
 
-Route::middleware(['api.auth', 'role:admin'])->group(function () {
-    // Role management
-    Route::apiResource('roles', RoleController::class);
-    Route::post('roles/assign', [RoleController::class, 'assignRole']);
-    Route::post('roles/remove', [RoleController::class, 'removeRole']);
+Route::middleware(['auth:api', 'role:admin,contributor'])->prefix('dashboard')->group(function () {
+    // Role management (Admin only)
+    Route::middleware('role:admin')->group(function () {
+        Route::apiResource('roles', RoleController::class);
+        Route::post('roles/assign', [RoleController::class, 'assignRole']);
+        Route::post('roles/remove', [RoleController::class, 'removeRole']);
+    });
 
-    // User management
-    Route::get('admin/users', [UserController::class, 'index']);
-    Route::put('admin/users/{user}', [UserController::class, 'update']);
-    Route::delete('admin/users/{user}', [UserController::class, 'destroy']);
-    Route::post('admin/users/{user}/toggle-status', [UserController::class, 'toggleStatus']);
-    // User soft delete management
-    Route::get('admin/users/trashed', [UserController::class, 'trashed']);
-    Route::post('admin/users/{id}/restore', [UserController::class, 'restore']);
+    // User management (Admin only)
+    Route::middleware('role:admin')->group(function () {
+        Route::get('users', [UserController::class, 'index']);
+        Route::put('users/{user}', [UserController::class, 'update']);
+        Route::delete('users/{user}', [UserController::class, 'destroy']);
+        Route::post('users/{user}/toggle-status', [UserController::class, 'toggleStatus']);
+        // User soft delete management
+        Route::get('users/trashed', [UserController::class, 'trashed']);
+        Route::post('users/{id}/restore', [UserController::class, 'restore']);
+    });
 
-    // Dashboard statistics
-    Route::get('admin/dashboard/stats', [DashboardController::class, 'getAdminStats']);
-    Route::get('admin/dashboard/revenue', [DashboardController::class, 'getMonthlyRevenue']);
-    Route::get('admin/dashboard/users', [DashboardController::class, 'getUserAnalytics']);
-    Route::get('admin/dashboard/products', [DashboardController::class, 'getProductAnalytics']);
-});
+    // Dashboard statistics (Admin only)
+    Route::middleware('role:admin')->group(function () {
+        Route::get('stats', [DashboardController::class, 'getAdminStats']);
+        Route::get('revenue', [DashboardController::class, 'getMonthlyRevenue']);
+        Route::get('user-analytics', [DashboardController::class, 'getUserAnalytics']);
+        Route::get('product-analytics', [DashboardController::class, 'getProductAnalytics']);
+    });
 
-// ===================
-// CONTRIBUTOR ROUTES (Admin or Contributor)
-// ===================
-
-Route::middleware(['auth:api', 'role:admin,contributor'])->group(function () {
-    // Brand management
+    // Brand management (Admin + Contributor)
     Route::post('brands', [BrandController::class, 'store']);
     Route::put('brands/{brand}', [BrandController::class, 'update']);
     Route::delete('brands/{brand}', [BrandController::class, 'destroy']);
@@ -199,11 +199,11 @@ Route::middleware(['auth:api', 'role:admin,contributor'])->group(function () {
     Route::delete('news/{news}', [NewsController::class, 'destroy']);
 
     // Order management
-    Route::get('admin/orders', [OrderController::class, 'adminIndex']);
+    Route::get('orders', [OrderController::class, 'adminIndex']);
     Route::put('orders/{order}/status', [OrderController::class, 'updateStatus']);
 
     // Contact management
-    Route::get('admin/contacts', [ContactController::class, 'adminIndex']);
+    Route::get('contacts', [ContactController::class, 'adminIndex']);
     Route::put('contacts/{contact}', [ContactController::class, 'update']);
     Route::delete('contacts/{contact}', [ContactController::class, 'destroy']);
 

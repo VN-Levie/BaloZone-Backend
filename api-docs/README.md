@@ -18,12 +18,14 @@ This document provides a comprehensive overview of the BaloZone-Backend API endp
 - [2. Thương hiệu (Brands)](./02-brands.md)
 - [3. Danh mục (Categories)](./03-categories.md)
 - [4. Sản phẩm (Products)](./04-products.md)
+- [14. Quản lý sản phẩm (Admin Products)](./14-admin-products.md)
+- [20. Quản lý thương hiệu (Admin Brands)](./20-admin-brands.md)
+- [21. Quản lý danh mục (Admin Categories)](./21-admin-categories.md)
 
 ### 🛒 E-commerce Features
 - [5. Phiếu giảm giá (Vouchers)](./05-vouchers.md)
 - [9. Đơn hàng (Orders)](./09-orders.md)
 - [12. Chiến dịch khuyến mãi (Sale Campaigns)](./12-sale-campaigns.md)
-- [14. Quản lý đơn hàng (Admin Orders)](./14-admin-orders.md)
 - [17. Phương thức thanh toán (Payment Methods)](./17-payment-methods.md)
 
 ### 💬 Content & Communication
@@ -57,11 +59,11 @@ Content-Type: application/json
 
 ## 📊 API Statistics
 
-- **Tổng số modules:** 17 modules
-- **Tổng số endpoints:** 105+ endpoints
+- **Tổng số modules:** 20 modules
+- **Tổng số endpoints:** 135+ endpoints  
 - **Public endpoints:** ~40 endpoints (không cần authentication)
-- **Protected endpoints:** ~65 endpoints (cần authentication)
-- **Admin-only endpoints:** ~20 endpoints (cần quyền admin)
+- **Protected endpoints:** ~95 endpoints (cần authentication)
+- **Admin-only endpoints:** ~35 endpoints (cần quyền admin)
 
 ## 🔗 Related Files
 
@@ -87,6 +89,39 @@ Khi thêm/sửa endpoint:
 1. Cập nhật file markdown tương ứng
 2. Đảm bảo examples phản ánh đúng implementation
 3. Cập nhật mục lục này nếu cần
+
+## 🔑 Phân quyền Endpoint (Endpoint Authorization)
+
+### Tất cả endpoints sử dụng prefix `/api/dashboard/*`
+
+| Module | Admin-only | Contributor Access | Description |
+|--------|------------|-------------------|-------------|
+| **Users Management** | `/api/dashboard/users/*` | ❌ | Chỉ admin mới có quyền quản lý người dùng |
+| **Dashboard Analytics** | `/api/dashboard/stats`, `/api/dashboard/revenue`, `/api/dashboard/user-analytics`, `/api/dashboard/product-analytics` | ❌ | Chỉ admin mới có quyền xem thống kê |
+| **Roles Management** | `/api/dashboard/roles/*` | ❌ | Chỉ admin mới có quyền quản lý vai trò |
+| **Products** | `/api/dashboard/products/*` | ✅ | Admin + Contributor có thể quản lý |
+| **Brands** | `/api/dashboard/brands/*` | ✅ | Admin + Contributor có thể quản lý |
+| **Categories** | `/api/dashboard/categories/*` | ✅ | Admin + Contributor có thể quản lý |
+| **Contacts** | `/api/dashboard/contacts/*` | ✅ | Admin + Contributor có thể quản lý |
+| **Orders** | `/api/dashboard/orders/*` | ✅ | Admin + Contributor có thể quản lý |
+| **News** | `/api/dashboard/news/*` | ✅ | Admin + Contributor có thể quản lý |
+| **Vouchers** | `/api/dashboard/vouchers/*` | ✅ | Admin + Contributor có thể quản lý |
+| **Sale Campaigns** | `/api/dashboard/sale-campaigns/*` | ✅ | Admin + Contributor có thể quản lý |
+| **Payment Methods** | `/api/dashboard/payment-methods/*` | ✅ | Admin + Contributor có thể quản lý |
+
+### Authorization Headers
+
+**Admin Role**: Có quyền truy cập tất cả endpoint `/api/dashboard/*` (bao gồm cả admin-only và contributor endpoints)
+
+```bash
+Authorization: Bearer {admin_jwt_token}
+```
+
+**Contributor Role**: Chỉ có quyền truy cập một số endpoint `/api/dashboard/*` (không bao gồm users, roles, analytics)
+
+```bash
+Authorization: Bearer {contributor_jwt_token}
+```
 
 ---
 

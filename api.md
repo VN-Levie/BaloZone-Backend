@@ -2,6 +2,29 @@
 
 This document provides a detailed overview of the BaloZone-Backend API endpoints.
 
+> **📖 Chi tiết tài liệu:** Xem thêm tài liệu chi tiết được tổ chức theo modules tại thư mục [`/api-docs`](./api-docs/) với đầy đủ examples và validation rules.
+
+## 🔑 Phân quyền Endpoint
+
+### Tất cả endpoints sử dụng prefix `/api/dashboard/*`
+
+| Module | Admin-only | Contributor Access |
+|--------|------------|-------------------|
+| **Users Management** | `/api/dashboard/users/*` | ❌ |
+| **Dashboard Analytics** | `/api/dashboard/stats`, `/api/dashboard/revenue`, etc. | ❌ |
+| **Roles Management** | `/api/dashboard/roles/*` | ❌ |
+| **Products** | `/api/dashboard/products/*` | ✅ |
+| **Brands** | `/api/dashboard/brands/*` | ✅ |
+| **Categories** | `/api/dashboard/categories/*` | ✅ |
+| **Contacts** | `/api/dashboard/contacts/*` | ✅ |
+| **Orders** | `/api/dashboard/orders/*` | ✅ |
+| **Others** | `/api/dashboard/{module}/*` | ✅ |
+
+**Lưu ý:**
+
+- **Admin** có quyền truy cập tất cả endpoint `/api/dashboard/*`
+- **Contributor** chỉ có quyền truy cập một số endpoint `/api/dashboard/*` (không bao gồm users, roles, analytics)
+
 ## Auth
 
 ### 1. Đăng nhập
@@ -2888,23 +2911,20 @@ Các endpoint để quản lý các tin nhắn liên hệ từ khách hàng. Yê
   - `page` (integer, optional): Số trang (mặc định: 1).
   - `per_page` (integer, optional): Số mục mỗi trang (mặc định: 15).
   - `status` (string, optional): Lọc theo trạng thái (`pending`, `replied`, `closed`).
-  - `search` (string, optional): Tìm kiếm theo tên hoặc email.
+  - `search` (string, optional): Tìm theo tên hoặc email.
 - **Output (200 OK):** (Dữ liệu Paginator)
-  ```json
-  {
-    "current_page": 1,
-    "data": [
-      {
-        "id": 1,
-        "fullname": "Nguyễn Văn A",
-        "email": "contact@example.com",
-        "message": "Tôi cần hỗ trợ về sản phẩm...",
-        "status": "pending",
-        "created_at": "2024-07-22T11:00:00.000000Z"
-      }
-    ]
-  }
-  ```
+
+</details>
+
+<details>
+<summary><strong>[Admin] Xem chi tiết liên hệ</strong></summary>
+
+- **Endpoint:** `GET /api/contacts/{contact}`
+- **Mô tả:** Xem chi tiết một liên hệ.
+- **Phân quyền:** `Admin` / `Contributor`.
+- **Tham số:**
+  - `contact` (integer, required): ID của liên hệ.
+- **Output (200 OK):** (Dữ liệu chi tiết của contact)
 
 </details>
 
@@ -2933,46 +2953,4 @@ Các endpoint để quản lý sản phẩm trong chương trình khuyến mãi.
   ```
 
 </details>
-
----
-
-## Tổng kết và Lưu ý chung
-
-### 1. Authentication
-- Hầu hết các endpoint yêu cầu xác thực đều sử dụng JWT.
-- Gửi token trong header `Authorization` với định dạng `Bearer your_jwt_token`.
-- Token có thời hạn (ví dụ: 3600 giây), cần sử dụng endpoint `POST /api/auth/refresh` để làm mới khi hết hạn.
-
-### 2. Phân quyền (Authorization)
-- Hệ thống sử dụng các vai trò (roles) để kiểm soát quyền truy cập.
-- Các vai trò chính: `admin`, `contributor`, `user`.
-- Các endpoint yêu cầu quyền cụ thể sẽ trả về lỗi `403 Forbidden` nếu người dùng không có quyền.
-
-### 3. Validation & Error Responses
-- Lỗi xác thực dữ liệu đầu vào (validation) sẽ trả về HTTP status `422 Unprocessable Entity`.
-- Body của response sẽ chứa danh sách các lỗi chi tiết.
-  ```json
-  {
-      "success": false,
-      "message": "Validation errors",
-      "errors": {
-          "email": [
-              "The email has already been taken."
-          ]
-      }
-  }
-  ```
-- Các lỗi chung khác:
-  - `401 Unauthorized`: Chưa đăng nhập hoặc token không hợp lệ.
-  - `403 Forbidden`: Không có quyền truy cập tài nguyên.
-  - `404 Not Found`: Không tìm thấy tài nguyên (ví dụ: `GET /api/products/9999`).
-  - `500 Internal Server Error`: Lỗi từ phía server.
-
-### 4. Phân trang (Pagination)
-- Các endpoint trả về danh sách (ví dụ: `GET /api/products`) đều hỗ trợ phân trang.
-- Dữ liệu trả về sẽ có cấu trúc của Laravel Paginator, bao gồm `data`, `current_page`, `last_page`, `total`, `per_page`, `next_page_url`, v.v.
-- Có thể tùy chỉnh số lượng item mỗi trang bằng query param `per_page`.
-
-### 5. Định dạng ngày tháng
-- Tất cả các trường ngày tháng (ví dụ: `created_at`, `end_at`) đều được trả về theo định dạng ISO 8601 (UTC), ví dụ: `2025-07-04T15:00:00.000000Z`.
 
