@@ -156,7 +156,7 @@ class CategoryController extends Controller
     {
         $categories = Category::with(['products' => function($query) {
             $query->with('brand')
-                  ->where('quantity', '>', 0)
+                  ->where('stock', '>', 0)
                   ->orderBy('created_at', 'desc')
                   ->take(8);
         }])
@@ -185,7 +185,7 @@ class CategoryController extends Controller
         $perPage = $request->get('per_page', 12);
         $products = $category->products()
             ->with('brand')
-            ->where('quantity', '>', 0)
+            ->where('stock', '>', 0)
             ->orderBy('name')
             ->paginate($perPage);
 

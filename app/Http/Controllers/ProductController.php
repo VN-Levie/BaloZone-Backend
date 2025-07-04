@@ -237,7 +237,7 @@ class ProductController extends Controller
     public function getFeatured(): JsonResponse
     {
         $products = Product::with(['category', 'brand'])
-            ->where('quantity', '>', 0)
+            ->where('stock', '>', 0)
             ->orderBy('created_at', 'desc')
             ->take(8)
             ->get();
@@ -256,7 +256,7 @@ class ProductController extends Controller
             ->whereHas('category', function($categoryQuery) use ($categorySlug) {
                 $categoryQuery->where('slug', $categorySlug);
             })
-            ->where('quantity', '>', 0);
+            ->where('stock', '>', 0);
 
         // Filter by brand
         if ($request->has('brand_id')) {
@@ -302,7 +302,7 @@ class ProductController extends Controller
             ->whereHas('brand', function($brandQuery) use ($brandSlug) {
                 $brandQuery->where('slug', $brandSlug);
             })
-            ->where('quantity', '>', 0);
+            ->where('stock', '>', 0);
 
         // Filter by category
         if ($request->has('category_id')) {
@@ -364,7 +364,7 @@ class ProductController extends Controller
                       $brandQuery->where('name', 'like', '%' . $query . '%');
                   });
             })
-            ->where('quantity', '>', 0)
+            ->where('stock', '>', 0)
             ->orderBy('name')
             ->paginate(12);
 
