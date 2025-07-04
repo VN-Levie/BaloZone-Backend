@@ -6,6 +6,7 @@ use App\Models\Brand;
 use App\Http\Requests\BrandRequest;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Storage;
 
 class BrandController extends Controller
 {
@@ -30,9 +31,14 @@ class BrandController extends Controller
             // Lấy tất cả brands theo thứ tự name
             $brands = $query->orderBy('name')->get();
 
+            // Transform brands to include logo URLs
+            $transformedBrands = $brands->map(function ($brand) {
+                return $this->transformBrand($brand);
+            });
+
             return response()->json([
                 'success' => true,
-                'data' => $brands,
+                'data' => $transformedBrands,
                 'message' => 'Lấy danh sách thương hiệu thành công'
             ]);
         } catch (\Exception $e) {
@@ -48,12 +54,28 @@ class BrandController extends Controller
      */
     public function store(BrandRequest $request): JsonResponse
     {
-        $brand = Brand::create($request->validated());
+        try {
+            $data = $request->validated();
 
-        return response()->json([
-            'message' => 'Brand created successfully',
-            'data' => $brand
-        ], 201);
+            // Handle logo upload
+            if ($request->hasFile('logo')) {
+                $logoPath = $request->file('logo')->store('brands/logos', 'public');
+                $data['logo'] = $logoPath;
+            }
+
+            $brand = Brand::create($data);
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Brand created successfully',
+                'data' => $this->transformBrand($brand)
+            ], 201);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Failed to create brand: ' . $e->getMessage()
+            ], 500);
+        }
     }
 
     /**
@@ -65,7 +87,7 @@ class BrandController extends Controller
         $brand->load('products');
 
         return response()->json([
-            'data' => $brand
+            'data' => $this->transformBrand($brand)
         ]);
     }
 
@@ -74,12 +96,33 @@ class BrandController extends Controller
      */
     public function update(BrandRequest $request, Brand $brand): JsonResponse
     {
-        $brand->update($request->validated());
+        try {
+            $data = $request->validated();
 
-        return response()->json([
-            'message' => 'Brand updated successfully',
-            'data' => $brand
-        ]);
+            // Handle logo upload
+            if ($request->hasFile('logo')) {
+                // Delete old logo if exists
+                if ($brand->logo && Storage::disk('public')->exists($brand->logo)) {
+                    Storage::disk('public')->delete($brand->logo);
+                }
+
+                $logoPath = $request->file('logo')->store('brands/logos', 'public');
+                $data['logo'] = $logoPath;
+            }
+
+            $brand->update($data);
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Brand updated successfully',
+                'data' => $this->transformBrand($brand)
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Failed to update brand: ' . $e->getMessage()
+            ], 500);
+        }
     }
 
     /**
@@ -111,7 +154,7 @@ class BrandController extends Controller
 
         return response()->json([
             'message' => 'Brand restored successfully',
-            'data' => $brand
+            'data' => $this->transformBrand($brand)
         ]);
     }
 
@@ -161,11 +204,63 @@ class BrandController extends Controller
     {
         $brands = Brand::where('status', 'active')
             ->orderBy('name')
-            ->select('id', 'name', 'slug')
+            ->select('id', 'name', 'slug', 'logo')
             ->get();
 
+        // Transform brands to include logo URLs
+        $transformedBrands = $brands->map(function ($brand) {
+            return [
+                'id' => $brand->id,
+                'name' => $brand->name,
+                'slug' => $brand->slug,
+                'logo' => $this->getImageUrl($brand->logo)
+            ];
+        });
+
         return response()->json([
-            'data' => $brands
+            'data' => $transformedBrands
         ]);
+    }
+
+    /**
+     * Get image URL - handles both local storage files and external URLs
+     */
+    private function getImageUrl($imagePath)
+    {
+        if (!$imagePath) {
+            return null;
+        }
+
+        // Check if it's already a full URL (starts with http:// or https://)
+        if (str_starts_with($imagePath, 'http://') || str_starts_with($imagePath, 'https://')) {
+            return $imagePath;
+        }
+
+        // Otherwise, it's a local storage file
+        return asset('storage/' . $imagePath);
+    }
+
+    /**
+     * Transform brand data to include full URLs
+     */
+    private function transformBrand($brand)
+    {
+        $transformed = [
+            'id' => $brand->id,
+            'name' => $brand->name,
+            'slug' => $brand->slug,
+            'description' => $brand->description,
+            'logo' => $this->getImageUrl($brand->logo),
+            'status' => $brand->status,
+            'created_at' => $brand->created_at,
+            'updated_at' => $brand->updated_at
+        ];
+
+        // Include products_count if it exists
+        if (isset($brand->products_count)) {
+            $transformed['products_count'] = $brand->products_count;
+        }
+
+        return $transformed;
     }
 }

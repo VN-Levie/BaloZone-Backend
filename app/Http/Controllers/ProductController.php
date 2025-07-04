@@ -6,6 +6,7 @@ use App\Models\Product;
 use App\Http\Requests\ProductRequest;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -93,10 +94,12 @@ class ProductController extends Controller
             'name' => $product->name,
             'slug' => $product->slug,
             'description' => $product->description,
-            'price' => $product->price,
-            'discount_price' => $product->discount_price,
-            'image' => $product->image,
-            'gallery' => $product->gallery ?? [],
+            'price' => (int)$product->price,
+            'discount_price' => (int)$product->discount_price,
+            'image' => $product->image ? $this->getImageUrl($product->image) : null,
+            'gallery' => $product->gallery ? array_map(function ($path) {
+                return $this->getImageUrl($path);
+            }, $product->gallery) : [],
             'stock' => $product->stock,
             'brand' => $product->brand ? [
                 'id' => $product->brand->id,
@@ -118,14 +121,39 @@ class ProductController extends Controller
      */
     public function store(ProductRequest $request): JsonResponse
     {
-        $product = Product::create($request->validated());
-        $product->load(['category', 'brand']);
+        try {
+            $data = $request->validated();
 
-        return response()->json([
-            'success' => true,
-            'message' => 'Product created successfully',
-            'data' => $this->transformProduct($product)
-        ], 201);
+            // Handle main image upload
+            if ($request->hasFile('image')) {
+                $imagePath = $request->file('image')->store('products/images', 'public');
+                $data['image'] = $imagePath;
+            }
+
+            // Handle gallery images upload
+            if ($request->hasFile('gallery')) {
+                $galleryPaths = [];
+                foreach ($request->file('gallery') as $galleryFile) {
+                    $galleryPath = $galleryFile->store('products/gallery', 'public');
+                    $galleryPaths[] = $galleryPath;
+                }
+                $data['gallery'] = $galleryPaths;
+            }
+
+            $product = Product::create($data);
+            $product->load(['category', 'brand']);
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Product created successfully',
+                'data' => $this->transformProduct($product)
+            ], 201);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Failed to create product: ' . $e->getMessage()
+            ], 500);
+        }
     }
 
     /**
@@ -140,20 +168,58 @@ class ProductController extends Controller
             'data' => $this->transformProduct($product)
         ]);
     }
-
     /**
      * Update the specified resource in storage.
      */
     public function update(ProductRequest $request, Product $product): JsonResponse
     {
-        $product->update($request->validated());
-        $product->load(['category', 'brand']);
+        try {
+            $data = $request->validated();
 
-        return response()->json([
-            'success' => true,
-            'message' => 'Product updated successfully',
-            'data' => $this->transformProduct($product)
-        ]);
+            // Handle main image upload
+            if ($request->hasFile('image')) {
+                // Delete old image if exists
+                if ($product->image && Storage::disk('public')->exists($product->image)) {
+                    Storage::disk('public')->delete($product->image);
+                }
+
+                $imagePath = $request->file('image')->store('products/images', 'public');
+                $data['image'] = $imagePath;
+            }
+
+            // Handle gallery images upload
+            if ($request->hasFile('gallery')) {
+                // Delete old gallery images if exists
+                if ($product->gallery && is_array($product->gallery)) {
+                    foreach ($product->gallery as $oldGalleryPath) {
+                        if (Storage::disk('public')->exists($oldGalleryPath)) {
+                            Storage::disk('public')->delete($oldGalleryPath);
+                        }
+                    }
+                }
+
+                $galleryPaths = [];
+                foreach ($request->file('gallery') as $galleryFile) {
+                    $galleryPath = $galleryFile->store('products/gallery', 'public');
+                    $galleryPaths[] = $galleryPath;
+                }
+                $data['gallery'] = $galleryPaths;
+            }
+
+            $product->update($data);
+            $product->load(['category', 'brand']);
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Product updated successfully',
+                'data' => $this->transformProduct($product)
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Failed to update product: ' . $e->getMessage()
+            ], 500);
+        }
     }
 
     /**
@@ -162,7 +228,7 @@ class ProductController extends Controller
     public function destroy(Product $product): JsonResponse
     {
         // Kiểm tra xem product có trong order nào không (chỉ kiểm tra orders chưa bị xóa)
-        if ($product->orderDetails()->whereHas('order', function($query) {
+        if ($product->orderDetails()->whereHas('order', function ($query) {
             $query->whereNull('deleted_at');
         })->count() > 0) {
             return response()->json([
@@ -219,7 +285,7 @@ class ProductController extends Controller
     {
         $products = Product::onlyTrashed()
             ->with(['category', 'brand'])
-            ->withCount(['orderDetails' => function($query) {
+            ->withCount(['orderDetails' => function ($query) {
                 $query->withTrashed();
             }])
             ->orderBy('deleted_at', 'desc')
@@ -253,7 +319,7 @@ class ProductController extends Controller
     public function getByCategory(string $categorySlug, Request $request): JsonResponse
     {
         $query = Product::with(['category', 'brand'])
-            ->whereHas('category', function($categoryQuery) use ($categorySlug) {
+            ->whereHas('category', function ($categoryQuery) use ($categorySlug) {
                 $categoryQuery->where('slug', $categorySlug);
             })
             ->where('stock', '>', 0);
@@ -299,7 +365,7 @@ class ProductController extends Controller
     public function getByBrand(string $brandSlug, Request $request): JsonResponse
     {
         $query = Product::with(['category', 'brand'])
-            ->whereHas('brand', function($brandQuery) use ($brandSlug) {
+            ->whereHas('brand', function ($brandQuery) use ($brandSlug) {
                 $brandQuery->where('slug', $brandSlug);
             })
             ->where('stock', '>', 0);
@@ -354,15 +420,15 @@ class ProductController extends Controller
         }
 
         $products = Product::with(['category', 'brand'])
-            ->where(function($q) use ($query) {
+            ->where(function ($q) use ($query) {
                 $q->where('name', 'like', '%' . $query . '%')
-                  ->orWhere('description', 'like', '%' . $query . '%')
-                  ->orWhereHas('category', function($categoryQuery) use ($query) {
-                      $categoryQuery->where('name', 'like', '%' . $query . '%');
-                  })
-                  ->orWhereHas('brand', function($brandQuery) use ($query) {
-                      $brandQuery->where('name', 'like', '%' . $query . '%');
-                  });
+                    ->orWhere('description', 'like', '%' . $query . '%')
+                    ->orWhereHas('category', function ($categoryQuery) use ($query) {
+                        $categoryQuery->where('name', 'like', '%' . $query . '%');
+                    })
+                    ->orWhereHas('brand', function ($brandQuery) use ($query) {
+                        $brandQuery->where('name', 'like', '%' . $query . '%');
+                    });
             })
             ->where('stock', '>', 0)
             ->orderBy('name')
@@ -391,26 +457,26 @@ class ProductController extends Controller
 
         // Filter by minimum discount percentage
         if ($request->has('min_discount')) {
-            $query->whereHas('currentSale', function($q) use ($request) {
+            $query->whereHas('currentSale', function ($q) use ($request) {
                 $q->where('discount_percentage', '>=', $request->min_discount);
             });
         }
 
         // Filter by maximum discount percentage
         if ($request->has('max_discount')) {
-            $query->whereHas('currentSale', function($q) use ($request) {
+            $query->whereHas('currentSale', function ($q) use ($request) {
                 $q->where('discount_percentage', '<=', $request->max_discount);
             });
         }
 
         // Filter by price range (sale price)
         if ($request->has('min_price')) {
-            $query->whereHas('currentSale', function($q) use ($request) {
+            $query->whereHas('currentSale', function ($q) use ($request) {
                 $q->where('sale_price', '>=', $request->min_price);
             });
         }
         if ($request->has('max_price')) {
-            $query->whereHas('currentSale', function($q) use ($request) {
+            $query->whereHas('currentSale', function ($q) use ($request) {
                 $q->where('sale_price', '<=', $request->max_price);
             });
         }
@@ -418,9 +484,9 @@ class ProductController extends Controller
         // Search by name
         if ($request->has('search')) {
             $searchQuery = $request->search;
-            $query->where(function($q) use ($searchQuery) {
+            $query->where(function ($q) use ($searchQuery) {
                 $q->where('name', 'like', '%' . $searchQuery . '%')
-                  ->orWhere('description', 'like', '%' . $searchQuery . '%');
+                    ->orWhere('description', 'like', '%' . $searchQuery . '%');
             });
         }
 
@@ -430,32 +496,32 @@ class ProductController extends Controller
 
         if ($sortBy === 'discount') {
             // Sort by discount percentage
-            $query->join('sale_products', function($join) {
+            $query->join('sale_products', function ($join) {
                 $join->on('products.id', '=', 'sale_products.product_id')
-                     ->where('sale_products.is_active', true);
+                    ->where('sale_products.is_active', true);
             })
-            ->join('sale_campaigns', function($join) {
-                $join->on('sale_products.sale_campaign_id', '=', 'sale_campaigns.id')
-                     ->where('sale_campaigns.status', 'active')
-                     ->where('sale_campaigns.start_date', '<=', now())
-                     ->where('sale_campaigns.end_date', '>=', now());
-            })
-            ->orderBy('sale_products.discount_percentage', $sortOrder)
-            ->select('products.*');
+                ->join('sale_campaigns', function ($join) {
+                    $join->on('sale_products.sale_campaign_id', '=', 'sale_campaigns.id')
+                        ->where('sale_campaigns.status', 'active')
+                        ->where('sale_campaigns.start_date', '<=', now())
+                        ->where('sale_campaigns.end_date', '>=', now());
+                })
+                ->orderBy('sale_products.discount_percentage', $sortOrder)
+                ->select('products.*');
         } elseif ($sortBy === 'sale_price') {
             // Sort by sale price
-            $query->join('sale_products', function($join) {
+            $query->join('sale_products', function ($join) {
                 $join->on('products.id', '=', 'sale_products.product_id')
-                     ->where('sale_products.is_active', true);
+                    ->where('sale_products.is_active', true);
             })
-            ->join('sale_campaigns', function($join) {
-                $join->on('sale_products.sale_campaign_id', '=', 'sale_campaigns.id')
-                     ->where('sale_campaigns.status', 'active')
-                     ->where('sale_campaigns.start_date', '<=', now())
-                     ->where('sale_campaigns.end_date', '>=', now());
-            })
-            ->orderBy('sale_products.sale_price', $sortOrder)
-            ->select('products.*');
+                ->join('sale_campaigns', function ($join) {
+                    $join->on('sale_products.sale_campaign_id', '=', 'sale_campaigns.id')
+                        ->where('sale_campaigns.status', 'active')
+                        ->where('sale_campaigns.start_date', '<=', now())
+                        ->where('sale_campaigns.end_date', '>=', now());
+                })
+                ->orderBy('sale_products.sale_price', $sortOrder)
+                ->select('products.*');
         } else {
             // Default sorting
             $query->orderBy($sortBy, $sortOrder);
@@ -473,7 +539,7 @@ class ProductController extends Controller
     public function getSaleCampaigns(Product $product): JsonResponse
     {
         $campaigns = $product->saleCampaigns()
-            ->with(['saleProducts' => function($query) use ($product) {
+            ->with(['saleProducts' => function ($query) use ($product) {
                 $query->where('product_id', $product->id);
             }])
             ->orderBy('priority', 'desc')
@@ -482,5 +548,23 @@ class ProductController extends Controller
         return response()->json([
             'data' => $campaigns
         ]);
+    }
+
+    /**
+     * Get image URL - handles both local storage files and external URLs
+     */
+    private function getImageUrl($imagePath)
+    {
+        if (!$imagePath) {
+            return null;
+        }
+
+        // Check if it's already a full URL (starts with http:// or https://)
+        if (str_starts_with($imagePath, 'http://') || str_starts_with($imagePath, 'https://')) {
+            return $imagePath;
+        }
+
+        // Otherwise, it's a local storage file
+        return asset('storage/' . $imagePath);
     }
 }

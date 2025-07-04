@@ -32,7 +32,7 @@ class CategoryRequest extends FormRequest
                 'regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/',
                 Rule::unique('categories', 'slug')->ignore($categoryId)
             ],
-            'image' => 'nullable|string|max:255',
+            'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ];
     }
 
@@ -47,6 +47,9 @@ class CategoryRequest extends FormRequest
             'slug.required' => 'Slug là bắt buộc.',
             'slug.unique' => 'Slug này đã được sử dụng.',
             'slug.regex' => 'Slug chỉ được chứa chữ cái thường, số và dấu gạch ngang.',
+            'image.image' => 'Ảnh danh mục phải là file hình ảnh.',
+            'image.mimes' => 'Ảnh danh mục phải có định dạng: jpeg, png, jpg, gif, svg.',
+            'image.max' => 'Ảnh danh mục không được vượt quá 2MB.',
         ];
     }
 }

@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Http\Requests\CategoryRequest;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Storage;
 
 class CategoryController extends Controller
 {
@@ -25,9 +26,14 @@ class CategoryController extends Controller
             // Lấy tất cả categories theo thứ tự name
             $categories = $query->orderBy('name')->get();
 
+            // Transform categories to include image URLs
+            $transformedCategories = $categories->map(function ($category) {
+                return $this->transformCategory($category);
+            });
+
             return response()->json([
                 'success' => true,
-                'data' => $categories,
+                'data' => $transformedCategories,
                 'message' => 'Lấy danh sách danh mục thành công'
             ]);
         } catch (\Exception $e) {
@@ -43,12 +49,28 @@ class CategoryController extends Controller
      */
     public function store(CategoryRequest $request): JsonResponse
     {
-        $category = Category::create($request->validated());
+        try {
+            $data = $request->validated();
 
-        return response()->json([
-            'message' => 'Category created successfully',
-            'data' => $category
-        ], 201);
+            // Handle image upload
+            if ($request->hasFile('image')) {
+                $imagePath = $request->file('image')->store('categories/images', 'public');
+                $data['image'] = $imagePath;
+            }
+
+            $category = Category::create($data);
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Category created successfully',
+                'data' => $this->transformCategory($category)
+            ], 201);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Failed to create category: ' . $e->getMessage()
+            ], 500);
+        }
     }
 
     /**
@@ -60,7 +82,7 @@ class CategoryController extends Controller
         $category->loadCount('products');
 
         return response()->json([
-            'data' => $category
+            'data' => $this->transformCategory($category)
         ]);
     }
 
@@ -69,12 +91,33 @@ class CategoryController extends Controller
      */
     public function update(CategoryRequest $request, Category $category): JsonResponse
     {
-        $category->update($request->validated());
+        try {
+            $data = $request->validated();
 
-        return response()->json([
-            'message' => 'Category updated successfully',
-            'data' => $category
-        ]);
+            // Handle image upload
+            if ($request->hasFile('image')) {
+                // Delete old image if exists
+                if ($category->image && Storage::disk('public')->exists($category->image)) {
+                    Storage::disk('public')->delete($category->image);
+                }
+
+                $imagePath = $request->file('image')->store('categories/images', 'public');
+                $data['image'] = $imagePath;
+            }
+
+            $category->update($data);
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Category updated successfully',
+                'data' => $this->transformCategory($category)
+            ]);
+        } catch (\Exception $e) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Failed to update category: ' . $e->getMessage()
+            ], 500);
+        }
     }
 
     /**
@@ -106,7 +149,7 @@ class CategoryController extends Controller
 
         return response()->json([
             'message' => 'Category restored successfully',
-            'data' => $category
+            'data' => $this->transformCategory($category)
         ]);
     }
 
@@ -163,8 +206,29 @@ class CategoryController extends Controller
         ->orderBy('name')
         ->get();
 
+        // Transform categories to include image URLs
+        $transformedCategories = $categories->map(function ($category) {
+            $transformedCategory = $this->transformCategory($category);
+            // Transform products as well if needed
+            if ($category->products) {
+                $transformedCategory['products'] = $category->products->map(function ($product) {
+                    return [
+                        'id' => $product->id,
+                        'name' => $product->name,
+                        'slug' => $product->slug,
+                        'price' => $product->price,
+                        'discount_price' => $product->discount_price,
+                        'image' => $product->image ? $this->getImageUrl($product->image) : null,
+                        'stock' => $product->stock,
+                        'brand' => $product->brand
+                    ];
+                });
+            }
+            return $transformedCategory;
+        });
+
         return response()->json([
-            'data' => $categories
+            'data' => $transformedCategories
         ]);
     }
 
@@ -190,8 +254,49 @@ class CategoryController extends Controller
             ->paginate($perPage);
 
         return response()->json([
-            'category' => $category,
+            'category' => $this->transformCategory($category),
             'products' => $products
         ]);
+    }
+
+    /**
+     * Get image URL - handles both local storage files and external URLs
+     */
+    private function getImageUrl($imagePath)
+    {
+        if (!$imagePath) {
+            return null;
+        }
+
+        // Check if it's already a full URL (starts with http:// or https://)
+        if (str_starts_with($imagePath, 'http://') || str_starts_with($imagePath, 'https://')) {
+            return $imagePath;
+        }
+
+        // Otherwise, it's a local storage file
+        return asset('storage/' . $imagePath);
+    }
+
+    /**
+     * Transform category data to include full URLs
+     */
+    private function transformCategory($category)
+    {
+        $transformed = [
+            'id' => $category->id,
+            'name' => $category->name,
+            'slug' => $category->slug,
+            'description' => $category->description,
+            'image' => $this->getImageUrl($category->image),
+            'created_at' => $category->created_at,
+            'updated_at' => $category->updated_at
+        ];
+
+        // Include products_count if it exists
+        if (isset($category->products_count)) {
+            $transformed['products_count'] = $category->products_count;
+        }
+
+        return $transformed;
     }
 }

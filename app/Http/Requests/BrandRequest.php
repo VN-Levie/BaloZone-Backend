@@ -34,7 +34,7 @@ class BrandRequest extends FormRequest
                 'regex:/^[a-z0-9]+(?:-[a-z0-9]+)*$/',
                 Rule::unique('brands', 'slug')->ignore($brandId)
             ],
-            'logo' => 'nullable|string|max:255',
+            'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'status' => ['required', Rule::in(['active', 'inactive'])],
         ];
     }
@@ -52,6 +52,9 @@ class BrandRequest extends FormRequest
             'slug.regex' => 'Slug chỉ được chứa chữ cái thường, số và dấu gạch ngang.',
             'status.required' => 'Trạng thái là bắt buộc.',
             'status.in' => 'Trạng thái phải là active hoặc inactive.',
+            'logo.image' => 'Logo phải là file hình ảnh.',
+            'logo.mimes' => 'Logo phải có định dạng: jpeg, png, jpg, gif, svg.',
+            'logo.max' => 'Logo không được vượt quá 2MB.',
         ];
     }
 }
