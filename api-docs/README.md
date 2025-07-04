@@ -7,32 +7,37 @@ This document provides a comprehensive overview of the BaloZone-Backend API endp
 ## 📋 Mục lục (Table of Contents)
 
 ### 🔐 Authentication & User Management
-- [1. Xác thực (Authentication)](./01-auth.md)
-- [7. Quản lý người dùng (User Management)](./07-user-management.md)
-- [8. Sổ địa chỉ (Address Book)](./08-address-book.md)
-- [13. Quản lý vai trò (Admin Roles)](./13-admin-roles.md)
-- [15. Quản lý người dùng (Admin Users)](./15-admin-users.md)
-- [19. Dashboard Admin (Admin Dashboard)](./19-admin-dashboard.md)
+- [1. Xác thực (Authentication)](./publicAndUser/01-auth.md)
+- [7. Quản lý người dùng (User Management)](./admin/07-user-management.md)
+- [8. Sổ địa chỉ (Address Book)](./publicAndUser/08-address-book.md)
+- [13. Quản lý vai trò (Admin Roles)](./admin/13-admin-roles.md)
+- [15. Quản lý người dùng (Admin Users)](./admin/15-admin-users.md)
+- [19. Dashboard Admin (Admin Dashboard)](./admin/19-admin-dashboard.md)
 
 ### 🛍️ Product Catalog
-- [2. Thương hiệu (Brands)](./02-brands.md)
-- [3. Danh mục (Categories)](./03-categories.md)
-- [4. Sản phẩm (Products)](./04-products.md)
-- [14. Quản lý sản phẩm (Admin Products)](./14-admin-products.md)
-- [20. Quản lý thương hiệu (Admin Brands)](./20-admin-brands.md)
-- [21. Quản lý danh mục (Admin Categories)](./21-admin-categories.md)
+- [2. Thương hiệu (Brands)](./publicAndUser/02-brands.md)
+- [3. Danh mục (Categories)](./publicAndUser/03-categories.md)
+- [4. Sản phẩm (Products)](./publicAndUser/04-products.md)
+- [14. Quản lý sản phẩm (Admin Products)](./admin/14-admin-products.md)
+- [20. Quản lý thương hiệu (Admin Brands)](./admin/20-admin-brands.md)
+- [21. Quản lý danh mục (Admin Categories)](./admin/21-admin-categories.md)
 
 ### 🛒 E-commerce Features
-- [5. Phiếu giảm giá (Vouchers)](./05-vouchers.md)
-- [9. Đơn hàng (Orders)](./09-orders.md)
-- [12. Chiến dịch khuyến mãi (Sale Campaigns)](./12-sale-campaigns.md)
-- [17. Phương thức thanh toán (Payment Methods)](./17-payment-methods.md)
+- [5. Phiếu giảm giá (Vouchers)](./publicAndUser/05-vouchers.md)
+- [9. Đơn hàng (Orders)](./publicAndUser/09-orders.md)
+- [12. Chiến dịch khuyến mãi (Sale Campaigns)](./publicAndUser/12-sale-campaigns.md)
+- [17. Phương thức thanh toán (Payment Methods)](./publicAndUser/17-payment-methods.md)
+- [22. Quản lý voucher (Admin Vouchers)](./admin/22-admin-vouchers.md)
+- [24. Quản lý chiến dịch khuyến mãi (Admin Sale Campaigns)](./admin/24-admin-sale-campaigns.md)
+- [25. Quản lý phương thức thanh toán (Admin Payment Methods)](./admin/25-admin-payment-methods.md)
+- [26. Quản lý đơn hàng (Admin Orders)](./admin/26-admin-orders.md)
 
 ### 💬 Content & Communication
-- [6. Bình luận (Comments)](./06-comments.md)
-- [10. Tin tức (News)](./10-news.md)
-- [11. Liên hệ (Contact)](./11-contact.md)
-- [16. Quản lý liên hệ (Admin Contact)](./16-admin-contact.md)
+- [6. Bình luận (Comments)](./publicAndUser/06-comments.md)
+- [10. Tin tức (News)](./publicAndUser/10-news.md)
+- [11. Liên hệ (Contact)](./publicAndUser/11-contact.md)
+- [16. Quản lý liên hệ (Admin Contact)](./admin/16-admin-contact.md)
+- [23. Quản lý tin tức (Admin News)](./admin/23-admin-news.md)
 
 ### 📖 Documentation
 - [18. Tóm tắt API (Summary)](./18-summary.md)

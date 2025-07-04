@@ -155,6 +155,8 @@ Route::middleware(['auth:api', 'role:admin,contributor'])->prefix('dashboard')->
     });
 
     // Brand management (Admin + Contributor)
+    Route::get('brands', [BrandController::class, 'index']);
+    Route::get('brands/{brand}', [BrandController::class, 'show']);
     Route::post('brands', [BrandController::class, 'store']);
     Route::put('brands/{brand}', [BrandController::class, 'update']);
     Route::delete('brands/{brand}', [BrandController::class, 'destroy']);
@@ -164,6 +166,8 @@ Route::middleware(['auth:api', 'role:admin,contributor'])->prefix('dashboard')->
     Route::delete('brands/{id}/force', [BrandController::class, 'forceDelete']);
 
     // Category management
+    Route::get('categories', [CategoryController::class, 'index']);
+    Route::get('categories/{category}', [CategoryController::class, 'show']);
     Route::post('categories', [CategoryController::class, 'store']);
     Route::put('categories/{category}', [CategoryController::class, 'update']);
     Route::delete('categories/{category}', [CategoryController::class, 'destroy']);
@@ -173,6 +177,8 @@ Route::middleware(['auth:api', 'role:admin,contributor'])->prefix('dashboard')->
     Route::delete('categories/{id}/force', [CategoryController::class, 'forceDelete']);
 
     // Product management
+    Route::get('products', [ProductController::class, 'index']);
+    Route::get('products/{product}', [ProductController::class, 'show']);
     Route::post('products', [ProductController::class, 'store']);
     Route::put('products/{product}', [ProductController::class, 'update']);
     Route::delete('products/{product}', [ProductController::class, 'destroy']);
@@ -182,11 +188,15 @@ Route::middleware(['auth:api', 'role:admin,contributor'])->prefix('dashboard')->
     Route::delete('products/{id}/force', [ProductController::class, 'forceDelete']);
 
     // Voucher management
+    Route::get('vouchers', [VoucherController::class, 'adminIndex']);
+    Route::get('vouchers/{voucher}', [VoucherController::class, 'show']);
     Route::post('vouchers', [VoucherController::class, 'store']);
     Route::put('vouchers/{voucher}', [VoucherController::class, 'update']);
     Route::delete('vouchers/{voucher}', [VoucherController::class, 'destroy']);
 
     // Sale Campaign management
+    Route::get('sale-campaigns', [SaleCampaignController::class, 'index']);
+    Route::get('sale-campaigns/{saleCampaign}', [SaleCampaignController::class, 'show']);
     Route::post('sale-campaigns', [SaleCampaignController::class, 'store']);
     Route::put('sale-campaigns/{saleCampaign}', [SaleCampaignController::class, 'update']);
     Route::delete('sale-campaigns/{saleCampaign}', [SaleCampaignController::class, 'destroy']);
@@ -194,20 +204,26 @@ Route::middleware(['auth:api', 'role:admin,contributor'])->prefix('dashboard')->
     Route::delete('sale-campaigns/{saleCampaign}/products/{product}', [SaleCampaignController::class, 'removeProduct']);
 
     // News management
+    Route::get('news', [NewsController::class, 'index']);
+    Route::get('news/{news}', [NewsController::class, 'show']);
     Route::post('news', [NewsController::class, 'store']);
     Route::put('news/{news}', [NewsController::class, 'update']);
     Route::delete('news/{news}', [NewsController::class, 'destroy']);
 
     // Order management
     Route::get('orders', [OrderController::class, 'adminIndex']);
+    Route::get('orders/{order}', [OrderController::class, 'show']);
     Route::put('orders/{order}/status', [OrderController::class, 'updateStatus']);
 
     // Contact management
     Route::get('contacts', [ContactController::class, 'adminIndex']);
+    Route::get('contacts/{contact}', [ContactController::class, 'show']);
     Route::put('contacts/{contact}', [ContactController::class, 'update']);
     Route::delete('contacts/{contact}', [ContactController::class, 'destroy']);
 
     // Payment Method management
+    Route::get('payment-methods', [PaymentMethodController::class, 'index']);
+    Route::get('payment-methods/{paymentMethod}', [PaymentMethodController::class, 'show']);
     Route::post('payment-methods', [PaymentMethodController::class, 'store']);
     Route::put('payment-methods/{paymentMethod}', [PaymentMethodController::class, 'update']);
     Route::delete('payment-methods/{paymentMethod}', [PaymentMethodController::class, 'destroy']);
