@@ -127,7 +127,7 @@ Route::middleware('auth:api')->group(function () {
 // ADMIN ROUTES (Admin only)
 // ===================
 
-Route::middleware(['auth:api', 'role:admin'])->group(function () {
+Route::middleware(['api.auth', 'role:admin'])->group(function () {
     // Role management
     Route::apiResource('roles', RoleController::class);
     Route::post('roles/assign', [RoleController::class, 'assignRole']);

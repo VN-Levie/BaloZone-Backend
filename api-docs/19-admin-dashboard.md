@@ -56,26 +56,81 @@ Authorization: Bearer {token}
         "id": 39,
         "name": "Balo Thể Thao Nike Air explicabo",
         "total_sold": "6"
+      },
+      {
+        "id": 54,
+        "name": "Balo Nike Sportswear voluptas",
+        "total_sold": "6"
+      },
+      {
+        "id": 146,
+        "name": "Túi Xách Nữ Thời Trang nisi",
+        "total_sold": "6"
+      },
+      {
+        "id": 139,
+        "name": "Túi Adidas Classic facilis",
+        "total_sold": "5"
       }
     ],
     "revenue_chart": [
       {
-        "date": "2025-06-27",
+        "date": "2025-06-28",
+        "revenue": 0
+      },
+      {
+        "date": "2025-06-29",
+        "revenue": 0
+      },
+      {
+        "date": "2025-06-30",
+        "revenue": 0
+      },
+      {
+        "date": "2025-07-01",
+        "revenue": 0
+      },
+      {
+        "date": "2025-07-02",
         "revenue": 0
       },
       {
         "date": "2025-07-03",
         "revenue": "168791109.80"
+      },
+      {
+        "date": "2025-07-04",
+        "revenue": 0
       }
     ],
     "order_chart": [
       {
-        "date": "2025-06-27",
+        "date": "2025-06-28",
+        "orders": 0
+      },
+      {
+        "date": "2025-06-29",
+        "orders": 0
+      },
+      {
+        "date": "2025-06-30",
+        "orders": 0
+      },
+      {
+        "date": "2025-07-01",
+        "orders": 0
+      },
+      {
+        "date": "2025-07-02",
         "orders": 0
       },
       {
         "date": "2025-07-03",
         "orders": 32
+      },
+      {
+        "date": "2025-07-04",
+        "orders": 0
       }
     ]
   }
@@ -87,7 +142,17 @@ Authorization: Bearer {token}
 ```json
 {
   "success": false,
-  "message": "Token không hợp lệ hoặc đã hết hạn",
+  "message": "Token không được cung cấp",
+  "data": null
+}
+```
+
+**Response lỗi (401) - Token không hợp lệ**:
+
+```json
+{
+  "success": false,
+  "message": "Token không hợp lệ",
   "data": null
 }
 ```
@@ -97,7 +162,7 @@ Authorization: Bearer {token}
 ```json
 {
   "success": false,
-  "message": "Bạn không có quyền truy cập",
+  "message": "Forbidden - Insufficient permissions",
   "data": null
 }
 ```
@@ -131,7 +196,7 @@ Authorization: Bearer {token}
   "success": true,
   "message": "Lấy báo cáo doanh thu theo tháng thành công",
   "data": {
-    "year": 2025,
+    "year": "2025",
     "monthly_data": [
       {
         "month": 1,
@@ -140,10 +205,70 @@ Authorization: Bearer {token}
         "order_count": 0
       },
       {
+        "month": 2,
+        "month_name": "Feb 2025",
+        "revenue": 0,
+        "order_count": 0
+      },
+      {
+        "month": 3,
+        "month_name": "Mar 2025",
+        "revenue": 0,
+        "order_count": 0
+      },
+      {
+        "month": 4,
+        "month_name": "Apr 2025",
+        "revenue": 0,
+        "order_count": 0
+      },
+      {
+        "month": 5,
+        "month_name": "May 2025",
+        "revenue": 0,
+        "order_count": 0
+      },
+      {
+        "month": 6,
+        "month_name": "Jun 2025",
+        "revenue": 0,
+        "order_count": 0
+      },
+      {
         "month": 7,
         "month_name": "Jul 2025",
         "revenue": "168791109.80",
         "order_count": 32
+      },
+      {
+        "month": 8,
+        "month_name": "Aug 2025",
+        "revenue": 0,
+        "order_count": 0
+      },
+      {
+        "month": 9,
+        "month_name": "Sep 2025",
+        "revenue": 0,
+        "order_count": 0
+      },
+      {
+        "month": 10,
+        "month_name": "Oct 2025",
+        "revenue": 0,
+        "order_count": 0
+      },
+      {
+        "month": 11,
+        "month_name": "Nov 2025",
+        "revenue": 0,
+        "order_count": 0
+      },
+      {
+        "month": 12,
+        "month_name": "Dec 2025",
+        "revenue": 0,
+        "order_count": 0
       }
     ]
   }
@@ -179,7 +304,7 @@ Authorization: Bearer {token}
   "success": true,
   "message": "Lấy phân tích người dùng thành công",
   "data": {
-    "year": 2025,
+    "year": "2025",
     "users_by_month": [
       {
         "month": 1,
@@ -187,9 +312,59 @@ Authorization: Bearer {token}
         "new_users": 0
       },
       {
+        "month": 2,
+        "month_name": "Feb 2025",
+        "new_users": 0
+      },
+      {
+        "month": 3,
+        "month_name": "Mar 2025",
+        "new_users": 0
+      },
+      {
+        "month": 4,
+        "month_name": "Apr 2025",
+        "new_users": 0
+      },
+      {
+        "month": 5,
+        "month_name": "May 2025",
+        "new_users": 0
+      },
+      {
+        "month": 6,
+        "month_name": "Jun 2025",
+        "new_users": 0
+      },
+      {
         "month": 7,
         "month_name": "Jul 2025",
         "new_users": 23
+      },
+      {
+        "month": 8,
+        "month_name": "Aug 2025",
+        "new_users": 0
+      },
+      {
+        "month": 9,
+        "month_name": "Sep 2025",
+        "new_users": 0
+      },
+      {
+        "month": 10,
+        "month_name": "Oct 2025",
+        "new_users": 0
+      },
+      {
+        "month": 11,
+        "month_name": "Nov 2025",
+        "new_users": 0
+      },
+      {
+        "month": 12,
+        "month_name": "Dec 2025",
+        "new_users": 0
       }
     ],
     "users_by_role": {
@@ -198,8 +373,7 @@ Authorization: Bearer {token}
       "contributor": 1
     },
     "users_by_status": {
-      "active": 22,
-      "inactive": 1
+      "active": 23
     }
   }
 }
@@ -234,25 +408,57 @@ Authorization: Bearer {token}
       {
         "id": 52,
         "name": "Balo Mini Cute vel",
-        "price": "500000.00",
+        "price": "1637840.00",
         "total_sold": "7",
-        "total_revenue": "3500000.00"
+        "total_revenue": "11464880.00"
+      },
+      {
+        "id": 146,
+        "name": "Túi Xách Nữ Thời Trang nisi",
+        "price": "595355.00",
+        "total_sold": "6",
+        "total_revenue": "3572130.00"
+      },
+      {
+        "id": 54,
+        "name": "Balo Nike Sportswear voluptas",
+        "price": "405163.00",
+        "total_sold": "6",
+        "total_revenue": "2430978.00"
       }
     ],
     "low_stock_products": [
       {
-        "id": 10,
-        "name": "Balo hết hàng",
-        "stock": 5,
-        "price": "300000.00"
+        "id": 54,
+        "name": "Balo Nike Sportswear voluptas",
+        "stock": 1,
+        "price": "405163.00"
+      },
+      {
+        "id": 192,
+        "name": "Balo Học Sinh JanSport qui",
+        "stock": 1,
+        "price": "485611.00"
+      },
+      {
+        "id": 104,
+        "name": "Balo Thể Thao Nike Air incidunt",
+        "stock": 1,
+        "price": "740609.00"
       }
     ],
     "out_of_stock_products": [
       {
-        "id": 15,
-        "name": "Sản phẩm hết hàng",
+        "id": 6,
+        "name": "Balo Thể Thao Nike Air in",
         "stock": 0,
-        "price": "250000.00"
+        "price": "1450935.00"
+      },
+      {
+        "id": 68,
+        "name": "Balo Leo Núi The North Face non",
+        "stock": 0,
+        "price": "383061.00"
       }
     ],
     "products_by_category": [
@@ -263,16 +469,24 @@ Authorization: Bearer {token}
       {
         "category_name": "Balo Laptop",
         "product_count": 40
+      },
+      {
+        "category_name": "Balo Thể Thao",
+        "product_count": 40
       }
     ],
     "products_by_brand": [
       {
-        "brand_name": "Nike",
-        "product_count": 35
+        "brand_name": "Swaniawski and Sons",
+        "product_count": 18
       },
       {
-        "brand_name": "Adidas",
-        "product_count": 30
+        "brand_name": "Samsonite",
+        "product_count": 17
+      },
+      {
+        "brand_name": "Herschel",
+        "product_count": 16
       }
     ]
   }
@@ -297,3 +511,48 @@ Authorization: Bearer {token}
 - Top selling products được sắp xếp theo số lượng bán ra
 - Low stock products là những sản phẩm có stock <= 10
 - Out of stock products là những sản phẩm có stock <= 0
+
+## Ví dụ Curl Commands
+
+### 1. Đăng nhập để lấy token admin
+
+```bash
+curl -X POST http://localhost:8000/api/auth/login \
+  -H "Content-Type: application/json" \
+  -d '{
+    "email": "admin@balozone.com",
+    "password": "admin123"
+  }'
+```
+
+### 2. Lấy thống kê dashboard
+
+```bash
+curl -X GET http://localhost:8000/api/admin/dashboard/stats \
+  -H "Authorization: Bearer YOUR_TOKEN_HERE" \
+  -H "Content-Type: application/json"
+```
+
+### 3. Lấy báo cáo doanh thu theo tháng
+
+```bash
+curl -X GET "http://localhost:8000/api/admin/dashboard/revenue?year=2025" \
+  -H "Authorization: Bearer YOUR_TOKEN_HERE" \
+  -H "Content-Type: application/json"
+```
+
+### 4. Lấy phân tích người dùng
+
+```bash
+curl -X GET "http://localhost:8000/api/admin/dashboard/users?year=2025" \
+  -H "Authorization: Bearer YOUR_TOKEN_HERE" \
+  -H "Content-Type: application/json"
+```
+
+### 5. Lấy phân tích sản phẩm
+
+```bash
+curl -X GET "http://localhost:8000/api/admin/dashboard/products" \
+  -H "Authorization: Bearer YOUR_TOKEN_HERE" \
+  -H "Content-Type: application/json"
+```

@@ -53,9 +53,10 @@ class DashboardController extends Controller
             $topProducts = Product::select('products.id', 'products.name',
                     DB::raw('COALESCE(SUM(order_details.quantity), 0) as total_sold'))
                 ->leftJoin('order_details', 'products.id', '=', 'order_details.product_id')
-                ->leftJoin('orders', 'order_details.order_id', '=', 'orders.id')
-                ->where('orders.status', '!=', 'cancelled')
-                ->orWhereNull('orders.status')
+                ->leftJoin('orders', function($join) {
+                    $join->on('order_details.order_id', '=', 'orders.id')
+                         ->where('orders.status', '!=', 'cancelled');
+                })
                 ->groupBy('products.id', 'products.name')
                 ->orderBy('total_sold', 'desc')
                 ->limit(5)
@@ -197,10 +198,20 @@ class DashboardController extends Controller
             $usersByRole = User::select('roles.name as role_name', DB::raw('count(*) as count'))
                 ->leftJoin('user_roles', 'users.id', '=', 'user_roles.user_id')
                 ->leftJoin('roles', 'user_roles.role_id', '=', 'roles.id')
+                ->whereNotNull('roles.name')
                 ->groupBy('roles.name')
                 ->get()
                 ->pluck('count', 'role_name')
                 ->toArray();
+
+            // Thêm người dùng không có role
+            $usersWithoutRole = User::leftJoin('user_roles', 'users.id', '=', 'user_roles.user_id')
+                ->whereNull('user_roles.user_id')
+                ->count();
+
+            if ($usersWithoutRole > 0) {
+                $usersByRole['no_role'] = $usersWithoutRole;
+            }
 
             // Thống kê người dùng theo trạng thái
             $usersByStatus = User::select('status', DB::raw('count(*) as count'))
@@ -239,9 +250,10 @@ class DashboardController extends Controller
                     DB::raw('COALESCE(SUM(order_details.quantity), 0) as total_sold'),
                     DB::raw('COALESCE(SUM(order_details.quantity * order_details.price), 0) as total_revenue'))
                 ->leftJoin('order_details', 'products.id', '=', 'order_details.product_id')
-                ->leftJoin('orders', 'order_details.order_id', '=', 'orders.id')
-                ->where('orders.status', '!=', 'cancelled')
-                ->orWhereNull('orders.status')
+                ->leftJoin('orders', function($join) {
+                    $join->on('order_details.order_id', '=', 'orders.id')
+                         ->where('orders.status', '!=', 'cancelled');
+                })
                 ->groupBy('products.id', 'products.name', 'products.price')
                 ->orderBy('total_sold', 'desc')
                 ->limit(10)

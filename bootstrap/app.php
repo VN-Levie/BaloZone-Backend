@@ -19,6 +19,7 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->alias([
             'role' => \App\Http\Middleware\CheckRole::class,
+            'api.auth' => \App\Http\Middleware\ApiAuthMiddleware::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
@@ -56,6 +57,13 @@ return Application::configure(basePath: dirname(__DIR__))
                     'data' => null
                 ], 401);
             }
+
+            // For web routes, just return 401 as well since we don't have a login page
+            return response()->json([
+                'success' => false,
+                'message' => 'Unauthorized',
+                'data' => null
+            ], 401);
         });
 
         // Xử lý lỗi 404 - Not Found
