@@ -31,7 +31,7 @@ class AddressBookController extends Controller
         return response()->json([
             'success' => true,
             'data' => $addresses,
-            'total' => $addresses->count()
+            'message' => 'Lấy danh sách địa chỉ thành công'
         ]);
     }
 
@@ -44,6 +44,7 @@ class AddressBookController extends Controller
 
         if (!$user) {
             return response()->json([
+                'success' => false,
                 'message' => 'Unauthorized'
             ], 401);
         }
@@ -59,12 +60,13 @@ class AddressBookController extends Controller
 
             $addressBook = AddressBook::create([
                 'user_id' => $user->id,
-                'name' => $request->name,
-                'phone' => $request->phone,
+                'recipient_name' => $request->recipient_name,
+                'recipient_phone' => $request->recipient_phone,
                 'address' => $request->address,
                 'province' => $request->province,
                 'district' => $request->district,
                 'ward' => $request->ward,
+                'postal_code' => $request->postal_code,
                 'is_default' => $request->is_default ?? false,
             ]);
 
@@ -72,7 +74,7 @@ class AddressBookController extends Controller
 
             return response()->json([
                 'success' => true,
-                'message' => 'Địa chỉ đã được tạo thành công',
+                'message' => 'Thêm địa chỉ thành công',
                 'data' => $addressBook
             ], 201);
         } catch (\Exception $e) {
@@ -88,34 +90,58 @@ class AddressBookController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(AddressBook $addressBook): JsonResponse
+    public function show($id): JsonResponse
     {
         $user = auth('api')->user();
 
-        if (!$user || $addressBook->user_id !== $user->id) {
+        if (!$user) {
             return response()->json([
                 'success' => false,
-                'message' => 'Forbidden'
-            ], 403);
+                'message' => 'Unauthorized'
+            ], 401);
+        }
+
+        $addressBook = AddressBook::where('id', $id)
+            ->where('user_id', $user->id)
+            ->first();
+
+        if (!$addressBook) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Địa chỉ không tồn tại'
+            ], 404);
         }
 
         return response()->json([
             'success' => true,
-            'data' => $addressBook
+            'data' => $addressBook,
+            'message' => 'Lấy chi tiết địa chỉ thành công'
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(AddressBookRequest $request, AddressBook $addressBook): JsonResponse
+    public function update(AddressBookRequest $request, $id): JsonResponse
     {
         $user = auth('api')->user();
 
-        if (!$user || $addressBook->user_id !== $user->id) {
+        if (!$user) {
             return response()->json([
-                'message' => 'Forbidden'
-            ], 403);
+                'success' => false,
+                'message' => 'Unauthorized'
+            ], 401);
+        }
+
+        $addressBook = AddressBook::where('id', $id)
+            ->where('user_id', $user->id)
+            ->first();
+
+        if (!$addressBook) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Địa chỉ không tồn tại'
+            ], 404);
         }
 
         DB::beginTransaction();
@@ -129,12 +155,13 @@ class AddressBookController extends Controller
             }
 
             $addressBook->update([
-                'name' => $request->name,
-                'phone' => $request->phone,
+                'recipient_name' => $request->recipient_name,
+                'recipient_phone' => $request->recipient_phone,
                 'address' => $request->address,
                 'province' => $request->province,
                 'district' => $request->district,
                 'ward' => $request->ward,
+                'postal_code' => $request->postal_code,
                 'is_default' => $request->is_default ?? $addressBook->is_default,
             ]);
 
@@ -142,7 +169,7 @@ class AddressBookController extends Controller
 
             return response()->json([
                 'success' => true,
-                'message' => 'Địa chỉ đã được cập nhật thành công',
+                'message' => 'Cập nhật địa chỉ thành công',
                 'data' => $addressBook->fresh()
             ]);
         } catch (\Exception $e) {
@@ -158,15 +185,26 @@ class AddressBookController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(AddressBook $addressBook): JsonResponse
+    public function destroy($id): JsonResponse
     {
         $user = auth('api')->user();
 
-        if (!$user || $addressBook->user_id !== $user->id) {
+        if (!$user) {
             return response()->json([
                 'success' => false,
-                'message' => 'Forbidden'
-            ], 403);
+                'message' => 'Unauthorized'
+            ], 401);
+        }
+
+        $addressBook = AddressBook::where('id', $id)
+            ->where('user_id', $user->id)
+            ->first();
+
+        if (!$addressBook) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Địa chỉ không tồn tại'
+            ], 404);
         }
 
         // Kiểm tra xem có đơn hàng nào đang sử dụng địa chỉ này không
@@ -197,13 +235,64 @@ class AddressBookController extends Controller
 
             return response()->json([
                 'success' => true,
-                'message' => 'Địa chỉ đã được xóa thành công'
+                'message' => 'Xóa địa chỉ thành công'
             ]);
         } catch (\Exception $e) {
             DB::rollback();
             return response()->json([
                 'success' => false,
                 'message' => 'Có lỗi xảy ra khi xóa địa chỉ',
+                'error' => $e->getMessage()
+            ], 500);
+        }
+    }
+
+    /**
+     * Set the specified address as default.
+     */
+    public function setDefault($id): JsonResponse
+    {
+        $user = auth('api')->user();
+
+        if (!$user) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Unauthorized'
+            ], 401);
+        }
+
+        $addressBook = AddressBook::where('id', $id)
+            ->where('user_id', $user->id)
+            ->first();
+
+        if (!$addressBook) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Địa chỉ không tồn tại'
+            ], 404);
+        }
+
+        DB::beginTransaction();
+
+        try {
+            // Bỏ mặc định của tất cả địa chỉ khác
+            AddressBook::where('user_id', $user->id)
+                ->update(['is_default' => false]);
+
+            // Đặt địa chỉ này làm mặc định
+            $addressBook->update(['is_default' => true]);
+
+            DB::commit();
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Đặt địa chỉ mặc định thành công'
+            ]);
+        } catch (\Exception $e) {
+            DB::rollback();
+            return response()->json([
+                'success' => false,
+                'message' => 'Có lỗi xảy ra khi đặt địa chỉ mặc định',
                 'error' => $e->getMessage()
             ], 500);
         }

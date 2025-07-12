@@ -12,7 +12,6 @@ class AddressBook extends Model
 
     protected $fillable = [
         'user_id',
-        'name',
         'recipient_name',
         'recipient_phone',
         'address',

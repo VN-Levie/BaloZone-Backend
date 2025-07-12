@@ -109,6 +109,7 @@ Route::middleware('auth:api')->group(function () {
 
     // Address book routes
     Route::apiResource('address-books', AddressBookController::class);
+    Route::post('address-books/{id}/set-default', [AddressBookController::class, 'setDefault']);
 
     // Order routes
     Route::apiResource('orders', OrderController::class)->except(['update', 'destroy']);
