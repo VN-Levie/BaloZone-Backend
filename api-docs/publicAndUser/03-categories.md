@@ -94,7 +94,7 @@ Các endpoint để quản lý thông tin danh mục sản phẩm.
 
 ```json
 {
-    "category": {
+    "data": {
         "id": 1,
         "name": "Balo Học Sinh",
         "slug": "balo-hoc-sinh",

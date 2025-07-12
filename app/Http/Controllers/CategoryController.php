@@ -250,7 +250,7 @@ class CategoryController extends Controller
 
 
         return response()->json([
-            'category' => $this->transformCategory($category),
+            'data' => $this->transformCategory($category),
         ]);
     }
 
