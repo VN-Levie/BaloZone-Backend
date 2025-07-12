@@ -62,6 +62,14 @@ class OrderSeeder extends Seeder
                 'total_amount' => 0, // Sẽ tính sau
                 'voucher_discount' => 0, // Sẽ tính sau
                 'final_amount' => 0, // Sẽ tính sau
+                // Thêm thông tin địa chỉ shipping trực tiếp
+                'shipping_recipient_name' => $address->recipient_name,
+                'shipping_recipient_phone' => $address->recipient_phone,
+                'shipping_address' => $address->address,
+                'shipping_ward' => $address->ward,
+                'shipping_district' => $address->district,
+                'shipping_province' => $address->province,
+                'shipping_postal_code' => $address->postal_code,
             ]);
 
             // Tạo order details (1-4 sản phẩm per order)

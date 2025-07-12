@@ -25,6 +25,14 @@ class Order extends Model
         'voucher_id',
         'user_id',
         'total_price', // backup field
+        // Shipping address fields
+        'shipping_recipient_name',
+        'shipping_recipient_phone',
+        'shipping_address',
+        'shipping_ward',
+        'shipping_district',
+        'shipping_province',
+        'shipping_postal_code',
     ];
 
     protected $casts = [

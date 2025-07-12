@@ -22,7 +22,7 @@ class OrderController extends Controller
     {
         $user = auth('api')->user();
 
-        $query = Order::with(['address', 'paymentMethod', 'voucher', 'orderDetails.product'])
+        $query = Order::with(['paymentMethod', 'voucher', 'orderDetails.product'])
             ->where('user_id', $user->id);
 
         // Lọc theo trạng thái đơn hàng
@@ -132,12 +132,20 @@ class OrderController extends Controller
                 'final_amount' => $finalTotal,
                 'payment_method' => $validated['payment_method'],
                 'note' => $validated['note'] ?? null,
-                'address_id' => $validated['shipping_address_id'],
+                'address_id' => $validated['shipping_address_id'], // Giữ để tham chiếu
                 'payment_method_id' => 1, // Default payment method ID
                 'payment_status' => 'pending',
                 'voucher_id' => $voucherId,
                 'user_id' => $user->id,
                 'total_price' => $finalTotal, // Backup field
+                // Lưu thông tin địa chỉ trực tiếp
+                'shipping_recipient_name' => $address->recipient_name,
+                'shipping_recipient_phone' => $address->recipient_phone,
+                'shipping_address' => $address->address,
+                'shipping_ward' => $address->ward,
+                'shipping_district' => $address->district,
+                'shipping_province' => $address->province,
+                'shipping_postal_code' => $address->postal_code,
             ]);
 
             // Create order details and update product quantities
@@ -155,7 +163,7 @@ class OrderController extends Controller
 
             DB::commit();
 
-            $order->load(['address', 'paymentMethod', 'voucher', 'orderDetails.product']);
+            $order->load(['paymentMethod', 'voucher', 'orderDetails.product']);
 
             return response()->json([
                 'success' => true,
@@ -187,7 +195,7 @@ class OrderController extends Controller
             ], 403);
         }
 
-        $order->load(['address', 'paymentMethod', 'voucher', 'orderDetails.product.category', 'orderDetails.product.brand']);
+        $order->load(['paymentMethod', 'voucher', 'orderDetails.product.category', 'orderDetails.product.brand']);
 
         $transformedOrder = $this->transformOrder($order);
         // Add order history for detail view
@@ -291,7 +299,7 @@ class OrderController extends Controller
      */
     public function adminIndex(Request $request): JsonResponse
     {
-        $query = Order::with(['user', 'address', 'paymentMethod', 'voucher', 'orderDetails.product']);
+        $query = Order::with(['user', 'paymentMethod', 'voucher', 'orderDetails.product']);
 
         // Lọc theo trạng thái thanh toán
         if ($request->has('payment_status')) {
@@ -363,19 +371,20 @@ class OrderController extends Controller
             'payment_method' => $order->payment_method,
             'payment_status' => $order->payment_status,
             'shipping_address' => [
-                'recipient_name' => $order->address->name,
-                'recipient_phone' => $order->address->phone,
-                'address' => $order->address->address,
-                'ward' => $order->address->ward,
-                'district' => $order->address->district,
-                'province' => $order->address->province,
+                'recipient_name' => $order->shipping_recipient_name,
+                'recipient_phone' => $order->shipping_recipient_phone,
+                'address' => $order->shipping_address,
+                'ward' => $order->shipping_ward,
+                'district' => $order->shipping_district,
+                'province' => $order->shipping_province,
+                'postal_code' => $order->shipping_postal_code,
             ],
             'items' => $order->orderDetails->map(function ($detail) {
                 return [
                     'id' => $detail->id,
                     'product_id' => $detail->product_id,
-                    'product_name' => $detail->product->name,
-                    'product_image' => $detail->product->image,
+                    'product_name' => $detail->product ? $detail->product->name : null,
+                    'product_image' => $detail->product ? $detail->product->image : null,
                     'quantity' => $detail->quantity,
                     'price' => $detail->price,
                     'total' => $detail->price * $detail->quantity
