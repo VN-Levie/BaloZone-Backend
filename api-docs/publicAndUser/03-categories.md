@@ -290,8 +290,3 @@ curl -X GET "http://localhost:8000/api/categories/slug/balo-hoc-sinh?page=2" \
 - Controller: `app/Http/Controllers/CategoryController.php`
 - Model: `app/Models/Category.php`
 - Routes: `routes/api.php` (lines 46-50)
-
-# Test slug không tồn tại (lỗi 404)
-curl -X GET "http://localhost:8000/api/categories/slug/khong-ton-tai" \
-  -H "Accept: application/json" | jq .
-```
