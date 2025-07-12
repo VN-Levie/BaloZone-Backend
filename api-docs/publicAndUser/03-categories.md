@@ -80,54 +80,7 @@ Các endpoint để quản lý thông tin danh mục sản phẩm.
 }
 ```
 
-### 3. Lấy danh mục kèm sản phẩm
-
-- **Endpoint:** `GET /api/categories/with-products`
-- **Mô tả:** Lấy danh sách các danh mục kèm theo một số sản phẩm trong mỗi danh mục
-- **Phân quyền:** Public
-- **Tham số:** Không có
-
-- **Response thành công (200):**
-
-```json
-{
-    "data": [
-        {
-            "id": 2,
-            "name": "Balo Du Lịch",
-            "slug": "balo-du-lich",
-            "description": "Balo dành cho các chuyến du lịch, trekking với dung tích lớn và nhiều ngăn tiện ích",
-            "image": "https://placehold.co/600x400?text=categories/balo-du-lich.jpg",
-            "created_at": "2025-07-12T17:24:34.000000Z",
-            "updated_at": "2025-07-12T17:24:34.000000Z",
-            "products": [
-                {
-                    "id": 150,
-                    "name": "Balo Gaming RGB dicta",
-                    "slug": "balo-gaming-rgb-dicta-1167",
-                    "price": "1183754.00",
-                    "discount_price": "947003.20",
-                    "image": "https://placehold.co/600x400?text=products/balo-gaming-rgb-dicta.jpg",
-                    "stock": 25,
-                    "brand": {
-                        "id": 9,
-                        "name": "Nikolaus Ltd",
-                        "description": "Omnis animi provident eos nam vel. Dolores sit placeat consequatur nihil quam in maxime rerum. Est et voluptatibus et sit omnis. Ducimus quam officiis error dolores.",
-                        "slug": "nikolaus-ltd",
-                        "logo": "https://placehold.co/200x100?text=brands/nikolaus-ltd.jpg",
-                        "status": "inactive",
-                        "created_at": "2025-07-12T17:24:34.000000Z",
-                        "updated_at": "2025-07-12T17:24:34.000000Z",
-                        "deleted_at": null
-                    }
-                }
-            ]
-        }
-    ]
-}
-```
-
-### 4. Lấy danh mục theo slug
+### 3. Lấy danh mục theo slug
 
 - **Endpoint:** `GET /api/categories/slug/{slug}`
 - **Mô tả:** Lấy thông tin danh mục và danh sách sản phẩm theo slug (có phân trang)
