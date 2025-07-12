@@ -55,12 +55,11 @@ Route::prefix('categories')->group(function () {
 Route::prefix('products')->group(function () {
     Route::get('/', [ProductController::class, 'index']);
     Route::get('/featured', [ProductController::class, 'getFeatured']);
-    Route::get('/search', [ProductController::class, 'search']);
+    Route::get('/latest', [ProductController::class, 'getLatest']);
     Route::get('/on-sale', [ProductController::class, 'getOnSale']);
-    Route::get('/category/{categorySlug}', [ProductController::class, 'getByCategory']);
-    Route::get('/brand/{brandSlug}', [ProductController::class, 'getByBrand']);
     Route::get('/slug/{slug}', [ProductController::class, 'getBySlug']);
     Route::get('/{product}', [ProductController::class, 'show']);
+    Route::get('/{product}/related', [ProductController::class, 'getRelated']);
     Route::get('/{product}/sale-campaigns', [ProductController::class, 'getSaleCampaigns']);
 });
 
@@ -81,8 +80,8 @@ Route::prefix('comments')->group(function () {
 // News routes (public read-only)
 Route::prefix('news')->group(function () {
     Route::get('/', [NewsController::class, 'index']);
-    Route::get('/{news}', [NewsController::class, 'show']);
     Route::get('/latest', [NewsController::class, 'getLatest']);
+    Route::get('/{news}', [NewsController::class, 'show']);
 });
 
 // Contact routes (public)

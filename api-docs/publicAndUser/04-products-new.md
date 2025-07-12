@@ -658,47 +658,24 @@ curl -X GET "http://localhost:8000/api/products/latest?limit=5" -H "Accept: appl
   "success": true,
   "data": [
     {
-      "id": 181,
-      "name": "Balo Học Sinh JanSport quaerat",
-      "slug": "balo-hoc-sinh-jansport-quaerat-1484",
-      "description": "Consequatur fugit in fuga. Saepe omnis et qui in et delectus omnis. Aut autem expedita at non.",
-      "price": 175256,
+      "id": 205,
+      "name": "Balo Gaming RGB sit",
+      "slug": "balo-gaming-rgb-sit-4158",
+      "description": "Et dignissimos dolorum tempora hic minus. Voluptas sint ex earum est.",
+      "price": 1766374,
       "discount_price": 0,
-      "image": "https://placehold.co/600x400?text=products/balo-hoc-sinh-jansport-quaerat.jpg",
+      "image": "https://placehold.co/600x400?text=products/balo-gaming-rgb-sit.jpg",
       "gallery": [],
-      "stock": 56,
+      "stock": 37,
       "brand": {
-        "id": 3,
-        "name": "Samsonite",
-        "slug": "samsonite"
+        "id": 4,
+        "name": "JanSport",
+        "slug": "jansport"
       },
       "category": {
-        "id": 6,
-        "name": "Balo Mini",
-        "slug": "balo-mini"
-      },
-      "created_at": "2025-07-12T17:24:38.000000Z",
-      "updated_at": "2025-07-12T17:24:38.000000Z"
-    },
-    {
-      "id": 149,
-      "name": "Balo Mini Cute voluptate",
-      "slug": "balo-mini-cute-voluptate-2621",
-      "description": "Omnis magni dolores quaerat velit dolore magni. Commodi sint facilis veniam quibusdam exercitationem laborum laudantium qui.",
-      "price": 946081,
-      "discount_price": 0,
-      "image": "https://placehold.co/600x400?text=products/balo-mini-cute-voluptate.jpg",
-      "gallery": [],
-      "stock": 94,
-      "brand": {
-        "id": 11,
-        "name": "Skiles-Jenkins",
-        "slug": "skiles-jenkins"
-      },
-      "category": {
-        "id": 1,
-        "name": "Balo Học Sinh",
-        "slug": "balo-hoc-sinh"
+        "id": 4,
+        "name": "Balo Thể Thao",
+        "slug": "balo-the-thao"
       },
       "created_at": "2025-07-12T17:24:38.000000Z",
       "updated_at": "2025-07-12T17:24:38.000000Z"
@@ -741,53 +718,30 @@ curl -X GET "http://localhost:8000/api/products/1/related?limit=4" -H "Accept: a
   "success": true,
   "data": [
     {
-      "id": 204,
-      "name": "Balo Gaming RGB sit",
-      "slug": "balo-gaming-rgb-sit-8470",
-      "description": "Et laboriosam occaecati dolores quisquam et nostrum non. Voluptas porro enim deleniti quas qui.",
-      "price": 1071588,
+      "id": 58,
+      "name": "Balo Du Lịch Samsonite eos",
+      "slug": "balo-du-lich-samsonite-eos-8388",
+      "description": "Sint est amet laborum. Dolores nihil dolor nesciunt quas itaque amet.",
+      "price": 1640641,
       "discount_price": 0,
-      "image": "https://placehold.co/600x400?text=products/balo-gaming-rgb-sit.jpg",
+      "image": "https://placehold.co/600x400?text=products/balo-du-lich-samsonite-eos.jpg",
       "gallery": [
-        "https://placehold.co/600x400?text=balo-gaming-rgb-sit-1.jpg",
-        "https://placehold.co/600x400?text=balo-gaming-rgb-sit-2.jpg"
+        "https://placehold.co/600x400?text=balo-du-lich-samsonite-eos-1.jpg",
+        "https://placehold.co/600x400?text=balo-du-lich-samsonite-eos-2.jpg"
       ],
-      "stock": 74,
+      "stock": 49,
       "brand": {
-        "id": 5,
-        "name": "The North Face",
-        "slug": "the-north-face"
+        "id": 6,
+        "name": "Herschel",
+        "slug": "herschel"
       },
       "category": {
         "id": 1,
         "name": "Balo Học Sinh",
         "slug": "balo-hoc-sinh"
       },
-      "created_at": "2025-07-12T17:24:38.000000Z",
-      "updated_at": "2025-07-12T17:24:38.000000Z"
-    },
-    {
-      "id": 149,
-      "name": "Balo Mini Cute voluptate",
-      "slug": "balo-mini-cute-voluptate-2621",
-      "description": "Omnis magni dolores quaerat velit dolore magni. Commodi sint facilis veniam quibusdam exercitationem laborum laudantium qui.",
-      "price": 946081,
-      "discount_price": 0,
-      "image": "https://placehold.co/600x400?text=products/balo-mini-cute-voluptate.jpg",
-      "gallery": [],
-      "stock": 94,
-      "brand": {
-        "id": 11,
-        "name": "Skiles-Jenkins",
-        "slug": "skiles-jenkins"
-      },
-      "category": {
-        "id": 1,
-        "name": "Balo Học Sinh",
-        "slug": "balo-hoc-sinh"
-      },
-      "created_at": "2025-07-12T17:24:38.000000Z",
-      "updated_at": "2025-07-12T17:24:38.000000Z"
+      "created_at": "2025-07-12T17:24:37.000000Z",
+      "updated_at": "2025-07-12T17:47:55.000000Z"
     }
   ]
 }

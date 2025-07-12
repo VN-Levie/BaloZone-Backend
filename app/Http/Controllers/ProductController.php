@@ -583,4 +583,72 @@ class ProductController extends Controller
         // Otherwise, it's a local storage file
         return asset('storage/' . $imagePath);
     }
+
+    /**
+     * Get related products based on category or brand
+     */
+    public function getRelated(Product $product, Request $request): JsonResponse
+    {
+        $limit = $request->get('limit', 8);
+
+        // First try to get products from the same category
+        $relatedProducts = Product::with(['category', 'brand'])
+            ->where('id', '!=', $product->id)
+            ->where('category_id', $product->category_id)
+            ->where('stock', '>', 0)
+            ->orderBy('created_at', 'desc')
+            ->take($limit)
+            ->get();
+
+        // If we don't have enough products from the same category,
+        // add products from the same brand
+        if ($relatedProducts->count() < $limit && $product->brand_id) {
+            $remaining = $limit - $relatedProducts->count();
+            $brandProducts = Product::with(['category', 'brand'])
+                ->where('id', '!=', $product->id)
+                ->where('brand_id', $product->brand_id)
+                ->where('category_id', '!=', $product->category_id) // Exclude already selected category products
+                ->whereNotIn('id', $relatedProducts->pluck('id')) // Exclude already selected products
+                ->where('stock', '>', 0)
+                ->orderBy('created_at', 'desc')
+                ->take($remaining)
+                ->get();
+
+            $relatedProducts = $relatedProducts->merge($brandProducts);
+        }
+
+        // Transform the products to match API documentation format
+        $transformedProducts = $relatedProducts->map(function ($relatedProduct) {
+            return $this->transformProduct($relatedProduct);
+        });
+
+        return response()->json([
+            'success' => true,
+            'data' => $transformedProducts
+        ]);
+    }
+
+    /**
+     * Get latest products
+     */
+    public function getLatest(Request $request): JsonResponse
+    {
+        $limit = $request->get('limit', 10);
+
+        $products = Product::with(['category', 'brand'])
+            ->where('stock', '>', 0)
+            ->orderBy('created_at', 'desc')
+            ->take($limit)
+            ->get();
+
+        // Transform the products to match API documentation format
+        $transformedProducts = $products->map(function ($product) {
+            return $this->transformProduct($product);
+        });
+
+        return response()->json([
+            'success' => true,
+            'data' => $transformedProducts
+        ]);
+    }
 }
