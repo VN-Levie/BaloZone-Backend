@@ -149,70 +149,7 @@ Các endpoint để quản lý thông tin danh mục sản phẩm.
         "image": "https://placehold.co/600x400?text=categories/balo-hoc-sinh.jpg",
         "created_at": "2025-07-12T17:24:34.000000Z",
         "updated_at": "2025-07-12T17:24:34.000000Z"
-    },
-    "products": {
-        "current_page": 1,
-        "data": [
-            {
-                "id": 58,
-                "category_id": 1,
-                "brand_id": 6,
-                "name": "Balo Du Lịch Samsonite eos",
-                "description": "Sint est amet laborum. Dolores nihil dolor nesciunt quas itaque amet. Possimus suscipit voluptates et ipsum et fuga et. Odit non fuga eum voluptas ut amet provident. Nulla repellendus provident dolores maxime dolore impedit quaerat.",
-                "price": "1640641.00",
-                "discount_price": null,
-                "stock": 49,
-                "image": "https://placehold.co/600x400?text=products/balo-du-lich-samsonite-eos.jpg",
-                "gallery": [
-                    "https://placehold.co/600x400?text=balo-du-lich-samsonite-eos-1.jpg",
-                    "https://placehold.co/600x400?text=balo-du-lich-samsonite-eos-2.jpg"
-                ],
-                "slug": "balo-du-lich-samsonite-eos-8388",
-                "color": "Nâu",
-                "created_at": "2025-07-12T17:24:37.000000Z",
-                "updated_at": "2025-07-12T17:47:55.000000Z",
-                "deleted_at": null,
-                "brand": {
-                    "id": 6,
-                    "name": "Herschel",
-                    "description": "Herschel Supply Co. nổi tiếng với thiết kế vintage và hiện đại, phù hợp cho mọi lứa tuổi.",
-                    "slug": "herschel",
-                    "logo": "https://placehold.co/600x400?text=brands/herschel-logo.png",
-                    "status": "active",
-                    "created_at": "2025-07-12T17:24:34.000000Z",
-                    "updated_at": "2025-07-12T17:24:34.000000Z",
-                    "deleted_at": null
-                }
-            }
-        ],
-        "first_page_url": "http://localhost:8000/api/categories/slug/balo-hoc-sinh?page=1",
-        "from": 1,
-        "last_page": 4,
-        "last_page_url": "http://localhost:8000/api/categories/slug/balo-hoc-sinh?page=4",
-        "links": [
-            {
-                "url": null,
-                "label": "&laquo; Previous",
-                "active": false
-            },
-            {
-                "url": "http://localhost:8000/api/categories/slug/balo-hoc-sinh?page=1",
-                "label": "1",
-                "active": true
-            },
-            {
-                "url": "http://localhost:8000/api/categories/slug/balo-hoc-sinh?page=2",
-                "label": "Next &raquo;",
-                "active": false
-            }
-        ],
-        "next_page_url": "http://localhost:8000/api/categories/slug/balo-hoc-sinh?page=2",
-        "path": "http://localhost:8000/api/categories/slug/balo-hoc-sinh",
-        "per_page": 12,
-        "prev_page_url": null,
-        "to": 12,
-        "total": 39
-    }
+    }    
 }
 ```
 

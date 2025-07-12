@@ -180,7 +180,7 @@ class CategoryController extends Controller
     public function trashed(): JsonResponse
     {
         $categories = Category::onlyTrashed()
-            ->withCount(['products' => function($query) {
+            ->withCount(['products' => function ($query) {
                 $query->withTrashed();
             }])
             ->orderBy('deleted_at', 'desc')
@@ -197,14 +197,14 @@ class CategoryController extends Controller
      */
     public function getWithProducts(): JsonResponse
     {
-        $categories = Category::with(['products' => function($query) {
+        $categories = Category::with(['products' => function ($query) {
             $query->with('brand')
-                  ->where('stock', '>', 0)
-                  ->orderBy('created_at', 'desc')
-                  ->take(8);
+                ->where('stock', '>', 0)
+                ->orderBy('created_at', 'desc')
+                ->take(8);
         }])
-        ->orderBy('name')
-        ->get();
+            ->orderBy('name')
+            ->get();
 
         // Transform categories to include image URLs
         $transformedCategories = $categories->map(function ($category) {
@@ -247,15 +247,10 @@ class CategoryController extends Controller
 
         // Get products with pagination
         $perPage = $request->get('per_page', 12);
-        $products = $category->products()
-            ->with('brand')
-            ->where('stock', '>', 0)
-            ->orderBy('name')
-            ->paginate($perPage);
+
 
         return response()->json([
             'category' => $this->transformCategory($category),
-            'products' => $products
         ]);
     }
 

@@ -32,6 +32,19 @@ class CommentController extends Controller
         $perPage = $request->get('per_page', 10);
         $comments = $query->orderBy('created_at', 'desc')->paginate($perPage);
 
+        // Thêm thông tin đã mua hàng cho mỗi comment
+        $comments->getCollection()->transform(function ($comment) {
+            $hasPurchased = $comment->user->orders()
+                ->where('payment_status', 'paid')
+                ->whereHas('orderDetails', function($query) use ($comment) {
+                    $query->where('product_id', $comment->product_id);
+                })
+                ->exists();
+
+            $comment->has_purchased = $hasPurchased;
+            return $comment;
+        });
+
         return response()->json($comments);
     }
 
@@ -57,12 +70,6 @@ class CommentController extends Controller
             })
             ->exists();
 
-        if (!$hasPurchased) {
-            return response()->json([
-                'message' => 'Bạn chỉ có thể bình luận về sản phẩm đã mua'
-            ], 403);
-        }
-
         // Kiểm tra xem user đã bình luận sản phẩm này chưa
         $existingComment = Comment::where('user_id', $user->id)
                                  ->where('product_id', $request->product_id)
@@ -74,14 +81,20 @@ class CommentController extends Controller
             ], 422);
         }
 
+        // Nếu user chưa mua hàng, rating = -1 (không tính vào rating tổng)
+        $rating = $hasPurchased ? $request->rating : -1;
+
         $comment = Comment::create([
             'product_id' => $request->product_id,
             'user_id' => $user->id,
             'content' => $request->content,
-            'rating' => $request->rating,
+            'rating' => $rating,
         ]);
 
         $comment->load(['user:id,name', 'product:id,name']);
+
+        // Thêm thông tin đã mua hàng
+        $comment->has_purchased = $hasPurchased;
 
         return response()->json([
             'message' => 'Bình luận đã được thêm thành công',
@@ -96,6 +109,16 @@ class CommentController extends Controller
     {
         $comment->load(['user:id,name', 'product:id,name,slug']);
 
+        // Thêm thông tin đã mua hàng
+        $hasPurchased = $comment->user->orders()
+            ->where('payment_status', 'paid')
+            ->whereHas('orderDetails', function($query) use ($comment) {
+                $query->where('product_id', $comment->product_id);
+            })
+            ->exists();
+
+        $comment->has_purchased = $hasPurchased;
+
         return response()->json([
             'data' => $comment
         ]);
@@ -106,6 +129,7 @@ class CommentController extends Controller
      */
     public function update(CommentRequest $request, Comment $comment): JsonResponse
     {
+        /** @var User|null $user */
         $user = auth('api')->user();
 
         if (!$user || $comment->user_id !== $user->id) {
@@ -114,12 +138,26 @@ class CommentController extends Controller
             ], 403);
         }
 
+        // Kiểm tra xem user đã mua sản phẩm này chưa để quyết định rating
+        $hasPurchased = $user->orders()
+            ->where('payment_status', 'paid')
+            ->whereHas('orderDetails', function($query) use ($comment) {
+                $query->where('product_id', $comment->product_id);
+            })
+            ->exists();
+
+        // Nếu user chưa mua hàng, rating = -1 (không tính vào rating tổng)
+        $rating = $hasPurchased ? $request->rating : -1;
+
         $comment->update([
             'content' => $request->content,
-            'rating' => $request->rating,
+            'rating' => $rating,
         ]);
 
         $comment->load(['user:id,name', 'product:id,name']);
+
+        // Thêm thông tin đã mua hàng
+        $comment->has_purchased = $hasPurchased;
 
         return response()->json([
             'message' => 'Bình luận đã được cập nhật',
@@ -132,9 +170,10 @@ class CommentController extends Controller
      */
     public function destroy(Comment $comment): JsonResponse
     {
+        /** @var User|null */
         $user = auth('api')->user();
 
-        if (!$user || $comment->user_id !== $user->id) {
+        if (!$user || $comment->user_id !== $user->id && !$user->isAdmin()) {
             return response()->json([
                 'message' => 'Bạn không có quyền xóa bình luận này'
             ], 403);
@@ -143,7 +182,7 @@ class CommentController extends Controller
         $comment->delete(); // Soft delete
 
         return response()->json([
-            'message' => 'Bình luận đã được xóa mềm'
+            'message' => 'Bình luận đã được xóa'
         ]);
     }
 
@@ -162,6 +201,19 @@ class CommentController extends Controller
         $perPage = $request->get('per_page', 10);
         $comments = $query->orderBy('created_at', 'desc')->paginate($perPage);
 
+        // Thêm thông tin đã mua hàng cho mỗi comment
+        $comments->getCollection()->transform(function ($comment) {
+            $hasPurchased = $comment->user->orders()
+                ->where('payment_status', 'paid')
+                ->whereHas('orderDetails', function($query) use ($comment) {
+                    $query->where('product_id', $comment->product_id);
+                })
+                ->exists();
+
+            $comment->has_purchased = $hasPurchased;
+            return $comment;
+        });
+
         return response()->json($comments);
     }
 
@@ -170,6 +222,7 @@ class CommentController extends Controller
      */
     public function getUserComments(Request $request): JsonResponse
     {
+        /** @var User|null $user */
         $user = auth('api')->user();
 
         if (!$user) {
@@ -184,6 +237,20 @@ class CommentController extends Controller
             ->where('user_id', $user->id)
             ->orderBy('created_at', 'desc')
             ->paginate($perPage);
+
+        // Thêm thông tin đã mua hàng cho mỗi comment
+        $comments->getCollection()->transform(function ($comment) use ($user) {
+            /** @var User $user */
+            $hasPurchased = $user->orders()
+                ->where('payment_status', 'paid')
+                ->whereHas('orderDetails', function($query) use ($comment) {
+                    $query->where('product_id', $comment->product_id);
+                })
+                ->exists();
+
+            $comment->has_purchased = $hasPurchased;
+            return $comment;
+        });
 
         return response()->json($comments);
     }
@@ -213,20 +280,20 @@ class CommentController extends Controller
             ->where('status', 'delivered')
             ->exists();
 
-        if (!$hasPurchased) {
-            return response()->json([
-                'message' => 'Bạn chỉ có thể bình luận sau khi mua sản phẩm'
-            ], 403);
-        }
+        // Nếu user chưa mua hàng, rating = -1 (không tính vào rating tổng)
+        $rating = $hasPurchased ? $request->rating : -1;
 
         $comment = Comment::create([
             'user_id' => $user->id,
             'product_id' => $productId,
             'content' => $request->content,
-            'rating' => $request->rating,
+            'rating' => $rating,
         ]);
 
         $comment->load('user:id,name,email');
+
+        // Thêm thông tin đã mua hàng
+        $comment->has_purchased = $hasPurchased;
 
         return response()->json([
             'success' => true,
