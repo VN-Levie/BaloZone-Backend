@@ -36,10 +36,7 @@ return new class extends Migration
             $table->softDeletes();
         });
 
-        // Add soft deletes to orders table
-        Schema::table('orders', function (Blueprint $table) {
-            $table->softDeletes();
-        });
+
 
         // Add soft deletes to order_details table
         Schema::table('order_details', function (Blueprint $table) {
@@ -99,7 +96,6 @@ return new class extends Migration
             'categories',
             'products',
             'comments',
-            'orders',
             'order_details',
             'vouchers',
             'news',

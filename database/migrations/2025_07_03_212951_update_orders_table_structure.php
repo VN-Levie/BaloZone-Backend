@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::table('orders', function (Blueprint $table) {
             // Thêm các trường mới theo tài liệu API
-            $table->string('order_number')->nullable()->after('id'); // nullable first
+
             $table->enum('status', ['pending', 'processing', 'shipped', 'delivered', 'cancelled'])->default('pending')->after('order_number');
             $table->decimal('total_amount', 10, 2)->default(0)->after('status');
             $table->decimal('shipping_fee', 10, 2)->default(0)->after('total_amount');

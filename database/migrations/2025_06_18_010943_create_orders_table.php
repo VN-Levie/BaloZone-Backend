@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->string('order_number')->nullable(); // nullable first
             $table->foreignId('address_id')->constrained('address_books')->onDelete('cascade');
             $table->foreignId('payment_method_id')->constrained('payment_methods')->onDelete('cascade');
             $table->enum('payment_status', ['pending', 'paid', 'failed'])->default('pending');
@@ -20,6 +21,7 @@ return new class extends Migration
             $table->text('comment')->nullable();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
             $table->decimal('total_price', 10, 2);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
