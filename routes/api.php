@@ -81,6 +81,7 @@ Route::get('contacts/{contact}', [ContactController::class, 'show']);
 
 // Sale Campaign routes (public read-only)
 Route::get('sale-campaigns', [SaleCampaignController::class, 'index']);
+Route::get('sale-campaigns/slug/{slug}', [SaleCampaignController::class, 'getBySlug'])->where('slug', '[a-zA-Z0-9\-]+');
 Route::get('sale-campaigns/{saleCampaign}', [SaleCampaignController::class, 'show']);
 Route::get('sale-campaigns-active', [SaleCampaignController::class, 'getActive']);
 Route::get('sale-campaigns-featured', [SaleCampaignController::class, 'getFeatured']);

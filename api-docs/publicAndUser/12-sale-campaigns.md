@@ -186,6 +186,92 @@
 }
 ```
 
+## Lấy chi tiết chiến dịch khuyến mãi theo slug
+
+### GET /api/sale-campaigns/slug/{slug}
+
+**Mô tả**: Lấy chi tiết một chiến dịch khuyến mãi theo slug
+
+**Phương thức**: GET
+
+**URL**: `/api/sale-campaigns/slug/{slug}`
+
+**Phân quyền**: Không yêu cầu authentication
+
+**Tham số URL**:
+
+- `slug` (string, required): Slug của chiến dịch khuyến mãi
+
+**Response thành công (200)**:
+
+```json
+{
+  "data": {
+    "id": 1,
+    "name": "Black Friday 2025",
+    "slug": "black-friday-2025",
+    "description": "Siêu sale Black Friday - Giảm giá khủng lên đến 70% tất cả sản phẩm balo",
+    "banner_image": "https://placehold.co/600x400?text=campaigns/black-friday-2025.jpg",
+    "start_date": "2025-07-13T17:24:39.000000Z",
+    "end_date": "2025-07-19T17:24:39.000000Z",
+    "status": "active",
+    "is_featured": true,
+    "priority": 100,
+    "metadata": {
+      "tags": ["black-friday", "mega-sale", "limited-time"],
+      "color": "#000000",
+      "description_short": "Giảm giá lên đến 70%"
+    },
+    "created_at": "2025-07-12T17:24:39.000000Z",
+    "updated_at": "2025-07-12T17:24:39.000000Z",
+    "deleted_at": null,
+    "sale_products": [
+      {
+        "id": 1,
+        "sale_campaign_id": 1,
+        "product_id": 2,
+        "original_price": "1200000.00",
+        "sale_price": "696000.00",
+        "discount_percentage": "42.00",
+        "discount_amount": "504000.00",
+        "discount_type": "percentage",
+        "max_quantity": 28,
+        "sold_quantity": 1,
+        "is_active": true,
+        "product": {
+          "id": 2,
+          "name": "Balo Nike Heritage 2.0",
+          "slug": "balo-nike-heritage-20",
+          "price": "1200000.00",
+          "stock": 30,
+          "image": "https://placehold.co/600x400?text=products/balo-nike-heritage-20.jpg",
+          "category": {
+            "id": 1,
+            "name": "Balo Học Sinh",
+            "slug": "balo-hoc-sinh"
+          },
+          "brand": {
+            "id": 1,
+            "name": "Nike",
+            "slug": "nike"
+          }
+        }
+      }
+    ]
+  }
+}
+```
+
+**Response lỗi (404)**:
+
+```json
+{
+  "success": false,
+  "message": "Endpoint không tồn tại", 
+  "data": null
+}
+```
+
 ## Lấy sản phẩm của chiến dịch khuyến mãi
 
 ### GET /api/sale-campaigns/{id}/products
@@ -364,6 +450,10 @@ Authorization: Bearer {token}
 - Sản phẩm trong chiến dịch có thông tin về giá gốc, giá sale, % giảm giá
 - Admin có thể quản lý sản phẩm trong chiến dịch khuyến mãi
 - Metadata chứa thông tin bổ sung như tags, color, description_short
+- **Có thể lấy chiến dịch theo ID hoặc slug**:
+  - `/api/sale-campaigns/{id}` - Lấy theo ID
+  - `/api/sale-campaigns/slug/{slug}` - Lấy theo slug
+- Route slug được đặt trước route ID để tránh xung đột routing
 
 **Test với cURL**:
 
@@ -376,11 +466,19 @@ curl -X GET "http://localhost:8000/api/sale-campaigns" \
 curl -X GET "http://localhost:8000/api/sale-campaigns/1" \
   -H "Accept: application/json" | jq .
 
+# Lấy chi tiết chiến dịch theo slug  
+curl -X GET "http://localhost:8000/api/sale-campaigns/slug/black-friday-2025" \
+  -H "Accept: application/json" | jq .
+
 # Lấy sản phẩm của chiến dịch khuyến mãi
 curl -X GET "http://localhost:8000/api/sale-campaigns/1/products" \
   -H "Accept: application/json" | jq .
 
 # Test với ID không tồn tại (lỗi 404)
 curl -X GET "http://localhost:8000/api/sale-campaigns/999" \
+  -H "Accept: application/json" | jq .
+
+# Test với slug không tồn tại (lỗi 404)  
+curl -X GET "http://localhost:8000/api/sale-campaigns/slug/invalid-slug" \
   -H "Accept: application/json" | jq .
 ```

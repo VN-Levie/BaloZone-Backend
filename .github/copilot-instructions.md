@@ -351,7 +351,7 @@ curl -X POST "http://localhost:8000/api/auth/login" \
 ---
 
 **Cập nhật cuối**: July 13, 2025
-**Phiên bản**: 1.0
+**Phiên bản**: 1.1
 **Tác giả**: Development Team
 
-> ⚠️ **Lưu ý**: File này nên được cập nhật thường xuyên khi có thay đổi về API, authentication, hoặc business logic của dự án.
+

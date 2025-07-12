@@ -216,4 +216,18 @@ class SaleCampaignController extends Controller
             'message' => 'Product removed from sale campaign successfully'
         ]);
     }
+
+    /**
+     * Display the specified sale campaign by slug.
+     */
+    public function getBySlug(string $slug): JsonResponse
+    {
+        $saleCampaign = SaleCampaign::where('slug', $slug)
+            ->with(['saleProducts.product.category', 'saleProducts.product.brand'])
+            ->firstOrFail();
+
+        return response()->json([
+            'data' => $saleCampaign
+        ]);
+    }
 }
