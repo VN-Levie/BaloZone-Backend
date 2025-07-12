@@ -4,22 +4,34 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Order extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $fillable = [
+        'order_number',
+        'status',
+        'total_amount',
+        'shipping_fee',
+        'voucher_discount',
+        'final_amount',
+        'payment_method',
+        'note',
         'address_id',
         'payment_method_id',
         'payment_status',
         'voucher_id',
-        'comment',
         'user_id',
-        'total_price',
+        'total_price', // backup field
     ];
 
     protected $casts = [
+        'total_amount' => 'decimal:2',
+        'shipping_fee' => 'decimal:2',
+        'voucher_discount' => 'decimal:2',
+        'final_amount' => 'decimal:2',
         'total_price' => 'decimal:2',
     ];
 

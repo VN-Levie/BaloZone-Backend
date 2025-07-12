@@ -4,19 +4,22 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class AddressBook extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $fillable = [
         'user_id',
         'name',
-        'phone',
+        'recipient_name',
+        'recipient_phone',
         'address',
-        'province',
-        'district',
         'ward',
+        'district',
+        'province',
+        'postal_code',
         'is_default',
     ];
 

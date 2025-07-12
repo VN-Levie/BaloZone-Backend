@@ -182,18 +182,151 @@ class UserController extends Controller
             ], 422);
         }
 
-        // Kiểm tra xem có đơn hàng pending không
-        if ($user->orders()->where('payment_status', 'pending')->count() > 0) {
+        // Kiểm tra xem có đơn hàng pending không (chỉ kiểm tra orders chưa bị xóa)
+        if ($user->orders()->where('payment_status', 'pending')->whereNull('deleted_at')->count() > 0) {
             return response()->json([
                 'message' => 'Cannot delete account with pending orders'
             ], 422);
         }
 
-        // Xóa tài khoản
+        // Xóa tài khoản (soft delete)
         $user->delete();
 
         return response()->json([
-            'message' => 'Account deleted successfully'
+            'message' => 'Account soft deleted successfully'
+        ]);
+    }
+
+    /**
+     * Get all users (Admin only)
+     */
+    public function index(): JsonResponse
+    {
+        $users = User::with('roles')
+            ->withCount('orders')
+            ->orderBy('created_at', 'desc')
+            ->paginate(20);
+
+        return response()->json([
+            'success' => true,
+            'data' => $users
+        ]);
+    }
+
+    /**
+     * Update user (Admin only)
+     */
+    public function update(Request $request, User $user): JsonResponse
+    {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|string|max:255',
+            'email' => ['required', 'email', 'max:255', Rule::unique('users', 'email')->ignore($user->id)],
+            'phone' => 'nullable|string|max:20',
+            'status' => 'required|in:active,inactive',
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Validation errors',
+                'errors' => $validator->errors()
+            ], 422);
+        }
+
+        $user->update($request->only(['name', 'email', 'phone', 'status']));
+        $user->load('roles');
+
+        return response()->json([
+            'success' => true,
+            'message' => 'User updated successfully',
+            'data' => $user
+        ]);
+    }
+
+    /**
+     * Delete user (Admin only)
+     */
+    public function destroy(User $user): JsonResponse
+    {
+        // Không cho phép xóa admin
+        if ($user->isAdmin()) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Cannot delete admin user'
+            ], 400);
+        }
+
+        // Kiểm tra xem có đơn hàng pending không (chỉ kiểm tra orders chưa bị xóa)
+        if ($user->orders()->where('payment_status', 'pending')->whereNull('deleted_at')->count() > 0) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Cannot delete user with pending orders'
+            ], 400);
+        }
+
+        $user->delete(); // Soft delete
+
+        return response()->json([
+            'success' => true,
+            'message' => 'User soft deleted successfully'
+        ]);
+    }
+
+    /**
+     * Restore the specified soft deleted user (Admin only)
+     */
+    public function restore($id): JsonResponse
+    {
+        $user = User::onlyTrashed()->with('roles')->findOrFail($id);
+        $user->restore();
+
+        return response()->json([
+            'success' => true,
+            'message' => 'User restored successfully',
+            'data' => $user
+        ]);
+    }
+
+    /**
+     * Get trashed users (Admin only)
+     */
+    public function trashed(): JsonResponse
+    {
+        $users = User::onlyTrashed()
+            ->with('roles')
+            ->withCount(['orders' => function($query) {
+                $query->withTrashed();
+            }])
+            ->orderBy('deleted_at', 'desc')
+            ->paginate(15);
+
+        return response()->json([
+            'success' => true,
+            'data' => $users
+        ]);
+    }
+
+    /**
+     * Toggle user status (Admin only)
+     */
+    public function toggleStatus(User $user): JsonResponse
+    {
+        // Không cho phép khóa admin
+        if ($user->isAdmin()) {
+            return response()->json([
+                'success' => false,
+                'message' => 'Cannot change admin status'
+            ], 400);
+        }
+
+        $user->update([
+            'status' => $user->status === 'active' ? 'inactive' : 'active'
+        ]);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'User status updated successfully',
+            'data' => $user
         ]);
     }
 }

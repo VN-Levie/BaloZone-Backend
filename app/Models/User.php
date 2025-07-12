@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
@@ -10,7 +11,7 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
 class User extends Authenticatable implements JWTSubject
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    use HasFactory, Notifiable;
+    use HasFactory, Notifiable, SoftDeletes;
 
     /**
      * The attributes that are mass assignable.
@@ -70,6 +71,70 @@ class User extends Authenticatable implements JWTSubject
     public function addressBooks()
     {
         return $this->hasMany(AddressBook::class);
+    }
+
+    /**
+     * Get the roles assigned to the user.
+     */
+    public function roles()
+    {
+        return $this->belongsToMany(Role::class, 'user_roles');
+    }
+
+    /**
+     * Get the user roles for this user.
+     */
+    public function userRoles()
+    {
+        return $this->hasMany(UserRole::class);
+    }
+
+    /**
+     * Check if user has a specific role.
+     */
+    public function hasRole($roleName)
+    {
+        return $this->roles()->where('name', $roleName)->exists();
+    }
+
+    /**
+     * Check if user is admin.
+     */
+    public function isAdmin()
+    {
+        return $this->hasRole(Role::ADMIN);
+    }
+
+    /**
+     * Check if user is contributor.
+     */
+    public function isContributor()
+    {
+        return $this->hasRole(Role::CONTRIBUTOR);
+    }
+
+    /**
+     * Assign a role to the user.
+     */
+    public function assignRole($roleName)
+    {
+        $role = Role::where('name', $roleName)->first();
+        if ($role && !$this->hasRole($roleName)) {
+            $this->roles()->attach($role->id);
+        }
+        return $this;
+    }
+
+    /**
+     * Remove a role from the user.
+     */
+    public function removeRole($roleName)
+    {
+        $role = Role::where('name', $roleName)->first();
+        if ($role) {
+            $this->roles()->detach($role->id);
+        }
+        return $this;
     }
 
     /**

@@ -21,7 +21,8 @@ class CommentRequest extends FormRequest
     {
         return [
             'product_id' => 'required|exists:products,id',
-            'comment' => 'required|string|min:10|max:1000',
+            'content' => 'required|string|min:10|max:1000',
+            'rating' => 'required|integer|min:1|max:5',
         ];
     }
 
@@ -33,9 +34,13 @@ class CommentRequest extends FormRequest
         return [
             'product_id.required' => 'ID sản phẩm là bắt buộc.',
             'product_id.exists' => 'Sản phẩm không tồn tại.',
-            'comment.required' => 'Nội dung bình luận là bắt buộc.',
-            'comment.min' => 'Bình luận phải có ít nhất 10 ký tự.',
-            'comment.max' => 'Bình luận không được vượt quá 1000 ký tự.',
+            'content.required' => 'Nội dung bình luận là bắt buộc.',
+            'content.min' => 'Bình luận phải có ít nhất 10 ký tự.',
+            'content.max' => 'Bình luận không được vượt quá 1000 ký tự.',
+            'rating.required' => 'Đánh giá là bắt buộc.',
+            'rating.integer' => 'Đánh giá phải là số nguyên.',
+            'rating.min' => 'Đánh giá phải từ 1 đến 5 sao.',
+            'rating.max' => 'Đánh giá phải từ 1 đến 5 sao.',
         ];
     }
 }

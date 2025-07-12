@@ -34,15 +34,23 @@ class ProductFactory extends Factory
         $colors = ['Đen', 'Xanh', 'Đỏ', 'Trắng', 'Xám', 'Hồng', 'Vàng', 'Tím', 'Nâu', 'Cam'];
 
         $name = fake()->randomElement($productNames) . ' ' . fake()->word();
+        $price = fake()->numberBetween(150000, 2000000);
+        $hasDiscount = fake()->boolean(40); // 40% chance to have discount
+        $discountPrice = $hasDiscount ? $price * 0.8 : null; // 20% discount
 
         return [
             'category_id' => Category::inRandomOrder()->first()?->id ?? Category::factory(),
             'brand_id' => Brand::inRandomOrder()->first()?->id ?? Brand::factory(),
             'name' => $name,
             'description' => fake()->paragraph(4),
-            'price' => fake()->numberBetween(150000, 2000000),
-            'quantity' => fake()->numberBetween(0, 100),
+            'price' => $price,
+            'discount_price' => $discountPrice,
+            'stock' => fake()->numberBetween(0, 100),
             'image' => 'https://placehold.co/600x400?text=products/' . str($name)->slug() . '.jpg',
+            'gallery' => fake()->boolean(60) ? [
+                'https://placehold.co/600x400?text=' . str($name)->slug() . '-1.jpg',
+                'https://placehold.co/600x400?text=' . str($name)->slug() . '-2.jpg',
+            ] : null,
             'slug' => str($name)->slug() . '-' . fake()->unique()->numberBetween(1000, 9999),
             'color' => fake()->randomElement($colors),
         ];

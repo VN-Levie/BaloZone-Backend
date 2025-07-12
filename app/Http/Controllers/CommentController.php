@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Comment;
 use App\Http\Requests\CommentRequest;
+use App\Http\Requests\CommentByProductRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 
@@ -38,6 +40,7 @@ class CommentController extends Controller
      */
     public function store(CommentRequest $request): JsonResponse
     {
+        /** @var User|null $user */
         $user = auth('api')->user();
 
         if (!$user) {
@@ -74,7 +77,8 @@ class CommentController extends Controller
         $comment = Comment::create([
             'product_id' => $request->product_id,
             'user_id' => $user->id,
-            'comment' => $request->comment,
+            'content' => $request->content,
+            'rating' => $request->rating,
         ]);
 
         $comment->load(['user:id,name', 'product:id,name']);
@@ -111,7 +115,8 @@ class CommentController extends Controller
         }
 
         $comment->update([
-            'comment' => $request->comment
+            'content' => $request->content,
+            'rating' => $request->rating,
         ]);
 
         $comment->load(['user:id,name', 'product:id,name']);
@@ -135,24 +140,27 @@ class CommentController extends Controller
             ], 403);
         }
 
-        $comment->delete();
+        $comment->delete(); // Soft delete
 
         return response()->json([
-            'message' => 'Bình luận đã được xóa'
+            'message' => 'Bình luận đã được xóa mềm'
         ]);
     }
 
     /**
      * Get comments for a specific product
      */
-    public function getByProduct(int $productId, Request $request): JsonResponse
+    public function getByProduct(Request $request, $product): JsonResponse
     {
-        $perPage = $request->get('per_page', 10);
+        // Handle both product ID and product model
+        $productId = is_numeric($product) ? $product : $product->id;
 
-        $comments = Comment::with(['user:id,name'])
-            ->where('product_id', $productId)
-            ->orderBy('created_at', 'desc')
-            ->paginate($perPage);
+        $query = Comment::with(['user:id,name,email'])
+            ->where('product_id', $productId);
+
+        // Phân trang
+        $perPage = $request->get('per_page', 10);
+        $comments = $query->orderBy('created_at', 'desc')->paginate($perPage);
 
         return response()->json($comments);
     }
@@ -178,5 +186,52 @@ class CommentController extends Controller
             ->paginate($perPage);
 
         return response()->json($comments);
+    }
+
+    /**
+     * Store comment for a specific product
+     */
+    public function storeByProduct(CommentByProductRequest $request, $product): JsonResponse
+    {
+        /** @var User|null */
+        $user = auth('api')->user();
+
+        if (!$user) {
+            return response()->json([
+                'message' => 'Bạn cần đăng nhập để bình luận'
+            ], 401);
+        }
+
+        // Handle both product ID and product model
+        $productId = is_numeric($product) ? $product : $product->id;
+
+        // Kiểm tra xem user đã mua sản phẩm này chưa
+        $hasPurchased = $user->orders()
+            ->whereHas('orderDetails', function ($query) use ($productId) {
+                $query->where('product_id', $productId);
+            })
+            ->where('status', 'delivered')
+            ->exists();
+
+        if (!$hasPurchased) {
+            return response()->json([
+                'message' => 'Bạn chỉ có thể bình luận sau khi mua sản phẩm'
+            ], 403);
+        }
+
+        $comment = Comment::create([
+            'user_id' => $user->id,
+            'product_id' => $productId,
+            'content' => $request->content,
+            'rating' => $request->rating,
+        ]);
+
+        $comment->load('user:id,name,email');
+
+        return response()->json([
+            'success' => true,
+            'data' => $comment,
+            'message' => 'Bình luận thành công'
+        ], 201);
     }
 }

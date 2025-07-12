@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
         // Chạy các seeder theo thứ tự phụ thuộc
         $this->call([
             // 1. Seeder cho các bảng cơ bản không phụ thuộc
+            RoleSeeder::class,         // Tạo roles trước
             CategorySeeder::class,
             BrandSeeder::class,
             PaymentMethodSeeder::class,
@@ -40,7 +41,8 @@ class DatabaseSeeder extends Seeder
 
         $this->command->info('✅ Hoàn thành seeding database!');
         $this->command->info('📊 Thống kê dữ liệu đã tạo:');
-        $this->command->info('👥 Users: ' . \App\Models\User::count());
+        $this->command->info('� Roles: ' . \App\Models\Role::count());
+        $this->command->info('�👥 Users: ' . \App\Models\User::count());
         $this->command->info('🏷️ Categories: ' . \App\Models\Category::count());
         $this->command->info('🏢 Brands: ' . \App\Models\Brand::count());
         $this->command->info('🎒 Products: ' . \App\Models\Product::count());

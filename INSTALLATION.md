@@ -2,10 +2,9 @@
 
 ## Yêu cầu hệ thống
 
-- PHP >= 8.1
+- PHP >= 8.2
 - Composer
-- Node.js & NPM
-- MySQL hoặc một cơ sở dữ liệu tương thích khác
+- MySQL
 
 ## Các bước cài đặt
 
@@ -24,12 +23,6 @@
    composer install
    ```
 
-   Cài đặt các gói JavaScript với NPM:
-
-   ```bash
-   npm install
-   ```
-
 3. **Cấu hình môi trường**
 
    Sao chép file `.env.example` thành `.env`:
@@ -44,7 +37,7 @@
    DB_CONNECTION=mysql
    DB_HOST=127.0.0.1
    DB_PORT=3306
-   DB_DATABASE=balozone
+   DB_DATABASE=balozone_backend
    DB_USERNAME=root
    DB_PASSWORD=
    ```
@@ -69,6 +62,24 @@
    php artisan migrate --seed
    ```
 
+   Sau khi chạy seeders, bạn sẽ có các tài khoản mặc định sau:
+
+   ### Tài khoản Admin
+
+   - **Email:** `admin@balozone.com`
+   - **Password:** admin123
+   - **Tên:** Admin BaloZone
+   - **Quyền:** Quản trị viên
+
+   ### Tài khoản Test User
+
+   - **Email:** `test@example.com`
+   - **Password:** password
+   - **Tên:** Test User
+   - **Quyền:** Người dùng thường
+
+   > **Lưu ý:** Hãy thay đổi mật khẩu của các tài khoản này trong môi trường production để đảm bảo bảo mật.
+
 7. **Chạy ứng dụng**
 
    Khởi động server phát triển Laravel:
@@ -78,20 +89,6 @@
    ```
 
    Ứng dụng sẽ chạy tại địa chỉ `http://127.0.0.1:8000`.
-
-8. **Biên dịch tài nguyên Frontend**
-
-   Biên dịch các tài nguyên CSS và JavaScript:
-
-   ```bash
-   npm run dev
-   ```
-
-   Để theo dõi các thay đổi và tự động biên dịch lại:
-
-   ```bash
-   npm run watch
-   ```
 
 ## Kiểm tra các routes
 
