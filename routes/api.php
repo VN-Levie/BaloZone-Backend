@@ -54,6 +54,7 @@ Route::get('products-search', [ProductController::class, 'search']);
 Route::get('products-on-sale', [ProductController::class, 'getOnSale']);
 Route::get('products/category/{categorySlug}', [ProductController::class, 'getByCategory']);
 Route::get('products/brand/{brandSlug}', [ProductController::class, 'getByBrand']);
+Route::get('products/slug/{slug}', [ProductController::class, 'getBySlug']);
 Route::get('products/{product}', [ProductController::class, 'show']);
 Route::get('products/{product}/sale-campaigns', [ProductController::class, 'getSaleCampaigns']);
 

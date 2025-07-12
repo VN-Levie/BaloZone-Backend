@@ -257,6 +257,65 @@
 }
 ```
 
+## Lấy chi tiết sản phẩm theo slug
+
+### GET /api/products/slug/{slug}
+
+**Mô tả**: Lấy thông tin chi tiết sản phẩm theo slug
+
+**Phương thức**: GET
+
+**URL**: `/api/products/slug/{slug}`
+
+**Phân quyền**: Không yêu cầu authentication
+
+**Tham số URL**:
+- `slug` (string, required): Slug sản phẩm
+
+**Response thành công (200)**:
+
+```json
+{
+  "success": true,
+  "data": {
+    "id": 2,
+    "name": "Balo Nike Heritage 2.0",
+    "slug": "balo-nike-heritage-20",
+    "description": "Balo thể thao năng động với logo Nike nổi bật. Thiết kế hiện đại, phù hợp cho học sinh cấp 3.",
+    "price": 1200000,
+    "discount_price": 999000,
+    "image": "https://placehold.co/600x400?text=products/balo-nike-heritage-20.jpg",
+    "gallery": [
+      "https://placehold.co/600x400?text=Nike-1.jpg",
+      "https://placehold.co/600x400?text=Nike-2.jpg"
+    ],
+    "stock": 30,
+    "brand": {
+      "id": 1,
+      "name": "Nike",
+      "slug": "nike"
+    },
+    "category": {
+      "id": 1,
+      "name": "Balo Học Sinh",
+      "slug": "balo-hoc-sinh"
+    },
+    "created_at": "2025-07-12T17:24:37.000000Z",
+    "updated_at": "2025-07-12T17:24:37.000000Z"
+  }
+}
+```
+
+**Response lỗi (404)**:
+
+```json
+{
+  "success": false,
+  "message": "Endpoint không tồn tại",
+  "data": null
+}
+```
+
 **Lưu ý**:
 
 - Tất cả các endpoint products đều public, không cần authentication
@@ -264,3 +323,43 @@
 - Giá sản phẩm được hiển thị theo VND (Vietnam Dong)
 - Stock = 0 có nghĩa là sản phẩm hết hàng
 - Gallery có thể là array rỗng nếu sản phẩm không có ảnh phụ
+- **Có thể lấy sản phẩm theo ID hoặc slug**:
+  - `/api/products/{id}` - Lấy theo ID
+  - `/api/products/slug/{slug}` - Lấy theo slug (SEO friendly)
+- Route slug được đặt trước route ID để tránh xung đột routing
+
+**Test với cURL**:
+
+```bash
+# Lấy danh sách sản phẩm
+curl -X GET "http://localhost:8000/api/products" \
+  -H "Accept: application/json" | jq .
+
+# Lấy chi tiết sản phẩm theo ID
+curl -X GET "http://localhost:8000/api/products/2" \
+  -H "Accept: application/json" | jq .
+
+# Lấy chi tiết sản phẩm theo slug
+curl -X GET "http://localhost:8000/api/products/slug/balo-nike-heritage-20" \
+  -H "Accept: application/json" | jq .
+
+# Lấy sản phẩm nổi bật
+curl -X GET "http://localhost:8000/api/products-featured" \
+  -H "Accept: application/json" | jq .
+
+# Tìm kiếm sản phẩm
+curl -X GET "http://localhost:8000/api/products-search?q=nike" \
+  -H "Accept: application/json" | jq .
+
+# Lấy sản phẩm theo category
+curl -X GET "http://localhost:8000/api/products/category/balo-hoc-sinh" \
+  -H "Accept: application/json" | jq .
+
+# Lấy sản phẩm theo brand
+curl -X GET "http://localhost:8000/api/products/brand/nike" \
+  -H "Accept: application/json" | jq .
+
+# Test với slug không tồn tại (lỗi 404)
+curl -X GET "http://localhost:8000/api/products/slug/invalid-product-slug" \
+  -H "Accept: application/json" | jq .
+```

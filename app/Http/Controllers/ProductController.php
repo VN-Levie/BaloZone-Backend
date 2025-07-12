@@ -168,6 +168,22 @@ class ProductController extends Controller
             'data' => $this->transformProduct($product)
         ]);
     }
+
+    /**
+     * Display the specified product by slug.
+     */
+    public function getBySlug(string $slug): JsonResponse
+    {
+        $product = Product::where('slug', $slug)
+            ->with(['category', 'brand', 'comments.user'])
+            ->firstOrFail();
+
+        return response()->json([
+            'success' => true,
+            'data' => $this->transformProduct($product)
+        ]);
+    }
+
     /**
      * Update the specified resource in storage.
      */
