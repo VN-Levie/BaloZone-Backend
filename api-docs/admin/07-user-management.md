@@ -193,13 +193,13 @@ Content-Type: application/json
 
 ## Lấy thống kê người dùng
 
-### GET /api/user-stats
+### GET /api/user/stats
 
 **Mô tả**: Lấy thống kê của người dùng hiện tại
 
 **Phương thức**: GET
 
-**URL**: `/api/user-stats`
+**URL**: `/api/user/stats`
 
 **Phân quyền**: Yêu cầu authentication (Bearer Token)
 

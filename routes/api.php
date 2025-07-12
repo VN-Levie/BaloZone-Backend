@@ -37,61 +37,77 @@ Route::group(['prefix' => 'auth'], function () {
 // ===================
 
 // Brand routes (public read-only)
-Route::get('brands', [BrandController::class, 'index']);
-Route::get('brands/{brand}', [BrandController::class, 'show']);
-Route::get('brands-active', [BrandController::class, 'getActiveBrands']);
+Route::prefix('brands')->group(function () {
+    Route::get('/', [BrandController::class, 'index']);
+    Route::get('/active', [BrandController::class, 'getActiveBrands']);
+    Route::get('/{brand}', [BrandController::class, 'show']);
+});
 
 // Category routes (public read-only)
-Route::get('categories', [CategoryController::class, 'index']);
-Route::get('categories/{category}', [CategoryController::class, 'show']);
-Route::get('categories-with-products', [CategoryController::class, 'getWithProducts']);
-Route::get('categories/slug/{slug}', [CategoryController::class, 'getBySlug']);
+Route::prefix('categories')->group(function () {
+    Route::get('/', [CategoryController::class, 'index']);
+    Route::get('/with-products', [CategoryController::class, 'getWithProducts']);
+    Route::get('/slug/{slug}', [CategoryController::class, 'getBySlug']);
+    Route::get('/{category}', [CategoryController::class, 'show']);
+});
 
 // Product routes (public read-only)
-Route::get('products', [ProductController::class, 'index']);
-Route::get('products-featured', [ProductController::class, 'getFeatured']);
-Route::get('products-search', [ProductController::class, 'search']);
-Route::get('products-on-sale', [ProductController::class, 'getOnSale']);
-Route::get('products/category/{categorySlug}', [ProductController::class, 'getByCategory']);
-Route::get('products/brand/{brandSlug}', [ProductController::class, 'getByBrand']);
-Route::get('products/slug/{slug}', [ProductController::class, 'getBySlug']);
-Route::get('products/{product}', [ProductController::class, 'show']);
-Route::get('products/{product}/sale-campaigns', [ProductController::class, 'getSaleCampaigns']);
+Route::prefix('products')->group(function () {
+    Route::get('/', [ProductController::class, 'index']);
+    Route::get('/featured', [ProductController::class, 'getFeatured']);
+    Route::get('/search', [ProductController::class, 'search']);
+    Route::get('/on-sale', [ProductController::class, 'getOnSale']);
+    Route::get('/category/{categorySlug}', [ProductController::class, 'getByCategory']);
+    Route::get('/brand/{brandSlug}', [ProductController::class, 'getByBrand']);
+    Route::get('/slug/{slug}', [ProductController::class, 'getBySlug']);
+    Route::get('/{product}', [ProductController::class, 'show']);
+    Route::get('/{product}/sale-campaigns', [ProductController::class, 'getSaleCampaigns']);
+});
 
 // Voucher routes (require authentication)
-Route::middleware('auth:api')->group(function () {
-    Route::get('vouchers', [VoucherController::class, 'index']);
-    Route::post('vouchers/check', [VoucherController::class, 'check']);
+Route::middleware('auth:api')->prefix('vouchers')->group(function () {
+    Route::get('/', [VoucherController::class, 'index']);
+    Route::post('/check', [VoucherController::class, 'check']);
 });
 
 // Comment routes (public read-only)
-Route::get('comments', [CommentController::class, 'index']);
-Route::get('comments/{comment}', [CommentController::class, 'show']);
-Route::get('comments/product/{product}', [CommentController::class, 'getByProduct']);
-Route::get('comments/product/{productId}/legacy', [CommentController::class, 'getByProduct']); // Legacy route for backward compatibility
+Route::prefix('comments')->group(function () {
+    Route::get('/', [CommentController::class, 'index']);
+    Route::get('/{comment}', [CommentController::class, 'show']);
+    Route::get('/product/{product}', [CommentController::class, 'getByProduct']);
+    Route::get('/product/{productId}/legacy', [CommentController::class, 'getByProduct']); // Legacy route for backward compatibility
+});
 
 // News routes (public read-only)
-Route::get('news', [NewsController::class, 'index']);
-Route::get('news/{news}', [NewsController::class, 'show']);
-Route::get('news-latest', [NewsController::class, 'getLatest']);
+Route::prefix('news')->group(function () {
+    Route::get('/', [NewsController::class, 'index']);
+    Route::get('/{news}', [NewsController::class, 'show']);
+    Route::get('/latest', [NewsController::class, 'getLatest']);
+});
 
 // Contact routes (public)
-Route::post('contacts', [ContactController::class, 'store']);
-Route::get('contacts', [ContactController::class, 'index']);
-Route::get('contacts/{contact}', [ContactController::class, 'show']);
+Route::prefix('contacts')->group(function () {
+    Route::post('/', [ContactController::class, 'store']);
+    Route::get('/', [ContactController::class, 'index']);
+    Route::get('/{contact}', [ContactController::class, 'show']);
+});
 
 // Sale Campaign routes (public read-only)
-Route::get('sale-campaigns', [SaleCampaignController::class, 'index']);
-Route::get('sale-campaigns/slug/{slug}', [SaleCampaignController::class, 'getBySlug'])->where('slug', '[a-zA-Z0-9\-]+');
-Route::get('sale-campaigns/{saleCampaign}', [SaleCampaignController::class, 'show']);
-Route::get('sale-campaigns-active', [SaleCampaignController::class, 'getActive']);
-Route::get('sale-campaigns-featured', [SaleCampaignController::class, 'getFeatured']);
-Route::get('sale-campaigns/{saleCampaign}/products', [SaleCampaignController::class, 'getProducts']);
+Route::prefix('sale-campaigns')->group(function () {
+    Route::get('/', [SaleCampaignController::class, 'index']);
+    Route::get('/slug/{slug}', [SaleCampaignController::class, 'getBySlug'])->where('slug', '[a-zA-Z0-9\-]+');
+    Route::get('/{saleCampaign}', [SaleCampaignController::class, 'show']);
+    Route::get('/active', [SaleCampaignController::class, 'getActive']);
+    Route::get('/featured', [SaleCampaignController::class, 'getFeatured']);
+    Route::get('/{saleCampaign}/products', [SaleCampaignController::class, 'getProducts']);
+});
 
 // Payment Method routes (public read-only)
-Route::get('payment-methods', [PaymentMethodController::class, 'index']);
-Route::get('payment-methods/{paymentMethod}', [PaymentMethodController::class, 'show']);
-Route::get('payment-methods-active', [PaymentMethodController::class, 'getActive']);
+Route::prefix('payment-methods')->group(function () {
+    Route::get('/', [PaymentMethodController::class, 'index']);
+    Route::get('/{paymentMethod}', [PaymentMethodController::class, 'show']);
+    Route::get('/active', [PaymentMethodController::class, 'getActive']);
+});
 
 // ===================
 // AUTHENTICATED USER ROUTES
@@ -110,19 +126,31 @@ Route::middleware('auth:api')->group(function () {
     Route::delete('delete-account', [UserController::class, 'deleteAccount']);
 
     // Address book routes
-    Route::apiResource('address-books', AddressBookController::class);
-    Route::post('address-books/{id}/set-default', [AddressBookController::class, 'setDefault']);
+    Route::prefix('address-books')->group(function () {
+        Route::get('/', [AddressBookController::class, 'index']);
+        Route::post('/', [AddressBookController::class, 'store']);
+        Route::get('/{address_book}', [AddressBookController::class, 'show']);
+        Route::put('/{address_book}', [AddressBookController::class, 'update']);
+        Route::delete('/{address_book}', [AddressBookController::class, 'destroy']);
+        Route::post('/{id}/set-default', [AddressBookController::class, 'setDefault']);
+    });
 
     // Order routes
-    Route::apiResource('orders', OrderController::class)->except(['update', 'destroy']);
-    Route::post('orders/{order}/cancel', [OrderController::class, 'cancel']);
-    Route::get('orders-stats', [OrderController::class, 'getStats']);
+    Route::prefix('orders')->group(function () {
+        Route::get('/', [OrderController::class, 'index']);
+        Route::post('/', [OrderController::class, 'store']);
+        Route::get('/{order}', [OrderController::class, 'show']);
+        Route::post('/{order}/cancel', [OrderController::class, 'cancel']);
+        Route::get('/stats', [OrderController::class, 'getStats']);
+    });
 
     // User comments
-    Route::post('comments', [CommentController::class, 'store']);
-    Route::post('comments/product/{product}', [CommentController::class, 'storeByProduct']);
-    Route::put('comments/{comment}', [CommentController::class, 'update']);
-    Route::delete('comments/{comment}', [CommentController::class, 'destroy']);
+    Route::prefix('comments')->group(function () {
+        Route::post('/', [CommentController::class, 'store']);
+        Route::post('/product/{product}', [CommentController::class, 'storeByProduct']);
+        Route::put('/{comment}', [CommentController::class, 'update']);
+        Route::delete('/{comment}', [CommentController::class, 'destroy']);
+    });
     Route::get('my-comments', [CommentController::class, 'getUserComments']);
 });
 
@@ -132,21 +160,24 @@ Route::middleware('auth:api')->group(function () {
 
 Route::middleware(['auth:api', 'role:admin,contributor'])->prefix('dashboard')->group(function () {
     // Role management (Admin only)
-    Route::middleware('role:admin')->group(function () {
-        Route::apiResource('roles', RoleController::class);
-        Route::post('roles/assign', [RoleController::class, 'assignRole']);
-        Route::post('roles/remove', [RoleController::class, 'removeRole']);
+    Route::middleware('role:admin')->prefix('roles')->group(function () {
+        Route::get('/', [RoleController::class, 'index']);
+        Route::post('/', [RoleController::class, 'store']);
+        Route::get('/{role}', [RoleController::class, 'show']);
+        Route::put('/{role}', [RoleController::class, 'update']);
+        Route::delete('/{role}', [RoleController::class, 'destroy']);
+        Route::post('/assign', [RoleController::class, 'assignRole']);
+        Route::post('/remove', [RoleController::class, 'removeRole']);
     });
 
     // User management (Admin only)
-    Route::middleware('role:admin')->group(function () {
-        Route::get('users', [UserController::class, 'index']);
-        Route::put('users/{user}', [UserController::class, 'update']);
-        Route::delete('users/{user}', [UserController::class, 'destroy']);
-        Route::post('users/{user}/toggle-status', [UserController::class, 'toggleStatus']);
-        // User soft delete management
-        Route::get('users/trashed', [UserController::class, 'trashed']);
-        Route::post('users/{id}/restore', [UserController::class, 'restore']);
+    Route::middleware('role:admin')->prefix('users')->group(function () {
+        Route::get('/', [UserController::class, 'index']);
+        Route::put('/{user}', [UserController::class, 'update']);
+        Route::delete('/{user}', [UserController::class, 'destroy']);
+        Route::post('/{user}/toggle-status', [UserController::class, 'toggleStatus']);
+        Route::get('/trashed', [UserController::class, 'trashed']);
+        Route::post('/{id}/restore', [UserController::class, 'restore']);
     });
 
     // Dashboard statistics (Admin only)
@@ -158,78 +189,93 @@ Route::middleware(['auth:api', 'role:admin,contributor'])->prefix('dashboard')->
     });
 
     // Brand management (Admin + Contributor)
-    Route::get('brands', [BrandController::class, 'index']);
-    Route::get('brands/{brand}', [BrandController::class, 'show']);
-    Route::post('brands', [BrandController::class, 'store']);
-    Route::put('brands/{brand}', [BrandController::class, 'update']);
-    Route::delete('brands/{brand}', [BrandController::class, 'destroy']);
-    // Brand soft delete management
-    Route::get('brands/trashed', [BrandController::class, 'trashed']);
-    Route::post('brands/{id}/restore', [BrandController::class, 'restore']);
-    Route::delete('brands/{id}/force', [BrandController::class, 'forceDelete']);
+    Route::prefix('brands')->group(function () {
+        Route::get('/', [BrandController::class, 'index']);
+        Route::get('/{brand}', [BrandController::class, 'show']);
+        Route::post('/', [BrandController::class, 'store']);
+        Route::put('/{brand}', [BrandController::class, 'update']);
+        Route::delete('/{brand}', [BrandController::class, 'destroy']);
+        Route::get('/trashed', [BrandController::class, 'trashed']);
+        Route::post('/{id}/restore', [BrandController::class, 'restore']);
+        Route::delete('/{id}/force', [BrandController::class, 'forceDelete']);
+    });
 
     // Category management
-    Route::get('categories', [CategoryController::class, 'index']);
-    Route::get('categories/{category}', [CategoryController::class, 'show']);
-    Route::post('categories', [CategoryController::class, 'store']);
-    Route::put('categories/{category}', [CategoryController::class, 'update']);
-    Route::delete('categories/{category}', [CategoryController::class, 'destroy']);
-    // Category soft delete management
-    Route::get('categories/trashed', [CategoryController::class, 'trashed']);
-    Route::post('categories/{id}/restore', [CategoryController::class, 'restore']);
-    Route::delete('categories/{id}/force', [CategoryController::class, 'forceDelete']);
+    Route::prefix('categories')->group(function () {
+        Route::get('/', [CategoryController::class, 'index']);
+        Route::get('/{category}', [CategoryController::class, 'show']);
+        Route::post('/', [CategoryController::class, 'store']);
+        Route::put('/{category}', [CategoryController::class, 'update']);
+        Route::delete('/{category}', [CategoryController::class, 'destroy']);
+        Route::get('/trashed', [CategoryController::class, 'trashed']);
+        Route::post('/{id}/restore', [CategoryController::class, 'restore']);
+        Route::delete('/{id}/force', [CategoryController::class, 'forceDelete']);
+    });
 
     // Product management
-    Route::get('products', [ProductController::class, 'index']);
-    Route::get('products/{product}', [ProductController::class, 'show']);
-    Route::post('products', [ProductController::class, 'store']);
-    Route::put('products/{product}', [ProductController::class, 'update']);
-    Route::delete('products/{product}', [ProductController::class, 'destroy']);
-    // Product soft delete management
-    Route::get('products/trashed', [ProductController::class, 'trashed']);
-    Route::post('products/{id}/restore', [ProductController::class, 'restore']);
-    Route::delete('products/{id}/force', [ProductController::class, 'forceDelete']);
+    Route::prefix('products')->group(function () {
+        Route::get('/', [ProductController::class, 'index']);
+        Route::get('/{product}', [ProductController::class, 'show']);
+        Route::post('/', [ProductController::class, 'store']);
+        Route::put('/{product}', [ProductController::class, 'update']);
+        Route::delete('/{product}', [ProductController::class, 'destroy']);
+        Route::get('/trashed', [ProductController::class, 'trashed']);
+        Route::post('/{id}/restore', [ProductController::class, 'restore']);
+        Route::delete('/{id}/force', [ProductController::class, 'forceDelete']);
+    });
 
     // Voucher management
-    Route::get('vouchers', [VoucherController::class, 'adminIndex']);
-    Route::get('vouchers/{voucher}', [VoucherController::class, 'show']);
-    Route::post('vouchers', [VoucherController::class, 'store']);
-    Route::put('vouchers/{voucher}', [VoucherController::class, 'update']);
-    Route::delete('vouchers/{voucher}', [VoucherController::class, 'destroy']);
+    Route::prefix('vouchers')->group(function () {
+        Route::get('/', [VoucherController::class, 'adminIndex']);
+        Route::get('/{voucher}', [VoucherController::class, 'show']);
+        Route::post('/', [VoucherController::class, 'store']);
+        Route::put('/{voucher}', [VoucherController::class, 'update']);
+        Route::delete('/{voucher}', [VoucherController::class, 'destroy']);
+    });
 
     // Sale Campaign management
-    Route::get('sale-campaigns', [SaleCampaignController::class, 'index']);
-    Route::get('sale-campaigns/{saleCampaign}', [SaleCampaignController::class, 'show']);
-    Route::post('sale-campaigns', [SaleCampaignController::class, 'store']);
-    Route::put('sale-campaigns/{saleCampaign}', [SaleCampaignController::class, 'update']);
-    Route::delete('sale-campaigns/{saleCampaign}', [SaleCampaignController::class, 'destroy']);
-    Route::post('sale-campaigns/{saleCampaign}/products', [SaleCampaignController::class, 'addProducts']);
-    Route::delete('sale-campaigns/{saleCampaign}/products/{product}', [SaleCampaignController::class, 'removeProduct']);
+    Route::prefix('sale-campaigns')->group(function () {
+        Route::get('/', [SaleCampaignController::class, 'index']);
+        Route::get('/{saleCampaign}', [SaleCampaignController::class, 'show']);
+        Route::post('/', [SaleCampaignController::class, 'store']);
+        Route::put('/{saleCampaign}', [SaleCampaignController::class, 'update']);
+        Route::delete('/{saleCampaign}', [SaleCampaignController::class, 'destroy']);
+        Route::post('/{saleCampaign}/products', [SaleCampaignController::class, 'addProducts']);
+        Route::delete('/{saleCampaign}/products/{product}', [SaleCampaignController::class, 'removeProduct']);
+    });
 
     // News management
-    Route::get('news', [NewsController::class, 'index']);
-    Route::get('news/{news}', [NewsController::class, 'show']);
-    Route::post('news', [NewsController::class, 'store']);
-    Route::put('news/{news}', [NewsController::class, 'update']);
-    Route::delete('news/{news}', [NewsController::class, 'destroy']);
+    Route::prefix('news')->group(function () {
+        Route::get('/', [NewsController::class, 'index']);
+        Route::get('/{news}', [NewsController::class, 'show']);
+        Route::post('/', [NewsController::class, 'store']);
+        Route::put('/{news}', [NewsController::class, 'update']);
+        Route::delete('/{news}', [NewsController::class, 'destroy']);
+    });
 
     // Order management
-    Route::get('orders', [OrderController::class, 'adminIndex']);
-    Route::get('orders/{order}', [OrderController::class, 'show']);
-    Route::put('orders/{order}/status', [OrderController::class, 'updateStatus']);
+    Route::prefix('orders')->group(function () {
+        Route::get('/', [OrderController::class, 'adminIndex']);
+        Route::get('/{order}', [OrderController::class, 'show']);
+        Route::put('/{order}/status', [OrderController::class, 'updateStatus']);
+    });
 
     // Contact management
-    Route::get('contacts', [ContactController::class, 'adminIndex']);
-    Route::get('contacts/{contact}', [ContactController::class, 'show']);
-    Route::put('contacts/{contact}', [ContactController::class, 'update']);
-    Route::delete('contacts/{contact}', [ContactController::class, 'destroy']);
+    Route::prefix('contacts')->group(function () {
+        Route::get('/', [ContactController::class, 'adminIndex']);
+        Route::get('/{contact}', [ContactController::class, 'show']);
+        Route::put('/{contact}', [ContactController::class, 'update']);
+        Route::delete('/{contact}', [ContactController::class, 'destroy']);
+    });
 
     // Payment Method management
-    Route::get('payment-methods', [PaymentMethodController::class, 'index']);
-    Route::get('payment-methods/{paymentMethod}', [PaymentMethodController::class, 'show']);
-    Route::post('payment-methods', [PaymentMethodController::class, 'store']);
-    Route::put('payment-methods/{paymentMethod}', [PaymentMethodController::class, 'update']);
-    Route::delete('payment-methods/{paymentMethod}', [PaymentMethodController::class, 'destroy']);
+    Route::prefix('payment-methods')->group(function () {
+        Route::get('/', [PaymentMethodController::class, 'index']);
+        Route::get('/{paymentMethod}', [PaymentMethodController::class, 'show']);
+        Route::post('/', [PaymentMethodController::class, 'store']);
+        Route::put('/{paymentMethod}', [PaymentMethodController::class, 'update']);
+        Route::delete('/{paymentMethod}', [PaymentMethodController::class, 'destroy']);
+    });
 });
 
 // Test route for 500 error (only in development)
