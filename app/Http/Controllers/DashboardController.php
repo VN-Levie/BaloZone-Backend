@@ -51,7 +51,8 @@ class DashboardController extends Controller
 
             // Top sản phẩm bán chạy
             $topProducts = Product::select('products.id', 'products.name',
-                    DB::raw('COALESCE(SUM(order_details.quantity), 0) as total_sold'))
+                    DB::raw('COALESCE(SUM(order_details.quantity), 0) as total_sold'),
+                    DB::raw('COALESCE(SUM(order_details.quantity * order_details.price), 0) as total_revenue'))
                 ->leftJoin('order_details', 'products.id', '=', 'order_details.product_id')
                 ->leftJoin('orders', function($join) {
                     $join->on('order_details.order_id', '=', 'orders.id')

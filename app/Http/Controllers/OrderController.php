@@ -332,7 +332,10 @@ class OrderController extends Controller
     public function updateStatus(Request $request, Order $order): JsonResponse
     {
         $validator = \Illuminate\Support\Facades\Validator::make($request->all(), [
-            'payment_status' => 'required|in:pending,processing,shipped,delivered,failed,cancelled',
+            'status' => 'sometimes|in:pending,processing,shipped,delivered,cancelled',
+            'payment_status' => 'sometimes|in:pending,paid,failed',
+            'tracking_number' => 'sometimes|string|max:255',
+            'notes' => 'sometimes|string|max:1000',
         ]);
 
         if ($validator->fails()) {
@@ -343,14 +346,25 @@ class OrderController extends Controller
             ], 422);
         }
 
-        $order->update(['payment_status' => $request->payment_status]);
+        $updateData = [];
+        if ($request->has('status')) {
+            $updateData['status'] = $request->status;
+        }
+        if ($request->has('payment_status')) {
+            $updateData['payment_status'] = $request->payment_status;
+        }
+        if ($request->has('notes')) {
+            $updateData['note'] = $request->notes;
+        }
+
+        $order->update($updateData);
 
         // Logic gửi email thông báo cho user có thể thêm ở đây
 
         return response()->json([
             'success' => true,
             'message' => 'Order status updated successfully',
-            'data' => $order
+            'data' => $order->load(['user', 'paymentMethod', 'voucher', 'orderDetails.product'])
         ]);
     }
 
