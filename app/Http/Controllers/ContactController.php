@@ -112,7 +112,7 @@ class ContactController extends Controller
     public function update(Request $request, Contact $contact): JsonResponse
     {
         $validator = Validator::make($request->all(), [
-            'status' => 'required|in:pending,replied,closed',
+            'status' => 'required|in:pending,resolved',
         ]);
 
         if ($validator->fails()) {
