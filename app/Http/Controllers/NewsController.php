@@ -38,9 +38,30 @@ class NewsController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request): JsonResponse
     {
-        //
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
+            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+        ]);
+
+        $data = $request->only(['title', 'description']);
+
+        // Handle file upload
+        if ($request->hasFile('thumbnail')) {
+            $file = $request->file('thumbnail');
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $filePath = $file->storeAs('news/thumbnails', $fileName, 'public');
+            $data['thumbnail'] = '/storage/' . $filePath;
+        }
+
+        $news = News::create($data);
+
+        return response()->json([
+            'message' => 'Tin tức đã được tạo thành công',
+            'data' => $news
+        ], 201);
     }
 
     /**
@@ -64,17 +85,60 @@ class NewsController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, News $news): JsonResponse
     {
-        //
+        $request->validate([
+            'title' => 'sometimes|required|string|max:255',
+            'description' => 'sometimes|required|string',
+            'thumbnail' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+        ]);
+
+        $data = [];
+
+        // Only update fields that are present in request
+        if ($request->has('title')) {
+            $data['title'] = $request->title;
+        }
+        if ($request->has('description')) {
+            $data['description'] = $request->description;
+        }
+
+        // Handle file upload
+        if ($request->hasFile('thumbnail')) {
+            // Delete old thumbnail if exists
+            if ($news->thumbnail && file_exists(public_path($news->thumbnail))) {
+                unlink(public_path($news->thumbnail));
+            }
+
+            $file = $request->file('thumbnail');
+            $fileName = time() . '_' . $file->getClientOriginalName();
+            $filePath = $file->storeAs('news/thumbnails', $fileName, 'public');
+            $data['thumbnail'] = '/storage/' . $filePath;
+        }
+
+        $news->update($data);
+
+        return response()->json([
+            'message' => 'Tin tức đã được cập nhật thành công',
+            'data' => $news->fresh()
+        ]);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(News $news): JsonResponse
     {
-        //
+        // Delete thumbnail file if exists
+        if ($news->thumbnail && file_exists(public_path($news->thumbnail))) {
+            unlink(public_path($news->thumbnail));
+        }
+
+        $news->delete();
+
+        return response()->json([
+            'message' => 'Tin tức đã được xóa thành công'
+        ]);
     }
 
     /**

@@ -249,6 +249,7 @@ Route::middleware(['auth:api', 'role:admin,contributor'])->prefix('dashboard')->
         Route::get('/{news}', [NewsController::class, 'show']);
         Route::post('/', [NewsController::class, 'store']);
         Route::put('/{news}', [NewsController::class, 'update']);
+        Route::post('/{news}/update', [NewsController::class, 'update']); // For file upload with POST
         Route::delete('/{news}', [NewsController::class, 'destroy']);
     });
 
