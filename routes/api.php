@@ -172,6 +172,7 @@ Route::middleware(['auth:api', 'role:admin,contributor'])->prefix('dashboard')->
     // User management (Admin only)
     Route::middleware('role:admin')->prefix('users')->group(function () {
         Route::get('/', [UserController::class, 'index']);
+        Route::get('/{user}', [UserController::class, 'show']);
         Route::put('/{user}', [UserController::class, 'update']);
         Route::delete('/{user}', [UserController::class, 'destroy']);
         Route::post('/{user}/toggle-status', [UserController::class, 'toggleStatus']);

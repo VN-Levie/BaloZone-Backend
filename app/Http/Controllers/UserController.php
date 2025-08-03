@@ -200,16 +200,63 @@ class UserController extends Controller
     /**
      * Get all users (Admin only)
      */
-    public function index(): JsonResponse
+    public function index(Request $request): JsonResponse
     {
-        $users = User::with('roles')
-            ->withCount('orders')
-            ->orderBy('created_at', 'desc')
-            ->paginate(20);
+        $query = User::with('roles')->withCount('orders');
+
+        // Search by name or email
+        if ($request->has('search') && $request->search) {
+            $search = $request->search;
+            $query->where(function($q) use ($search) {
+                $q->where('name', 'like', "%{$search}%")
+                  ->orWhere('email', 'like', "%{$search}%");
+            });
+        }
+
+        // Filter by status
+        if ($request->has('status') && $request->status) {
+            $query->where('status', $request->status);
+        }
+
+        // Filter by role
+        if ($request->has('role') && $request->role) {
+            $query->whereHas('roles', function($q) use ($request) {
+                $q->where('name', $request->role);
+            });
+        }
+
+        $users = $query->orderBy('created_at', 'desc')->paginate(20);
 
         return response()->json([
             'success' => true,
             'data' => $users
+        ]);
+    }
+
+    /**
+     * Get user details (Admin only)
+     */
+    public function show(User $user): JsonResponse
+    {
+        $user->load(['roles', 'addressBooks', 'orders' => function($query) {
+            $query->orderBy('created_at', 'desc')->take(5);
+        }]);
+
+        // Calculate order summary
+        $orderSummary = [
+            'total_orders' => $user->orders->count(),
+            'total_spent' => $user->orders->sum('total_amount'),
+            'average_order_value' => $user->orders->count() > 0 ? $user->orders->avg('total_amount') : 0,
+            'last_order_at' => $user->orders->first()?->created_at
+        ];
+
+        $userData = $user->toArray();
+        $userData['order_summary'] = $orderSummary;
+
+        return response()->json([
+            'success' => true,
+            'data' => $userData,
+            'message' => 'Lấy chi tiết người dùng thành công'
         ]);
     }
 
