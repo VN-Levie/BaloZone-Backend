@@ -98,12 +98,14 @@
 php artisan route:list
 ```
 
-## Cài đặt Scribe (Tùy chọn)
-
-Nếu bạn muốn tạo lại tài liệu API bằng Scribe:
+## Fix symlink storage
 
 ```bash
-php artisan scribe:generate
+# Combo fix toàn diện
+php artisan storage:link
+chmod -R 755 storage/app/public/
+php artisan config:clear
+php artisan cache:clear
 ```
 
 Tài liệu sẽ có tại `/docs`.
