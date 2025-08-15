@@ -193,3 +193,130 @@ curl -X POST "url" \
 ```
 
 Cả hai cách đều được hỗ trợ trong cùng một endpoint.
+
+## Lấy danh sách sản phẩm của chiến dịch (Admin)
+
+### GET /api/dashboard/sale-campaigns/{id}/products
+
+**Mô tả**: Lấy danh sách tất cả sản phẩm thuộc một chiến dịch sale cụ thể
+
+**Phương thức**: GET
+
+**URL**: `/api/dashboard/sale-campaigns/{id}/products`
+
+**Phân quyền**: Admin, Contributor
+
+**Headers**:
+
+```
+Authorization: Bearer {token}
+Accept: application/json
+```
+
+**Parameters**:
+
+```
+category_id: 1 (integer, optional) - Lọc theo danh mục
+brand_id: 2 (integer, optional) - Lọc theo thương hiệu
+search: "Nike" (string, optional) - Tìm kiếm theo tên/mô tả sản phẩm
+sort_by: discount|name (string, optional) - Sắp xếp theo discount hoặc name
+page: 1 (integer, optional) - Trang hiện tại
+per_page: 12 (integer, optional) - Số sản phẩm mỗi trang
+```
+
+**Ví dụ cURL**:
+
+```bash
+# Lấy tất cả sản phẩm của campaign
+curl -X GET "http://localhost:8000/api/dashboard/sale-campaigns/1/products" \
+  -H "Authorization: Bearer $TOKEN" \
+  -H "Accept: application/json"
+
+# Lọc theo thương hiệu và tìm kiếm
+curl -X GET "http://localhost:8000/api/dashboard/sale-campaigns/1/products?brand_id=4&search=Nike&per_page=5" \
+  -H "Authorization: Bearer $TOKEN" \
+  -H "Accept: application/json"
+```
+
+**Response thành công (200)**:
+
+```json
+{
+  "current_page": 1,
+  "data": [
+    {
+      "id": 14,
+      "category_id": 3,
+      "brand_id": 16,
+      "name": "Balo Học Sinh JanSport consequatur",
+      "description": "Aliquam veniam qui fugit ea id saepe eveniet architecto.",
+      "price": "256227.00",
+      "discount_price": null,
+      "stock": 99,
+      "image": "https://placehold.co/600x400?text=products/balo-hoc-sinh-jansport-consequatur.jpg",
+      "gallery": ["https://placehold.co/600x400?text=balo-hoc-sinh-jansport-consequatur-1.jpg"],
+      "slug": "balo-hoc-sinh-jansport-consequatur-7563",
+      "color": "Vàng",
+      "created_at": "2025-08-02T19:37:55.000000Z",
+      "updated_at": "2025-08-02T19:37:55.000000Z",
+      "deleted_at": null,
+      "category": {
+        "id": 3,
+        "name": "Balo Laptop",
+        "description": "Balo chuyên dụng để đựng laptop và các thiết bị công nghệ với lớp đệm bảo vệ",
+        "slug": "balo-laptop"
+      },
+      "brand": {
+        "id": 16,
+        "name": "Ratke, Herzog and Ernser",
+        "description": "Doloribus reiciendis recusandae autem atque et laboriosam.",
+        "slug": "ratke-herzog-and-ernser",
+        "status": "active"
+      },
+      "pivot": {
+        "sale_campaign_id": 1,
+        "product_id": 14,
+        "original_price": "256227.00",
+        "sale_price": "107615.34",
+        "discount_percentage": "58.00",
+        "discount_amount": "148611.66",
+        "discount_type": "percentage",
+        "max_quantity": 20,
+        "sold_quantity": 3,
+        "is_active": 1,
+        "created_at": "2025-08-02T19:37:55.000000Z",
+        "updated_at": "2025-08-02T19:37:55.000000Z"
+      }
+    }
+  ],
+  "first_page_url": "http://localhost:8000/api/dashboard/sale-campaigns/1/products?page=1",
+  "from": 1,
+  "last_page": 1,
+  "last_page_url": "http://localhost:8000/api/dashboard/sale-campaigns/1/products?page=1",
+  "links": [
+    {"url": null, "label": "&laquo; Previous", "active": false},
+    {"url": "http://localhost:8000/api/dashboard/sale-campaigns/1/products?page=1", "label": "1", "active": true},
+    {"url": null, "label": "Next &raquo;", "active": false}
+  ],
+  "next_page_url": null,
+  "path": "http://localhost:8000/api/dashboard/sale-campaigns/1/products",
+  "per_page": 12,
+  "prev_page_url": null,
+  "to": 5,
+  "total": 5
+}
+```
+
+**Thông tin quan trọng**:
+
+- **pivot**: Chứa thông tin sale của sản phẩm trong campaign
+  - `original_price`: Giá gốc của sản phẩm
+  - `sale_price`: Giá sale trong campaign
+  - `discount_percentage`: Phần trăm giảm giá
+  - `discount_amount`: Số tiền giảm giá
+  - `max_quantity`: Số lượng tối đa có thể bán
+  - `sold_quantity`: Số lượng đã bán
+
+- **Filtering**: Hỗ trợ lọc theo category, brand và tìm kiếm
+- **Pagination**: Hỗ trợ phân trang với `per_page` tối đa 50
+- **Relations**: Tự động load thông tin category và brand

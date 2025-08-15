@@ -237,6 +237,7 @@ Route::middleware(['auth:api', 'role:admin,contributor'])->prefix('dashboard')->
     Route::prefix('sale-campaigns')->group(function () {
         Route::get('/', [SaleCampaignController::class, 'index']);
         Route::get('/{saleCampaign}', [SaleCampaignController::class, 'show']);
+        Route::get('/{saleCampaign}/products', [SaleCampaignController::class, 'getProducts']);
         Route::post('/', [SaleCampaignController::class, 'store']);
         Route::put('/{saleCampaign}', [SaleCampaignController::class, 'update']);
         Route::delete('/{saleCampaign}', [SaleCampaignController::class, 'destroy']);
