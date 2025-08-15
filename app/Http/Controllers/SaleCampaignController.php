@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Http\Requests\SaleCampaignRequest;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Support\Facades\Storage;
 
 class SaleCampaignController extends Controller
 {
@@ -52,7 +53,16 @@ class SaleCampaignController extends Controller
      */
     public function store(SaleCampaignRequest $request): JsonResponse
     {
-        $campaign = SaleCampaign::create($request->validated());
+        $data = $request->validated();
+
+        // Handle banner image upload
+        if ($request->hasFile('banner_image')) {
+            $file = $request->file('banner_image');
+            $path = $file->store('sale-campaigns', 'public');
+            $data['banner_image'] = '/storage/' . $path;
+        }
+
+        $campaign = SaleCampaign::create($data);
 
         return response()->json([
             'message' => 'Sale campaign created successfully',
@@ -77,7 +87,22 @@ class SaleCampaignController extends Controller
      */
     public function update(SaleCampaignRequest $request, SaleCampaign $saleCampaign): JsonResponse
     {
-        $saleCampaign->update($request->validated());
+        $data = $request->validated();
+
+        // Handle banner image upload
+        if ($request->hasFile('banner_image')) {
+            // Delete old image if exists
+            if ($saleCampaign->banner_image && Storage::disk('public')->exists(str_replace('/storage/', '', $saleCampaign->banner_image))) {
+                Storage::disk('public')->delete(str_replace('/storage/', '', $saleCampaign->banner_image));
+            }
+
+            // Store new image
+            $file = $request->file('banner_image');
+            $path = $file->store('sale-campaigns', 'public');
+            $data['banner_image'] = '/storage/' . $path;
+        }
+
+        $saleCampaign->update($data);
 
         return response()->json([
             'message' => 'Sale campaign updated successfully',

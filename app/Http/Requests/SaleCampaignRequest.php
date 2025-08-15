@@ -21,13 +21,13 @@ class SaleCampaignRequest extends FormRequest
      */
     public function rules(): array
     {
-        $campaignId = $this->route('sale_campaign')?->id;
+        $campaignId = $this->route('sale_campaign')?->id ?? $this->route('id');
 
         return [
             'name' => 'required|string|max:255',
             'slug' => 'required|string|max:255|unique:sale_campaigns,slug,' . $campaignId,
             'description' => 'nullable|string|max:1000',
-            'banner_image' => 'nullable|string|max:255',
+            'banner_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
             'start_date' => 'required|date|after_or_equal:today',
             'end_date' => 'required|date|after:start_date',
             'status' => 'required|in:draft,active,expired,cancelled',
