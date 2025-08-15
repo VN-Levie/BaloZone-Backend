@@ -101,6 +101,7 @@ php artisan route:list
 ## Fix symlink storage
 
 ```bash
+ls -la public/storage
 # Combo fix toàn diện
 php artisan storage:link
 chmod -R 755 storage/app/public/
